@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'diligencetech-webapp';
+  options = [
+    { path: '/home', title: 'Home testing'},
+    {path:'/about', title: 'About testing'}
+  ]
 }
