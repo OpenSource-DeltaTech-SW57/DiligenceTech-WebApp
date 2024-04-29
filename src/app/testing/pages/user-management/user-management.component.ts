@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { Users } from '../../model/users.entity';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
@@ -10,7 +10,7 @@ import { UsersService } from '../../services/users.service';
   templateUrl: './user-management.component.html',
   styleUrl: './user-management.component.scss'
 })
-export class UserManagementComponent {
+export class UserManagementComponent implements OnInit, AfterViewInit{
 
   // Attributes
   userData: Users;
