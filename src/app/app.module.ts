@@ -20,13 +20,17 @@ import {MatGridListModule} from "@angular/material/grid-list";
 import { HomeComponent } from './public/pages/home/home.component';
 import { AboutComponent } from './public/pages/about/about.component';
 import { PageNotFoundComponent } from './public/pages/page-not-found/page-not-found.component';
+import { UserCreateAndEditComponent } from './testing/components/user-create-and-edit/user-create-and-edit.component';
+import { UserManagementComponent } from './testing/pages/user-management/user-management.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AboutComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    UserCreateAndEditComponent,
+    UserManagementComponent,
   ],
   imports: [
     BrowserModule,
