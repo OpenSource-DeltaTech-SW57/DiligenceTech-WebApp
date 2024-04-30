@@ -40,6 +40,7 @@ import { ProjectsApiService } from './project-management/services/projects-api.s
 import { CustomizerSettingsComponent } from './shared/components/customizer-settings/customizer-settings.component';
 import { ProjectListComponent } from './project-management/pages/project-list/project-list.component';
 import { DpStartDateComponent } from './shared/components/datepicker/dp-start-date/dp-start-date.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { DpStartDateComponent } from './shared/components/datepicker/dp-start-da
     CustomizerSettingsComponent,
     ProjectListComponent,
     DpStartDateComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
