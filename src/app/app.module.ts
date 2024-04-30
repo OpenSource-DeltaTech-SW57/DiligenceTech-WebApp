@@ -41,6 +41,8 @@ import { CustomizerSettingsComponent } from './shared/components/customizer-sett
 import { ProjectListComponent } from './project-management/pages/project-list/project-list.component';
 import { DpStartDateComponent } from './shared/components/datepicker/dp-start-date/dp-start-date.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
+import { CustomizerSettingsService } from './shared/services/customizer-settings.service';
+import { ToggleService } from './shared/services/toggle.service';
 
 @NgModule({
   declarations: [
@@ -85,7 +87,7 @@ import { FooterComponent } from './shared/components/footer/footer.component';
     MatNativeDateModule,
   ],
   providers: [
-    provideAnimationsAsync(), UsersService, ProjectsApiService
+    provideAnimationsAsync(), UsersService, ProjectsApiService, CustomizerSettingsService, ToggleService
   ],
   bootstrap: [AppComponent]
 })
