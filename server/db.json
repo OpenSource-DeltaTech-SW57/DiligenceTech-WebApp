@@ -25,10 +25,172 @@
       "address": "The New City"
     },
     {
+      "id": 5,
       "name": "Abel Ortega",
       "age": 20,
-      "address": "Lima-Peru",
-      "id": 5
+      "address": "Lima-Peru"
+    }
+  ],
+  "projects": [
+    {
+      "id": 951,
+      "projectName": "Hotel management system",
+      "startDate": "15 Nov, 2023",
+      "endDate": "15 Dec, 2023",
+      "projectManager": "Walter Frazier",
+      "budget": 5.250,
+      "teamMembers": {
+        "img1": "assets/images/users/user5.jpg",
+        "img2": "assets/images/users/user13.jpg"
+      },
+      "progress": 90,
+      "status": {
+        "inProgress": "In Progress"
+      },
+      "action": {
+        "view": "visibility",
+        "delete": "delete"
+      }
+    },
+    {
+      "id": 290,
+      "projectName": "Hotel management system",
+      "startDate": "15 Nov, 2023",
+      "endDate": "15 Dec, 2023",
+      "projectManager": "Walter Frazier",
+      "budget": 5.250,
+      "teamMembers": {
+        "img1": "assets/images/users/user5.jpg",
+        "img2": "assets/images/users/user13.jpg"
+      },
+      "progress": 90,
+      "status": {
+        "inProgress": "In Progress"
+      },
+      "action": {
+        "view": "visibility",
+        "delete": "delete"
+      }
+    },
+    {
+      "id": 321,
+      "projectName": "Hotel management system",
+      "startDate": "15 Nov, 2023",
+      "endDate": "15 Dec, 2023",
+      "projectManager": "Walter Frazier",
+      "budget": 5.250,
+      "teamMembers": {
+        "img1": "assets/images/users/user5.jpg",
+        "img2": "assets/images/users/user13.jpg"
+      },
+      "progress": 90,
+      "status": {
+        "inProgress": "In Progress"
+      },
+      "action": {
+        "view": "visibility",
+        "delete": "delete"
+      }
+    },
+    {
+      "id": 732,
+      "projectName": "Hotel management system",
+      "startDate": "15 Nov, 2023",
+      "endDate": "15 Dec, 2023",
+      "projectManager": "Walter Frazier",
+      "budget": 5.250,
+      "teamMembers": {
+        "img1": "assets/images/users/user5.jpg",
+        "img2": "assets/images/users/user13.jpg"
+      },
+      "progress": 90,
+      "status": {
+        "inProgress": "In Progress"
+      },
+      "action": {
+        "view": "visibility",
+        "delete": "delete"
+      }
+    },
+    {
+      "id": 412,
+      "projectName": "Hotel management system",
+      "startDate": "15 Nov, 2023",
+      "endDate": "15 Dec, 2023",
+      "projectManager": "Walter Frazier",
+      "budget": 5.250,
+      "teamMembers": {
+        "img1": "assets/images/users/user5.jpg",
+        "img2": "assets/images/users/user13.jpg"
+      },
+      "progress": 90,
+      "status": {
+        "inProgress": "In Progress"
+      },
+      "action": {
+        "view": "visibility",
+        "delete": "delete"
+      }
+    },
+    {
+      "id": 32,
+      "projectName": "Hotel management system",
+      "startDate": "15 Nov, 2023",
+      "endDate": "15 Dec, 2023",
+      "projectManager": "Walter Frazier",
+      "budget": 5.250,
+      "teamMembers": {
+        "img1": "assets/images/users/user5.jpg",
+        "img2": "assets/images/users/user13.jpg"
+      },
+      "progress": 90,
+      "status": {
+        "inProgress": "In Progress"
+      },
+      "action": {
+        "view": "visibility",
+        "delete": "delete"
+      }
+    },
+    {
+      "id": 12,
+      "projectName": "Hotel management system",
+      "startDate": "15 Nov, 2023",
+      "endDate": "15 Dec, 2023",
+      "projectManager": "Walter Frazier",
+      "budget": 5.250,
+      "teamMembers": {
+        "img1": "assets/images/users/user5.jpg",
+        "img2": "assets/images/users/user13.jpg"
+      },
+      "progress": 90,
+      "status": {
+        "inProgress": "In Progress"
+      },
+      "action": {
+        "view": "visibility",
+        "delete": "delete"
+      }
+    },
+    {
+      "id": 921,
+      "projectName": "Hotel management system",
+      "startDate": "15 Nov, 2023",
+      "endDate": "15 Dec, 2023",
+      "projectManager": "Walter Frazier",
+      "budget": 5.250,
+      "teamMembers": {
+        "img1": "assets/images/users/user5.jpg",
+        "img2": "assets/images/users/user13.jpg"
+      },
+      "progress": 90,
+      "status": {
+        "inProgress": "In Progress"
+      },
+      "action": {
+        "view": "visibility",
+        "delete": "delete"
+      }
     }
   ]
 }

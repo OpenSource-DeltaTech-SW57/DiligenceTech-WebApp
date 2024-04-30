@@ -10,6 +10,7 @@ export class AppComponent {
   options = [
     { path: '/home', title: 'Home testing'},
     { path: '/testing/users', title: 'Users testing'},
+    { path: '/project-management/projects', title: 'Project list'},
     {path:'/about', title: 'About testing'}
   ]
 }
