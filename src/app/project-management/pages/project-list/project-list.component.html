@@ -31,7 +31,7 @@
             </h5>
         </mat-card-title>
         <mat-card-subtitle>
-            <a mat-button class="add-new-btn" routerLink="/project-management-page/create-project">
+            <a mat-button class="add-new-btn" routerLink="/project-management/create-project">
                 + Add New Project
             </a>
         </mat-card-subtitle>
@@ -39,11 +39,6 @@
     <mat-card-content>
         <div class="all-projects-table">
             <div class="table-responsive">
-            <app-project-create-and-edit (editCanceled)="onCancelEdit()"
-                                         (projectAdded)="onProjectAdded($event)"
-                                         (projectUpdated)="onProjectUpdated($event)"
-                                         [editMode] = "isEditMode"
-                                         [project] ="projectData"/>
                 <table mat-table [dataSource]="dataSource">
 
                     <!-- ID Column -->

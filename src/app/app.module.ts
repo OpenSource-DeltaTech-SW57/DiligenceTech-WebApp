@@ -20,6 +20,7 @@ import {MatGridListModule} from "@angular/material/grid-list";
 import { MatDividerModule } from '@angular/material/divider';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import { DateAdapter, MatNativeDateModule } from '@angular/material/core';
+import {MatExpansionModule} from "@angular/material/expansion";
 
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -27,7 +28,7 @@ import {MatMenuModule} from "@angular/material/menu";
 import { MatSelectModule } from '@angular/material/select';
 import {FileUploadModule} from "@iplab/ngx-file-upload";
 import { NgScrollbarModule } from 'ngx-scrollbar';
-import { NgClass } from '@angular/common';
+import { NgClass, CommonModule, Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import {NgxEditorModule, Editor, Toolbar} from "ngx-editor";
 
 import { HomeComponent } from './public/pages/home/home.component';
@@ -43,6 +44,7 @@ import { DpStartDateComponent } from './shared/components/datepicker/dp-start-da
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { CustomizerSettingsService } from './shared/services/customizer-settings.service';
 import { ToggleService } from './shared/services/toggle.service';
+import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +59,7 @@ import { ToggleService } from './shared/services/toggle.service';
     ProjectListComponent,
     DpStartDateComponent,
     FooterComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,
@@ -85,6 +88,8 @@ import { ToggleService } from './shared/services/toggle.service';
     NgxEditorModule,
     MatProgressBarModule,
     MatNativeDateModule,
+    MatExpansionModule,
+    CommonModule
   ],
   providers: [
     provideAnimationsAsync(), UsersService, ProjectsApiService, CustomizerSettingsService, ToggleService

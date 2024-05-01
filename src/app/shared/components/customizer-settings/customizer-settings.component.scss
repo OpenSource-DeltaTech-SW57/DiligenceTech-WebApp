@@ -49,7 +49,7 @@
             &.active {
                 &::before {
                     left: 31px;
-                    background-color: var(--daxaColor) !important;
+                    background-color: var(--warningColor) !important;
                 }
             }
         }
@@ -78,7 +78,7 @@
                 }
                 &.active {
                     &::before {
-                        background-color: var(--heraBlueColor);
+                        background-color: var(--warningColor);
                     }
                 }
             }

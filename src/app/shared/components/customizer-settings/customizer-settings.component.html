@@ -36,6 +36,7 @@
                 <button
                     (click)="toggleTheme()"
                     class="switch-btn"
+                    color="warn"
                     [class.active]="themeService.isDark()"
                 >
                 </button>
@@ -120,8 +121,9 @@
 <!-- Settings Button -->
 <button
     mat-fab
+    color="warn"
     (click)="toggle()"
-    class="daxa settings-btn"
+    class="settings-btn"
     [ngClass]="{'active': isToggled}"
     [class.component-rtl-enabled]="themeService.isRTLEnabled()"
 >
