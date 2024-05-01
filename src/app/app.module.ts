@@ -45,6 +45,7 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { CustomizerSettingsService } from './shared/services/customizer-settings.service';
 import { ToggleService } from './shared/services/toggle.service';
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
+import { HeaderComponent } from './shared/components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { SidebarComponent } from './shared/components/sidebar/sidebar.component'
     DpStartDateComponent,
     FooterComponent,
     SidebarComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
