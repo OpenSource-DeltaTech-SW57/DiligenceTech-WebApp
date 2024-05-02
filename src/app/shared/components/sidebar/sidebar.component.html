@@ -75,38 +75,14 @@
                     <span class="sub-title text-body">
                         COMMUNICATIONS
                     </span>
-                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = true">
-                        <mat-expansion-panel-header>
-                            <mat-panel-title>
-                                <i class="material-symbols-outlined">
-                                    email
-                                </i>
-                                <span class="title">
-                                    Email
-                                </span>
-                                <span class="daxa-badge two">
-                                    3
-                                </span>
-                            </mat-panel-title>
-                        </mat-expansion-panel-header>
-                        <ul class="sidebar-sub-menu">
-                            <li class="sidemenu-item">
-                                <a routerLink="/email" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
-                                    Inbox
-                                </a>
-                            </li>
-                            <li class="sidemenu-item">
-                                <a routerLink="/email/compose" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
-                                    Compose
-                                </a>
-                            </li>
-                            <li class="sidemenu-item">
-                                <a routerLink="/email/read" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
-                                    Read
-                                </a>
-                            </li>
-                        </ul>
-                    </mat-expansion-panel>
+                    <a routerLink="/communications/email/inbox" class="sidebar-menu-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                        <i class="material-symbols-outlined">
+                            email
+                        </i>
+                        <span class="title">
+                            Email
+                        </span>
+                    </a>
                     <a routerLink="/notifications" class="sidebar-menu-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                         <i class="material-symbols-outlined">
                             notifications

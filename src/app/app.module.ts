@@ -48,7 +48,7 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { CustomizerSettingsService } from './shared/services/customizer-settings.service';
 import { ToggleService } from './shared/services/toggle.service';
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
-import { SidebarComponentEmail } from './email/components/sidebar/sidebar.component';
+import { SidebarEmailComponent } from './email/components/sidebar-email/sidebar-email.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { ProjectsOverviewComponent } from './dashboard/components/projects-overview/projects-overview.component';
 import { ActiveProjectsComponent } from './dashboard/components/projects-overview/active-projects/active-projects.component';
@@ -92,7 +92,7 @@ import { ReadComponent } from './email/components/read/read.component';
     ComposeComponent,
     InboxComponent,
     ReadComponent,
-    SidebarComponentEmail
+    SidebarEmailComponent
   ],
   imports: [
     BrowserModule,

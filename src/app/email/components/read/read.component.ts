@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CustomizerSettingsService } from '../../../shared/services/customizer-settings.service';
-import { SidebarComponentEmail } from '../sidebar/sidebar.component';
+import { SidebarEmailComponent } from '../sidebar-email/sidebar-email.component';
 
 @Component({
   selector: 'app-read',

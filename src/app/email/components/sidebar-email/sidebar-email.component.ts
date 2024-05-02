@@ -3,11 +3,11 @@ import { CustomizerSettingsService } from '../../../shared/services/customizer-s
 import { MatCard, MatCardContent } from '@angular/material/card';
 
 @Component({
-  selector: 'app-sidebar',
-  templateUrl: './sidebar.component.html',
-  styleUrl: './sidebar.component.scss',
+  selector: 'app-sidebar-email',
+  templateUrl: './sidebar-email.component.html',
+  styleUrl: './sidebar-email.component.scss',
 })
-export class SidebarComponentEmail {
+export class SidebarEmailComponent {
     isToggled = false;
 
     constructor(
