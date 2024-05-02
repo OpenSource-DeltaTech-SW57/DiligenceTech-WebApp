@@ -21,6 +21,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import { DateAdapter, MatNativeDateModule } from '@angular/material/core';
 import {MatExpansionModule} from "@angular/material/expansion";
+import { MatTooltipModule } from '@angular/material/tooltip';
+import {MatCheckboxModule} from "@angular/material/checkbox"
 
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -46,6 +48,7 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { CustomizerSettingsService } from './shared/services/customizer-settings.service';
 import { ToggleService } from './shared/services/toggle.service';
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
+import { SidebarComponentEmail } from './email/components/sidebar/sidebar.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { ProjectsOverviewComponent } from './dashboard/components/projects-overview/projects-overview.component';
 import { ActiveProjectsComponent } from './dashboard/components/projects-overview/active-projects/active-projects.component';
@@ -56,6 +59,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProjectsRoadmapComponent } from './dashboard/components/projects-roadmap/projects-roadmap.component';
 import { ActiveProjectComponent } from './dashboard/components/active-project/active-project.component';
 import { ProjectsProgressComponent } from './dashboard/components/projects-progress/projects-progress.component';
+import { EmailComponent } from './email/email.component';
+import { ComposeComponent } from './email/components/compose/compose.component';
+import { InboxComponent } from './email/components/inbox/inbox.component';
+import { ReadComponent } from './email/components/read/read.component';
 
 @NgModule({
   declarations: [
@@ -81,6 +88,11 @@ import { ProjectsProgressComponent } from './dashboard/components/projects-progr
     ProjectsRoadmapComponent,
     ActiveProjectComponent,
     ProjectsProgressComponent,
+    EmailComponent,
+    ComposeComponent,
+    InboxComponent,
+    ReadComponent,
+    SidebarComponentEmail
   ],
   imports: [
     BrowserModule,
@@ -111,7 +123,9 @@ import { ProjectsProgressComponent } from './dashboard/components/projects-progr
     MatNativeDateModule,
     MatExpansionModule,
     CommonModule,
-    NgApexchartsModule
+    NgApexchartsModule,
+    MatTooltipModule,
+    MatCheckboxModule,
   ],
   providers: [
     provideAnimationsAsync(), UsersService, ProjectsApiService, CustomizerSettingsService, ToggleService

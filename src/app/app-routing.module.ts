@@ -12,7 +12,7 @@ const routes: Routes = [
   {path: "dashboard", component: DashboardComponent},
   {path: "about", component: AboutComponent},
   {path: "testing/users", component: UserManagementComponent},
-  {path: "project-management/projects-list", component: ProjectListComponent},
+  {path: "project-management/all-projects", component: ProjectListComponent},
   {path: "project-management/create-project", component: ProjectCreateAndEditComponent},
   {path: "", redirectTo: "dashboard", pathMatch: "full"},
   {path: "**", component: PageNotFoundComponent}
