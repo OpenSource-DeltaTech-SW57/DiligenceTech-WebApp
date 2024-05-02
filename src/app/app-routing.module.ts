@@ -11,6 +11,7 @@ import { EmailComponent } from './email/email.component';
 import { InboxComponent } from './email/components/inbox/inbox.component';
 import { ComposeComponent } from './email/components/compose/compose.component';
 import { ReadComponent } from './email/components/read/read.component';
+import { NotificationListComponent } from './notifications/pages/notification-list/notification-list.component';
 
 const routes: Routes = [
   {path: "dashboard", component: DashboardComponent},
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: "communications/email/inbox", component: InboxComponent},
   {path: "communications/email/compose", component: ComposeComponent},
   {path: "communications/email/read", component: ReadComponent},
+  {path: "communications/notifications", component: NotificationListComponent},
   {path: "", redirectTo: "dashboard", pathMatch: "full"},
   {path: "**", component: PageNotFoundComponent}
 ];

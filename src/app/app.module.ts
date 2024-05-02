@@ -63,6 +63,7 @@ import { EmailComponent } from './email/email.component';
 import { ComposeComponent } from './email/components/compose/compose.component';
 import { InboxComponent } from './email/components/inbox/inbox.component';
 import { ReadComponent } from './email/components/read/read.component';
+import { NotificationListComponent } from './notifications/pages/notification-list/notification-list.component';
 
 @NgModule({
   declarations: [
@@ -92,7 +93,8 @@ import { ReadComponent } from './email/components/read/read.component';
     ComposeComponent,
     InboxComponent,
     ReadComponent,
-    SidebarEmailComponent
+    SidebarEmailComponent,
+    NotificationListComponent
   ],
   imports: [
     BrowserModule,
