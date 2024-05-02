@@ -30,6 +30,7 @@ import {FileUploadModule} from "@iplab/ngx-file-upload";
 import { NgScrollbarModule } from 'ngx-scrollbar';
 import { NgClass, CommonModule, Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import {NgxEditorModule, Editor, Toolbar} from "ngx-editor";
+import {NgApexchartsModule} from "ng-apexcharts";
 
 import { HomeComponent } from './public/pages/home/home.component';
 import { AboutComponent } from './public/pages/about/about.component';
@@ -46,6 +47,15 @@ import { CustomizerSettingsService } from './shared/services/customizer-settings
 import { ToggleService } from './shared/services/toggle.service';
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
 import { HeaderComponent } from './shared/components/header/header.component';
+import { ProjectsOverviewComponent } from './dashboard/components/projects-overview/projects-overview.component';
+import { ActiveProjectsComponent } from './dashboard/components/projects-overview/active-projects/active-projects.component';
+import { CompletedProjectsComponent } from './dashboard/components/projects-overview/completed-projects/completed-projects.component';
+import { TotalMembersComponent } from './dashboard/components/projects-overview/total-members/total-members.component';
+import { TotalProjectsComponent } from './dashboard/components/projects-overview/total-projects/total-projects.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ProjectsRoadmapComponent } from './dashboard/components/projects-roadmap/projects-roadmap.component';
+import { ActiveProjectComponent } from './dashboard/components/active-project/active-project.component';
+import { ProjectsProgressComponent } from './dashboard/components/projects-progress/projects-progress.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +72,15 @@ import { HeaderComponent } from './shared/components/header/header.component';
     FooterComponent,
     SidebarComponent,
     HeaderComponent,
+    ProjectsOverviewComponent,
+    ActiveProjectsComponent,
+    CompletedProjectsComponent,
+    TotalMembersComponent,
+    TotalProjectsComponent,
+    DashboardComponent,
+    ProjectsRoadmapComponent,
+    ActiveProjectComponent,
+    ProjectsProgressComponent,
   ],
   imports: [
     BrowserModule,
@@ -91,7 +110,8 @@ import { HeaderComponent } from './shared/components/header/header.component';
     MatProgressBarModule,
     MatNativeDateModule,
     MatExpansionModule,
-    CommonModule
+    CommonModule,
+    NgApexchartsModule
   ],
   providers: [
     provideAnimationsAsync(), UsersService, ProjectsApiService, CustomizerSettingsService, ToggleService

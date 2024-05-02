@@ -6,14 +6,15 @@ import { PageNotFoundComponent } from './public/pages/page-not-found/page-not-fo
 import { UserManagementComponent } from './testing/pages/user-management/user-management.component';
 import { ProjectListComponent } from './project-management/pages/project-list/project-list.component';
 import { ProjectCreateAndEditComponent } from './project-management/components/project-create-and-edit/project-create-and-edit.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
-  {path: "home", component: HomeComponent},
+  {path: "dashboard", component: DashboardComponent},
   {path: "about", component: AboutComponent},
   {path: "testing/users", component: UserManagementComponent},
   {path: "project-management/projects-list", component: ProjectListComponent},
   {path: "project-management/create-project", component: ProjectCreateAndEditComponent},
-  {path: "", redirectTo: "home", pathMatch: "full"},
+  {path: "", redirectTo: "dashboard", pathMatch: "full"},
   {path: "**", component: PageNotFoundComponent}
 ];
 

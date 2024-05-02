@@ -30,7 +30,7 @@
                     <span class="sub-title text-body">
                         MAIN
                     </span>
-                    <a routerLink="/project-management" class="sidebar-menu-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                    <a routerLink="/dashboard" class="sidebar-menu-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                         <i class="material-symbols-outlined">
                             dashboard
                         </i>
@@ -70,14 +70,6 @@
                     <span class="sub-title text-body">
                         COMMUNICATIONS
                     </span>
-                    <a routerLink="/starter" class="sidebar-menu-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                        <i class="material-symbols-outlined">
-                            star_border
-                        </i>
-                        <span class="title">
-                            Starter
-                        </span>
-                    </a>
                     <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = true">
                         <mat-expansion-panel-header>
                             <mat-panel-title>
