@@ -26,6 +26,10 @@ import { LockScreenComponent } from './authentication/components/lock-screen/loc
 import { LogoutComponent } from './authentication/components/logout/logout.component';
 import { RootAuthenticationComponent } from './authentication/pages/root-authentication/root-authentication.component';
 import { SubscriptionPlanComponent } from './public/pages/subscription-plan/subscription-plan.component';
+import { DashboardFileManagementComponent } from './file-management/pages/dashboard-file-management/dashboard-file-management.component';
+import { SharedDriveComponent } from './file-management/components/shared-drive/shared-drive.component';
+import { FolderComponent } from './file-management/components/folder/folder.component';
+import { FileComponent } from './file-management/components/file/file.component';
 
 const routes: Routes = [
   {path: "authentication", component: RootAuthenticationComponent, children: [
@@ -52,6 +56,17 @@ const routes: Routes = [
     {path: "connections", component: ConnectionsComponent},
     {path: "privacy-policy", component: PrivacyPolicyComponent},
     {path: "terms-conditions", component: TermsConditionsComponent},
+  ]},
+  {path: "project-management/all-projects/id/file-management", component: DashboardFileManagementComponent, children: [
+    {path: "", component: SharedDriveComponent},
+    {path: "legal", component: FolderComponent},
+    {path: "legal/folder-name/files", component: FileComponent},
+    {path: "financial", component: FolderComponent},
+    {path: "financial/folder-name/files", component: FileComponent},
+    {path: "tax", component: FolderComponent},
+    {path: "tax/folder-name/files", component: FileComponent},
+    {path: "operational", component: FolderComponent},
+    {path: "operational/folder-name/files", component: FileComponent},
   ]},
   {path: "", redirectTo: "authentication", pathMatch: "full"},
   {path: "**", component: PageNotFoundComponent}

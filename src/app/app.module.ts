@@ -82,6 +82,11 @@ import { SignInComponent } from './authentication/components/sign-in/sign-in.com
 import { SignUpComponent } from './authentication/components/sign-up/sign-up.component';
 import { RootAuthenticationComponent } from './authentication/pages/root-authentication/root-authentication.component';
 import { SubscriptionPlanComponent } from './public/pages/subscription-plan/subscription-plan.component';
+import { SidebarFileManagementComponent } from './file-management/components/sidebar-file-management/sidebar-file-management.component';
+import { DashboardFileManagementComponent } from './file-management/pages/dashboard-file-management/dashboard-file-management.component';
+import { SharedDriveComponent } from './file-management/components/shared-drive/shared-drive.component';
+import { FolderComponent } from './file-management/components/folder/folder.component';
+import { FileComponent } from './file-management/components/file/file.component';
 
 @NgModule({
   declarations: [
@@ -130,7 +135,12 @@ import { SubscriptionPlanComponent } from './public/pages/subscription-plan/subs
     SignInComponent,
     SignUpComponent,
     RootAuthenticationComponent,
-    SubscriptionPlanComponent
+    SubscriptionPlanComponent,
+    SidebarFileManagementComponent,
+    DashboardFileManagementComponent,
+    SharedDriveComponent,
+    FolderComponent,
+    FileComponent
   ],
   imports: [
     BrowserModule,
