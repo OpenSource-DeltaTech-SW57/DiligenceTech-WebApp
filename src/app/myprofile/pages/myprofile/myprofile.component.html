@@ -1,0 +1,41 @@
+<!-- Breadcrumb -->
+<div class="breadcrumb-card mb-25 d-md-flex align-items-center justify-content-between">
+    <h5 class="mb-0">
+        My Profile
+    </h5>
+    <ol class="breadcrumb list-unstyled mt-0 mb-0 pl-0">
+        <li class="breadcrumb-item position-relative">
+            <a routerLink="/" class="d-inline-block position-relative">
+                <i class="ri-home-8-line"></i>
+                Dashboard
+            </a>
+        </li>
+        <li class="breadcrumb-item position-relative">
+            My Profile
+        </li>
+    </ol>
+</div>
+
+<!-- My Profile -->
+<div class="row">
+    <div class="col-lg-12 col-xxxl-12">
+
+        <!-- Welcome -->
+        <app-welcome-banner></app-welcome-banner>
+
+    </div>
+    <div class="col-lg-12 col-xxxl-12">
+        <div class="row">
+            <div class="col-md-4">
+                <app-total-projects-profile></app-total-projects-profile>
+            </div>
+            <div class="col-md-4">
+                <app-general-profile></app-general-profile>
+            </div>
+            <div class="col-md-4">
+                <app-profile-information></app-profile-information>
+            </div>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>

@@ -30,7 +30,7 @@ import {MatMenuModule} from "@angular/material/menu";
 import { MatSelectModule } from '@angular/material/select';
 import {FileUploadModule} from "@iplab/ngx-file-upload";
 import { NgScrollbarModule } from 'ngx-scrollbar';
-import { NgClass, CommonModule, Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { NgClass, CommonModule, Location, LocationStrategy, PathLocationStrategy, DatePipe } from '@angular/common';
 import {NgxEditorModule, Editor, Toolbar} from "ngx-editor";
 import {NgApexchartsModule} from "ng-apexcharts";
 
@@ -64,6 +64,17 @@ import { ComposeComponent } from './email/components/compose/compose.component';
 import { InboxComponent } from './email/components/inbox/inbox.component';
 import { ReadComponent } from './email/components/read/read.component';
 import { NotificationListComponent } from './notifications/pages/notification-list/notification-list.component';
+import { WelcomeBannerComponent } from './myprofile/components/welcome-banner/welcome-banner.component';
+import { GeneralProfileComponent } from './myprofile/components/general-profile/general-profile.component';
+import { ProfileInformationComponent } from './myprofile/components/profile-information/profile-information.component';
+import { TotalProjectsProfileComponent } from './myprofile/components/total-projects-profile/total-projects-profile.component';
+import { MyprofileComponent } from './myprofile/pages/myprofile/myprofile.component';
+import { AccountSettingsComponent } from './settings/components/account-settings/account-settings.component';
+import { ChangePasswordComponent } from './settings/components/change-password/change-password.component';
+import { ConnectionsComponent } from './settings/components/connections/connections.component';
+import { PrivacyPolicyComponent } from './settings/components/privacy-policy/privacy-policy.component';
+import { TermsConditionsComponent } from './settings/components/terms-conditions/terms-conditions.component';
+import { SettingsAccountComponent } from './settings/pages/settings-account/settings-account.component';
 
 @NgModule({
   declarations: [
@@ -94,7 +105,18 @@ import { NotificationListComponent } from './notifications/pages/notification-li
     InboxComponent,
     ReadComponent,
     SidebarEmailComponent,
-    NotificationListComponent
+    NotificationListComponent,
+    WelcomeBannerComponent,
+    GeneralProfileComponent,
+    ProfileInformationComponent,
+    TotalProjectsProfileComponent,
+    MyprofileComponent,
+    AccountSettingsComponent,
+    ChangePasswordComponent,
+    ConnectionsComponent,
+    PrivacyPolicyComponent,
+    TermsConditionsComponent,
+    SettingsAccountComponent
   ],
   imports: [
     BrowserModule,
@@ -130,7 +152,7 @@ import { NotificationListComponent } from './notifications/pages/notification-li
     MatCheckboxModule,
   ],
   providers: [
-    provideAnimationsAsync(), UsersService, ProjectsApiService, CustomizerSettingsService, ToggleService
+    provideAnimationsAsync(), UsersService, ProjectsApiService, CustomizerSettingsService, ToggleService, DatePipe
   ],
   bootstrap: [AppComponent]
 })

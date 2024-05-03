@@ -12,6 +12,13 @@ import { InboxComponent } from './email/components/inbox/inbox.component';
 import { ComposeComponent } from './email/components/compose/compose.component';
 import { ReadComponent } from './email/components/read/read.component';
 import { NotificationListComponent } from './notifications/pages/notification-list/notification-list.component';
+import { MyprofileComponent } from './myprofile/pages/myprofile/myprofile.component';
+import { AccountSettingsComponent } from './settings/components/account-settings/account-settings.component';
+import { ChangePasswordComponent } from './settings/components/change-password/change-password.component';
+import { ConnectionsComponent } from './settings/components/connections/connections.component';
+import { PrivacyPolicyComponent } from './settings/components/privacy-policy/privacy-policy.component';
+import { TermsConditionsComponent } from './settings/components/terms-conditions/terms-conditions.component';
+import { SettingsAccountComponent } from './settings/pages/settings-account/settings-account.component';
 
 const routes: Routes = [
   {path: "dashboard", component: DashboardComponent},
@@ -23,6 +30,14 @@ const routes: Routes = [
   {path: "communications/email/compose", component: ComposeComponent},
   {path: "communications/email/read", component: ReadComponent},
   {path: "communications/notifications", component: NotificationListComponent},
+  {path: "account/my-profile", component: MyprofileComponent},
+  {path: "account/settings", component: SettingsAccountComponent, children: [
+    {path: "", component: AccountSettingsComponent},
+    {path: "change-password", component: ChangePasswordComponent},
+    {path: "connections", component: ConnectionsComponent},
+    {path: "privacy-policy", component: PrivacyPolicyComponent},
+    {path: "terms-conditions", component: TermsConditionsComponent},
+  ]},
   {path: "", redirectTo: "dashboard", pathMatch: "full"},
   {path: "**", component: PageNotFoundComponent}
 ];
