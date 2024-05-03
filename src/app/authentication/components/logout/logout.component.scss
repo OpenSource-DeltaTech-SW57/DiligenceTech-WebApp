@@ -29,6 +29,8 @@
                 right: auto;
             };
             img {
+                width: 120px;
+                height: 120px;
                 left: 0;
                 right: 0;
                 top: 50%;
@@ -57,7 +59,7 @@
             text-align: center;
             font-weight: normal;
             color: var(--whiteColor);
-            background-color: var(--daxaColor);
+            background-color: #fb8c00;
 
             &[disabled] {
                 background-color: #eff3f9;

@@ -80,6 +80,8 @@ import { LockScreenComponent } from './authentication/components/lock-screen/loc
 import { LogoutComponent } from './authentication/components/logout/logout.component';
 import { SignInComponent } from './authentication/components/sign-in/sign-in.component';
 import { SignUpComponent } from './authentication/components/sign-up/sign-up.component';
+import { RootAuthenticationComponent } from './authentication/pages/root-authentication/root-authentication.component';
+import { SubscriptionPlanComponent } from './public/pages/subscription-plan/subscription-plan.component';
 
 @NgModule({
   declarations: [
@@ -126,7 +128,9 @@ import { SignUpComponent } from './authentication/components/sign-up/sign-up.com
     LockScreenComponent,
     LogoutComponent,
     SignInComponent,
-    SignUpComponent
+    SignUpComponent,
+    RootAuthenticationComponent,
+    SubscriptionPlanComponent
   ],
   imports: [
     BrowserModule,

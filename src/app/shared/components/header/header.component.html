@@ -39,13 +39,6 @@
                 </button>
             </li>
             <li>
-                <a routerLink="/calendar" mat-icon-button class="calendar-menu-btn p-0">
-                    <i class="material-symbols-outlined">
-                        calendar_today
-                    </i>
-                </a>
-            </li>
-            <li>
                 <button mat-icon-button [matMenuTriggerFor]="messagesMenu" class="messages-menu-btn p-0">
                     <i class="material-symbols-outlined">
                         mail
@@ -63,7 +56,7 @@
                                 Messages
                                 <span class="text-body fw-normal">(05)</span>
                             </span>
-                            <a routerLink="/chat" class="link-btn text-daxa">
+                            <a routerLink="/communications/email/inbox" class="link-btn text-daxa">
                                 Mark all as read
                             </a>
                         </div>
@@ -76,7 +69,7 @@
                                 <span class="message d-block text-body">
                                     Hey Victor! Could you please...
                                 </span>
-                                <a routerLink="/chat" class="d-block link-btn position-absolute"></a>
+                                <a routerLink="/communications/email/inbox" class="d-block link-btn position-absolute"></a>
                                 <span class="unread d-inline-block rounded-circle bg-daxa position-absolute"></span>
                             </li>
                             <li class="position-relative">
@@ -87,7 +80,7 @@
                                 <span class="message d-block text-body">
                                     How are you Angela? Would you please...
                                 </span>
-                                <a routerLink="/chat" class="d-block link-btn position-absolute"></a>
+                                <a routerLink="/communications/email/inbox" class="d-block link-btn position-absolute"></a>
                             </li>
                             <li class="position-relative">
                                 <img src="assets/images/users/user3.jpg" width="44" height="44" class="rounded-circle position-absolute" alt="user">
@@ -97,11 +90,11 @@
                                 <span class="message d-block text-body">
                                     Hey Brad Traversy! Could you please...
                                 </span>
-                                <a routerLink="/chat" class="d-block link-btn position-absolute"></a>
+                                <a routerLink="/communications/email/inbox" class="d-block link-btn position-absolute"></a>
                             </li>
                         </ul>
                         <div class="menu-footer text-center">
-                            <a routerLink="/chat" class="link-btn text-daxa d-inline-block fw-medium">
+                            <a routerLink="/communications/email/inbox" class="link-btn text-daxa d-inline-block fw-medium">
                                 View All Messages
                             </a>
                         </div>
@@ -126,7 +119,11 @@
                                 Notifications
                                 <span class="text-body fw-normal">(03)</span>
                             </span>
+
+                            <!--
                             <a routerLink="/notifications" class="link-btn text-daxa">
+                            -->
+                            <a class="link-btn text-daxa">
                                 Clear All
                             </a>
                         </div>
@@ -143,7 +140,7 @@
                                 <span class="time d-block text-body">
                                     2 hrs ago
                                 </span>
-                                <a routerLink="/notifications" class="d-block link-btn position-absolute"></a>
+                                <a routerLink="/communications/notifications" class="d-block link-btn position-absolute"></a>
                                 <span class="unread d-inline-block rounded-circle bg-daxa position-absolute"></span>
                             </li>
                             <li class="position-relative">
@@ -158,7 +155,7 @@
                                 <span class="time d-block text-body">
                                     3 hrs ago
                                 </span>
-                                <a routerLink="/notifications" class="d-block link-btn position-absolute"></a>
+                                <a routerLink="/communications/notifications" class="d-block link-btn position-absolute"></a>
                                 <span class="unread d-inline-block rounded-circle bg-daxa position-absolute"></span>
                             </li>
                             <li class="position-relative">
@@ -173,11 +170,11 @@
                                 <span class="time d-block text-body">
                                     1 day ago
                                 </span>
-                                <a routerLink="/notifications" class="d-block link-btn position-absolute"></a>
+                                <a routerLink="/communications/notifications" class="d-block link-btn position-absolute"></a>
                             </li>
                         </ul>
                         <div class="menu-footer text-center">
-                            <a routerLink="/notifications" class="link-btn text-daxa d-inline-block fw-medium">
+                            <a routerLink="/communications/notifications" class="link-btn text-daxa d-inline-block fw-medium">
                                 See All Notifications
                             </a>
                         </div>
@@ -210,21 +207,21 @@
                                     person
                                 </i>
                                 My Profile
-                                <a routerLink="/my-profile" class="link-btn d-block position-absolute"></a>
+                                <a routerLink="/account/my-profile" class="link-btn d-block position-absolute"></a>
                             </li>
                             <li class="position-relative transition fw-medium">
                                 <i class="material-symbols-outlined">
                                     settings
                                 </i>
                                 Settings
-                                <a routerLink="/settings" class="link-btn d-block position-absolute"></a>
+                                <a routerLink="/account/settings" class="link-btn d-block position-absolute"></a>
                             </li>
                             <li class="position-relative transition fw-medium">
                                 <i class="material-symbols-outlined">
-                                    info
+                                    sell
                                 </i>
-                                Support
-                                <a routerLink="/settings/connections" class="link-btn d-block position-absolute"></a>
+                                Subscription Plan
+                                <a routerLink="/pricing/subscription-plan" class="link-btn d-block position-absolute"></a>
                             </li>
                             <li class="position-relative transition fw-medium">
                                 <i class="material-symbols-outlined">

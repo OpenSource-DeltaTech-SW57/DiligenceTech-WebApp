@@ -19,8 +19,22 @@ import { ConnectionsComponent } from './settings/components/connections/connecti
 import { PrivacyPolicyComponent } from './settings/components/privacy-policy/privacy-policy.component';
 import { TermsConditionsComponent } from './settings/components/terms-conditions/terms-conditions.component';
 import { SettingsAccountComponent } from './settings/pages/settings-account/settings-account.component';
+import { SignInComponent } from './authentication/components/sign-in/sign-in.component';
+import { SignUpComponent } from './authentication/components/sign-up/sign-up.component';
+import { ForgotPasswordComponent } from './authentication/components/forgot-password/forgot-password.component';
+import { LockScreenComponent } from './authentication/components/lock-screen/lock-screen.component';
+import { LogoutComponent } from './authentication/components/logout/logout.component';
+import { RootAuthenticationComponent } from './authentication/pages/root-authentication/root-authentication.component';
+import { SubscriptionPlanComponent } from './public/pages/subscription-plan/subscription-plan.component';
 
 const routes: Routes = [
+  {path: "authentication", component: RootAuthenticationComponent, children: [
+    {path: "", component: SignInComponent},
+    {path: "sign-up", component: SignUpComponent},
+    {path: "forgot-password", component: ForgotPasswordComponent},
+    {path: "lock-screen", component: LockScreenComponent},
+    {path: "logout", component: LogoutComponent},
+  ]},
   {path: "dashboard", component: DashboardComponent},
   {path: "about", component: AboutComponent},
   {path: "testing/users", component: UserManagementComponent},
@@ -30,6 +44,7 @@ const routes: Routes = [
   {path: "communications/email/compose", component: ComposeComponent},
   {path: "communications/email/read", component: ReadComponent},
   {path: "communications/notifications", component: NotificationListComponent},
+  {path: "pricing/subscription-plan", component: SubscriptionPlanComponent},
   {path: "account/my-profile", component: MyprofileComponent},
   {path: "account/settings", component: SettingsAccountComponent, children: [
     {path: "", component: AccountSettingsComponent},
@@ -38,7 +53,7 @@ const routes: Routes = [
     {path: "privacy-policy", component: PrivacyPolicyComponent},
     {path: "terms-conditions", component: TermsConditionsComponent},
   ]},
-  {path: "", redirectTo: "dashboard", pathMatch: "full"},
+  {path: "", redirectTo: "authentication", pathMatch: "full"},
   {path: "**", component: PageNotFoundComponent}
 ];
 
