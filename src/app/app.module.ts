@@ -8,7 +8,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { UsersService } from './testing/services/users.service';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatInputModule} from "@angular/material/input";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule } from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {MatTableModule} from "@angular/material/table";
 import {MatSortModule} from "@angular/material/sort";
@@ -75,6 +75,11 @@ import { ConnectionsComponent } from './settings/components/connections/connecti
 import { PrivacyPolicyComponent } from './settings/components/privacy-policy/privacy-policy.component';
 import { TermsConditionsComponent } from './settings/components/terms-conditions/terms-conditions.component';
 import { SettingsAccountComponent } from './settings/pages/settings-account/settings-account.component';
+import { ForgotPasswordComponent } from './authentication/components/forgot-password/forgot-password.component';
+import { LockScreenComponent } from './authentication/components/lock-screen/lock-screen.component';
+import { LogoutComponent } from './authentication/components/logout/logout.component';
+import { SignInComponent } from './authentication/components/sign-in/sign-in.component';
+import { SignUpComponent } from './authentication/components/sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -116,7 +121,12 @@ import { SettingsAccountComponent } from './settings/pages/settings-account/sett
     ConnectionsComponent,
     PrivacyPolicyComponent,
     TermsConditionsComponent,
-    SettingsAccountComponent
+    SettingsAccountComponent,
+    ForgotPasswordComponent,
+    LockScreenComponent,
+    LogoutComponent,
+    SignInComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
