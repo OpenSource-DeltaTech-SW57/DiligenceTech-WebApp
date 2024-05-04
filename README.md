@@ -1,4 +1,19 @@
-# DiligencetechWebapp
+# DiligenceTech SPA
+
+## Summary
+
+Single-Page Application for the DiligenceTech solution, a data-storage software dedicated to the buy-side and sell-side interaction and execution of Due Diligence, representing the Presentation Tier and the interactivity between the users (Accountants or Investors) and the software system.
+
+## Pre-requisites
+
+- Node.js
+- Vite + Vue
+
+## Dependencies
+
+- JSON-Server: https://github.com/typicode/json-server/tree/v0
+
+## Angular Recommendations
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.5.
 
