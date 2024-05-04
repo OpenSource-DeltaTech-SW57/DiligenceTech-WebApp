@@ -1,3 +1,4 @@
 export const environment = {
-  serverBasePath: undefined
+  production: true,
+  serverBasePath: "https://jsondatabase-diligencetech.onrender.com"
 };
