@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { ToggleService } from '../../services/toggle.service';
 import { CustomizerSettingsService } from '../../services/customizer-settings.service';
 import { NgClass } from '@angular/common';
+import { AuthService } from '../../../authentication/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -14,7 +16,8 @@ export class SidebarComponent {
 
     constructor(
         private toggleService: ToggleService,
-        public themeService: CustomizerSettingsService
+        public themeService: CustomizerSettingsService,
+        private authService: AuthService
     ) {
         this.toggleService.isSidebarToggled$.subscribe(isSidebarToggled => {
             this.isSidebarToggled = isSidebarToggled;
@@ -22,6 +25,10 @@ export class SidebarComponent {
         this.themeService.isToggled$.subscribe(isToggled => {
             this.isToggled = isToggled;
         });
+    }
+
+    onLogout() {
+      this.authService.logout();
     }
 
     // Burger Menu Toggle

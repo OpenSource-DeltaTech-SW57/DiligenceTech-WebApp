@@ -30,6 +30,7 @@ import { DashboardFileManagementComponent } from './file-management/pages/dashbo
 import { SharedDriveComponent } from './file-management/components/shared-drive/shared-drive.component';
 import { FolderComponent } from './file-management/components/folder/folder.component';
 import { FileComponent } from './file-management/components/file/file.component';
+import { AuthGuardService } from './authentication/guards/auth.guard.service';
 
 const routes: Routes = [
   {path: "authentication", component: RootAuthenticationComponent, children: [
@@ -45,12 +46,12 @@ const routes: Routes = [
   {path: "project-management/all-projects", component: ProjectListComponent},
   {path: "project-management/create-project", component: ProjectCreateAndEditComponent},
   {path: "communications/email/inbox", component: InboxComponent},
-  {path: "communications/email/compose", component: ComposeComponent},
+  {path: "communications/email/compose", component: ComposeComponent },
   {path: "communications/email/read", component: ReadComponent},
   {path: "communications/notifications", component: NotificationListComponent},
   {path: "pricing/subscription-plan", component: SubscriptionPlanComponent},
-  {path: "account/my-profile", component: MyprofileComponent},
-  {path: "account/settings", component: SettingsAccountComponent, children: [
+  {path: "account/my-profile", component: MyprofileComponent },
+  {path: "account/settings", component: SettingsAccountComponent , children: [
     {path: "", component: AccountSettingsComponent},
     {path: "change-password", component: ChangePasswordComponent},
     {path: "connections", component: ConnectionsComponent},
@@ -63,7 +64,7 @@ const routes: Routes = [
     {path: "legal/folder-name/files", component: FileComponent},
     {path: "financial", component: FolderComponent},
     {path: "financial/folder-name/files", component: FileComponent},
-    {path: "tax", component: FolderComponent},
+    {path: "tax", component: FolderComponent },
     {path: "tax/folder-name/files", component: FileComponent},
     {path: "operational", component: FolderComponent},
     {path: "operational/folder-name/files", component: FileComponent},

@@ -87,6 +87,9 @@ import { DashboardFileManagementComponent } from './file-management/pages/dashbo
 import { SharedDriveComponent } from './file-management/components/shared-drive/shared-drive.component';
 import { FolderComponent } from './file-management/components/folder/folder.component';
 import { FileComponent } from './file-management/components/file/file.component';
+import { EncryptionDataService } from './shared/services/encryption-data.service';
+import { AuthService } from './authentication/services/auth.service';
+import { AuthGuardService } from './authentication/guards/auth.guard.service';
 
 @NgModule({
   declarations: [
@@ -176,7 +179,7 @@ import { FileComponent } from './file-management/components/file/file.component'
     MatCheckboxModule,
   ],
   providers: [
-    provideAnimationsAsync(), UsersService, ProjectsApiService, CustomizerSettingsService, ToggleService, DatePipe
+    provideAnimationsAsync(), UsersService, ProjectsApiService, CustomizerSettingsService, ToggleService, DatePipe, EncryptionDataService, AuthService, AuthGuardService
   ],
   bootstrap: [AppComponent]
 })
