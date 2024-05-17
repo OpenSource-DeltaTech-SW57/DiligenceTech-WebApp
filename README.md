@@ -4,8 +4,6 @@
 
 Single-Page Application for the DiligenceTech solution, a data-storage software dedicated to the buy-side and sell-side interaction and execution of Due Diligence, representing the Presentation Tier and the interactivity between the users (Accountants or Investors) and the software system.
 
-probando probando
-
 ## Pre-requisites
 
 - Node.js
