@@ -1,0 +1,84 @@
+.mat-mdc-card {
+  &.daxa-card {
+    &.email-inbox-card {
+      .mat-mdc-card-content {
+        .mat-mdc-table {
+          .mat-mdc-header-row {
+            background-color: var(--daxaColor);
+
+            .mat-mdc-header-cell {
+              color: var(--whiteColor);
+            }
+          }
+
+          .mat-mdc-row {
+            &:nth-child(even) {
+              background-color: var(--tableEvenColor);
+            }
+
+            &:hover {
+              background-color: var(--tablehoverColor);
+            }
+          }
+        }
+      }
+
+      &.rtl-enabled {
+        .mat-mdc-card-content {
+          .mat-mdc-table {
+            .mat-mdc-header-row {
+              .mat-mdc-header-cell {
+                text-align: right;
+              }
+            }
+
+            .mat-mdc-row {
+              .mat-mdc-cell {
+                text-align: right;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.breadcrumb-card {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.daxa-card {
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+}
+
+.email-inbox-card {
+  padding: 20px;
+}
+
+.info-buttons-list {
+  margin-left: auto;
+
+  button {
+    margin-right: 10px;
+  }
+}
+
+.card-header-menu {
+  width: 200px;
+}
+
+.text-body {
+  color: #007bff;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .breadcrumb-card {
+    font-size: 16px;
+  }
+}
