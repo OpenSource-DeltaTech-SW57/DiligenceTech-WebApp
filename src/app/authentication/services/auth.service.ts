@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AuthUsers } from '../model/auth-users.entity';
 import { Observable, catchError, map, of, tap } from 'rxjs';
-import { environment } from '../../../environments/environment';
+import { environment } from '../../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +17,8 @@ export class AuthService {
     return structuredClone(this.user);
   }
 
-  login( email: string, password: string ):Observable<AuthUsers> {
-    return this.http.get<AuthUsers>(`${this.basePath}?email=${email}&password=${password}`).pipe(
+  login( email: string):Observable<AuthUsers> {
+    return this.http.get<AuthUsers>(`${this.basePath}?email=${email}`).pipe(
         tap( user => this.user = user )
       );
   }

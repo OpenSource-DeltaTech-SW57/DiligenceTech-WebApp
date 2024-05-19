@@ -33,7 +33,7 @@ export class SignInComponent {
     onLogin() {
       const email= this.authForm.get("email")!.value;
       const password= this.authForm.get("password")!.value;
-      this.authService.login(email,password).subscribe(data => {
+      this.authService.login(email).subscribe(data => {
         if(data) {
           this.router.navigate(["/dashboard"]);
         }else{
@@ -51,7 +51,7 @@ export class SignInComponent {
       if (this.authForm.valid) {
         const email = this.authForm.get("email")!.value;
         const password = this.authForm.get("password")!.value;
-        this.authService.login(email, password).subscribe((data:any) => {
+        this.authService.login(email).subscribe((data:any) => {
           this.userData = data[0];
           if(this.userData && this.userData.email == email && this.userData.password == password){
             console.log("user found");
