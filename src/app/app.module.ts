@@ -63,6 +63,7 @@ import { EmailComponent } from './email/email.component';
 import { ComposeComponent } from './email/components/compose/compose.component';
 import { InboxComponent } from './email/components/inbox/inbox.component';
 import { ReadComponent } from './email/components/read/read.component';
+import { DraftsComponent } from './email/components/drafts/drafts.component';
 import { NotificationListComponent } from './notifications/pages/notification-list/notification-list.component';
 import { WelcomeBannerComponent } from './myprofile/components/welcome-banner/welcome-banner.component';
 import { GeneralProfileComponent } from './myprofile/components/general-profile/general-profile.component';
@@ -90,6 +91,7 @@ import { FileComponent } from './file-management/components/file/file.component'
 import { EncryptionDataService } from './shared/services/encryption-data.service';
 import { AuthService } from './authentication/services/auth.service';
 import { AuthGuardService } from './authentication/guards/auth.guard.service';
+
 
 @NgModule({
   declarations: [
@@ -143,7 +145,8 @@ import { AuthGuardService } from './authentication/guards/auth.guard.service';
     DashboardFileManagementComponent,
     SharedDriveComponent,
     FolderComponent,
-    FileComponent
+    FileComponent,
+    DraftsComponent
   ],
   imports: [
     BrowserModule,
