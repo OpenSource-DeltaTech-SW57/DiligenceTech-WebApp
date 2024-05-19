@@ -59,8 +59,9 @@ export class ProjectCreateAndEditComponent {
       if(this.editMode){
         this.projectUpdated.emit(this.project);
       } else {
-        this.resetEditState();
+        this.projectAdded.emit(this.project);
       }
+      this.resetEditState()
     } else {
       console.log("invalid data");
     }

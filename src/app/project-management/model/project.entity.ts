@@ -4,6 +4,7 @@ export class Project {
   startDate: string;
   endDate: string;
   projectDescription: string;
+  projectCategory: string;
   projectManager: string;
   projectTags: Array<string>;
   previewImage: any;
@@ -19,6 +20,7 @@ export class Project {
     this.startDate = "";
     this.endDate = "";
     this.projectDescription = "";
+    this.projectCategory = "";
     this.projectManager = "";
     this.projectTags = [];
     this.attachedFiles = [];

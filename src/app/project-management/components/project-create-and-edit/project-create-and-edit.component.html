@@ -102,7 +102,7 @@
                                 </label>
                                 <div class="NgxEditor__Wrapper">
                                     <ngx-editor-menu [editor]="editor" [toolbar]="toolbar"></ngx-editor-menu>
-                                    <ngx-editor [editor]="editor" [placeholder]="'Type here...'"></ngx-editor>
+                                    <ngx-editor [editor]="editor" [placeholder]="'Type here...'" [(ngModel)]="project.projectDescription"></ngx-editor>
                                 </div>
                             </div>
                         </div>
@@ -154,7 +154,7 @@
                                     <mat-label>
                                         Select
                                     </mat-label>
-                                    <mat-select>
+                                    <mat-select name="category" [(ngModel)]="project.projectCategory">
                                         <mat-option value="option1">
                                             Watch
                                         </mat-option>
