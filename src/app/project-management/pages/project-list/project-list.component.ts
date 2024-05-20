@@ -25,6 +25,12 @@ export class ProjectListComponent implements OnInit, AfterViewInit{
   // isToggled
   isToggled = false;
 
+  // Popup Trigger
+  classApplied = false;
+  toggleClass() {
+      this.classApplied = !this.classApplied;
+  }
+
   // Constructor
 
   constructor(private projectApiService: ProjectsApiService, public themeService: CustomizerSettingsService) {
@@ -56,6 +62,7 @@ export class ProjectListComponent implements OnInit, AfterViewInit{
 
   onCancelEdit() {
     this.resetEditState();
+    this.toggleClass();
     this.getAllProjects();
   }
 

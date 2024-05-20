@@ -274,7 +274,7 @@
       "startDate": "15 Nov, 2023",
       "endDate": "15 Dec, 2023",
       "projectManager": "Walter Frazier",
-      "budget": 5.250,
+      "budget": 5.25,
       "teamMembers": {
         "img1": "assets/images/users/user5.png",
         "img2": "assets/images/users/user13.png"
@@ -294,7 +294,7 @@
       "startDate": "15 Nov, 2023",
       "endDate": "15 Dec, 2023",
       "projectManager": "Walter Frazier",
-      "budget": 5.250,
+      "budget": 5.25,
       "teamMembers": {
         "img1": "assets/images/users/user5.png",
         "img2": "assets/images/users/user13.png"
@@ -314,7 +314,7 @@
       "startDate": "15 Nov, 2023",
       "endDate": "15 Dec, 2023",
       "projectManager": "Walter Frazier",
-      "budget": 5.250,
+      "budget": 5.25,
       "teamMembers": {
         "img1": "assets/images/users/user5.png",
         "img2": "assets/images/users/user13.png"
@@ -334,7 +334,7 @@
       "startDate": "15 Nov, 2023",
       "endDate": "15 Dec, 2023",
       "projectManager": "Walter Frazier",
-      "budget": 5.250,
+      "budget": 5.25,
       "teamMembers": {
         "img1": "assets/images/users/user5.png",
         "img2": "assets/images/users/user13.png"
@@ -354,7 +354,7 @@
       "startDate": "15 Nov, 2023",
       "endDate": "15 Dec, 2023",
       "projectManager": "Walter Frazier",
-      "budget": 5.250,
+      "budget": 5.25,
       "teamMembers": {
         "img1": "assets/images/users/user5.png",
         "img2": "assets/images/users/user13.png"
@@ -374,7 +374,7 @@
       "startDate": "15 Nov, 2023",
       "endDate": "15 Dec, 2023",
       "projectManager": "Walter Frazier",
-      "budget": 5.250,
+      "budget": 5.25,
       "teamMembers": {
         "img1": "assets/images/users/user5.png",
         "img2": "assets/images/users/user13.png"
@@ -394,7 +394,7 @@
       "startDate": "15 Nov, 2023",
       "endDate": "15 Dec, 2023",
       "projectManager": "Walter Frazier",
-      "budget": 5.250,
+      "budget": 5.25,
       "teamMembers": {
         "img1": "assets/images/users/user5.png",
         "img2": "assets/images/users/user13.png"
@@ -414,7 +414,7 @@
       "startDate": "15 Nov, 2023",
       "endDate": "15 Dec, 2023",
       "projectManager": "Walter Frazier",
-      "budget": 5.250,
+      "budget": 5.25,
       "teamMembers": {
         "img1": "assets/images/users/user5.png",
         "img2": "assets/images/users/user13.png"
@@ -427,6 +427,31 @@
         "view": "visibility",
         "delete": "delete"
       }
+    },
+    {
+      "projectName": "Abel",
+      "id": 12322,
+      "startDate": "2024-05-22T05:00:00.000Z",
+      "endDate": "2024-05-29T05:00:00.000Z",
+      "budget": "53245",
+      "progress": 90,
+      "status": {
+        "inProgress": "In Progress"
+      },
+      "projectCategory": "option2",
+      "projectManager": "Walter Frazier",
+      "teamMembers": {
+        "img1": "assets/images/users/user5.png",
+        "img2": "assets/images/users/user13.png"
+      },
+      "action": {
+        "view": "visibility",
+        "delete": "delete"
+      },
+      "projectTags": [
+        "option4",
+        "option5"
+      ]
     }
   ]
 }

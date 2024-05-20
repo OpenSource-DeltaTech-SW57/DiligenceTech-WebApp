@@ -1,27 +1,3 @@
-<!-- Breadcrumb -->
-<div class="breadcrumb-card mb-25 d-md-flex align-items-center justify-content-between">
-    <h5 class="mb-0">
-        Create Project
-    </h5>
-    <ol class="breadcrumb list-unstyled mt-0 mb-0 pl-0">
-        <li class="breadcrumb-item position-relative">
-            <a routerLink="/" class="d-inline-block position-relative">
-                <i class="ri-home-8-line"></i>
-                Dashboard
-            </a>
-        </li>
-        <li class="breadcrumb-item position-relative">
-            Project Management
-        </li>
-        <li class="breadcrumb-item position-relative">
-            Projects
-        </li>
-        <li class="breadcrumb-item position-relative">
-            Create Project
-        </li>
-    </ol>
-</div>
-
 <!-- Create Project -->
 <mat-card
     class="daxa-card create-project-card mb-25 border-radius bg-white border-none d-block"
@@ -102,7 +78,7 @@
                                 </label>
                                 <div class="NgxEditor__Wrapper">
                                     <ngx-editor-menu [editor]="editor" [toolbar]="toolbar"></ngx-editor-menu>
-                                    <ngx-editor [editor]="editor" [placeholder]="'Type here...'" [(ngModel)]="project.projectDescription"></ngx-editor>
+                                    <ngx-editor [editor]="editor" [placeholder]="'Type here...'" name="projectDescription" [(ngModel)]="project.projectDescription"></ngx-editor>
                                 </div>
                             </div>
                         </div>
@@ -187,7 +163,7 @@
                                         <mat-option value="Walter Frazier">
                                             Walter Frazier
                                         </mat-option>
-                                        <mat-option value="Kimberly Ander">
+                                        <mat-option value="Kimberly Anderson">
                                             Kimberly Anderson
                                         </mat-option>
                                         <mat-option value="Roscoe Guerrero">
@@ -241,7 +217,7 @@
                                     <mat-label>
                                         Select
                                     </mat-label>
-                                    <mat-select multiple>
+                                    <mat-select multiple name="projectTags" [(ngModel)]="project.projectTags">
                                         <mat-option value="option1">
                                             Low Priority
                                         </mat-option>
@@ -268,23 +244,26 @@
                         <label class="main-label d-block lh-1 text-black">
                             Project Preview Image
                         </label>
-                        <file-upload class="file-uploader" [multiple]="multiple"></file-upload>
+                        <file-upload class="file-uploader" name="previewImage" [multiple]="multiple"></file-upload>
                     </div>
                     <div class="mb-25">
                         <label class="main-label d-block lh-1 text-black">
                             Attached Files
                         </label>
-                        <file-upload class="file-uploader" [multiple]="multiple"></file-upload>
+                        <file-upload class="file-uploader" name="attachedFiles" [multiple]="multiple"></file-upload>
                     </div>
                 </div>
             </div>
             <div class="btn-box">
-                <button mat-button>
-                    + Create Project
-                </button>
                 <button mat-button (click)="onCancel()">
                     Cancel
                 </button>
+                <button mat-button>
+                    + Create Project
+                </button>
+                <!-- <button mat-button (click)="onCancel()"> -->
+                <!--     Cancel -->
+                <!-- </button> -->
             </div>
         </form>
     </mat-card-content>
