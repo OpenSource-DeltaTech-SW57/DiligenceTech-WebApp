@@ -9,6 +9,15 @@ import { CustomizerSettingsService } from '../../../shared/services/customizer-s
 export class FileComponent {
     isToggled = false;
 
+    // Popup Trigger
+    classApplied = false;
+    toggleClass() {
+        this.classApplied = !this.classApplied;
+    }
+
+
+    public multiple: boolean = false;
+
     constructor(
         public themeService: CustomizerSettingsService
     ) {

@@ -1,3 +1,29 @@
+<mat-card
+    class="daxa-card file-bar-card mb-25 border-radius bg-white border-none d-block"
+    [class.rtl-enabled]="themeService.isRTLEnabled()"
+>
+    <mat-card-header>
+        <mat-card-title>
+            <form class="search-box position-relative">
+                <i class="material-symbols-outlined">
+                    search
+                </i>
+                <input type="text" class="input-search d-block w-100 border-none outline-0" placeholder="Search file...">
+            </form>
+        </mat-card-title>
+        <mat-card-subtitle>
+            <button
+                mat-button
+                class="text-daxa p-0 h-auto"
+                (click)="toggleClass()"
+            >
+                + Add New File
+            </button>
+        </mat-card-subtitle>
+    </mat-card-header>
+</mat-card>
+
+
 <div
     class="row"
     [class.rtl-enabled]="themeService.isRTLEnabled()"
@@ -526,6 +552,65 @@
                     <span class="d-block text-body">
                         8.5 GB
                     </span>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+
+<!-- Popup -->
+<div
+    class="create-new-file-popup"
+    [class.active]="classApplied"
+    [class.rtl-enabled]="themeService.isRTLEnabled()"
+>
+    <div class="popup-dialog">
+        <mat-card class="daxa-card mb-25 border-radius bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Create New File
+                    </h5>
+                </mat-card-title>
+                <mat-card-subtitle>
+                    <button
+                        mat-button
+                        (click)="toggleClass()"
+                    >
+                        <i class="ri-close-fill"></i>
+                    </button>
+                </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label class="main-label d-block lh-1 text-black">
+                            File Name
+                        </label>
+                        <mat-form-field>
+                            <mat-label>
+                                File name
+                            </mat-label>
+                            <input matInput placeholder="E.g. Hand Watch">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-12 mb-25">
+                        <label class="main-label d-block lh-1 text-black">
+                            Attach File
+                        </label>
+                        <file-upload class="file-uploader" name="previewImage" [multiple]="multiple"></file-upload>
+                    </div>
+                </div>
+                <div class="btn-box">
+                    <button
+                        mat-button
+                        (click)="toggleClass()"
+                    >
+                        Cancel
+                    </button>
+                    <button mat-button>
+                        Create
+                    </button>
                 </div>
             </mat-card-content>
         </mat-card>
