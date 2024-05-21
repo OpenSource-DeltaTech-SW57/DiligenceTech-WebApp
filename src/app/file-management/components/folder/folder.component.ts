@@ -10,6 +10,12 @@ export class FolderComponent {
     // isToggled
     isToggled = false;
 
+    // Popup Trigger
+    classApplied = false;
+    toggleClass() {
+        this.classApplied = !this.classApplied;
+    }
+
     constructor(
         public themeService: CustomizerSettingsService
     ) {
