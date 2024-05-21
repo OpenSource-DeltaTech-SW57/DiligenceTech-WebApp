@@ -6,14 +6,14 @@ export class Project {
   projectDescription: string;
   projectCategory: string;
   projectManager: string;
-  projectTags: Array<string>;
+  projectTags: {[key:string]: string};
   previewImage: any;
   attachedFiles: Array<any>;
   budget: number;
-  teamMembers: Array<string>;
+  teamMembers: {[key:string]: string};
   progress: number;
-  status: any;
-  action: any;
+  status: {[key:string]: string};
+  action: {[key:string]: string};
   constructor(){
     this.id = 0;
     this.projectName = "";
@@ -22,10 +22,10 @@ export class Project {
     this.projectDescription = "";
     this.projectCategory = "";
     this.projectManager = "";
-    this.projectTags = [];
+    this.projectTags = {};
     this.attachedFiles = [];
     this.budget = 0;
-    this.teamMembers = [];
+    this.teamMembers = {};
     this.progress = 0;
     this.status = {};
     this.action = {};

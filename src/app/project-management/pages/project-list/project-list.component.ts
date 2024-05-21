@@ -5,6 +5,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { ProjectsApiService } from '../../services/projects-api.service';
 import { CustomizerSettingsService } from '../../../shared/services/customizer-settings.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-project-list',
@@ -33,13 +34,48 @@ export class ProjectListComponent implements OnInit, AfterViewInit{
 
   // Constructor
 
-  constructor(private projectApiService: ProjectsApiService, public themeService: CustomizerSettingsService) {
+  constructor(private projectApiService: ProjectsApiService, public themeService: CustomizerSettingsService, private datePipe: DatePipe) {
     this.isEditMode = false;
     this.projectData = {} as Project;
     this.dataSource = new MatTableDataSource<any>();
     this.themeService.isToggled$.subscribe(_isToggled => {
       this.isToggled = _isToggled;
     })
+  }
+
+  formatDate(dateString: string): string {
+    return this.datePipe.transform(dateString, 'dd MMM, yyyy') || '';
+  }
+
+  transformTeamMembers(members: any): { [key: string]: string } {
+    const result: { [key: string]: string } = {};
+    if(Array.isArray(members)){
+      members.forEach((member, index) => {
+        const key = `img${index + 1}`;
+        result[key] =  member;
+      });
+    }
+    return result;
+  }
+
+  tranformTags(tags: any): {[key: string]: string} {
+    const result: { [key: string]: string } = {};
+    if(Array.isArray(tags)){
+      tags.forEach((tag, index) => {
+        const key = `option${index + 1}`;
+        result[key] =  tag;
+      });
+    }
+    return result;
+  }
+
+  tranformStatus(status: any): {[key: string]: string}{
+    if(typeof status === "string"){
+      const result: { [key: string]: string } = JSON.parse(status);
+      return result;
+    }
+    console.log("Error: failed convertion string status to {}")
+    return {}
   }
 
   // RTL Mode
@@ -68,8 +104,19 @@ export class ProjectListComponent implements OnInit, AfterViewInit{
 
   onProjectAdded(element: Project) {
     this.projectData = element;
+    this.projectData.progress = 0;
+    this.projectData.action = {
+      "view": "visibility",
+      "delete": "delete"
+    }
+    this.projectData.startDate = this.formatDate(element.startDate);
+    this.projectData.endDate = this.formatDate(element.endDate);
+    this.projectData.teamMembers = this.transformTeamMembers(element.teamMembers);
+    this.projectData.projectTags = this.tranformTags(element.projectTags);
+    this.projectData.status = this.tranformStatus(element.status);
     this.createProject();
     this.resetEditState();
+    this.toggleClass();
   }
 
   onProjectUpdated(element: Project) {

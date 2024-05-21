@@ -91,7 +91,7 @@
                                     <mat-label>
                                         Enter budget
                                     </mat-label>
-                                    <input matInput placeholder="E.g. $5,250" name="budget" required [(ngModel)]="project.budget">
+                                    <input matInput type="number" placeholder="E.g. $5,250" name="budget" required [(ngModel)]="project.budget">
                                 </mat-form-field>
                             </div>
                         </div>
@@ -105,16 +105,16 @@
                                         Select
                                     </mat-label>
                                     <mat-select required name="status" [(ngModel)]="project.status">
-                                        <mat-option value="{inProgress: 'In Progress'}">
+                                        <mat-option value='{"inProgress":"In Progress"}'>
                                             In Progress
                                         </mat-option>
-                                        <mat-option value="{pending: 'Pending'}">
+                                        <mat-option value='{"pending":"Pending"}'>
                                             Pending
                                         </mat-option>
-                                        <mat-option value="{completed: 'Completed'}">
+                                        <mat-option value='{"completed":"Completed"}'>
                                             Completed
                                         </mat-option>
-                                        <mat-option value="{notStarted: 'Not Started'}">
+                                        <mat-option value='{"notStarted":"Not Started"}'>
                                             Not Started
                                         </mat-option>
                                     </mat-select>
@@ -189,19 +189,19 @@
                                         Select
                                     </mat-label>
                                     <mat-select multiple name="teamMembers" required [(ngModel)]="project.teamMembers">
-                                        <mat-option value="Walter Frazier">
+                                        <mat-option value="assets/images/users/user1.png">
                                             Walter Frazier
                                         </mat-option>
-                                        <mat-option value="Kimberly Anderson">
+                                        <mat-option value="assets/images/users/user3.png">
                                             Kimberly Anderson
                                         </mat-option>
-                                        <mat-option value="Roscoe Guerrero">
+                                        <mat-option value="assets/images/users/user4.png">
                                             Roscoe Guerrero
                                         </mat-option>
-                                        <mat-option value="Robert Stewart">
+                                        <mat-option value="assets/images/users/user5.png">
                                             Robert Stewart
                                         </mat-option>
-                                        <mat-option value="Dustin Fritch">
+                                        <mat-option value="assets/images/users/user16.png">
                                             Dustin Fritch
                                         </mat-option>
                                     </mat-select>
@@ -218,19 +218,19 @@
                                         Select
                                     </mat-label>
                                     <mat-select multiple name="projectTags" [(ngModel)]="project.projectTags">
-                                        <mat-option value="option1">
+                                        <mat-option value="Low Priority">
                                             Low Priority
                                         </mat-option>
-                                        <mat-option value="option2">
+                                        <mat-option value="Medium Priority">
                                             Medium Priority
                                         </mat-option>
-                                        <mat-option value="option3">
+                                        <mat-option value="High Priority">
                                             High Priority
                                         </mat-option>
-                                        <mat-option value="option4">
+                                        <mat-option value="Growth Potential">
                                             Growth Potential
                                         </mat-option>
-                                        <mat-option value="option5">
+                                        <mat-option value="Startup">
                                             Startup
                                         </mat-option>
                                     </mat-select>
