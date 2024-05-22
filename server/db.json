@@ -407,26 +407,174 @@
         "view": "visibility",
         "delete": "delete"
       }
-    },
+    }
+  ],
+  "areas": [
     {
-      "id": 921,
-      "projectName": "Hotel management system",
-      "startDate": "15 Nov, 2023",
-      "endDate": "15 Dec, 2023",
-      "projectManager": "Walter Frazier",
-      "budget": 5.25,
-      "teamMembers": {
-        "img1": "assets/images/users/user5.png",
-        "img2": "assets/images/users/user13.png"
-      },
-      "progress": 90,
-      "status": {
-        "inProgress": "In Progress"
-      },
+      "id": 1,
+      "title": "Legal",
+      "owner": "Linda Maddox",
+      "date": "Nov 20, 2024",
+      "filesCount": 159,
+      "size": "4.5 GB",
+      "routerLink": "legal",
       "action": {
-        "view": "visibility",
+        "download": "sim_card_download",
+        "edit": "edit",
         "delete": "delete"
       }
+    },
+    {
+      "id": 2,
+      "title": "Financial",
+      "owner": "Linda Maddox",
+      "date": "Nov 20, 2024",
+      "filesCount": 522,
+      "size": "5.5 GB",
+      "routerLink": "financial",
+      "action": {
+        "download": "sim_card_download",
+        "edit": "edit",
+        "delete": "delete"
+      }
+    },
+    {
+      "id": 3,
+      "title": "Tax",
+      "owner": "Linda Maddox",
+      "date": "Nov 20, 2024",
+      "filesCount": 995,
+      "size": "7.5 GB",
+      "routerLink": "tax",
+      "action": {
+        "download": "sim_card_download",
+        "edit": "edit",
+        "delete": "delete"
+      }
+    },
+    {
+      "id": 4,
+      "title": "Operational",
+      "owner": "Linda Maddox",
+      "date": "Nov 20, 2024",
+      "filesCount": 39,
+      "size": "3.8 GB",
+      "routerLink": "operational",
+      "action": {
+        "download": "sim_card_download",
+        "edit": "edit",
+        "delete": "delete"
+      }
+    }
+  ],
+  "folders": [
+    {
+      "id": 1,
+      "folderName": "Folder 1",
+      "owner": "Linda Maddox",
+      "date": "Nov 20, 2024",
+      "filesItems": 159,
+      "size": "4.5 GB",
+      "routerLink": "folder-name/files"
+    },
+    {
+      "id": 2,
+      "folderName": "Folder 2",
+      "owner": "linda maddox",
+      "date": "nov 20, 2024",
+      "filesItems": 159,
+      "size": "4.5 gb",
+      "routerLink": "folder-name/files"
+    },
+    {
+      "id": 3,
+      "folderName": "Folder 3",
+      "owner": "linda maddox",
+      "date": "nov 20, 2024",
+      "filesItems": 159,
+      "size": "4.5 gb",
+      "routerLink": "folder-name/files"
+    },
+    {
+      "id": 4,
+      "folderName": "Folder 4",
+      "owner": "linda maddox",
+      "date": "nov 20, 2024",
+      "filesItems": 159,
+      "size": "4.5 gb",
+      "routerLink": "folder-name/files"
+    },
+    {
+      "id": 5,
+      "folderName": "Folder 5",
+      "owner": "linda maddox",
+      "date": "nov 20, 2024",
+      "filesItems": 159,
+      "size": "4.5 gb",
+      "routerLink": "folder-name/files"
+    },
+    {
+      "id": 6,
+      "folderName": "Folder 6",
+      "owner": "linda maddox",
+      "date": "nov 20, 2024",
+      "filesItems": 159,
+      "size": "4.5 gb",
+      "routerLink": "folder-name/files"
+    },
+    {
+      "id": 7,
+      "folderName": "Folder 7",
+      "owner": "linda maddox",
+      "date": "nov 20, 2024",
+      "filesItems": 159,
+      "size": "4.5 gb",
+      "routerLink": "folder-name/files"
+    },
+    {
+      "id": 8,
+      "folderName": "Folder 8",
+      "owner": "linda maddox",
+      "date": "nov 20, 2024",
+      "filesItems": 159,
+      "size": "4.5 gb",
+      "routerLink": "folder-name/files"
+    },
+    {
+      "id": 9,
+      "folderName": "Folder 9",
+      "owner": "linda maddox",
+      "date": "nov 20, 2024",
+      "filesItems": 159,
+      "size": "4.5 gb",
+      "routerLink": "folder-name/files"
+    },
+    {
+      "id": 10,
+      "folderName": "Folder 10",
+      "owner": "linda maddox",
+      "date": "nov 20, 2024",
+      "filesItems": 159,
+      "size": "4.5 gb",
+      "routerLink": "folder-name/files"
+    },
+    {
+      "id": 11,
+      "folderName": "Folder 11",
+      "owner": "linda maddox",
+      "date": "nov 20, 2024",
+      "filesItems": 159,
+      "size": "4.5 gb",
+      "routerLink": "folder-name/files"
+    },
+    {
+      "folderName": "Folder 12",
+      "filesItems": 60,
+      "owner": "Cecil Jones",
+      "id": 12,
+      "date": "22 May, 2024",
+      "routerLink": "folder-name/files",
+      "size": "7.5 GB"
     }
   ]
 }

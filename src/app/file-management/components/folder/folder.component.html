@@ -1,5 +1,5 @@
 <mat-card
-    class="daxa-card project-bar-card mb-25 border-radius bg-white border-none d-block"
+    class="daxa-card folder-bar-card mb-25 border-radius bg-white border-none d-block"
     [class.rtl-enabled]="themeService.isRTLEnabled()"
 >
     <mat-card-header>
@@ -17,7 +17,7 @@
                 class="text-daxa p-0 h-auto"
                 (click)="toggleClass()"
             >
-                + Add New Project
+                + Add New Folder
             </button>
         </mat-card-subtitle>
     </mat-card-header>
@@ -27,7 +27,7 @@
     class="row"
     [class.rtl-enabled]="themeService.isRTLEnabled()"
 >
-    <div class="col-lg-4 col-md-6">
+    <div class="col-lg-4 col-md-6" *ngFor="let folder of folderDataArray">
         <mat-card class="daxa-card file-card mb-25 border-radius bg-white border-none d-block">
             <mat-card-header>
                 <mat-card-subtitle>
@@ -43,7 +43,7 @@
                         <button mat-menu-item>
                             Download
                         </button>
-                        <button mat-menu-item>
+                        <button mat-menu-item (click)="onDeleteItem(folder)">
                             Remove
                         </button>
                     </mat-menu>
@@ -58,522 +58,19 @@
                     </div>
                     <h5 class="mb-0">
                         <a routerLink="folder-name/files">
-                            Folder 1
+                          {{folder.folderName}}
                         </a>
                     </h5>
                 </div>
                 <div class="info d-flex align-items-center justify-content-between">
                     <span class="d-block text-body">
-                        159 Files
+                      {{folder.owner}}
                     </span>
                     <span class="d-block text-body">
-                        4.5 GB
-                    </span>
-                </div>
-            </mat-card-content>
-        </mat-card>
-    </div>
-    <div class="col-lg-4 col-md-6">
-        <mat-card class="daxa-card file-card mb-25 border-radius bg-white border-none d-block">
-            <mat-card-header>
-                <mat-card-subtitle>
-                    <button type="button" mat-button class="card-header-menu-btn p-0" [matMenuTriggerFor]="cardHeaderMenu">
-                        <i class="material-symbols-outlined">
-                            more_horiz
-                        </i>
-                    </button>
-                    <mat-menu #cardHeaderMenu="matMenu" class="card-header-menu" xPosition="before">
-                        <button mat-menu-item>
-                            Rename
-                        </button>
-                        <button mat-menu-item>
-                            Download
-                        </button>
-                        <button mat-menu-item>
-                            Remove
-                        </button>
-                    </mat-menu>
-                </mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-                <div class="d-flex align-items-center">
-                    <div class="icon">
-                        <i class="material-symbols-outlined">
-                            folder
-                        </i>
-                    </div>
-                    <h5 class="mb-0">
-                        <a routerLink="folder-name/files">
-                            Folder 2
-                        </a>
-                    </h5>
-                </div>
-                <div class="info d-flex align-items-center justify-content-between">
-                    <span class="d-block text-body">
-                        522 Files
+                      {{folder.filesItems}} Files
                     </span>
                     <span class="d-block text-body">
-                        5.5 GB
-                    </span>
-                </div>
-            </mat-card-content>
-        </mat-card>
-    </div>
-    <div class="col-lg-4 col-md-6">
-        <mat-card class="daxa-card file-card mb-25 border-radius bg-white border-none d-block">
-            <mat-card-header>
-                <mat-card-subtitle>
-                    <button type="button" mat-button class="card-header-menu-btn p-0" [matMenuTriggerFor]="cardHeaderMenu">
-                        <i class="material-symbols-outlined">
-                            more_horiz
-                        </i>
-                    </button>
-                    <mat-menu #cardHeaderMenu="matMenu" class="card-header-menu" xPosition="before">
-                        <button mat-menu-item>
-                            Rename
-                        </button>
-                        <button mat-menu-item>
-                            Download
-                        </button>
-                        <button mat-menu-item>
-                            Remove
-                        </button>
-                    </mat-menu>
-                </mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-                <div class="d-flex align-items-center">
-                    <div class="icon">
-                        <i class="material-symbols-outlined">
-                            folder
-                        </i>
-                    </div>
-                    <h5 class="mb-0">
-                        <a routerLink="folder-name/files">
-                            Folder 3
-                        </a>
-                    </h5>
-                </div>
-                <div class="info d-flex align-items-center justify-content-between">
-                    <span class="d-block text-body">
-                        995 Files
-                    </span>
-                    <span class="d-block text-body">
-                        7.5 GB
-                    </span>
-                </div>
-            </mat-card-content>
-        </mat-card>
-    </div>
-    <div class="col-lg-4 col-md-6">
-        <mat-card class="daxa-card file-card mb-25 border-radius bg-white border-none d-block">
-            <mat-card-header>
-                <mat-card-subtitle>
-                    <button type="button" mat-button class="card-header-menu-btn p-0" [matMenuTriggerFor]="cardHeaderMenu">
-                        <i class="material-symbols-outlined">
-                            more_horiz
-                        </i>
-                    </button>
-                    <mat-menu #cardHeaderMenu="matMenu" class="card-header-menu" xPosition="before">
-                        <button mat-menu-item>
-                            Rename
-                        </button>
-                        <button mat-menu-item>
-                            Download
-                        </button>
-                        <button mat-menu-item>
-                            Remove
-                        </button>
-                    </mat-menu>
-                </mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-                <div class="d-flex align-items-center">
-                    <div class="icon">
-                        <i class="material-symbols-outlined">
-                            folder
-                        </i>
-                    </div>
-                    <h5 class="mb-0">
-                        <a routerLink="folder-name/files">
-                            Folder 4
-                        </a>
-                    </h5>
-                </div>
-                <div class="info d-flex align-items-center justify-content-between">
-                    <span class="d-block text-body">
-                        39 Files
-                    </span>
-                    <span class="d-block text-body">
-                        3.8 GB
-                    </span>
-                </div>
-            </mat-card-content>
-        </mat-card>
-    </div>
-    <div class="col-lg-4 col-md-6">
-        <mat-card class="daxa-card file-card mb-25 border-radius bg-white border-none d-block">
-            <mat-card-header>
-                <mat-card-subtitle>
-                    <button type="button" mat-button class="card-header-menu-btn p-0" [matMenuTriggerFor]="cardHeaderMenu">
-                        <i class="material-symbols-outlined">
-                            more_horiz
-                        </i>
-                    </button>
-                    <mat-menu #cardHeaderMenu="matMenu" class="card-header-menu" xPosition="before">
-                        <button mat-menu-item>
-                            Rename
-                        </button>
-                        <button mat-menu-item>
-                            Download
-                        </button>
-                        <button mat-menu-item>
-                            Remove
-                        </button>
-                    </mat-menu>
-                </mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-                <div class="d-flex align-items-center">
-                    <div class="icon">
-                        <i class="material-symbols-outlined">
-                            folder
-                        </i>
-                    </div>
-                    <h5 class="mb-0">
-                        <a routerLink="folder-name/files">
-                            Folder 5
-                        </a>
-                    </h5>
-                </div>
-                <div class="info d-flex align-items-center justify-content-between">
-                    <span class="d-block text-body">
-                        75 Files
-                    </span>
-                    <span class="d-block text-body">
-                        2.2 GB
-                    </span>
-                </div>
-            </mat-card-content>
-        </mat-card>
-    </div>
-    <div class="col-lg-4 col-md-6">
-        <mat-card class="daxa-card file-card mb-25 border-radius bg-white border-none d-block">
-            <mat-card-header>
-                <mat-card-subtitle>
-                    <button type="button" mat-button class="card-header-menu-btn p-0" [matMenuTriggerFor]="cardHeaderMenu">
-                        <i class="material-symbols-outlined">
-                            more_horiz
-                        </i>
-                    </button>
-                    <mat-menu #cardHeaderMenu="matMenu" class="card-header-menu" xPosition="before">
-                        <button mat-menu-item>
-                            Rename
-                        </button>
-                        <button mat-menu-item>
-                            Download
-                        </button>
-                        <button mat-menu-item>
-                            Remove
-                        </button>
-                    </mat-menu>
-                </mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-                <div class="d-flex align-items-center">
-                    <div class="icon">
-                        <i class="material-symbols-outlined">
-                            folder
-                        </i>
-                    </div>
-                    <h5 class="mb-0">
-                        <a routerLink="folder-name/files">
-                            Folder 6
-                        </a>
-                    </h5>
-                </div>
-                <div class="info d-flex align-items-center justify-content-between">
-                    <span class="d-block text-body">
-                        357 Files
-                    </span>
-                    <span class="d-block text-body">
-                        8.5 GB
-                    </span>
-                </div>
-            </mat-card-content>
-        </mat-card>
-    </div>
-    <div class="col-lg-4 col-md-6">
-        <mat-card class="daxa-card file-card mb-25 border-radius bg-white border-none d-block">
-            <mat-card-header>
-                <mat-card-subtitle>
-                    <button type="button" mat-button class="card-header-menu-btn p-0" [matMenuTriggerFor]="cardHeaderMenu">
-                        <i class="material-symbols-outlined">
-                            more_horiz
-                        </i>
-                    </button>
-                    <mat-menu #cardHeaderMenu="matMenu" class="card-header-menu" xPosition="before">
-                        <button mat-menu-item>
-                            Rename
-                        </button>
-                        <button mat-menu-item>
-                            Download
-                        </button>
-                        <button mat-menu-item>
-                            Remove
-                        </button>
-                    </mat-menu>
-                </mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-                <div class="d-flex align-items-center">
-                    <div class="icon">
-                        <i class="material-symbols-outlined">
-                            folder
-                        </i>
-                    </div>
-                    <h5 class="mb-0">
-                        <a routerLink="folder-name/files">
-                            Folder 7
-                        </a>
-                    </h5>
-                </div>
-                <div class="info d-flex align-items-center justify-content-between">
-                    <span class="d-block text-body">
-                        159 Files
-                    </span>
-                    <span class="d-block text-body">
-                        4.5 GB
-                    </span>
-                </div>
-            </mat-card-content>
-        </mat-card>
-    </div>
-    <div class="col-lg-4 col-md-6">
-        <mat-card class="daxa-card file-card mb-25 border-radius bg-white border-none d-block">
-            <mat-card-header>
-                <mat-card-subtitle>
-                    <button type="button" mat-button class="card-header-menu-btn p-0" [matMenuTriggerFor]="cardHeaderMenu">
-                        <i class="material-symbols-outlined">
-                            more_horiz
-                        </i>
-                    </button>
-                    <mat-menu #cardHeaderMenu="matMenu" class="card-header-menu" xPosition="before">
-                        <button mat-menu-item>
-                            Rename
-                        </button>
-                        <button mat-menu-item>
-                            Download
-                        </button>
-                        <button mat-menu-item>
-                            Remove
-                        </button>
-                    </mat-menu>
-                </mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-                <div class="d-flex align-items-center">
-                    <div class="icon">
-                        <i class="material-symbols-outlined">
-                            folder
-                        </i>
-                    </div>
-                    <h5 class="mb-0">
-                        <a routerLink="folder-name/files">
-                            Folder 8
-                        </a>
-                    </h5>
-                </div>
-                <div class="info d-flex align-items-center justify-content-between">
-                    <span class="d-block text-body">
-                        522 Files
-                    </span>
-                    <span class="d-block text-body">
-                        5.5 GB
-                    </span>
-                </div>
-            </mat-card-content>
-        </mat-card>
-    </div>
-    <div class="col-lg-4 col-md-6">
-        <mat-card class="daxa-card file-card mb-25 border-radius bg-white border-none d-block">
-            <mat-card-header>
-                <mat-card-subtitle>
-                    <button type="button" mat-button class="card-header-menu-btn p-0" [matMenuTriggerFor]="cardHeaderMenu">
-                        <i class="material-symbols-outlined">
-                            more_horiz
-                        </i>
-                    </button>
-                    <mat-menu #cardHeaderMenu="matMenu" class="card-header-menu" xPosition="before">
-                        <button mat-menu-item>
-                            Rename
-                        </button>
-                        <button mat-menu-item>
-                            Download
-                        </button>
-                        <button mat-menu-item>
-                            Remove
-                        </button>
-                    </mat-menu>
-                </mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-                <div class="d-flex align-items-center">
-                    <div class="icon">
-                        <i class="material-symbols-outlined">
-                            folder
-                        </i>
-                    </div>
-                    <h5 class="mb-0">
-                        <a routerLink="folder-name/files">
-                            Folder 9
-                        </a>
-                    </h5>
-                </div>
-                <div class="info d-flex align-items-center justify-content-between">
-                    <span class="d-block text-body">
-                        995 Files
-                    </span>
-                    <span class="d-block text-body">
-                        7.5 GB
-                    </span>
-                </div>
-            </mat-card-content>
-        </mat-card>
-    </div>
-    <div class="col-lg-4 col-md-6">
-        <mat-card class="daxa-card file-card mb-25 border-radius bg-white border-none d-block">
-            <mat-card-header>
-                <mat-card-subtitle>
-                    <button type="button" mat-button class="card-header-menu-btn p-0" [matMenuTriggerFor]="cardHeaderMenu">
-                        <i class="material-symbols-outlined">
-                            more_horiz
-                        </i>
-                    </button>
-                    <mat-menu #cardHeaderMenu="matMenu" class="card-header-menu" xPosition="before">
-                        <button mat-menu-item>
-                            Rename
-                        </button>
-                        <button mat-menu-item>
-                            Download
-                        </button>
-                        <button mat-menu-item>
-                            Remove
-                        </button>
-                    </mat-menu>
-                </mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-                <div class="d-flex align-items-center">
-                    <div class="icon">
-                        <i class="material-symbols-outlined">
-                            folder
-                        </i>
-                    </div>
-                    <h5 class="mb-0">
-                        <a routerLink="folder-name/files">
-                            Folder 10
-                        </a>
-                    </h5>
-                </div>
-                <div class="info d-flex align-items-center justify-content-between">
-                    <span class="d-block text-body">
-                        39 Files
-                    </span>
-                    <span class="d-block text-body">
-                        3.8 GB
-                    </span>
-                </div>
-            </mat-card-content>
-        </mat-card>
-    </div>
-    <div class="col-lg-4 col-md-6">
-        <mat-card class="daxa-card file-card mb-25 border-radius bg-white border-none d-block">
-            <mat-card-header>
-                <mat-card-subtitle>
-                    <button type="button" mat-button class="card-header-menu-btn p-0" [matMenuTriggerFor]="cardHeaderMenu">
-                        <i class="material-symbols-outlined">
-                            more_horiz
-                        </i>
-                    </button>
-                    <mat-menu #cardHeaderMenu="matMenu" class="card-header-menu" xPosition="before">
-                        <button mat-menu-item>
-                            Rename
-                        </button>
-                        <button mat-menu-item>
-                            Download
-                        </button>
-                        <button mat-menu-item>
-                            Remove
-                        </button>
-                    </mat-menu>
-                </mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-                <div class="d-flex align-items-center">
-                    <div class="icon">
-                        <i class="material-symbols-outlined">
-                            folder
-                        </i>
-                    </div>
-                    <h5 class="mb-0">
-                        <a routerLink="folder-name/files">
-                            Folder 11
-                        </a>
-                    </h5>
-                </div>
-                <div class="info d-flex align-items-center justify-content-between">
-                    <span class="d-block text-body">
-                        75 Files
-                    </span>
-                    <span class="d-block text-body">
-                        2.2 GB
-                    </span>
-                </div>
-            </mat-card-content>
-        </mat-card>
-    </div>
-    <div class="col-lg-4 col-md-6">
-        <mat-card class="daxa-card file-card mb-25 border-radius bg-white border-none d-block">
-            <mat-card-header>
-                <mat-card-subtitle>
-                    <button type="button" mat-button class="card-header-menu-btn p-0" [matMenuTriggerFor]="cardHeaderMenu">
-                        <i class="material-symbols-outlined">
-                            more_horiz
-                        </i>
-                    </button>
-                    <mat-menu #cardHeaderMenu="matMenu" class="card-header-menu" xPosition="before">
-                        <button mat-menu-item>
-                            Rename
-                        </button>
-                        <button mat-menu-item>
-                            Download
-                        </button>
-                        <button mat-menu-item>
-                            Remove
-                        </button>
-                    </mat-menu>
-                </mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-                <div class="d-flex align-items-center">
-                    <div class="icon">
-                        <i class="material-symbols-outlined">
-                            folder
-                        </i>
-                    </div>
-                    <h5 class="mb-0">
-                        <a routerLink="folder-name/files">
-                            Folder 12
-                        </a>
-                    </h5>
-                </div>
-                <div class="info d-flex align-items-center justify-content-between">
-                    <span class="d-block text-body">
-                        357 Files
-                    </span>
-                    <span class="d-block text-body">
-                        8.5 GB
+                      {{folder.size}}
                     </span>
                 </div>
             </mat-card-content>
@@ -583,91 +80,16 @@
 
 <!-- Popup -->
 <div
-    class="create-new-project-popup"
+    class="create-new-folder-popup"
     [class.active]="classApplied"
     [class.rtl-enabled]="themeService.isRTLEnabled()"
 >
     <div class="popup-dialog">
         <mat-card class="daxa-card mb-25 border-radius bg-white border-none d-block">
-            <mat-card-header>
-                <mat-card-title>
-                    <h5 class="mt-0 mb-0">
-                        Create New Project
-                    </h5>
-                </mat-card-title>
-                <mat-card-subtitle>
-                    <button
-                        mat-button
-                        (click)="toggleClass()"
-                    >
-                        <i class="ri-close-fill"></i>
-                    </button>
-                </mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-                <div class="row">
-                    <div class="col-md-12">
-                        <label class="main-label d-block lh-1 text-black">
-                            Project Name
-                        </label>
-                        <mat-form-field>
-                            <mat-label>
-                                Project name
-                            </mat-label>
-                            <input matInput placeholder="E.g. Hand Watch">
-                        </mat-form-field>
-                    </div>
-                    <div class="col-md-6">
-                        <label class="main-label d-block lh-1 text-black">
-                            File Items
-                        </label>
-                        <mat-form-field class="date">
-                            <mat-label>
-                                File items
-                            </mat-label>
-                            <input matInput placeholder="E.g. 100">
-                        </mat-form-field>
-                    </div>
-                    <div class="col-md-6">
-                        <label class="main-label d-block lh-1 text-black">
-                            Owner
-                        </label>
-                        <mat-form-field>
-                            <mat-label>
-                                Select
-                            </mat-label>
-                            <mat-select>
-                                <mat-option value="option1">
-                                    Linda Maddox
-                                </mat-option>
-                                <mat-option value="option2">
-                                    Juanita Lavigne
-                                </mat-option>
-                                <mat-option value="option3">
-                                    Roy Pope
-                                </mat-option>
-                                <mat-option value="option4">
-                                    Cecil Jones
-                                </mat-option>
-                                <mat-option value="option5">
-                                    Trudy Venegas
-                                </mat-option>
-                            </mat-select>
-                        </mat-form-field>
-                    </div>
-                </div>
-                <div class="btn-box">
-                    <button
-                        mat-button
-                        (click)="toggleClass()"
-                    >
-                        Cancel
-                    </button>
-                    <button mat-button>
-                        Create
-                    </button>
-                </div>
-            </mat-card-content>
+          <app-folder-create-and-edit (editCanceled)="onCancelEdit()"
+                                      (folderAdded)="onFolderAdded($event)"
+                                      (editMode)="isEditMode"
+                                      [folder]="folderData"/>
         </mat-card>
     </div>
 </div>

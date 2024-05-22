@@ -12,7 +12,7 @@ export class BaseService<T> {
     })
   }
 
-  constructor(private http: HttpClient) {}
+  constructor(protected http: HttpClient) {}
 
   handleError(error: HttpErrorResponse) {
     if(error.error instanceof ErrorEvent) {
@@ -34,6 +34,11 @@ export class BaseService<T> {
 
   delete(id: any) {
     return this.http.delete(`${this.resourcePath()}/${id}`, this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
+  deleteByAreaname(name: string) {
+    return this.http.delete(`${this.resourcePath()}?title=${name}`, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 

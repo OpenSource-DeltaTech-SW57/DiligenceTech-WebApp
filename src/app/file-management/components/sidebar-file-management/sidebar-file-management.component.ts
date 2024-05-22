@@ -4,7 +4,7 @@ import { CustomizerSettingsService } from '../../../shared/services/customizer-s
 @Component({
   selector: 'app-sidebar-file-management',
   templateUrl: './sidebar-file-management.component.html',
-  styleUrl: './sidebar-file-management.component.scss'
+  styleUrl: './sidebar-file-management.component.scss',
 })
 export class SidebarFileManagementComponent {
     isToggled = false;

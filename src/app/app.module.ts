@@ -90,6 +90,10 @@ import { FileComponent } from './file-management/components/file/file.component'
 import { EncryptionDataService } from './shared/services/encryption-data.service';
 import { AuthService } from './authentication/services/auth.service';
 import { AuthGuardService } from './authentication/guards/auth.guard.service';
+import { AreaCreateAndEditComponent } from './file-management/components/area-create-and-edit/area-create-and-edit.component';
+import { AreaApiService } from './file-management/services/area-api.service';
+import { FolderCreateAndEditComponent } from './file-management/components/folder-create-and-edit/folder-create-and-edit.component';
+import { FolderApiService } from './file-management/services/folder-api.service';
 
 @NgModule({
   declarations: [
@@ -143,7 +147,9 @@ import { AuthGuardService } from './authentication/guards/auth.guard.service';
     DashboardFileManagementComponent,
     SharedDriveComponent,
     FolderComponent,
-    FileComponent
+    FileComponent,
+    AreaCreateAndEditComponent,
+    FolderCreateAndEditComponent
   ],
   imports: [
     BrowserModule,
@@ -179,7 +185,7 @@ import { AuthGuardService } from './authentication/guards/auth.guard.service';
     MatCheckboxModule,
   ],
   providers: [
-    provideAnimationsAsync(), UsersService, ProjectsApiService, CustomizerSettingsService, ToggleService, DatePipe, EncryptionDataService, AuthService, AuthGuardService
+    provideAnimationsAsync(), UsersService, ProjectsApiService, CustomizerSettingsService, ToggleService, DatePipe, EncryptionDataService, AuthService, AuthGuardService, AreaApiService, FolderApiService
   ],
   bootstrap: [AppComponent]
 })

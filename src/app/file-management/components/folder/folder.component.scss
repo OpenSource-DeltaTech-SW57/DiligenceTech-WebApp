@@ -23,7 +23,7 @@
                 }
             }
         }
-        &.project-bar-card {
+        &.folder-bar-card {
             .mat-mdc-card-header {
                 margin-bottom: 0;
             }
@@ -138,7 +138,7 @@
                     }
                 }
             }
-            &.project-bar-card {
+            &.folder-bar-card {
                 .mat-mdc-card-header {
                     .mat-mdc-card-header-text {
                         .mat-mdc-card-subtitle {
@@ -223,9 +223,9 @@
     }
 }
 
-// Create New Project Popup
+// Create New Folder Popup
 ::ng-deep {
-    .create-new-project-popup {
+    .create-new-folder-popup {
         top: 0;
         left: 0;
         right: 0;
@@ -361,7 +361,7 @@
                     }
                 }
             }
-            &.project-bar-card {
+            &.folder-bar-card {
                 .mat-mdc-card-header {
                     .mat-mdc-button {
                         &.add-new-btn {
@@ -405,7 +405,7 @@
                         }
                     }
                 }
-                &.project-bar-card {
+                &.folder-bar-card {
                     .mat-mdc-card-header {
                         .mat-mdc-card-header-text {
                             display: block;
@@ -480,9 +480,9 @@
         }
     }
 
-    // Create New Project Popup
+    // Create New Folder Popup
     ::ng-deep {
-        .create-new-project-popup {
+        .create-new-folder-popup {
             .popup-dialog {
                 max-width: 400px;
 
@@ -543,7 +543,7 @@
                         }
                     }
                 }
-                &.project-bar-card {
+                &.folder-bar-card {
                     .mat-mdc-card-header {
                         .mat-mdc-card-header-text {
                             .mat-mdc-card-subtitle {
@@ -613,7 +613,7 @@
                     }
                 }
             }
-            &.project-bar-card {
+            &.folder-bar-card {
                 .mat-mdc-card-header {
                     .mat-mdc-card-header-text {
                         .mat-mdc-card-subtitle {
