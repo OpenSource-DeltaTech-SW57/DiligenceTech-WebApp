@@ -91,6 +91,10 @@ import { FileComponent } from './file-management/components/file/file.component'
 import { EncryptionDataService } from './shared/services/encryption-data.service';
 import { AuthService } from './authentication/services/auth.service';
 import { AuthGuardService } from './authentication/guards/auth.guard.service';
+import { SentComponent } from './email/components/sent/sent.component';
+import { SpamComponent } from './email/components/spam/spam.component';
+import { TrashComponent } from './email/components/trash/trash.component';
+import { ImportantComponent } from './email/components/important/important.component';
 
 
 @NgModule({
@@ -146,7 +150,11 @@ import { AuthGuardService } from './authentication/guards/auth.guard.service';
     SharedDriveComponent,
     FolderComponent,
     FileComponent,
-    DraftsComponent
+    DraftsComponent,
+    SentComponent,
+    SpamComponent,
+    TrashComponent,
+    ImportantComponent
   ],
   imports: [
     BrowserModule,

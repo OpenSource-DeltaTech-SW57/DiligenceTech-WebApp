@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { SelectionModel } from '@angular/cdk/collections';
-import {MatTableDataSource} from "@angular/material/table";
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-drafts',
@@ -28,11 +28,9 @@ export class DraftsComponent {
       description: 'I would like to request a vacation for the following dates...',
       date: '2023-05-10'
     }
-
   ];
 
   constructor() {
-
     this.dataSource.data = this.drafts;
   }
 
@@ -51,7 +49,21 @@ export class DraftsComponent {
     this.selection.select(...this.dataSource.data);
   }
 
+  deleteSelectedRows() {
+    this.selection.selected.forEach(item => {
+      const index = this.drafts.findIndex(draft => draft === item);
+      this.drafts.splice(index, 1);
+    });
+    this.dataSource.data = [...this.drafts];
+    this.selection.clear();
+  }
+
+  deleteAllDrafts() {
+    this.drafts = [];
+    this.dataSource.data = [];
+    this.selection.clear();
+  }
+
   // isToggled
   isToggled = false;
-
 }

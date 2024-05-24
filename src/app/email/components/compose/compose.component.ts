@@ -50,8 +50,6 @@ export class ComposeComponent implements OnInit, OnDestroy {
     console.log('Subject:', subject);
     console.log('Body:', body);
 
-    // Implement logic to send email
-    // Clear editor content after sending
     this.editorContent = '';
     this.emails.reset();
   }

@@ -64,14 +64,12 @@ export class InboxComponent {
       description: 'Please read the attached document carefully.',
       date: '2023-05-16'
     },
-
   ];
 
   constructor(public themeService: CustomizerSettingsService) {
     this.themeService.isToggled$.subscribe(isToggled => {
       this.isToggled = isToggled;
     });
-
 
     this.dataSource.data = this.emails;
   }
@@ -84,5 +82,14 @@ export class InboxComponent {
   // RTL Mode
   toggleRTLEnabledTheme() {
     this.themeService.toggleRTLEnabledTheme();
+  }
+
+  deleteSelectedRows() {
+    this.selection.selected.forEach((item) => {
+      const index = this.emails.findIndex((d) => d === item);
+      this.emails.splice(index, 1);
+    });
+    this.dataSource.data = this.emails;
+    this.selection.clear();
   }
 }
