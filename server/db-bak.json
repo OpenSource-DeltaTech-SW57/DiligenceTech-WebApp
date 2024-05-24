@@ -428,5 +428,28 @@
         "delete": "delete"
       }
     }
+  ],"notifications":[
+    {
+      "notificationID":"00001",
+      "timestamp": "2 days ago",
+      "type": "Alert",
+      "content": "The project has been created.",
+      "Status": {
+        "inProgress": "In Progress"
+      }
+
+    },
+    {
+      "notificationID":"00002",
+      "timestamp": "18 hrs ago",
+      "type": "Alert",
+      "content": "New collaborators have entered the project.",
+      "Status": {
+        "inProgress": "In Progress"
+      }
+
+
+    }
   ]
+
 }
