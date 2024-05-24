@@ -26,6 +26,10 @@ export class FileComponent {
         });
     }
 
+    onCancelEdit() {
+      this.toggleClass();
+    }
+
     // RTL Mode
     toggleRTLEnabledTheme() {
         this.themeService.toggleRTLEnabledTheme();

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -94,6 +95,12 @@ import { AreaCreateAndEditComponent } from './file-management/components/area-cr
 import { AreaApiService } from './file-management/services/area-api.service';
 import { FolderCreateAndEditComponent } from './file-management/components/folder-create-and-edit/folder-create-and-edit.component';
 import { FolderApiService } from './file-management/services/folder-api.service';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getStorage, provideStorage } from '@angular/fire/storage';
+import { UploadFilesService } from './file-management/services/upload-files.service';
+import { AngularFireStorageModule} from '@angular/fire/compat/storage'
+import { FileUploadAndDeleteComponent } from './file-management/components/file-upload-and-delete/file-upload-and-delete.component';
+import { environment } from '../environments/environment.development';
 
 @NgModule({
   declarations: [
@@ -149,7 +156,8 @@ import { FolderApiService } from './file-management/services/folder-api.service'
     FolderComponent,
     FileComponent,
     AreaCreateAndEditComponent,
-    FolderCreateAndEditComponent
+    FolderCreateAndEditComponent,
+    FileUploadAndDeleteComponent
   ],
   imports: [
     BrowserModule,
@@ -183,9 +191,11 @@ import { FolderApiService } from './file-management/services/folder-api.service'
     NgApexchartsModule,
     MatTooltipModule,
     MatCheckboxModule,
+    AngularFireStorageModule,
   ],
   providers: [
-    provideAnimationsAsync(), UsersService, ProjectsApiService, CustomizerSettingsService, ToggleService, DatePipe, EncryptionDataService, AuthService, AuthGuardService, AreaApiService, FolderApiService
+    // {provide: FIREBASE_OPTIONS, useValue: environment.firebase},
+    provideAnimationsAsync(), UsersService, ProjectsApiService, CustomizerSettingsService, ToggleService, DatePipe, EncryptionDataService, AuthService, AuthGuardService, AreaApiService, FolderApiService, UploadFilesService, provideFirebaseApp(() => initializeApp({"projectId":"file-upload-f11c4","appId":"1:190309750287:web:797ca514d756a4af7c357a","storageBucket":"file-upload-f11c4.appspot.com","apiKey":"AIzaSyAHOSErtp-DdEMiTAkQI_zjYoEYV6V2jV0","authDomain":"file-upload-f11c4.firebaseapp.com","messagingSenderId":"190309750287"})), provideStorage(() => getStorage())
   ],
   bootstrap: [AppComponent]
 })
