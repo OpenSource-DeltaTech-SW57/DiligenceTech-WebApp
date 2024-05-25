@@ -1,9 +1,12 @@
-import { SelectionModel } from '@angular/cdk/collections';
-import { Component, ViewChild } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
+
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+
 import { Notifications } from '../../model/notifications.entity';
+import { MatTableDataSource } from '@angular/material/table';
+
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+
 import { NotificationApiServiceService } from '../../services/notification-api.service.service';
 import { CustomizerSettingsService } from '../../../shared/services/customizer-settings.service';
 
@@ -12,24 +15,21 @@ import { CustomizerSettingsService } from '../../../shared/services/customizer-s
   templateUrl: './notification-list.component.html',
   styleUrl: './notification-list.component.scss'
 })
-export class NotificationListComponent {
+export class NotificationListComponent implements OnInit, AfterViewInit {
 
   //Attributes
-  notificationsData: Notifications = new Notifications;
+
+  notificationsData: Notifications;
   dataSource = new MatTableDataSource<any>();
-  displayedColumns: string[] = ['notificationID', 'timestamp', 'type', 'content', 'status'];
+  displayedColumns: string[] = ['id', 'date_published', 'type', 'content'];
   @ViewChild(MatPaginator, {static: false})paginator!: MatPaginator;
   @ViewChild(MatSort, {static: false})sort!: MatSort;
 
-  selection = new SelectionModel<any>(true, []);
 
-  //edit mode para borrar notificaciones antiguas
-  isEditMode: boolean;
-  
+
   isToggled = false;
 
   constructor(private notificationsApiService: NotificationApiServiceService, public themeService: CustomizerSettingsService ){
-    this.isEditMode = false;
     this.notificationsData = {} as Notifications;
     this.dataSource = new MatTableDataSource<any>();
     this.themeService.isToggled$.subscribe(_isToggled =>{
@@ -41,28 +41,6 @@ export class NotificationListComponent {
   toggleRTLEnabledTheme(){
     this.themeService.toggleRTLEnabledTheme();
   }
-
-  //private methodes
-
-  onEditItem(element: Notifications) {
-    this.isEditMode = true;
-    this.notificationsData = element;
-  }
-
-  onCancelEdit() {
-    this.resetEditState();
-    this.getAllNotifications();
-  }
-
-  // CRUD actions
-
-  onDeleteItems(element: Notifications){
-    this.deleteNotifications(element.id);
-  }
-
-  //Para la creacion de notificaciones se debería de crear a base de eventos que estén en la aplicación...
-  //Así q x el momento dejaremos está parte del CRUD sin eso. pq no se supone que el mismo usuario lo haga.
-  
 
   
   // UI Event Handlers
@@ -77,38 +55,33 @@ export class NotificationListComponent {
   }
 
 
-
-  private resetEditState(): void{
-    this.isEditMode = false;
-    this.notificationsData = {} as Notifications;
-  }
-
   private getAllNotifications() {
     this.notificationsApiService.getAll().subscribe((response: any) => {
       this.dataSource.data = response;
     });
   };
 
-
-  // Lifecycle Hooks
-/*
-  private updateNotifications() {
-    let notificationsToUpdate = this.notificationsData;
-    this.notificationsApiService.update(this.notificationsData.notificationID, notificationsToUpdate).subscribe((response: any) => {
-      this.dataSource.data = this.dataSource.data.map((notification: Notifications) => {
-        if (notification.notificationID === response.id) {
-          return response;
-        }
-        return notification;
+  /*
+  private createNotifications() {
+    this.notificationsApiService.create(this.notificationsData).subscribe((response: any) => {
+      this.dataSource.data.push({...response});
+      this.dataSource.data = this.dataSource.data.map((project: Notifications) => {
+        return project;
       });
     });
   };
 */
 
-  private deleteNotifications(notificationId: number) {
-    this.notificationsApiService.delete(notificationId).subscribe(() => {
-      this.dataSource.data = this.dataSource.data.filter((notification: Notifications) => {
-        return notification.id !== notificationId ? notification : false;
+  // Lifecycle Hooks
+
+  private updateNotifications() {
+    let notificationsToUpdate = this.notificationsData;
+    this.notificationsApiService.update(this.notificationsData.id, notificationsToUpdate).subscribe((response: any) => {
+      this.dataSource.data = this.dataSource.data.map((notification: Notifications) => {
+        if (notification.id === response.id) {
+          return response;
+        }
+        return notification;
       });
     });
   };
