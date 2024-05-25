@@ -1,17 +1,15 @@
 
 export class Notifications {
-    notificationID: number;
-    timestamp: string;
+    id: number;
+    date_published: string;
     type: string;
     content: string;
-    status: any;
 
     constructor(){
-        this.notificationID = 0;
-        this.timestamp = "";
+        this.id = 0;
+        this.date_published = "";
         this.type = "";
         this.content = "";
-        this.status = {};
     }
 
     

@@ -57,7 +57,7 @@ export class NotificationListComponent {
   // CRUD actions
 
   onDeleteItems(element: Notifications){
-    this.deleteNotifications(element.notificationID);
+    this.deleteNotifications(element.id);
   }
 
   //Para la creacion de notificaciones se debería de crear a base de eventos que estén en la aplicación...
@@ -108,7 +108,7 @@ export class NotificationListComponent {
   private deleteNotifications(notificationId: number) {
     this.notificationsApiService.delete(notificationId).subscribe(() => {
       this.dataSource.data = this.dataSource.data.filter((notification: Notifications) => {
-        return notification.notificationID !== notificationId ? notification : false;
+        return notification.id !== notificationId ? notification : false;
       });
     });
   };

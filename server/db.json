@@ -428,5 +428,18 @@
         "delete": "delete"
       }
     }
+  ],"notifications":[
+    {
+      "id":"1",
+      "date_published": "2 days ago",
+      "type": "Alert",
+      "content": "The project has been created."  
+    },
+    {
+      "id":"2",
+      "date_published": "18 hrs ago",
+      "type": "Alert",
+      "content": "New collaborators have entered the project."
+    }
   ]
 }
