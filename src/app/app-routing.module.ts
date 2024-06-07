@@ -36,6 +36,9 @@ import { SharedDriveComponent } from './file-management/components/shared-drive/
 import { FolderComponent } from './file-management/components/folder/folder.component';
 import { FileComponent } from './file-management/components/file/file.component';
 import { AuthGuardService } from './authentication/guards/auth.guard.service';
+import {AllQuestionsComponent} from "./q-and-a/pages/all-questions/all-questions.component";
+import {QAndAComponent} from "./q-and-a/pages/q-and-a/q-and-a.component";
+import {QuestionsProjectListComponent} from "./q-and-a/pages/questions-project-list/questions-project-list.component";
 
 
 const routes: Routes = [
@@ -80,6 +83,10 @@ const routes: Routes = [
     {path: "operational", component: FolderComponent},
     {path: "operational/folder-name/files", component: FileComponent},
   ]},
+  {path: "q-and-a", component: QAndAComponent, children: [
+      {path: "all-questions", component: AllQuestionsComponent },
+      {path: "questions-project", component: QuestionsProjectListComponent },
+    ]},
   {path: "", redirectTo: "authentication", pathMatch: "full"},
   {path: "**", component: PageNotFoundComponent}
 ];

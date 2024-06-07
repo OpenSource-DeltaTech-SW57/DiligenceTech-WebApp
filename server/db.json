@@ -428,5 +428,26 @@
         "delete": "delete"
       }
     }
+  ],
+  "messages": [
+    {
+      "id": 1,
+      "relative_id": 1,
+      "project_id": 951,
+      "answering_id": null,
+      "project_name": "Project Gloria",
+      "agent_id": "8f790f2f-ff3e-4eb2-a989-47b037a687ee",
+      "content": "Requiero explicación en muchas cosas.",
+      "created_at": "13/5/2024"
+    },
+    {
+      "id": 2,
+      "relative_id": null,
+      "project_id": 951,
+      "answering_id": -1,
+      "agent_id": "8f790f2f-ff3e-4eb2-a989-47b037a687ee",
+      "content": "Aquí tienes tu explicación.",
+      "created_at": "14/5/2024"
+    }
   ]
 }

@@ -95,6 +95,9 @@ import { SentComponent } from './email/components/sent/sent.component';
 import { SpamComponent } from './email/components/spam/spam.component';
 import { TrashComponent } from './email/components/trash/trash.component';
 import { ImportantComponent } from './email/components/important/important.component';
+import { AllQuestionsComponent } from './q-and-a/pages/all-questions/all-questions.component';
+import { QuestionsProjectListComponent } from './q-and-a/pages/questions-project-list/questions-project-list.component';
+import { QAndAComponent } from './q-and-a/pages/q-and-a/q-and-a.component';
 
 
 @NgModule({
@@ -154,7 +157,10 @@ import { ImportantComponent } from './email/components/important/important.compo
     SentComponent,
     SpamComponent,
     TrashComponent,
-    ImportantComponent
+    ImportantComponent,
+    AllQuestionsComponent,
+    QuestionsProjectListComponent,
+    QAndAComponent
   ],
   imports: [
     BrowserModule,
