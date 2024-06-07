@@ -72,6 +72,38 @@
                             </li>
                         </ul>
                     </mat-expansion-panel>
+                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = true">
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        <i class="material-symbols-outlined">
+                          groups
+                        </i>
+                        <span class="title">Q&A</span>
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <ul class="sidebar-sub-menu">
+                      <li class="sidemenu-item">
+                        <a routerLink="/project-management/all-projects" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                          All Projects
+                        </a>
+                      </li>
+                      <li class="sidemenu-item">
+                        <a routerLink="/project-management/active-projects" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                          Active Projects
+                        </a>
+                      </li>
+                      <li class="sidemenu-item">
+                        <a routerLink="/project-management/completed-projects" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                          Completed Projects
+                        </a>
+                      </li>
+                      <li class="sidemenu-item">
+                        <a routerLink="/project-management/all-members" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                          All Members
+                        </a>
+                      </li>
+                    </ul>
+                  </mat-expansion-panel>
                     <span class="sub-title text-body">
                         COMMUNICATIONS
                     </span>
