@@ -75,5 +75,4 @@ export class ProjectCreateAndEditComponent {
   toggleRTLEnabledTheme() {
     this.themeService.toggleRTLEnabledTheme();
   }
-
 }
