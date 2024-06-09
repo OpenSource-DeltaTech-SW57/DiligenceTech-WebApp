@@ -26,5 +26,4 @@ export class SidebarFileManagementComponent {
     toggleRTLEnabledTheme() {
         this.themeService.toggleRTLEnabledTheme();
     }
-
 }
