@@ -5,6 +5,7 @@ import { CustomizerSettingsService } from '../../../shared/services/customizer-s
 import {ProjectsApiService} from "../../../project-management/services/projects-api.service";
 import {AreaApiService} from "../../services/area-api.service";
 import {ActivatedRoute} from "@angular/router";
+import {response} from "express";
 
 @Component({
   selector: 'app-shared-drive',
@@ -15,6 +16,7 @@ export class SharedDriveComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['select', 'name', 'action'];
   dataSource!: MatTableDataSource<any>;
   selection = new SelectionModel<any>(true, []);
+  role: string = '';
 
     /** Whether the number of selected elements matches the total number of rows. */
     isAllSelected() {
@@ -58,6 +60,7 @@ export class SharedDriveComponent implements OnInit, AfterViewInit {
     constructor(
         public themeService: CustomizerSettingsService,
         private areaApiService: AreaApiService,
+        private projectsApiService: ProjectsApiService,
         private route: ActivatedRoute
     ) {
         this.themeService.isToggled$.subscribe(isToggled => {
@@ -73,6 +76,7 @@ export class SharedDriveComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
         this.route.params.subscribe(params => {
           this.getAreasByProject(params['id']);
+          this.setUserRole(params['id'], String(localStorage.getItem('user')));
         });
     }
 
@@ -82,6 +86,23 @@ export class SharedDriveComponent implements OnInit, AfterViewInit {
         this.dataSource.data = response;
       });
     }
+
+  setUserRole(project: string, user: string) {
+    this.projectsApiService.getProjectIfSellRole(project, user).subscribe((response: any) => {
+      if (response.length != 0)
+        this.setSellRole();
+      else
+        this.setBuyRole();
+    });
+  }
+
+  setSellRole() {
+      this.role = 'Sell-Side';
+  }
+
+  setBuyRole() {
+    this.role = 'Buy-Side';
+  }
 
     // RTL Mode
     toggleRTLEnabledTheme() {

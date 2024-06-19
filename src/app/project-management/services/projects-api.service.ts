@@ -23,4 +23,13 @@ export class ProjectsApiService extends BaseService<Project>{
         })
       );
   }
+
+  getProjectIfSellRole(project: string, user: string) {
+    return this.http.get<Project[]>(`${this.basePath}${this.resourceEndpoint}?id=${project}`)
+      .pipe(
+        map(projects => {
+            return projects.filter(project => project.sellAgents && project.sellAgents.includes(user));
+        })
+      );
+  }
 }

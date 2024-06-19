@@ -438,5 +438,22 @@
       "content": "Aquí tienes tu explicación.",
       "created_at": "14/5/2024"
     }
+  ],
+  "notifications": [
+    {
+      "id": 1,
+      "profileId": 1,
+      "message": "Sent correctly."
+    }
+  ],
+  "emails": [
+    {
+      "id": 1,
+      "senderId": 1,
+      "receiverIds": [
+        2, 3, 4, 5
+      ],
+      "message": "Sent correctly."
+    }
   ]
 }

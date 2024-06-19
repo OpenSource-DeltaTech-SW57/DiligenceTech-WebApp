@@ -4,6 +4,7 @@ import {SelectionModel} from "@angular/cdk/collections";
 import {CustomizerSettingsService} from "../../../shared/services/customizer-settings.service";
 import {ActivatedRoute} from "@angular/router";
 import {DocumentsApiService} from "../../services/documents-api.service";
+import {ProjectsApiService} from "../../../project-management/services/projects-api.service";
 
 @Component({
   selector: 'app-documents-list',
@@ -14,6 +15,7 @@ export class DocumentsListComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['select', 'name', 'action'];
   dataSource!: MatTableDataSource<any>;
   selection = new SelectionModel<any>(true, []);
+  role: string = ''
 
   /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected() {
@@ -51,6 +53,7 @@ export class DocumentsListComponent implements OnInit, AfterViewInit {
   constructor(
     public themeService: CustomizerSettingsService,
     private documentsApiService: DocumentsApiService,
+    private projectsApiService: ProjectsApiService,
     private route: ActivatedRoute
   ) {
     this.themeService.isToggled$.subscribe(isToggled => {
@@ -65,7 +68,26 @@ export class DocumentsListComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.getDocumentsByFolder(params['folderId']);
+      this.setUserRole(params['id'], String(localStorage.getItem('user')));
     });
+  }
+
+  setUserRole(project: string, user: string) {
+    this.projectsApiService.getProjectIfSellRole(project, user).subscribe((response: any) => {
+      console.log(response.length);
+      if (response.length != 0)
+        this.setSellRole();
+      else
+        this.setBuyRole();
+    });
+  }
+
+  setSellRole() {
+    this.role = 'Sell-Side';
+  }
+
+  setBuyRole() {
+    this.role = 'Buy-Side';
   }
 
   getDocumentsByFolder(folder: string) {
@@ -83,7 +105,7 @@ export class DocumentsListComponent implements OnInit, AfterViewInit {
         return '#ff4b4b';
       case 'doc':
       case 'docx':
-        return 'blue';
+        return '#5e74e7';
       case 'xls':
       case 'xlsx':
         return 'green';

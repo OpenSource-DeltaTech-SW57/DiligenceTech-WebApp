@@ -79,10 +79,10 @@ const routes: Routes = [
     {path: "privacy-policy", component: PrivacyPolicyComponent},
     {path: "terms-conditions", component: TermsConditionsComponent},
   ]},
-  {path: "project-management/all-projects/:id/file-management", component: DashboardFileManagementComponent, children: [
-    {path: "", component: SharedDriveComponent},
-      {path: ":areaId", component: FoldersListComponent},
-      {path: ":areaId/:folderId", component: DocumentsListComponent}
+  {path: "project-management/all-projects", component: DashboardFileManagementComponent, children: [
+    {path: ":id/file-management", component: SharedDriveComponent},
+      {path: ":id/file-management/:areaId", component: FoldersListComponent},
+      {path: ":id/file-management/:areaId/:folderId", component: DocumentsListComponent}
   ]},
   {path: "q-and-a", component: QAndAComponent, children: [
       {path: "all-questions", component: AllQuestionsComponent },

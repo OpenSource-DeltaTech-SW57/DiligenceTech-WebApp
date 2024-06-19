@@ -4,6 +4,7 @@ import {SelectionModel} from "@angular/cdk/collections";
 import {CustomizerSettingsService} from "../../../shared/services/customizer-settings.service";
 import {ActivatedRoute} from "@angular/router";
 import {FoldersApiService} from "../../services/folders-api.service";
+import {ProjectsApiService} from "../../../project-management/services/projects-api.service";
 
 @Component({
   selector: 'app-folders-list',
@@ -14,6 +15,7 @@ export class FoldersListComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['select', 'name', 'action'];
   dataSource!: MatTableDataSource<any>;
   selection = new SelectionModel<any>(true, []);
+  role: string = '';
 
   /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected() {
@@ -51,6 +53,7 @@ export class FoldersListComponent implements OnInit, AfterViewInit {
   constructor(
     public themeService: CustomizerSettingsService,
     private foldersApiService: FoldersApiService,
+    private projectsApiService: ProjectsApiService,
     private route: ActivatedRoute
   ) {
     this.themeService.isToggled$.subscribe(isToggled => {
@@ -65,6 +68,8 @@ export class FoldersListComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.getFoldersByArea(params['areaId']);
+      console.log(`xd: ${params['id']}`);
+      this.setUserRole(params['id'], String(localStorage.getItem('user')));
     });
   }
 
@@ -73,5 +78,23 @@ export class FoldersListComponent implements OnInit, AfterViewInit {
       console.log(response.length);
       this.dataSource.data = response;
     });
+  }
+
+  setUserRole(project: string, user: string) {
+    this.projectsApiService.getProjectIfSellRole(project, user).subscribe((response: any) => {
+      console.log(response.length);
+      if (response.length != 0)
+        this.setSellRole();
+      else
+        this.setBuyRole();
+    });
+  }
+
+  setSellRole() {
+    this.role = 'Sell-Side';
+  }
+
+  setBuyRole() {
+    this.role = 'Buy-Side';
   }
 }
