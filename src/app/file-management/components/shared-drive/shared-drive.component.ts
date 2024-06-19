@@ -1,17 +1,20 @@
 import { SelectionModel } from '@angular/cdk/collections';
-import { Component } from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { CustomizerSettingsService } from '../../../shared/services/customizer-settings.service';
+import {ProjectsApiService} from "../../../project-management/services/projects-api.service";
+import {AreaApiService} from "../../services/area-api.service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-shared-drive',
   templateUrl: './shared-drive.component.html',
   styleUrl: './shared-drive.component.scss'
 })
-export class SharedDriveComponent {
-    displayedColumns: string[] = ['select', 'folderName', 'area', 'listedDate', 'fileSize', 'fileItems', 'action'];
-    dataSource = new MatTableDataSource<any>();
-    selection = new SelectionModel<any>(true, []);
+export class SharedDriveComponent implements OnInit, AfterViewInit {
+  displayedColumns: string[] = ['select', 'name', 'action'];
+  dataSource!: MatTableDataSource<any>;
+  selection = new SelectionModel<any>(true, []);
 
     /** Whether the number of selected elements matches the total number of rows. */
     isAllSelected() {
@@ -53,11 +56,31 @@ export class SharedDriveComponent {
     isToggled = false;
 
     constructor(
-        public themeService: CustomizerSettingsService
+        public themeService: CustomizerSettingsService,
+        private areaApiService: AreaApiService,
+        private route: ActivatedRoute
     ) {
         this.themeService.isToggled$.subscribe(isToggled => {
             this.isToggled = isToggled;
         });
+        this.dataSource = new MatTableDataSource<any>();
+    }
+
+  ngAfterViewInit(): void {
+
+    }
+
+  ngOnInit(): void {
+        this.route.params.subscribe(params => {
+          this.getAreasByProject(params['id']);
+        });
+    }
+
+    getAreasByProject(project: string) {
+      this.areaApiService.getByProject(project).subscribe((response: any) => {
+        console.log(response.length);
+        this.dataSource.data = response;
+      });
     }
 
     // RTL Mode
