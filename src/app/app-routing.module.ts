@@ -80,7 +80,7 @@ const routes: Routes = [
     {path: "privacy-policy", component: PrivacyPolicyComponent},
     {path: "terms-conditions", component: TermsConditionsComponent},
   ]},
-  {path: "project-management/all-projects/id/file-management", component: DashboardFileManagementComponent, children: [
+  {path: "project-management/all-projects/:id/file-management", component: DashboardFileManagementComponent, children: [
     {path: "", component: SharedDriveComponent},
     {path: "legal", component: FolderComponent},
     {path: "legal/folder-name/files", component: FileComponent},

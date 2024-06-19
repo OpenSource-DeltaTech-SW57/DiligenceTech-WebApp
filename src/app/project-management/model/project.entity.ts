@@ -13,6 +13,8 @@ export class Project {
   progress: number;
   status: any;
   action: any;
+  sellAgents: Array<string>;
+  buyAgents: Array<string>;
   constructor(){
     this.id = 0;
     this.projectName = "";
@@ -27,5 +29,7 @@ export class Project {
     this.progress = 0;
     this.status = {};
     this.action = {};
+    this.sellAgents = [];
+    this.buyAgents = [];
   }
 }

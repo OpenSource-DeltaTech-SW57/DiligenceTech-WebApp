@@ -55,7 +55,7 @@ export class SignInComponent {
           this.userData = data[0];
           if(this.userData && this.userData.email == email && this.userData.password == password){
             console.log("user found");
-            localStorage.setItem('user', this.userData.email);
+            localStorage.setItem('user', this.userData.id);
             //localStorage.setItem('token', "active");
             this.router.navigate(["/dashboard"]);
           } else {
