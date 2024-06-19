@@ -99,6 +99,7 @@ import { QAndAComponent } from './q-and-a/pages/q-and-a/q-and-a.component';
 import { RootProjectManagementComponent } from './project-management/components/root-project-management/root-project-management.component';
 import { RootEmailComponent } from './email/pages/root-email/root-email.component';
 import { FoldersListComponent } from './file-management/components/folders-list/folders-list.component';
+import { DocumentsListComponent } from './file-management/components/documents-list/documents-list.component';
 
 
 @NgModule({
@@ -162,7 +163,8 @@ import { FoldersListComponent } from './file-management/components/folders-list/
     QAndAComponent,
     RootProjectManagementComponent,
     RootEmailComponent,
-    FoldersListComponent
+    FoldersListComponent,
+    DocumentsListComponent
   ],
   imports: [
     BrowserModule,

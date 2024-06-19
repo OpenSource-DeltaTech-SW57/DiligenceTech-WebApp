@@ -41,6 +41,7 @@ import {
 } from "./project-management/components/root-project-management/root-project-management.component";
 import {RootEmailComponent} from "./email/pages/root-email/root-email.component";
 import {FoldersListComponent} from "./file-management/components/folders-list/folders-list.component";
+import {DocumentsListComponent} from "./file-management/components/documents-list/documents-list.component";
 
 
 const routes: Routes = [
@@ -80,7 +81,8 @@ const routes: Routes = [
   ]},
   {path: "project-management/all-projects/:id/file-management", component: DashboardFileManagementComponent, children: [
     {path: "", component: SharedDriveComponent},
-      {path: ":areaId", component: FoldersListComponent}
+      {path: ":areaId", component: FoldersListComponent},
+      {path: ":areaId/:folderId", component: DocumentsListComponent}
   ]},
   {path: "q-and-a", component: QAndAComponent, children: [
       {path: "all-questions", component: AllQuestionsComponent },
