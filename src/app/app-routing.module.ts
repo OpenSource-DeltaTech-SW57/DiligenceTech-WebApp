@@ -39,6 +39,10 @@ import { AuthGuardService } from './authentication/guards/auth.guard.service';
 import {AllQuestionsComponent} from "./q-and-a/pages/all-questions/all-questions.component";
 import {QAndAComponent} from "./q-and-a/pages/q-and-a/q-and-a.component";
 import {QuestionsProjectListComponent} from "./q-and-a/pages/questions-project-list/questions-project-list.component";
+import {
+  RootProjectManagementComponent
+} from "./project-management/components/root-project-management/root-project-management.component";
+import {RootEmailComponent} from "./email/pages/root-email/root-email.component";
 
 
 const routes: Routes = [
@@ -52,17 +56,21 @@ const routes: Routes = [
   {path: "dashboard", component: DashboardComponent},
   {path: "about", component: AboutComponent},
   {path: "testing/users", component: UserManagementComponent},
-  {path: "project-management/all-projects", component: ProjectListComponent},
-  {path: "project-management/create-project", component: ProjectCreateAndEditComponent},
-  {path: "communications/email/inbox", component: InboxComponent},
-  {path: "communications/email/important", component: ImportantComponent},
-  {path: "communications/email/compose", component: ComposeComponent },
-  {path: "communications/email/trash", component: TrashComponent },
-  {path: "communications/email/drafts", component: DraftsComponent },
-  {path: "communications/email/read", component: ReadComponent},
-  {path: "communications/notifications", component: NotificationListComponent},
-  {path: "communications/email/sent", component: SentComponent},
-  {path: "communications/email/spam", component: SpamComponent},
+  {path: "project-management", component: RootProjectManagementComponent, children: [
+      {path: "all-projects", component: ProjectListComponent},
+      {path: "create-project", component: ProjectCreateAndEditComponent},
+    ]},
+  {path: "communications/email", component: RootEmailComponent, children: [
+      {path: "inbox", component: InboxComponent},
+      {path: "important", component: ImportantComponent},
+      {path: "compose", component: ComposeComponent },
+      {path: "trash", component: TrashComponent },
+      {path: "drafts", component: DraftsComponent },
+      {path: "read", component: ReadComponent},
+      {path: "notifications", component: NotificationListComponent},
+      {path: "sent", component: SentComponent},
+      {path: "spam", component: SpamComponent},
+    ]},
   {path: "pricing/subscription-plan", component: SubscriptionPlanComponent},
   {path: "account/my-profile", component: MyprofileComponent },
   {path: "account/settings", component: SettingsAccountComponent , children: [

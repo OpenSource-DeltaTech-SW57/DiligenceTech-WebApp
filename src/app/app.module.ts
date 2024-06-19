@@ -98,6 +98,8 @@ import { ImportantComponent } from './email/components/important/important.compo
 import { AllQuestionsComponent } from './q-and-a/pages/all-questions/all-questions.component';
 import { QuestionsProjectListComponent } from './q-and-a/pages/questions-project-list/questions-project-list.component';
 import { QAndAComponent } from './q-and-a/pages/q-and-a/q-and-a.component';
+import { RootProjectManagementComponent } from './project-management/components/root-project-management/root-project-management.component';
+import { RootEmailComponent } from './email/pages/root-email/root-email.component';
 
 
 @NgModule({
@@ -160,7 +162,9 @@ import { QAndAComponent } from './q-and-a/pages/q-and-a/q-and-a.component';
     ImportantComponent,
     AllQuestionsComponent,
     QuestionsProjectListComponent,
-    QAndAComponent
+    QAndAComponent,
+    RootProjectManagementComponent,
+    RootEmailComponent
   ],
   imports: [
     BrowserModule,

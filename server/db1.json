@@ -1,0 +1,540 @@
+{
+  "users": [
+    {
+      "id": "u202111654",
+      "email": "u202111654@upc.edu.pe",
+      "username": "Julio Elsner",
+      "password": "trif123",
+      "image": "https://cdn-icons-png.flaticon.com/256/622/622851.png"
+    },
+    {
+      "id": "u202218227",
+      "email": "u202218227@upc.edu.pe",
+      "username": "Luis Eduardo Herrera",
+      "password": "la-sexta-es-inevitable123",
+      "image": "https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+    },
+    {
+      "id": "u202218226",
+      "email": "u202218226@upc.edu.pe",
+      "username": "Javier Prado",
+      "password": "kendricklamar",
+      "image": "https://cdn-icons-png.flaticon.com/512/8662/8662289.png"
+    }
+  ],
+  "agentProjectInvitation": [
+    {
+      "user_id": "u202111654",
+      "project_id": "PJ5757",
+      "team": "buy_side",
+      "confirmation": false,
+      "id": 1
+    },
+    {
+      "user_id": "u202218227",
+      "project_id": "PJ5757",
+      "team": "sell_side",
+      "confirmation": false,
+      "id": 2
+    },
+    {
+      "user_id": "u202111654",
+      "project_id": "PJ1818",
+      "team": "buy_side",
+      "confirmation": true,
+      "id": 3
+    },
+    {
+      "user_id": "u202218227",
+      "project_id": "PJ1818",
+      "team": "sell_side",
+      "confirmation": true,
+      "id": 4
+    },
+    {
+      "user_id": "u202111654",
+      "project_id": "PJ3555",
+      "team": "buy_side",
+      "confirmation": false,
+      "id": 5
+    },
+    {
+      "user_id": "U202218227",
+      "project_id": "PJ3555",
+      "team": "sell_side",
+      "confirmation": false,
+      "id": 6
+    },
+    {
+      "user_id": "u202111654",
+      "project_id": "PJ3556",
+      "team": "buy_side",
+      "confirmation": false,
+      "id": 7
+    },
+    {
+      "user_id": "U202218227",
+      "project_id": "PJ3556",
+      "team": "sell_side",
+      "confirmation": false,
+      "id": 8
+    },
+    {
+      "user_id": "u202111654",
+      "project_id": "PJ4445",
+      "team": "buy_side",
+      "confirmation": false,
+      "id": 9
+    },
+    {
+      "user_id": "U202218227",
+      "project_id": "PJ4445",
+      "team": "sell_side",
+      "confirmation": false,
+      "id": 10
+    },
+    {
+      "user_id": "u202111654",
+      "project_id": "PJ4441",
+      "team": "buy_side",
+      "confirmation": false,
+      "id": 11
+    },
+    {
+      "user_id": "U202218227",
+      "project_id": "PJ4441",
+      "team": "sell_side",
+      "confirmation": false,
+      "id": 12
+    },
+    {
+      "user_id": "u202111654",
+      "project_id": "PJ4440",
+      "team": "buy_side",
+      "confirmation": false,
+      "id": 13
+    },
+    {
+      "user_id": "U202218227",
+      "project_id": "PJ4440",
+      "team": "sell_side",
+      "confirmation": false,
+      "id": 14
+    },
+    {
+      "user_id": "u202111654",
+      "project_id": "PJ1111",
+      "team": "buy_side",
+      "confirmation": false,
+      "id": 15
+    },
+    {
+      "user_id": "U202218227",
+      "project_id": "PJ1111",
+      "team": "sell_side",
+      "confirmation": false,
+      "id": 16
+    },
+    {
+      "user_id": "u202111654",
+      "project_id": "PJ4431",
+      "team": "buy_side",
+      "confirmation": false,
+      "id": 17
+    },
+    {
+      "user_id": "U202218227",
+      "project_id": "PJ4431",
+      "team": "sell_side",
+      "confirmation": false,
+      "id": 18
+    },
+    {
+      "user_id": "u202111654",
+      "project_id": "PJ0001",
+      "team": "buy_side",
+      "confirmation": false,
+      "id": 19
+    },
+    {
+      "user_id": "U202218227",
+      "project_id": "PJ0001",
+      "team": "sell_side",
+      "confirmation": false,
+      "id": 20
+    },
+    {
+      "user_id": "u202218227",
+      "project_id": "PJ0023",
+      "team": "sell_side",
+      "confirmation": true,
+      "id": 23
+    },
+    {
+      "user_id": "U202218226",
+      "project_id": "PJ0023",
+      "team": "buy_side",
+      "confirmation": false,
+      "id": 24
+    }
+  ],
+  "pendingProjects": [
+    {
+      "id": "PJ5757",
+      "name": "Project Pepsi",
+      "date_published": "1-4-2024"
+    },
+    {
+      "id": "PJ3555",
+      "name": "Project Ronaldo",
+      "date_published": "3-4-2024"
+    },
+    {
+      "id": "PJ3556",
+      "name": "Project Abel",
+      "date_published": "3-4-2024"
+    },
+    {
+      "id": "PJ4445",
+      "name": "Project MKPro",
+      "date_published": "3-4-2024"
+    },
+    {
+      "id": "PJ4441",
+      "name": "Project MM",
+      "date_published": "3-4-2024"
+    },
+    {
+      "id": "PJ4440",
+      "name": "Project Joqui",
+      "date_published": "3-4-2024"
+    },
+    {
+      "id": "PJ1111",
+      "name": "Project Mallma",
+      "date_published": "3-4-2024"
+    },
+    {
+      "id": "PJ4431",
+      "name": "Project LETS GO",
+      "date_published": "3-4-2024"
+    },
+    {
+      "id": "PJ0001",
+      "name": "Project Beta",
+      "date_published": "3-4-2024"
+    },
+    {
+      "id": "PJ0023",
+      "name": "Project Duell",
+      "date_published": "3-4-2024"
+    }
+  ],
+  "dueDiligenceProjects": [
+    {
+      "id": "PJ2122",
+      "name": "Project Gloria",
+      "date_published": "10-2-2023",
+      "date_edited": "10-3-2023",
+      "sell_side_agents_id": [
+        "u202111654"
+      ],
+      "buy_side_agents_id": [
+        "u202218227"
+      ]
+    },
+    {
+      "id": "PJ2121",
+      "name": "Project Messi",
+      "date_published": "10-2-2023",
+      "date_edited": "10-3-2023",
+      "sell_side_agents_id": [
+        "u202218227"
+      ],
+      "buy_side_agents_id": [
+        "u202218226"
+      ]
+    },
+    {
+      "id": "PJ2120",
+      "name": "Project Peru",
+      "date_published": "10-2-2023",
+      "date_edited": "10-3-2023",
+      "sell_side_agents_id": [
+        "u202111654"
+      ],
+      "buy_side_agents_id": [
+        "u202218226"
+      ]
+    },
+    {
+      "id": "PJ2004",
+      "name": "Project Portugal",
+      "date_published": "3-4-2024",
+      "date_edited": "3-4-2024",
+      "sell_side_agents_id": [
+        "u202218227"
+      ],
+      "buy_side_agents_id": [
+        "u202111654"
+      ]
+    },
+    {
+      "id": "PJ1818",
+      "name": "Project Acabado",
+      "date_published": "3-4-2024",
+      "date_edited": "3-4-2024",
+      "sell_side_agents_id": [
+        "u202218227"
+      ],
+      "buy_side_agents_id": [
+        "u202111654"
+      ]
+    }
+  ],
+  "informationGroup": [
+    {
+      "id": 1,
+      "project_id": "PJ2122",
+      "identifier": "Financiero",
+      "name": "Financiero",
+      "parent": null,
+      "buy_status": null,
+      "sell_status": null
+    },
+    {
+      "id": 2,
+      "project_id": "PJ2122",
+      "identifier": "1",
+      "name": "Balance de comprobación (en Excel) abierto al máximo nivel de dígitos (años 2015 al 2017)",
+      "parent": "Financiero",
+      "buy_status": "Done",
+      "sell_status": "Done",
+      "children": [
+        {
+          "project_id": "PJ2122",
+          "informationGroup_id": "1",
+          "file_name": "upc-pre-202202-si400-examen-final.pdf",
+          "file_url": "https://firebasestorage.googleapis.com/v0/b/diligencetech-e4fb4.appspot.com/o/vue%2Fupc-pre-202202-si400-examen-final.pdf?alt=media&token=be97fe9c-f919-45a3-9170-0006a04d0a20",
+          "id": 2
+        },
+        {
+          "project_id": "PJ2122",
+          "informationGroup_id": "1",
+          "file_name": "upc-pre-202301-si397-si33-START Group-performance-tf.pdf",
+          "file_url": "https://firebasestorage.googleapis.com/v0/b/diligencetech-e4fb4.appspot.com/o/vue%2Fupc-pre-202301-si397-si33-START%20Group-performance-tf.pdf?alt=media&token=602eb93d-0c69-4e55-bb21-6867925d3d16",
+          "id": 3
+        }
+      ],
+      "has_children": false
+    },
+    {
+      "id": 3,
+      "project_id": "PJ2122",
+      "identifier": "2",
+      "name": "Mayores analíticos de las cuentas contables por los años 2015 al 2017 (en formato Excel).",
+      "parent": "Financiero",
+      "buy_status": "Done",
+      "sell_status": "Done",
+      "children": [
+        {
+          "project_id": "PJ2122",
+          "informationGroup_id": "2",
+          "file_name": "Formato de solicitud de cambio de nota 2023 u202218227.pdf",
+          "file_url": "https://firebasestorage.googleapis.com/v0/b/diligencetech-e4fb4.appspot.com/o/vue%2FFormato%20de%20solicitud%20de%20cambio%20de%20nota%202023%20u202218227.pdf?alt=media&token=87dc9481-5da3-4e11-b193-3d164beedd92",
+          "id": 1
+        }
+      ],
+      "has_children": false
+    },
+    {
+      "id": 4,
+      "project_id": "PJ2122",
+      "identifier": "3",
+      "name": "Libro de actas de Junta General de Accionistas",
+      "parent": "Financiero",
+      "buy_status": "Done",
+      "sell_status": "In Progress",
+      "children": [
+        {
+          "project_id": "PJ2122",
+          "informationGroup_id": "3",
+          "file_name": "learning-center.pdf",
+          "file_url": "https://firebasestorage.googleapis.com/v0/b/diligencetech-e4fb4.appspot.com/o/vue%2Flearning-center.pdf?alt=media&token=876694a0-9b66-441c-ab2e-4771aab69efe",
+          "id": 4
+        }
+      ],
+      "has_children": false
+    },
+    {
+      "project_id": "PJ2122",
+      "identifier": "4",
+      "name": "Documentos del 2013 y 2014 generales",
+      "parent": "Financiero",
+      "buy_status": "None",
+      "sell_status": "None",
+      "id": 5
+    },
+    {
+      "project_id": "PJ2122",
+      "identifier": "Tributario",
+      "name": "Tributario",
+      "parent": null,
+      "buy_status": null,
+      "sell_status": null,
+      "id": 6
+    },
+    {
+      "project_id": "PJ2122",
+      "identifier": "1",
+      "name": "Documentos Tributarios del 2015",
+      "parent": "Tributario",
+      "buy_status": "None",
+      "sell_status": "None",
+      "id": 7
+    },
+    {
+      "project_id": "PJ2122",
+      "identifier": "Legal",
+      "name": "Legal",
+      "parent": null,
+      "buy_status": null,
+      "sell_status": null,
+      "id": 9
+    },
+    {
+      "project_id": "PJ2122",
+      "identifier": "1",
+      "name": "Quiero los datos penales de tus Trabajadores del 2023.",
+      "parent": "Legal",
+      "buy_status": "None",
+      "sell_status": "None",
+      "id": 10
+    },
+    {
+      "project_id": "PJ2122",
+      "identifier": "5",
+      "name": "Documentos Financieros del 2014.",
+      "parent": "Financiero",
+      "buy_status": "None",
+      "sell_status": "None",
+      "id": 11
+    },
+    {
+      "project_id": "PJ2122",
+      "identifier": "IT",
+      "name": "IT",
+      "parent": null,
+      "buy_status": null,
+      "sell_status": null,
+      "id": 12
+    },
+    {
+      "project_id": "PJ2122",
+      "identifier": "1",
+      "name": "Compras de Productos IT del 2003-2023.",
+      "parent": "IT",
+      "buy_status": "None",
+      "sell_status": "None",
+      "id": 13
+    },
+    {
+      "project_id": "PJ2122",
+      "identifier": "Operacional",
+      "name": "Operacional",
+      "parent": null,
+      "buy_status": null,
+      "sell_status": null,
+      "id": 14
+    },
+    {
+      "project_id": "PJ2122",
+      "identifier": "Adicional",
+      "name": "Adicional",
+      "parent": null,
+      "buy_status": null,
+      "sell_status": null,
+      "id": 15
+    },
+    {
+      "project_id": "PJ2122",
+      "identifier": "6",
+      "name": "Documentos financieros exclusivamente del 2018.",
+      "parent": "Financiero",
+      "buy_status": "None",
+      "sell_status": "None",
+      "id": 16
+    }
+  ],
+  "document": [
+    {
+      "project_id": "PJ2122",
+      "informationGroup_id": "2",
+      "file_name": "Formato de solicitud de cambio de nota 2023 u202218227.pdf",
+      "file_url": "https://firebasestorage.googleapis.com/v0/b/diligencetech-e4fb4.appspot.com/o/vue%2FFormato%20de%20solicitud%20de%20cambio%20de%20nota%202023%20u202218227.pdf?alt=media&token=87dc9481-5da3-4e11-b193-3d164beedd92",
+      "id": 1
+    },
+    {
+      "project_id": "PJ2122",
+      "informationGroup_id": "1",
+      "file_name": "upc-pre-202202-si400-examen-final.pdf",
+      "file_url": "https://firebasestorage.googleapis.com/v0/b/diligencetech-e4fb4.appspot.com/o/vue%2Fupc-pre-202202-si400-examen-final.pdf?alt=media&token=be97fe9c-f919-45a3-9170-0006a04d0a20",
+      "id": 2
+    },
+    {
+      "project_id": "PJ2122",
+      "informationGroup_id": "1",
+      "file_name": "upc-pre-202301-si397-si33-START Group-performance-tf.pdf",
+      "file_url": "https://firebasestorage.googleapis.com/v0/b/diligencetech-e4fb4.appspot.com/o/vue%2Fupc-pre-202301-si397-si33-START%20Group-performance-tf.pdf?alt=media&token=602eb93d-0c69-4e55-bb21-6867925d3d16",
+      "id": 3
+    },
+    {
+      "project_id": "PJ2122",
+      "informationGroup_id": "3",
+      "file_name": "learning-center.pdf",
+      "file_url": "https://firebasestorage.googleapis.com/v0/b/diligencetech-e4fb4.appspot.com/o/vue%2Flearning-center.pdf?alt=media&token=876694a0-9b66-441c-ab2e-4771aab69efe",
+      "id": 4
+    },
+    {
+      "project_id": "PJ2122",
+      "informationGroup_id": "4",
+      "file_name": "Desktop - Product List.pdf",
+      "file_url": "https://firebasestorage.googleapis.com/v0/b/diligencetech-e4fb4.appspot.com/o/vue%2FDesktop%20-%20Product%20List.pdf?alt=media&token=c3cfb414-50e9-4a7e-9390-b191be102b03",
+      "id": 5
+    },
+    {
+      "project_id": "PJ2122",
+      "informationGroup_id": "5",
+      "file_name": "MA462_S14_2.pdf",
+      "file_url": "https://firebasestorage.googleapis.com/v0/b/diligencetech-e4fb4.appspot.com/o/vue%2FMA462_S14_2.pdf?alt=media&token=85b81b24-af5d-4466-89d7-acb72669c9be",
+      "id": 6
+    }
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "question_id": "1",
+      "project_id": "PJ2122",
+      "informationGroup_id": "1",
+      "user_id": "U202218227",
+      "content": "Apreciamos que a partir del año 2013 al 2017, hubo un incremento significativo de las ventas ( incremento acumulado de 325%). Agradeceremos, comentar brevemente a qué debe este incremento. De corresponder a acuerdos comerciales suscritos con supermercado o similares, indicarnos brevemente cuales son los términos, así como proporcionarnos los documentos de acuerdos comerciales."
+    },
+    {
+      "id": 2,
+      "question_id": "2",
+      "project_id": "PJ2122",
+      "informationGroup_id": "2",
+      "user_id": "U202218227",
+      "content": "Observamos que año a año se otorgan descuentos comerciales, los cuales no estarían sustentados en su totalidad en Notas de Credito. Al respecto, agradeceremos nos precisen brevemente, cual es el tratamiento tributario de estos descuentos que entendemos se incluirían dentro de las mismas facturas. Proporcionarnos políticas de descuentos."
+    }
+  ],
+  "answers": [
+    {
+      "id": 1,
+      "project_id": "PJ2122",
+      "informationGroup_id": "1",
+      "user_id": "u202111654",
+      "content": "Era la dos."
+    }
+  ]
+}
