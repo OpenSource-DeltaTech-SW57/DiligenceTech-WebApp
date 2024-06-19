@@ -33,9 +33,6 @@ import { RootAuthenticationComponent } from './authentication/pages/root-authent
 import { SubscriptionPlanComponent } from './public/pages/subscription-plan/subscription-plan.component';
 import { DashboardFileManagementComponent } from './file-management/pages/dashboard-file-management/dashboard-file-management.component';
 import { SharedDriveComponent } from './file-management/components/shared-drive/shared-drive.component';
-import { FolderComponent } from './file-management/components/folder/folder.component';
-import { FileComponent } from './file-management/components/file/file.component';
-import { AuthGuardService } from './authentication/guards/auth.guard.service';
 import {AllQuestionsComponent} from "./q-and-a/pages/all-questions/all-questions.component";
 import {QAndAComponent} from "./q-and-a/pages/q-and-a/q-and-a.component";
 import {QuestionsProjectListComponent} from "./q-and-a/pages/questions-project-list/questions-project-list.component";

@@ -86,8 +86,6 @@ import { SubscriptionPlanComponent } from './public/pages/subscription-plan/subs
 import { SidebarFileManagementComponent } from './file-management/components/sidebar-file-management/sidebar-file-management.component';
 import { DashboardFileManagementComponent } from './file-management/pages/dashboard-file-management/dashboard-file-management.component';
 import { SharedDriveComponent } from './file-management/components/shared-drive/shared-drive.component';
-import { FolderComponent } from './file-management/components/folder/folder.component';
-import { FileComponent } from './file-management/components/file/file.component';
 import { EncryptionDataService } from './shared/services/encryption-data.service';
 import { AuthService } from './authentication/services/auth.service';
 import { AuthGuardService } from './authentication/guards/auth.guard.service';
@@ -154,8 +152,6 @@ import { FoldersListComponent } from './file-management/components/folders-list/
     SidebarFileManagementComponent,
     DashboardFileManagementComponent,
     SharedDriveComponent,
-    FolderComponent,
-    FileComponent,
     DraftsComponent,
     SentComponent,
     SpamComponent,
