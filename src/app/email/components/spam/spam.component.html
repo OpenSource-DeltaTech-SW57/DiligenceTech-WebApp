@@ -25,19 +25,43 @@
         </mat-card-title>
         <mat-card-subtitle>
           <div class="info-buttons-list d-flex align-items-center">
+            <button mat-button>
+              <i class="material-symbols-outlined">
+                refresh
+              </i>
+            </button>
+            <button mat-button>
+              <i class="material-symbols-outlined">
+                report_gmailerrorred
+              </i>
+            </button>
             <button mat-button class="text-body" (click)="deleteSelectedRows()">
-              <i class="material-icons-outlined">delete</i>
+              <i class="material-symbols-outlined">
+                delete
+              </i>
+            </button>
+            <button type="button" mat-button [matMenuTriggerFor]="emailHeaderMenu">
+              <i class="material-symbols-outlined">
+                more_horiz
+              </i>
             </button>
             <mat-menu #emailHeaderMenu="matMenu" class="card-header-menu" xPosition="before">
-              <button mat-menu-item>Recent</button>
-              <button mat-menu-item>Unread</button>
-              <button mat-menu-item>Mark All Read</button>
-              <button mat-menu-item>Move to Inbox</button>
-              <button mat-menu-item>Delete All</button>
+              <button mat-menu-item>
+                Recent
+              </button>
+              <button mat-menu-item>
+                Unread
+              </button>
+              <button mat-menu-item>
+                Mark All Read
+              </button>
+              <button mat-menu-item>
+                Spam
+              </button>
+              <button mat-menu-item>
+                Delete All
+              </button>
             </mat-menu>
-            <button type="button" mat-button [matMenuTriggerFor]="emailHeaderMenu">
-              <i class="material-icons-outlined">more_horiz</i>
-            </button>
           </div>
         </mat-card-subtitle>
       </mat-card-header>
