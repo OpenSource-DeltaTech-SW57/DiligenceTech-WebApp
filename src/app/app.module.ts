@@ -100,6 +100,9 @@ import { RootProjectManagementComponent } from './project-management/components/
 import { RootEmailComponent } from './email/pages/root-email/root-email.component';
 import { FoldersListComponent } from './file-management/components/folders-list/folders-list.component';
 import { DocumentsListComponent } from './file-management/components/documents-list/documents-list.component';
+import { AreaCreationComponent } from './file-management/components/area-creation/area-creation.component';
+import { RootCreateComponent } from './project-management/pages/root-create/root-create.component';
+import { FolderCreationComponent } from './file-management/folder-creation/folder-creation.component';
 
 
 @NgModule({
@@ -164,7 +167,10 @@ import { DocumentsListComponent } from './file-management/components/documents-l
     RootProjectManagementComponent,
     RootEmailComponent,
     FoldersListComponent,
-    DocumentsListComponent
+    DocumentsListComponent,
+    AreaCreationComponent,
+    RootCreateComponent,
+    FolderCreationComponent
   ],
   imports: [
     BrowserModule,

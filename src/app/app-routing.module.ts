@@ -42,6 +42,9 @@ import {
 import {RootEmailComponent} from "./email/pages/root-email/root-email.component";
 import {FoldersListComponent} from "./file-management/components/folders-list/folders-list.component";
 import {DocumentsListComponent} from "./file-management/components/documents-list/documents-list.component";
+import {RootCreateComponent} from "./project-management/pages/root-create/root-create.component";
+import {AreaCreationComponent} from "./file-management/components/area-creation/area-creation.component";
+import {FolderCreationComponent} from "./file-management/folder-creation/folder-creation.component";
 
 
 const routes: Routes = [
@@ -59,6 +62,12 @@ const routes: Routes = [
       {path: "all-projects", component: ProjectListComponent},
       {path: "create-project", component: ProjectCreateAndEditComponent},
     ]},
+  {path: "create", component: RootCreateComponent, children: [
+      {path: "project", component: ProjectCreateAndEditComponent},
+      {path: "area/:id", component: AreaCreationComponent},
+      {path: "folder/:id/:areaId", component: FolderCreationComponent},
+      {path: "folder/:id/:areaId/:folderId", component: FolderCreationComponent}
+  ]},
   {path: "communications/email", component: RootEmailComponent, children: [
       {path: "inbox", component: InboxComponent},
       {path: "important", component: ImportantComponent},

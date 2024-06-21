@@ -1,11 +1,14 @@
 import { SelectionModel } from '@angular/cdk/collections';
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, inject, OnInit} from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { CustomizerSettingsService } from '../../../shared/services/customizer-settings.service';
 import {ProjectsApiService} from "../../../project-management/services/projects-api.service";
 import {AreaApiService} from "../../services/area-api.service";
 import {ActivatedRoute} from "@angular/router";
 import {response} from "express";
+import {AreaCreationComponent} from "../area-creation/area-creation.component";
+import {Dialog} from "@angular/cdk/dialog";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-shared-drive',
@@ -17,6 +20,7 @@ export class SharedDriveComponent implements OnInit, AfterViewInit {
   dataSource!: MatTableDataSource<any>;
   selection = new SelectionModel<any>(true, []);
   role: string = '';
+  readonly dialog = inject(MatDialog);
 
     /** Whether the number of selected elements matches the total number of rows. */
     isAllSelected() {
@@ -102,6 +106,13 @@ export class SharedDriveComponent implements OnInit, AfterViewInit {
 
   setBuyRole() {
     this.role = 'Buy-Side';
+  }
+
+  toAreaCreation() {
+    let dialogRef = this.dialog.open(AreaCreationComponent, {
+      height: '400px',
+      width: '600px',
+    });
   }
 
     // RTL Mode
