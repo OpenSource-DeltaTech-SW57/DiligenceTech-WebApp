@@ -33,32 +33,39 @@
       <mat-card-header>
         <mat-card-title>
           <h5 class="mt-0 mb-0">
-            New Message
+            Email Composition
           </h5>
         </mat-card-title>
         <mat-card-subtitle>
           <div class="info-buttons-list d-flex align-items-center">
-            <button mat-button class="text-body">
-              <i class="material-icons-outlined">refresh</i>
+            <button mat-button>
+              <i class="material-icons">refresh</i>
             </button>
-            <button mat-button class="text-body">
-              <i class="material-icons-outlined">print</i>
+            <button mat-button>
+              <i class="material-icons">print</i>
             </button>
-            <button mat-button class="text-body">
-              <i class="material-icons-outlined">report_gmailerrorred</i>
+            <button mat-button>
+              <i class="material-icons">report_gmailerrorred</i>
             </button>
-            <button mat-button class="text-body">
-              <i class="material-icons-outlined">delete</i>
-            </button>
-            <button type="button" class="text-body" mat-button [matMenuTriggerFor]="emailHeaderMenu">
-              <i class="material-icons-outlined">more_horiz</i>
+            <button type="button" mat-button [matMenuTriggerFor]="emailHeaderMenu">
+              <i class="material-icons">more_horiz</i>
             </button>
             <mat-menu #emailHeaderMenu="matMenu" class="card-header-menu" xPosition="before">
-              <button mat-menu-item>Recent</button>
-              <button mat-menu-item>Unread</button>
-              <button mat-menu-item>Mark All Read</button>
-              <button mat-menu-item>Spam</button>
-              <button mat-menu-item>Delete All</button>
+              <button mat-menu-item>
+                Recent
+              </button>
+              <button mat-menu-item>
+                Unread
+              </button>
+              <button mat-menu-item>
+                Mark All Read
+              </button>
+              <button mat-menu-item>
+                Spam
+              </button>
+              <button mat-menu-item>
+                Delete All
+              </button>
             </mat-menu>
           </div>
         </mat-card-subtitle>
@@ -124,13 +131,10 @@
             <button mat-button class="btn" (click)="sendEmail()">Send</button>
             <div class="buttons-list d-flex align-items-center">
               <button mat-button class="text-body">
-                <i class="material-icons-outlined">sentiment_satisfied</i>
+                <i class="material-icons">attach_file</i>
               </button>
               <button mat-button class="text-body">
-                <i class="material-icons-outlined">attach_file</i>
-              </button>
-              <button mat-button class="text-body">
-                <i class="material-icons-outlined">image</i>
+                <i class="material-icons">image</i>
               </button>
             </div>
           </div>
