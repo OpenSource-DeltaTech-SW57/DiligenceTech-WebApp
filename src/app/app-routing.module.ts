@@ -45,6 +45,8 @@ import {DocumentsListComponent} from "./file-management/components/documents-lis
 import {RootCreateComponent} from "./project-management/pages/root-create/root-create.component";
 import {AreaCreationComponent} from "./file-management/components/area-creation/area-creation.component";
 import {FolderCreationComponent} from "./file-management/folder-creation/folder-creation.component";
+import {authenticationGuard} from "./authentication/services/authentication.guard";
+import {DocumentsCreationComponent} from "./file-management/components/documents-creation/documents-creation.component";
 
 
 const routes: Routes = [
@@ -66,7 +68,7 @@ const routes: Routes = [
       {path: "project", component: ProjectCreateAndEditComponent},
       {path: "area/:id", component: AreaCreationComponent},
       {path: "folder/:id/:areaId", component: FolderCreationComponent},
-      {path: "documents/:id/:areaId/:folderId", component: FolderCreationComponent}
+      {path: "documents/:id/:areaId/:folderId", component: DocumentsCreationComponent}
   ]},
   {path: "communications/email", component: RootEmailComponent, children: [
       {path: "inbox", component: InboxComponent},
@@ -88,7 +90,7 @@ const routes: Routes = [
     {path: "privacy-policy", component: PrivacyPolicyComponent},
     {path: "terms-conditions", component: TermsConditionsComponent},
   ]},
-  {path: "project-management/all-projects", component: DashboardFileManagementComponent, children: [
+  {path: "project-management/all-projects", component: DashboardFileManagementComponent, canActivate: [authenticationGuard], children: [
     {path: ":id/file-management", component: SharedDriveComponent},
       {path: ":id/file-management/:areaId", component: FoldersListComponent},
       {path: ":id/file-management/:areaId/:folderId", component: DocumentsListComponent}

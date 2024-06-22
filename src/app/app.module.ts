@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import {HttpClientModule, provideHttpClient, withInterceptors} from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { UsersService } from './testing/services/users.service';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
@@ -103,6 +103,8 @@ import { DocumentsListComponent } from './file-management/components/documents-l
 import { AreaCreationComponent } from './file-management/components/area-creation/area-creation.component';
 import { RootCreateComponent } from './project-management/pages/root-create/root-create.component';
 import { FolderCreationComponent } from './file-management/folder-creation/folder-creation.component';
+import {authenticationInterceptor} from "./authentication/services/authentication.interceptor";
+import { DocumentsCreationComponent } from './file-management/components/documents-creation/documents-creation.component';
 
 
 @NgModule({
@@ -170,7 +172,8 @@ import { FolderCreationComponent } from './file-management/folder-creation/folde
     DocumentsListComponent,
     AreaCreationComponent,
     RootCreateComponent,
-    FolderCreationComponent
+    FolderCreationComponent,
+    DocumentsCreationComponent
   ],
   imports: [
     BrowserModule,
@@ -206,7 +209,8 @@ import { FolderCreationComponent } from './file-management/folder-creation/folde
     MatCheckboxModule,
   ],
   providers: [
-    provideAnimationsAsync(), UsersService, ProjectsApiService, CustomizerSettingsService, ToggleService, DatePipe, EncryptionDataService, AuthService, AuthGuardService
+    provideAnimationsAsync(), UsersService, ProjectsApiService, CustomizerSettingsService, ToggleService, DatePipe, EncryptionDataService, AuthService, AuthGuardService,
+    provideHttpClient(withInterceptors([authenticationInterceptor]))
   ],
   bootstrap: [AppComponent]
 })

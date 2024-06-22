@@ -51,7 +51,7 @@
                   <mat-label>
                     Write area name
                   </mat-label>
-                  <input matInput placeholder="E.g. Legal, Financial, Tax, Operational" name="projectName" required>
+                  <input matInput placeholder="E.g. Legal, Financial, Tax, Operational" name="projectName" required [(ngModel)]="areaName">
                 </mat-form-field>
               </div>
             </div>
@@ -59,7 +59,7 @@
         </div>
       </div>
       <div class="btn-box">
-        <button mat-button>
+        <button mat-button (click)="onSubmit()">
           + Create Area
         </button>
         <button mat-button (click)="onCancel()">

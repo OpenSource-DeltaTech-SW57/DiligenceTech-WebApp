@@ -3,6 +3,9 @@ import {Project} from "../../../project-management/model/project.entity";
 import {NgForm} from "@angular/forms";
 import {Editor, Toolbar} from "ngx-editor";
 import {CustomizerSettingsService} from "../../../shared/services/customizer-settings.service";
+import {AreaApiService} from "../../services/area-api.service";
+import {ActivatedRoute, Router} from "@angular/router";
+import {AreaRequest} from "../../model/area.request";
 
 @Component({
   selector: 'app-area-creation',
@@ -16,6 +19,7 @@ export class AreaCreationComponent {
   @Output() projectUpdated = new EventEmitter<Project>();
   @Output() editCanceled = new EventEmitter();
   @ViewChild('projectForm', {static:false}) projectForm!: NgForm;
+  areaName: string = '';
 
   editor!: Editor;
   toolbar: Toolbar = [
@@ -41,7 +45,12 @@ export class AreaCreationComponent {
 
   isToggled = false;
 
-  constructor(public themeService: CustomizerSettingsService) {
+  constructor(
+    public themeService: CustomizerSettingsService,
+    private areaApiService: AreaApiService,
+    private route: ActivatedRoute,
+    private router: Router
+      ) {
     this.project = {} as Project;
     this.themeService.isToggled$.subscribe(_isToggled => {
       this.isToggled = _isToggled;
@@ -55,15 +64,18 @@ export class AreaCreationComponent {
   }
 
   onSubmit() {
-    if (this.projectForm.form.valid){
-      if(this.editMode){
-        this.projectUpdated.emit(this.project);
-      } else {
-        this.resetEditState();
-      }
-    } else {
-      console.log("invalid data");
-    }
+    this.route.params.subscribe(params => {
+      let createArea = new AreaRequest(params['id'], this.areaName);
+      this.areaApiService.create(createArea).subscribe({
+        next: (response) => {
+          console.log(`Area Created: ${response.name}`);
+          this.router.navigate([`/${params['id']}/file-management`]);
+        },
+        error: (error) => {
+          console.error(`Error while creating area: ${error.message}`);
+        }
+      });
+    })
   }
 
   onCancel() {
