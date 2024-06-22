@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CustomizerSettingsService } from '../../../shared/services/customizer-settings.service';
+import {AuthenticationService} from "../../services/authentication.service";
+import {SignUpRequest} from "../../model/sign-up.request";
 
 @Component({
   selector: 'app-sign-up',
@@ -14,7 +16,8 @@ export class SignUpComponent {
     constructor(
         private fb: FormBuilder,
         private router: Router,
-        public themeService: CustomizerSettingsService
+        public themeService: CustomizerSettingsService,
+        private authenticationService: AuthenticationService
     ) {
         this.authForm = this.fb.group({
             name: ['', Validators.required],
@@ -33,7 +36,12 @@ export class SignUpComponent {
     authForm: FormGroup;
     onSubmit() {
         if (this.authForm.valid) {
+          const email = this.authForm.get("email")!.value;
+          const password = this.authForm.get("password")!.value;
+          const signUpRequest = new SignUpRequest(email, password);
+          this.authenticationService.signUp(signUpRequest);
             this.router.navigate(['/']);
+
         } else {
             console.log('Form is invalid. Please check the fields.');
         }

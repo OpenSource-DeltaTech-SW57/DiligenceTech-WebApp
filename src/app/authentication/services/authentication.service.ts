@@ -45,11 +45,11 @@ export class AuthenticationService {
       .subscribe({
         next: (response) => {
           console.log(`Signed Up as ${response.username} with ID: ${response.id}`);
-          this.router.navigate(['/sign-in']).then();
+          this.router.navigate(['/']).then();
         },
         error: (error) => {
           console.error(`Error while signing up: ${error.message}`);
-          this.router.navigate(['/sign-up']).then();
+          this.router.navigate(['/authentication/sign-up']).then();
         }
       });
   }
@@ -68,16 +68,18 @@ export class AuthenticationService {
           this.signedInUserId.next(response.id);
           this.signedInUsername.next(response.username);
           localStorage.setItem('token', response.token);
+          localStorage.setItem('user', response.username);
           console.log(`Signed In as ${response.username} with token: ${response.token}`);
-          this.router.navigate(['/']).then();
+          this.router.navigate(['/dashboard']).then();
         },
         error: (error) => {
           this.signedIn.next(false);
           this.signedInUserId.next(0);
           this.signedInUsername.next('');
           localStorage.removeItem('token');
+          localStorage.removeItem('user');
           console.error(`Error while signing in: ${error.message}`);
-          this.router.navigate(['/sign-in']).then();
+          this.router.navigate(['/authentication/sign-up']).then();
         }
       });
   }
