@@ -88,7 +88,6 @@
                         top: 50%;
                         right: 0;
                         margin-top: -2px;
-                        content: "\f63f";
                         position: absolute;
                         color: var(--blackColor);
                         transform: translateY(-50%);
@@ -212,7 +211,6 @@
                     &::after {
                         top: 50%;
                         right: -3px;
-                        content: "\f63f";
                         position: absolute;
                         color: var(--blackColor);
                         transform: translateY(-50%);

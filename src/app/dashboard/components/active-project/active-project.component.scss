@@ -178,6 +178,17 @@
                         }
                     }
                 }
+
+              .panel-title {
+                display: flex;
+                align-items: center;
+              }
+
+              .expand-icon {
+                margin-left: auto; // Empuja el ícono hacia la derecha
+                margin-right: 10px; // Espacio entre el ícono y el texto
+              }
+
                 &.rtl-enabled {
                     .mat-mdc-card-content {
                         .project-info {

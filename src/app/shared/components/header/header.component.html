@@ -183,9 +183,11 @@
             </li>
             <li>
                 <button mat-button [matMenuTriggerFor]="profileMenu" class="profile-menu-btn">
+
                     <img src="assets/images/admin.png" alt="profile-image">
-                    <span class="status d-inline-block rounded-circle position-absolute"></span>
-                </button>
+                </button><mat-icon>arrow_drop_down</mat-icon>
+
+              <span class="status d-inline-block rounded-circle position-absolute"></span>
                 <mat-menu class="profile-menu-dropdown" #profileMenu="matMenu" xPosition="before">
                     <div
                         [class.dark-menu]="themeService.isDark() || themeService.isHeaderDark()"
@@ -196,6 +198,7 @@
                                 <a routerLink="/my-profile" class="d-inline-block fw-medium">
                                     Mateo Luca
                                 </a>
+
                                 <span class="designation d-block text-body">
                                     Admin
                                 </span>

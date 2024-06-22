@@ -1,5 +1,18 @@
-import { Component, ViewChild } from '@angular/core';
+import {Component, NgModule, ViewChild} from '@angular/core';
 import { ApexAxisChartSeries, ApexChart, ApexDataLabels, ApexGrid, ApexPlotOptions, ApexXAxis, ApexYAxis, ChartComponent } from 'ng-apexcharts';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+
+@NgModule({
+  imports: [
+    // Other imports
+    MatMenuModule,
+    MatButtonModule,
+    // Other modules
+  ],
+  // Other declarations, providers, etc.
+})
+export class AppModule { }
 
 export type ChartOptions = {
     series: ApexAxisChartSeries;
