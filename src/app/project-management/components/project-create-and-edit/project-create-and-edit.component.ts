@@ -3,6 +3,9 @@ import { Project } from '../../model/project.entity';
 import { NgForm } from '@angular/forms';
 import {NgxEditorModule, Editor, Toolbar} from "ngx-editor";
 import { CustomizerSettingsService } from '../../../shared/services/customizer-settings.service';
+import {ProjectsApiService} from "../../services/projects-api.service";
+import {CreateProject} from "../../model/create-project";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-project-create-and-edit',
@@ -16,6 +19,9 @@ export class ProjectCreateAndEditComponent {
   @Output() projectUpdated = new EventEmitter<Project>();
   @Output() editCanceled = new EventEmitter();
   @ViewChild('projectForm', {static:false}) projectForm!: NgForm;
+  projectName: string = '';
+  sellAgents: string = '';
+  buyAgents: string = '';
 
   editor!: Editor;
   toolbar: Toolbar = [
@@ -41,7 +47,9 @@ export class ProjectCreateAndEditComponent {
 
   isToggled = false;
 
-  constructor(public themeService: CustomizerSettingsService) {
+  constructor(public themeService: CustomizerSettingsService,
+              private projectsApiService: ProjectsApiService,
+              private router: Router) {
     this.project = {} as Project;
     this.themeService.isToggled$.subscribe(_isToggled => {
       this.isToggled = _isToggled;
@@ -55,20 +63,30 @@ export class ProjectCreateAndEditComponent {
   }
 
   onSubmit() {
-    if (this.projectForm.form.valid){
-      if(this.editMode){
-        this.projectUpdated.emit(this.project);
-      } else {
-        this.resetEditState();
-      }
-    } else {
-      console.log("invalid data");
+    if (this.projectForm.form.valid) {
+      let createProject = new CreateProject(this.projectName, this.usableSellAgentsInput(), this.usableBuyAgentsInput());
+      this.projectsApiService.create(createProject).subscribe({
+        next: (response) => {
+          // Navigate to the desired route after successful creation
+          this.router.navigate(['/project-management/all-projects']);
+        },
+        error: (error) => {
+          // Handle error
+          console.error('Error creating project', error);
+        }
+      });
     }
   }
 
+  private usableSellAgentsInput() {
+    return this.sellAgents.replace(' ','').split(',');
+  }
+  private usableBuyAgentsInput() {
+    return this.buyAgents.replace(' ','').split(',');
+  }
+
   onCancel() {
-    this.resetEditState();
-    this.editCanceled.emit();
+    this.router.navigate(['/project-management/all-projects']);
   }
 
   // RTL Mode

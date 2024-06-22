@@ -4,7 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { CustomizerSettingsService } from '../../../shared/services/customizer-settings.service';
 import {ProjectsApiService} from "../../../project-management/services/projects-api.service";
 import {AreaApiService} from "../../services/area-api.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {response} from "express";
 import {AreaCreationComponent} from "../area-creation/area-creation.component";
 import {Dialog} from "@angular/cdk/dialog";
@@ -65,7 +65,8 @@ export class SharedDriveComponent implements OnInit, AfterViewInit {
         public themeService: CustomizerSettingsService,
         private areaApiService: AreaApiService,
         private projectsApiService: ProjectsApiService,
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
+        private router: Router
     ) {
         this.themeService.isToggled$.subscribe(isToggled => {
             this.isToggled = isToggled;
@@ -108,6 +109,12 @@ export class SharedDriveComponent implements OnInit, AfterViewInit {
     this.role = 'Buy-Side';
   }
 
+  goCreateArea() {
+    this.route.params.subscribe(params => {
+      this.router.navigate(['/create/area/' + params['id']]);
+    });
+  }
+
   toAreaCreation() {
     let dialogRef = this.dialog.open(AreaCreationComponent, {
       height: '400px',
@@ -119,4 +126,6 @@ export class SharedDriveComponent implements OnInit, AfterViewInit {
     toggleRTLEnabledTheme() {
         this.themeService.toggleRTLEnabledTheme();
     }
+
+
 }

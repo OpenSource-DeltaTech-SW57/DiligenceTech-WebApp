@@ -1,7 +1,7 @@
 <!-- Breadcrumb -->
 <div class="breadcrumb-card mb-25 d-md-flex align-items-center justify-content-between">
   <h5 class="mb-0">
-    Create Project
+    Create Area
   </h5>
   <ol class="breadcrumb list-unstyled mt-0 mb-0 pl-0">
     <li class="breadcrumb-item position-relative">
@@ -17,7 +17,10 @@
       Projects
     </li>
     <li class="breadcrumb-item position-relative">
-      Create Project
+      Areas
+    </li>
+    <li class="breadcrumb-item position-relative">
+      Create Area
     </li>
   </ol>
 </div>
@@ -39,225 +42,16 @@
       <div class="row">
         <div class="col-lg-8">
           <div class="row">
-            <div class="col-sm-6">
-              <div class="mb-25">
-                <label class="main-label d-block lh-1 text-black">
-                  Project Name
-                </label>
-                <mat-form-field>
-                  <mat-label>
-                    Write project name
-                  </mat-label>
-                  <input matInput placeholder="E.g. Hotel management system" name="projectName" required>
-                </mat-form-field>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="mb-25">
-                <label class="main-label d-block lh-1 text-black">
-                  Project ID
-                </label>
-                <mat-form-field>
-                  <mat-label>
-                    Write project ID
-                  </mat-label>
-                  <input matInput type="number" name="id" placeholder="E.g. #951" required>
-                </mat-form-field>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="mb-25">
-                <label class="main-label d-block lh-1 text-black">
-                  Start Date
-                </label>
-                <mat-form-field>
-                  <mat-label>
-                    Choose a date
-                  </mat-label>
-                  <input matInput [matDatepicker]="startDate" name="startDate" required>
-                  <mat-datepicker-toggle matIconSuffix [for]="startDate"></mat-datepicker-toggle>
-                  <mat-datepicker #startDate></mat-datepicker>
-                </mat-form-field>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="mb-25">
-                <label class="main-label d-block lh-1 text-black">
-                  End Date
-                </label>
-                <mat-form-field>
-                  <mat-label>
-                    Choose a date
-                  </mat-label>
-                  <input matInput [matDatepicker]="endDate" name="endDate" required>
-                  <mat-datepicker-toggle matIconSuffix [for]="endDate"></mat-datepicker-toggle>
-                  <mat-datepicker #endDate></mat-datepicker>
-                </mat-form-field>
-              </div>
-            </div>
             <div class="col-sm-12">
               <div class="mb-25">
                 <label class="main-label d-block lh-1 text-black">
-                  Project Description
-                </label>
-                <div class="NgxEditor__Wrapper">
-                  <ngx-editor-menu></ngx-editor-menu>
-                  <ngx-editor [placeholder]="'Type here...'"></ngx-editor>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="mb-25">
-                <label class="main-label d-block lh-1 text-black">
-                  Budget
+                  Area Name
                 </label>
                 <mat-form-field>
                   <mat-label>
-                    Enter budget
+                    Write area name
                   </mat-label>
-                  <input matInput placeholder="E.g. $5,250" name="budget" required [(ngModel)]="project.budget">
-                </mat-form-field>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="mb-25">
-                <label class="main-label d-block lh-1 text-black">
-                  Priority Status
-                </label>
-                <mat-form-field>
-                  <mat-label>
-                    Select
-                  </mat-label>
-                  <mat-select required name="status" [(ngModel)]="project.status">
-                    <mat-option value="{inProgress: 'In Progress'}">
-                      In Progress
-                    </mat-option>
-                    <mat-option value="{pending: 'Pending'}">
-                      Pending
-                    </mat-option>
-                    <mat-option value="{completed: 'Completed'}">
-                      Completed
-                    </mat-option>
-                    <mat-option value="{notStarted: 'Not Started'}">
-                      Not Started
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="mb-25">
-                <label class="main-label d-block lh-1 text-black">
-                  Categories
-                </label>
-                <mat-form-field>
-                  <mat-label>
-                    Select
-                  </mat-label>
-                  <mat-select>
-                    <mat-option value="option1">
-                      Watch
-                    </mat-option>
-                    <mat-option value="option2">
-                      Electronics
-                    </mat-option>
-                    <mat-option value="option3">
-                      Sports
-                    </mat-option>
-                    <mat-option value="option4">
-                      Fashion
-                    </mat-option>
-                    <mat-option value="option5">
-                      Jewellery
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="mb-25">
-                <label class="main-label d-block lh-1 text-black">
-                  Project Manager
-                </label>
-                <mat-form-field>
-                  <mat-label>
-                    Select
-                  </mat-label>
-                  <mat-select name="projectManager" required [(ngModel)]="project.projectManager">
-                    <mat-option value="Walter Frazier">
-                      Walter Frazier
-                    </mat-option>
-                    <mat-option value="Kimberly Ander">
-                      Kimberly Anderson
-                    </mat-option>
-                    <mat-option value="Roscoe Guerrero">
-                      Roscoe Guerrero
-                    </mat-option>
-                    <mat-option value="Robert Stewart">
-                      Robert Stewart
-                    </mat-option>
-                    <mat-option value="Dustin Fritch">
-                      Dustin Fritch
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="mb-25">
-                <label class="main-label d-block lh-1 text-black">
-                  Add Team Members
-                </label>
-                <mat-form-field>
-                  <mat-label>
-                    Select
-                  </mat-label>
-                  <mat-select multiple name="teamMembers" required [(ngModel)]="project.teamMembers">
-                    <mat-option value="Walter Frazier">
-                      Walter Frazier
-                    </mat-option>
-                    <mat-option value="Kimberly Anderson">
-                      Kimberly Anderson
-                    </mat-option>
-                    <mat-option value="Roscoe Guerrero">
-                      Roscoe Guerrero
-                    </mat-option>
-                    <mat-option value="Robert Stewart">
-                      Robert Stewart
-                    </mat-option>
-                    <mat-option value="Dustin Fritch">
-                      Dustin Fritch
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="mb-25">
-                <label class="main-label d-block lh-1 text-black">
-                  Project Tags
-                </label>
-                <mat-form-field>
-                  <mat-label>
-                    Select
-                  </mat-label>
-                  <mat-select multiple>
-                    <mat-option value="option1">
-                      Low Priority
-                    </mat-option>
-                    <mat-option value="option2">
-                      Medium Priority
-                    </mat-option>
-                    <mat-option value="option3">
-                      High Priority
-                    </mat-option>
-                    <mat-option value="option4">
-                      Growth Potential
-                    </mat-option>
-                    <mat-option value="option5">
-                      Startup
-                    </mat-option>
-                  </mat-select>
+                  <input matInput placeholder="E.g. Legal, Financial, Tax, Operational" name="projectName" required>
                 </mat-form-field>
               </div>
             </div>
@@ -266,7 +60,7 @@
       </div>
       <div class="btn-box">
         <button mat-button>
-          + Create Project
+          + Create Area
         </button>
         <button mat-button (click)="onCancel()">
           Cancel

@@ -17,7 +17,7 @@ export class ProjectListComponent implements OnInit, AfterViewInit {
 
   projectData: Project;
   dataSource!: MatTableDataSource<any>;
-  displayedColumns: string[] = ['id', 'projectName', 'startDate', 'endDate', 'projectManager', 'budget', 'teamMembers', 'progress', 'status', 'action'];
+  displayedColumns: string[] = ['id', 'projectName', 'action'];
   @ViewChild(MatPaginator, {static: false}) paginator!: MatPaginator;
   @ViewChild(MatSort, {static: false}) sort!: MatSort;
   isEditMode: boolean;

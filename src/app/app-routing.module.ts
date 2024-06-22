@@ -66,7 +66,7 @@ const routes: Routes = [
       {path: "project", component: ProjectCreateAndEditComponent},
       {path: "area/:id", component: AreaCreationComponent},
       {path: "folder/:id/:areaId", component: FolderCreationComponent},
-      {path: "folder/:id/:areaId/:folderId", component: FolderCreationComponent}
+      {path: "documents/:id/:areaId/:folderId", component: FolderCreationComponent}
   ]},
   {path: "communications/email", component: RootEmailComponent, children: [
       {path: "inbox", component: InboxComponent},
