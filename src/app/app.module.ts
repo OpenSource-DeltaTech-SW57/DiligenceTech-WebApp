@@ -105,6 +105,9 @@ import { RootCreateComponent } from './project-management/pages/root-create/root
 import { FolderCreationComponent } from './file-management/folder-creation/folder-creation.component';
 import {authenticationInterceptor} from "./authentication/services/authentication.interceptor";
 import { DocumentsCreationComponent } from './file-management/components/documents-creation/documents-creation.component';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getAuth, provideAuth } from '@angular/fire/auth';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 
 
 @NgModule({
@@ -210,7 +213,10 @@ import { DocumentsCreationComponent } from './file-management/components/documen
   ],
   providers: [
     provideAnimationsAsync(), UsersService, ProjectsApiService, CustomizerSettingsService, ToggleService, DatePipe, EncryptionDataService, AuthService, AuthGuardService,
-    provideHttpClient(withInterceptors([authenticationInterceptor]))
+    provideHttpClient(withInterceptors([authenticationInterceptor])),
+    provideFirebaseApp(() => initializeApp({"projectId":"diligencetech-os","appId":"1:612857743772:web:a97065927b835677822059","storageBucket":"diligencetech-os.appspot.com","apiKey":"AIzaSyBElIV6Uuyb7yzTpq3Y6gs_2ClduCciZWM","authDomain":"diligencetech-os.firebaseapp.com","messagingSenderId":"612857743772","measurementId":"G-5K9V09QLC1"})),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore())
   ],
   bootstrap: [AppComponent]
 })
