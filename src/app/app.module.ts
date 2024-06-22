@@ -108,6 +108,8 @@ import { DocumentsCreationComponent } from './file-management/components/documen
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import {AngularFireModule} from "@angular/fire/compat";
+import {environment} from "../environments/environment";
 
 
 @NgModule({
@@ -210,6 +212,7 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
     NgApexchartsModule,
     MatTooltipModule,
     MatCheckboxModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   providers: [
     provideAnimationsAsync(), UsersService, ProjectsApiService, CustomizerSettingsService, ToggleService, DatePipe, EncryptionDataService, AuthService, AuthGuardService,
