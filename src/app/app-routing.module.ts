@@ -77,10 +77,11 @@ const routes: Routes = [
       {path: "trash", component: TrashComponent },
       {path: "drafts", component: DraftsComponent },
       {path: "read", component: ReadComponent},
-      {path: "notifications", component: NotificationListComponent},
+
       {path: "sent", component: SentComponent},
       {path: "spam", component: SpamComponent},
     ]},
+  {path: "communications/notifications", component: NotificationListComponent},
   {path: "pricing/subscription-plan", component: SubscriptionPlanComponent},
   {path: "account/my-profile", component: MyprofileComponent },
   {path: "account/settings", component: SettingsAccountComponent , children: [

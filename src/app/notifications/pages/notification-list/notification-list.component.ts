@@ -1,9 +1,6 @@
-
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-
 import { Notifications } from '../../model/notifications.entity';
 import { MatTableDataSource } from '@angular/material/table';
-
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 
@@ -24,12 +21,14 @@ export class NotificationListComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['id', 'date_published', 'type', 'content'];
   @ViewChild(MatPaginator, {static: false})paginator!: MatPaginator;
   @ViewChild(MatSort, {static: false})sort!: MatSort;
+  isEditMode: boolean;
 
 
 
   isToggled = false;
 
   constructor(private notificationsApiService: NotificationApiServiceService, public themeService: CustomizerSettingsService ){
+    this.isEditMode = false
     this.notificationsData = {} as Notifications;
     this.dataSource = new MatTableDataSource<any>();
     this.themeService.isToggled$.subscribe(_isToggled =>{
@@ -42,7 +41,35 @@ export class NotificationListComponent implements OnInit, AfterViewInit {
     this.themeService.toggleRTLEnabledTheme();
   }
 
-  
+  // private methods
+  onEditMode(){
+    this.themeService.toggleRTLEnabledTheme();
+  }
+
+  //CRUD Actions
+
+  onDeleteMode(element: Notifications){
+    this.deleteNotifications(element.id);
+  }
+
+  onCancelEdit(){
+    this.resetEditSate();
+    this.getAllNotifications();
+  }
+
+  onNotificationAdded(element: Notifications){
+    this.notificationsData = element;
+    this.createNotification();
+    this.resetEditSate();
+  }
+
+  onNotificationUpdated(element: Notifications){
+    this.notificationsData = element;
+    this.updateNotifications();
+    this.resetEditSate();
+  }
+
+
   // UI Event Handlers
 
   ngAfterViewInit(): void {
@@ -54,6 +81,10 @@ export class NotificationListComponent implements OnInit, AfterViewInit {
     this.getAllNotifications();
   }
 
+  private resetEditSate():void{
+    this.isEditMode = false;
+    this.notificationsData = {} as Notifications;
+  }
 
   private getAllNotifications() {
     this.notificationsApiService.getAll().subscribe((response: any) => {
@@ -61,18 +92,17 @@ export class NotificationListComponent implements OnInit, AfterViewInit {
     });
   };
 
-  /*
-  private createNotifications() {
+  private createNotification(){
     this.notificationsApiService.create(this.notificationsData).subscribe((response: any) => {
       this.dataSource.data.push({...response});
-      this.dataSource.data = this.dataSource.data.map((project: Notifications) => {
-        return project;
+      this.dataSource.data = this.dataSource.data.map((notifications: Notifications) =>{
+        return notifications;
       });
     });
   };
-*/
 
-  // Lifecycle Hooks
+
+  //lifecycle hooks
 
   private updateNotifications() {
     let notificationsToUpdate = this.notificationsData;
@@ -82,6 +112,14 @@ export class NotificationListComponent implements OnInit, AfterViewInit {
           return response;
         }
         return notification;
+      });
+    });
+  };
+
+  private deleteNotifications(notificationId: number) {
+    this.notificationsApiService.delete(notificationId).subscribe(()=>{
+      this.dataSource.data = this.dataSource.data.filter((notification: Notifications) =>{
+        return notification.id !== notificationId ? notification : false;
       });
     });
   };

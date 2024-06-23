@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { BaseService } from '../../shared/services/base.service';
-import { Project } from '../../project-management/model/project.entity';
 import { HttpClient } from '@angular/common/http';
+import {Notifications} from "../model/notifications.entity";
 
 @Injectable({
   providedIn: 'root'
 })
-export class NotificationApiServiceService extends BaseService<Project> {
+export class NotificationApiServiceService extends BaseService<Notifications> {
 
   constructor(http: HttpClient) {
     super(http);

@@ -1,4 +1,3 @@
-
 export class Notifications {
     id: number;
     date_published: string;
@@ -12,5 +11,5 @@ export class Notifications {
         this.content = "";
     }
 
-    
+
 }
