@@ -40,13 +40,14 @@
                     </a>
                     <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = true">
                         <mat-expansion-panel-header>
-                            <mat-panel-title>
+                            <mat-panel-title class="panel-title">
                                 <i class="material-symbols-outlined">
                                     description
                                 </i>
                                 <span class="title">
                                     Project Management
                                 </span>
+                              <mat-icon>arrow_drop_down</mat-icon> <!-- Icono de despliegue -->
                             </mat-panel-title>
                         </mat-expansion-panel-header>
                         <ul class="sidebar-sub-menu">
@@ -72,6 +73,30 @@
                             </li>
                         </ul>
                     </mat-expansion-panel>
+                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = true">
+                    <mat-expansion-panel-header>
+                      <mat-panel-title class="panel-title">
+                        <i class="material-symbols-outlined">
+                          groups
+                        </i>
+                        <span class="title">Q&A</span>
+                        <mat-icon>arrow_drop_down</mat-icon> <!-- Icono de despliegue -->
+
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <ul class="sidebar-sub-menu">
+                      <li class="sidemenu-item">
+                        <a routerLink="/q-and-a/all-questions" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                          All Questions
+                        </a>
+                      </li>
+                      <li class="sidemenu-item">
+                        <a routerLink="/q-and-a/questions-project" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                          Questions-per-Project
+                        </a>
+                      </li>
+                    </ul>
+                  </mat-expansion-panel>
                     <span class="sub-title text-body">
                         COMMUNICATIONS
                     </span>
@@ -115,13 +140,15 @@
                     </a>
                     <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = true">
                         <mat-expansion-panel-header>
-                            <mat-panel-title>
+                            <mat-panel-title class="panel-title">
                                 <i class="material-symbols-outlined">
                                     settings
                                 </i>
                                 <span class="title">
                                     Settings
                                 </span>
+                              <mat-icon>arrow_drop_down</mat-icon> <!-- Icono de despliegue -->
+
                             </mat-panel-title>
                         </mat-expansion-panel-header>
                         <ul class="sidebar-sub-menu">

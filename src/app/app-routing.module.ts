@@ -7,9 +7,14 @@ import { UserManagementComponent } from './testing/pages/user-management/user-ma
 import { ProjectListComponent } from './project-management/pages/project-list/project-list.component';
 import { ProjectCreateAndEditComponent } from './project-management/components/project-create-and-edit/project-create-and-edit.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ImportantComponent } from './email/components/important/important.component';
 import { EmailComponent } from './email/email.component';
+import { DraftsComponent } from './email/components/drafts/drafts.component';
+import { TrashComponent } from './email/components/trash/trash.component';
+import { SpamComponent } from './email/components/spam/spam.component';
 import { InboxComponent } from './email/components/inbox/inbox.component';
 import { ComposeComponent } from './email/components/compose/compose.component';
+import { SentComponent } from './email/components/sent/sent.component';
 import { ReadComponent } from './email/components/read/read.component';
 import { NotificationListComponent } from './notifications/pages/notification-list/notification-list.component';
 import { MyprofileComponent } from './myprofile/pages/myprofile/myprofile.component';
@@ -28,9 +33,21 @@ import { RootAuthenticationComponent } from './authentication/pages/root-authent
 import { SubscriptionPlanComponent } from './public/pages/subscription-plan/subscription-plan.component';
 import { DashboardFileManagementComponent } from './file-management/pages/dashboard-file-management/dashboard-file-management.component';
 import { SharedDriveComponent } from './file-management/components/shared-drive/shared-drive.component';
-import { FolderComponent } from './file-management/components/folder/folder.component';
-import { FileComponent } from './file-management/components/file/file.component';
-import { AuthGuardService } from './authentication/guards/auth.guard.service';
+import {AllQuestionsComponent} from "./q-and-a/pages/all-questions/all-questions.component";
+import {QAndAComponent} from "./q-and-a/pages/q-and-a/q-and-a.component";
+import {QuestionsProjectListComponent} from "./q-and-a/pages/questions-project-list/questions-project-list.component";
+import {
+  RootProjectManagementComponent
+} from "./project-management/components/root-project-management/root-project-management.component";
+import {RootEmailComponent} from "./email/pages/root-email/root-email.component";
+import {FoldersListComponent} from "./file-management/components/folders-list/folders-list.component";
+import {DocumentsListComponent} from "./file-management/components/documents-list/documents-list.component";
+import {RootCreateComponent} from "./project-management/pages/root-create/root-create.component";
+import {AreaCreationComponent} from "./file-management/components/area-creation/area-creation.component";
+import {FolderCreationComponent} from "./file-management/folder-creation/folder-creation.component";
+import {authenticationGuard} from "./authentication/services/authentication.guard";
+import {DocumentsCreationComponent} from "./file-management/components/documents-creation/documents-creation.component";
+
 
 const routes: Routes = [
   {path: "authentication", component: RootAuthenticationComponent, children: [
@@ -43,12 +60,27 @@ const routes: Routes = [
   {path: "dashboard", component: DashboardComponent},
   {path: "about", component: AboutComponent},
   {path: "testing/users", component: UserManagementComponent},
-  {path: "project-management/all-projects", component: ProjectListComponent},
-  {path: "project-management/create-project", component: ProjectCreateAndEditComponent},
-  {path: "communications/email/inbox", component: InboxComponent},
-  {path: "communications/email/compose", component: ComposeComponent },
-  {path: "communications/email/read", component: ReadComponent},
-  {path: "communications/notifications", component: NotificationListComponent},
+  {path: "project-management", component: RootProjectManagementComponent, children: [
+      {path: "all-projects", component: ProjectListComponent},
+      {path: "create-project", component: ProjectCreateAndEditComponent},
+    ]},
+  {path: "create", component: RootCreateComponent, children: [
+      {path: "project", component: ProjectCreateAndEditComponent},
+      {path: "area/:id", component: AreaCreationComponent},
+      {path: "folder/:id/:areaId", component: FolderCreationComponent},
+      {path: "documents/:id/:areaId/:folderId", component: DocumentsCreationComponent}
+  ]},
+  {path: "communications/email", component: RootEmailComponent, children: [
+      {path: "inbox", component: InboxComponent},
+      {path: "important", component: ImportantComponent},
+      {path: "compose", component: ComposeComponent },
+      {path: "trash", component: TrashComponent },
+      {path: "drafts", component: DraftsComponent },
+      {path: "read", component: ReadComponent},
+      {path: "notifications", component: NotificationListComponent},
+      {path: "sent", component: SentComponent},
+      {path: "spam", component: SpamComponent},
+    ]},
   {path: "pricing/subscription-plan", component: SubscriptionPlanComponent},
   {path: "account/my-profile", component: MyprofileComponent },
   {path: "account/settings", component: SettingsAccountComponent , children: [
@@ -58,17 +90,15 @@ const routes: Routes = [
     {path: "privacy-policy", component: PrivacyPolicyComponent},
     {path: "terms-conditions", component: TermsConditionsComponent},
   ]},
-  {path: "project-management/all-projects/id/file-management", component: DashboardFileManagementComponent, children: [
-    {path: "", component: SharedDriveComponent},
-    {path: "legal", component: FolderComponent},
-    {path: "legal/folder-name/files", component: FileComponent},
-    {path: "financial", component: FolderComponent},
-    {path: "financial/folder-name/files", component: FileComponent},
-    {path: "tax", component: FolderComponent },
-    {path: "tax/folder-name/files", component: FileComponent},
-    {path: "operational", component: FolderComponent},
-    {path: "operational/folder-name/files", component: FileComponent},
+  {path: "project-management/all-projects", component: DashboardFileManagementComponent, canActivate: [authenticationGuard], children: [
+    {path: ":id/file-management", component: SharedDriveComponent},
+      {path: ":id/file-management/:areaId", component: FoldersListComponent},
+      {path: ":id/file-management/:areaId/:folderId", component: DocumentsListComponent}
   ]},
+  {path: "q-and-a", component: QAndAComponent, children: [
+      {path: "all-questions", component: AllQuestionsComponent },
+      {path: "questions-project", component: QuestionsProjectListComponent },
+    ]},
   {path: "", redirectTo: "authentication", pathMatch: "full"},
   {path: "**", component: PageNotFoundComponent}
 ];

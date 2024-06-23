@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import {HttpClientModule, provideHttpClient, withInterceptors} from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { UsersService } from './testing/services/users.service';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
@@ -63,6 +63,7 @@ import { EmailComponent } from './email/email.component';
 import { ComposeComponent } from './email/components/compose/compose.component';
 import { InboxComponent } from './email/components/inbox/inbox.component';
 import { ReadComponent } from './email/components/read/read.component';
+import { DraftsComponent } from './email/components/drafts/drafts.component';
 import { NotificationListComponent } from './notifications/pages/notification-list/notification-list.component';
 import { WelcomeBannerComponent } from './myprofile/components/welcome-banner/welcome-banner.component';
 import { GeneralProfileComponent } from './myprofile/components/general-profile/general-profile.component';
@@ -85,11 +86,31 @@ import { SubscriptionPlanComponent } from './public/pages/subscription-plan/subs
 import { SidebarFileManagementComponent } from './file-management/components/sidebar-file-management/sidebar-file-management.component';
 import { DashboardFileManagementComponent } from './file-management/pages/dashboard-file-management/dashboard-file-management.component';
 import { SharedDriveComponent } from './file-management/components/shared-drive/shared-drive.component';
-import { FolderComponent } from './file-management/components/folder/folder.component';
-import { FileComponent } from './file-management/components/file/file.component';
 import { EncryptionDataService } from './shared/services/encryption-data.service';
 import { AuthService } from './authentication/services/auth.service';
 import { AuthGuardService } from './authentication/guards/auth.guard.service';
+import { SentComponent } from './email/components/sent/sent.component';
+import { SpamComponent } from './email/components/spam/spam.component';
+import { TrashComponent } from './email/components/trash/trash.component';
+import { ImportantComponent } from './email/components/important/important.component';
+import { AllQuestionsComponent } from './q-and-a/pages/all-questions/all-questions.component';
+import { QuestionsProjectListComponent } from './q-and-a/pages/questions-project-list/questions-project-list.component';
+import { QAndAComponent } from './q-and-a/pages/q-and-a/q-and-a.component';
+import { RootProjectManagementComponent } from './project-management/components/root-project-management/root-project-management.component';
+import { RootEmailComponent } from './email/pages/root-email/root-email.component';
+import { FoldersListComponent } from './file-management/components/folders-list/folders-list.component';
+import { DocumentsListComponent } from './file-management/components/documents-list/documents-list.component';
+import { AreaCreationComponent } from './file-management/components/area-creation/area-creation.component';
+import { RootCreateComponent } from './project-management/pages/root-create/root-create.component';
+import { FolderCreationComponent } from './file-management/folder-creation/folder-creation.component';
+import {authenticationInterceptor} from "./authentication/services/authentication.interceptor";
+import { DocumentsCreationComponent } from './file-management/components/documents-creation/documents-creation.component';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getAuth, provideAuth } from '@angular/fire/auth';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import {AngularFireModule} from "@angular/fire/compat";
+import {environment} from "../environments/environment";
+
 
 @NgModule({
   declarations: [
@@ -142,8 +163,22 @@ import { AuthGuardService } from './authentication/guards/auth.guard.service';
     SidebarFileManagementComponent,
     DashboardFileManagementComponent,
     SharedDriveComponent,
-    FolderComponent,
-    FileComponent
+    DraftsComponent,
+    SentComponent,
+    SpamComponent,
+    TrashComponent,
+    ImportantComponent,
+    AllQuestionsComponent,
+    QuestionsProjectListComponent,
+    QAndAComponent,
+    RootProjectManagementComponent,
+    RootEmailComponent,
+    FoldersListComponent,
+    DocumentsListComponent,
+    AreaCreationComponent,
+    RootCreateComponent,
+    FolderCreationComponent,
+    DocumentsCreationComponent
   ],
   imports: [
     BrowserModule,
@@ -177,9 +212,14 @@ import { AuthGuardService } from './authentication/guards/auth.guard.service';
     NgApexchartsModule,
     MatTooltipModule,
     MatCheckboxModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   providers: [
-    provideAnimationsAsync(), UsersService, ProjectsApiService, CustomizerSettingsService, ToggleService, DatePipe, EncryptionDataService, AuthService, AuthGuardService
+    provideAnimationsAsync(), UsersService, ProjectsApiService, CustomizerSettingsService, ToggleService, DatePipe, EncryptionDataService, AuthService, AuthGuardService,
+    provideHttpClient(withInterceptors([authenticationInterceptor])),
+    provideFirebaseApp(() => initializeApp({"projectId":"diligencetech-os","appId":"1:612857743772:web:a97065927b835677822059","storageBucket":"diligencetech-os.appspot.com","apiKey":"AIzaSyBElIV6Uuyb7yzTpq3Y6gs_2ClduCciZWM","authDomain":"diligencetech-os.firebaseapp.com","messagingSenderId":"612857743772","measurementId":"G-5K9V09QLC1"})),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore())
   ],
   bootstrap: [AppComponent]
 })

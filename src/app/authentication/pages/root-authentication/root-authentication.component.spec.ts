@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { RootAuthenticationComponent } from './root-authentication.component';
 
 describe('RootAuthenticationComponent', () => {

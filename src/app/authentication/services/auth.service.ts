@@ -18,9 +18,7 @@ export class AuthService {
   }
 
   login( email: string, password: string ):Observable<AuthUsers> {
-    return this.http.get<AuthUsers>(`${this.basePath}?email=${email}&password=${password}`).pipe(
-        tap( user => this.user = user )
-      );
+    return this.http.get<AuthUsers>(`${this.basePath}?email=${email}&password=${password}`).pipe();
   }
 
   //checkAuthentication(email: string, password: string): Observable<boolean> {

@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { CustomizerSettingsService } from '../../../shared/services/customizer-settings.service';
 import { AuthUsers } from '../../model/auth-users.entity';
 import { AuthService } from '../../services/auth.service';
+import {AuthenticationService} from "../../services/authentication.service";
+import {SignInRequest} from "../../model/sign-in.request";
 
 @Component({
   selector: 'app-sign-in',
@@ -18,7 +20,8 @@ export class SignInComponent {
         private fb: FormBuilder,
         private router: Router,
         private authService: AuthService,
-        public themeService: CustomizerSettingsService
+        public themeService: CustomizerSettingsService,
+        private authenticationService: AuthenticationService
     ) {
         this.userData = new AuthUsers();
         this.authForm = this.fb.group({
@@ -51,10 +54,16 @@ export class SignInComponent {
       if (this.authForm.valid) {
         const email = this.authForm.get("email")!.value;
         const password = this.authForm.get("password")!.value;
+        // class version
+        const signInRequest = new SignInRequest(email, password);
+        this.authenticationService.signIn(signInRequest);
+        // my version
+        /*
         this.authService.login(email, password).subscribe((data:any) => {
           this.userData = data[0];
           if(this.userData && this.userData.email == email && this.userData.password == password){
             console.log("user found");
+            localStorage.setItem('user', this.userData.id);
             //localStorage.setItem('token', "active");
             this.router.navigate(["/dashboard"]);
           } else {
@@ -63,9 +72,11 @@ export class SignInComponent {
         }, (error:any) => {
             console.error('Error during login:', error);
         });
+         */
       } else {
           console.log('Form is invalid. Please check the fields.');
       }
+
     }
 
     // Dark Mode

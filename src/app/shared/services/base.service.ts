@@ -12,7 +12,7 @@ export class BaseService<T> {
     })
   }
 
-  constructor(private http: HttpClient) {}
+  constructor(protected http: HttpClient) {}
 
   handleError(error: HttpErrorResponse) {
     if(error.error instanceof ErrorEvent) {
@@ -23,7 +23,7 @@ export class BaseService<T> {
     return throwError(() => new Error('Something happened with request. Please try again later.'));
   }
 
-  private resourcePath() {
+  protected resourcePath() {
     return `${this.basePath}${this.resourceEndpoint}`;
   }
 

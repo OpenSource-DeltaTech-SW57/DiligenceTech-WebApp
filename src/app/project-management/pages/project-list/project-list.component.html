@@ -31,7 +31,7 @@
             </h5>
         </mat-card-title>
         <mat-card-subtitle>
-            <a mat-button class="add-new-btn" routerLink="/project-management/create-project">
+            <a mat-button class="add-new-btn" routerLink="/create/project">
                 + Add New Project
             </a>
         </mat-card-subtitle>
@@ -165,19 +165,19 @@
                             <div class="action-info">
                                 <button type="button" mat-button matTooltip="View Project" matTooltipPosition="above">
                                     <i class="material-symbols-outlined">
-                                        {{element.action.view}}
+                                        visibility
                                     </i>
                                 </button>
                                 <button type="button" mat-button matTooltip="Delete" matTooltipPosition="above">
                                     <i class="material-symbols-outlined">
-                                        {{element.action.delete}}
+                                        delete
                                     </i>
                                 </button>
                             </div>
                         </td>
                     </ng-container>
 
-                    <tr mat-row *matRowDef="let row; columns: displayedColumns;" [routerLink]="'id/file-management'"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;" [routerLink]="row.id + '/file-management'"></tr>
                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
 
                 </table>

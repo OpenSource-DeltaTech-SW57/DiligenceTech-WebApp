@@ -1,0 +1,74 @@
+<!-- Breadcrumb -->
+<div class="breadcrumb-card mb-25 d-md-flex align-items-center justify-content-between">
+  <h5 class="mb-0">
+    Create Folder
+  </h5>
+  <ol class="breadcrumb list-unstyled mt-0 mb-0 pl-0">
+    <li class="breadcrumb-item position-relative">
+      <a routerLink="/" class="d-inline-block position-relative">
+        <i class="ri-home-8-line"></i>
+        Dashboard
+      </a>
+    </li>
+    <li class="breadcrumb-item position-relative">
+      Project Management
+    </li>
+    <li class="breadcrumb-item position-relative">
+      Projects
+    </li>
+    <li class="breadcrumb-item position-relative">
+      Areas
+    </li>
+    <li class="breadcrumb-item position-relative">
+      Folders
+    </li>
+    <li class="breadcrumb-item position-relative">
+      Create Folder
+    </li>
+  </ol>
+</div>
+
+<!-- Create Project -->
+<mat-card
+  class="daxa-card create-project-card mb-25 border-radius bg-white border-none d-block"
+  [class.rtl-enabled]="themeService.isRTLEnabled()"
+>
+  <mat-card-header>
+    <mat-card-title>
+      <h5 class="mt-0 mb-0">
+        Create New Folder
+      </h5>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form (submit)="onSubmit()" #projectForm="ngForm">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="mb-25">
+                <label class="main-label d-block lh-1 text-black">
+                  Folder Name
+                </label>
+                <mat-form-field>
+                  <mat-label>
+                    Write folder name
+                  </mat-label>
+                  <input matInput placeholder="E.g. Financial files from 2015-2020 about the XXXX solution" name="folderName" required [(ngModel)]="folderName">
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="btn-box">
+        <button mat-button (click)="onSubmit()">
+          + Create Area
+        </button>
+        <button mat-button (click)="onCancel()">
+          Cancel
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

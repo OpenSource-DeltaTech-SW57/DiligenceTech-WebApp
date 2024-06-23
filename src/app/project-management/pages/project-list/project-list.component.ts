@@ -11,13 +11,13 @@ import { CustomizerSettingsService } from '../../../shared/services/customizer-s
   templateUrl: './project-list.component.html',
   styleUrl: './project-list.component.scss'
 })
-export class ProjectListComponent implements OnInit, AfterViewInit{
+export class ProjectListComponent implements OnInit, AfterViewInit {
 
   // Attributes
 
   projectData: Project;
   dataSource!: MatTableDataSource<any>;
-  displayedColumns: string[] = ['id', 'projectName', 'startDate', 'endDate', 'projectManager', 'budget', 'teamMembers', 'progress', 'status', 'action'];
+  displayedColumns: string[] = ['id', 'projectName', 'action'];
   @ViewChild(MatPaginator, {static: false}) paginator!: MatPaginator;
   @ViewChild(MatSort, {static: false}) sort!: MatSort;
   isEditMode: boolean;
@@ -79,7 +79,7 @@ export class ProjectListComponent implements OnInit, AfterViewInit{
   }
 
   ngOnInit(): void {
-    this.getAllProjects();
+    this.getUserProjects();
   }
 
   private resetEditState(): void {
@@ -87,6 +87,17 @@ export class ProjectListComponent implements OnInit, AfterViewInit{
     this.projectData = {} as Project;
   }
 
+  private getUserProjects() {
+    if (localStorage.getItem('user') != null) {
+      console.log(`there is user: ${String(localStorage.getItem('user'))}`);
+      this.projectApiService.getByUser(String(localStorage.getItem('user'))).subscribe((response: any) => {
+        this.dataSource.data = response;
+      });
+    }
+    else {
+      console.log("no user");
+    }
+  }
   private getAllProjects() {
     this.projectApiService.getAll().subscribe((response: any) => {
       this.dataSource.data = response;

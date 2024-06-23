@@ -1,0 +1,45 @@
+.mat-mdc-card {
+  &.daxa-card {
+    &.email-inbox-card {
+      .mat-mdc-card-content {
+        .mat-mdc-table {
+          .mat-mdc-header-row {
+            background-color: var(--daxaColor);
+
+            .mat-mdc-header-cell {
+              color: var(--whiteColor);
+            }
+          }
+
+          .mat-mdc-row {
+            &:nth-child(even) {
+              background-color: var(--tableEvenColor);
+            }
+
+            &:hover {
+              background-color: var(--tablehoverColor);
+            }
+          }
+        }
+      }
+
+      &.rtl-enabled {
+        .mat-mdc-card-content {
+          .mat-mdc-table {
+            .mat-mdc-header-row {
+              .mat-mdc-header-cell {
+                text-align: right;
+              }
+            }
+
+            .mat-mdc-row {
+              .mat-mdc-cell {
+                text-align: right;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

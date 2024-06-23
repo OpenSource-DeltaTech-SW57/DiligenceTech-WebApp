@@ -1,0 +1,147 @@
+<!-- Breadcrumb -->
+<div class="breadcrumb-card mb-25 d-md-flex align-items-center justify-content-between">
+  <h5 class="mb-0">Important Emails</h5>
+  <ol class="breadcrumb list-styled mt-0 mb-0 pl-0">
+    <li class="breadcrumb-item position-relative">
+      <a routerLink="/">
+        <i class="ri-home-8-line"></i>
+        Dashboard
+      </a>
+    </li>
+    <li class="breadcrumb-item position-relative">
+      Communication
+    </li>
+    <li class="breadcrumb-item position-relative">
+      Email
+    </li>
+    <li class="breadcrumb-item position-relative">
+      Important Emails
+    </li>
+  </ol>
+</div>
+
+<!-- Important Emails -->
+<div class="row">
+  <div class="col-lg-3 col-md-12">
+    <app-sidebar-email></app-sidebar-email>
+  </div>
+  <div class="col-lg-9 col-md-12">
+    <mat-card class="daxa-card email-inbox-card mb-25 border-radius bg-white border-none d-block"
+              [class.rtl-enabled]="isToggled">
+      <mat-card-header>
+        <mat-card-title>
+          <h5 class="mt-0 mb-0">
+            Important Emails
+          </h5>
+        </mat-card-title>
+        <mat-card-subtitle>
+          <div class="info-buttons-list d-flex align-items-center">
+            <button mat-button>
+              <i class="material-symbols-outlined">
+                refresh
+              </i>
+            </button>
+            <button mat-button>
+              <i class="material-symbols-outlined">
+                report_gmailerrorred
+              </i>
+            </button>
+            <button mat-button class="text-body" (click)="deleteSelectedRows()">
+              <i class="material-symbols-outlined">
+                delete
+              </i>
+            </button>
+            <button type="button" mat-button [matMenuTriggerFor]="emailHeaderMenu">
+              <i class="material-symbols-outlined">
+                more_horiz
+              </i>
+            </button>
+            <mat-menu #emailHeaderMenu="matMenu" class="card-header-menu" xPosition="before">
+              <button mat-menu-item>
+                Recent
+              </button>
+              <button mat-menu-item>
+                Unread
+              </button>
+              <button mat-menu-item>
+                Mark All Read
+              </button>
+              <button mat-menu-item>
+                Spam
+              </button>
+              <button mat-menu-item>
+                Delete All
+              </button>
+            </mat-menu>
+          </div>
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <table mat-table [dataSource]="dataSource" class="w-100">
+
+          <!-- Checkbox Column -->
+          <ng-container matColumnDef="select">
+            <th mat-header-cell *matHeaderCellDef>
+              <mat-checkbox (change)="$event ? toggleAllRows() : null"
+                            [checked]="selection.hasValue() && isAllSelected()"
+                            [indeterminate]="selection.hasValue() && !isAllSelected()">
+              </mat-checkbox>
+            </th>
+            <td mat-cell *matCellDef="let email">
+              <mat-checkbox (click)="$event.stopPropagation()"
+                            (change)="$event ? selection.toggle(email) : null"
+                            [checked]="selection.isSelected(email)">
+              </mat-checkbox>
+            </td>
+          </ng-container>
+
+          <!-- To Column -->
+          <ng-container matColumnDef="to">
+            <th mat-header-cell *matHeaderCellDef>To</th>
+            <td mat-cell *matCellDef="let email">
+              <div *ngFor="let recipient of email.to">{{ recipient }}</div>
+            </td>
+          </ng-container>
+
+          <!-- Cc Column -->
+          <ng-container matColumnDef="cc">
+            <th mat-header-cell *matHeaderCellDef>Cc</th>
+            <td mat-cell *matCellDef="let email">
+              <div *ngFor="let recipient of email.cc">{{ recipient }}</div>
+            </td>
+          </ng-container>
+
+          <!-- Bcc Column -->
+          <ng-container matColumnDef="bcc">
+            <th mat-header-cell *matHeaderCellDef>Bcc</th>
+            <td mat-cell *matCellDef="let email">
+              <div *ngFor="let recipient of email.bcc">{{ recipient }}</div>
+            </td>
+          </ng-container>
+
+          <!-- Subject Column -->
+          <ng-container matColumnDef="subject">
+            <th mat-header-cell *matHeaderCellDef>Subject</th>
+            <td mat-cell *matCellDef="let email">{{ email.subject }}</td>
+          </ng-container>
+
+          <!-- Body Column -->
+          <ng-container matColumnDef="body">
+            <th mat-header-cell *matHeaderCellDef>Body</th>
+            <td mat-cell *matCellDef="let email">{{ email.body }}</td>
+          </ng-container>
+
+          <!-- Date Column -->
+          <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef>Date</th>
+            <td mat-cell *matCellDef="let email">{{ email.date }}</td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let email; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
