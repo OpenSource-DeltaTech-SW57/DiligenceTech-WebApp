@@ -6,7 +6,7 @@ import {Notifications} from "../model/notifications.entity";
 @Injectable({
   providedIn: 'root'
 })
-export class NotificationApiServiceService extends BaseService<Notifications> {
+export class NotificationApiService extends BaseService<Notifications> {
 
   constructor(http: HttpClient) {
     super(http);
