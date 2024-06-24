@@ -49,7 +49,7 @@ export class NotificationListComponent implements OnInit, AfterViewInit {
     this.route.params.subscribe(params =>{
 
       this.getNotificationsByAgentId(params['agentId']);
-      console.log(this.getNotificationsByAgentId(params['agentId']));
+      //console.log(this.getNotificationsByAgentId(params['agentId']));
     })
   }
 
@@ -68,8 +68,7 @@ export class NotificationListComponent implements OnInit, AfterViewInit {
     this.notificationsApiService.getByAgentId(agent_id).subscribe((response: any) => {
       console.log(response.length);
       this.dataSource.data = response;
-      const agentsIds = response.map((response: { agentId: any; }) => response.agentId)
-      console.log(agentsIds);
+      console.log(response);
     });
   }
 
