@@ -129,7 +129,7 @@ export class CustomizerSettingsService {
   }
 
   // isToggled
-  private isToggled = new BehaviorSubject<boolean>(false);
+  private isToggled = new BehaviorSubject<boolean>(true);
   get isToggled$() {
     return this.isToggled.asObservable();
   }

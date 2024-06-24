@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CustomizerSettingsService } from '../../../shared/services/customizer-settings.service';
@@ -12,8 +12,8 @@ import {SignInRequest} from "../../model/sign-in.request";
   templateUrl: './sign-in.component.html',
   styleUrl: './sign-in.component.scss'
 })
-export class SignInComponent {
-    isToggled = false;
+export class SignInComponent implements OnInit{
+    isToggled = true;
     userData: AuthUsers;
 
     constructor(
@@ -28,6 +28,9 @@ export class SignInComponent {
             email: ['', [Validators.required, Validators.email]],
             password: ['', [Validators.required, Validators.minLength(8)]],
         });
+    }
+
+    ngOnInit(): void {
         this.themeService.isToggled$.subscribe(isToggled => {
             this.isToggled = isToggled;
         });

@@ -57,20 +57,20 @@ const routes: Routes = [
     {path: "lock-screen", component: LockScreenComponent},
     {path: "logout", component: LogoutComponent},
   ]},
-  {path: "dashboard", component: DashboardComponent},
-  {path: "about", component: AboutComponent},
-  {path: "testing/users", component: UserManagementComponent},
-  {path: "project-management", component: RootProjectManagementComponent, children: [
+  {path: "dashboard", component: DashboardComponent, canActivate: [authenticationGuard]},
+  {path: "about", component: AboutComponent, canActivate: [authenticationGuard]},
+  {path: "testing/users", component: UserManagementComponent, canActivate: [authenticationGuard]},
+  {path: "project-management", component: RootProjectManagementComponent, canActivate: [authenticationGuard], children: [
       {path: "all-projects", component: ProjectListComponent},
       {path: "create-project", component: ProjectCreateAndEditComponent},
     ]},
-  {path: "create", component: RootCreateComponent, children: [
+  {path: "create", component: RootCreateComponent, canActivate: [authenticationGuard], children: [
       {path: "project", component: ProjectCreateAndEditComponent},
       {path: "area/:id", component: AreaCreationComponent},
       {path: "folder/:id/:areaId", component: FolderCreationComponent},
       {path: "documents/:id/:areaId/:folderId", component: DocumentsCreationComponent}
   ]},
-  {path: "communications/email", component: RootEmailComponent, children: [
+  {path: "communications/email", component: RootEmailComponent, canActivate: [authenticationGuard], children: [
       {path: "inbox", component: InboxComponent},
       {path: "important", component: ImportantComponent},
       {path: "compose", component: ComposeComponent },
@@ -81,9 +81,9 @@ const routes: Routes = [
       {path: "sent", component: SentComponent},
       {path: "spam", component: SpamComponent},
     ]},
-  {path: "pricing/subscription-plan", component: SubscriptionPlanComponent},
-  {path: "account/my-profile", component: MyprofileComponent },
-  {path: "account/settings", component: SettingsAccountComponent , children: [
+  {path: "pricing/subscription-plan", component: SubscriptionPlanComponent, canActivate: [authenticationGuard]},
+  {path: "account/my-profile", component: MyprofileComponent, canActivate: [authenticationGuard] },
+  {path: "account/settings", component: SettingsAccountComponent, canActivate:[authenticationGuard], children: [
     {path: "", component: AccountSettingsComponent},
     {path: "change-password", component: ChangePasswordComponent},
     {path: "connections", component: ConnectionsComponent},
@@ -95,7 +95,7 @@ const routes: Routes = [
       {path: ":id/file-management/:areaId", component: FoldersListComponent},
       {path: ":id/file-management/:areaId/:folderId", component: DocumentsListComponent}
   ]},
-  {path: "q-and-a", component: QAndAComponent, children: [
+  {path: "q-and-a", component: QAndAComponent, canActivate:[authenticationGuard], children: [
       {path: "all-questions", component: AllQuestionsComponent },
       {path: "questions-project", component: QuestionsProjectListComponent },
     ]},

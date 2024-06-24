@@ -35,6 +35,9 @@ export class AppComponent {
 
   // ngOnInit
   ngOnInit(){
+      if (!localStorage.getItem('isDarkTheme')) {
+           localStorage.setItem('isDarkTheme', JSON.stringify(true));
+      }
       this.recallJsFuntions();
   }
 
