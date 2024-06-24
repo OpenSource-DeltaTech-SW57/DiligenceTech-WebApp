@@ -15,9 +15,10 @@ export class NotificationApiService extends BaseService<Notifications> {
     this.resourceEndpoint = "/notifications";
    }
 
+
    getByAgentId(agent_id: number){
-     console.log(`${this.basePath}${this.resourceEndpoint}?agentId=${agent_id}`);
-    return this.http.get<Notifications>(`${this.basePath}${this.resourceEndpoint}?agentId=${agent_id}`).pipe();
+     console.log(`${this.basePath}${this.resourceEndpoint}agentId=${agent_id}`);
+    return this.http.get<Notifications>(`${this.basePath}${this.resourceEndpoint}/agent_id?agentId=${agent_id}`).pipe();
 
 
    }

@@ -8,6 +8,7 @@ import { NotificationApiService } from '../../services/notification-api.service'
 import { CustomizerSettingsService } from '../../../shared/services/customizer-settings.service';
 import {ActivatedRoute} from "@angular/router";
 import {response} from "express";
+import {AgentApiService} from "../../../myprofile/services/agent-api.service";
 
 @Component({
   selector: 'app-notification-list',
@@ -27,6 +28,7 @@ export class NotificationListComponent implements OnInit, AfterViewInit {
 
   constructor(
     private notificationsApiService: NotificationApiService,
+    private agentApiService: AgentApiService,
     public themeService: CustomizerSettingsService,
     private route: ActivatedRoute
   ){
@@ -46,11 +48,15 @@ export class NotificationListComponent implements OnInit, AfterViewInit {
 
 
   ngOnInit(): void {
-    this.route.params.subscribe(params =>{
 
-      this.getNotificationsByAgentId(params['agentId']);
-      //console.log(this.getNotificationsByAgentId(params['agentId']));
-    })
+    this.agentApiService.getAgentByCode(String(localStorage.getItem('user'))).subscribe(
+
+      (response:any) =>{
+        console.log(response);
+      localStorage.setItem('id',response.id);
+      })
+    this.getNotificationsByAgentId(parseInt(String(localStorage.getItem('id'))));
+
   }
 
   ngAfterViewInit(): void {

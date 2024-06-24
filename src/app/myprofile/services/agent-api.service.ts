@@ -4,18 +4,23 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {BehaviorSubject} from "rxjs";
 import {Router} from "@angular/router";
 import {BaseService} from "../../shared/services/base.service";
+import {Agent} from "../model/agent.entity";
 
 @Injectable({
   providedIn: 'root'
 })
-export class AgentApiService extends BaseService<>{
+export class AgentApiService extends BaseService<Agent>{
 
    constructor(http: HttpClient) {
     super(http);
-    this.resourceEndpoint = "/notifications";
+    this.resourceEndpoint = "/agents";
   }
   getAgentByCode(agentCode: string){
-    console.log(`${this.basePath}${this.httpOptions}?`)
+
+     agentCode = agentCode.replace('@','%40');
+     console.log(agentCode)
+     return  this.http.get<Agent>(`${this.basePath}${this.resourceEndpoint}/code/${agentCode}`).pipe();
+
 
   }
 
