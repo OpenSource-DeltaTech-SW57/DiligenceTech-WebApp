@@ -6,6 +6,8 @@ import { MatSort } from '@angular/material/sort';
 
 import { NotificationApiService } from '../../services/notification-api.service';
 import { CustomizerSettingsService } from '../../../shared/services/customizer-settings.service';
+import {ActivatedRoute} from "@angular/router";
+import {response} from "express";
 
 @Component({
   selector: 'app-notification-list',
@@ -13,32 +15,43 @@ import { CustomizerSettingsService } from '../../../shared/services/customizer-s
   styleUrl: './notification-list.component.scss'
 
 })
-export class NotificationListComponent implements OnInit {
-
-  //Attributes
-
+export class NotificationListComponent implements OnInit, AfterViewInit {
   notificationsData: Notifications;
-  dataSource = new MatTableDataSource<any>();
-  displayedColumns: any[] = ['id', 'date_published', 'type', 'content'];
+  dataSource!: MatTableDataSource<any>;
+  displayedColumns: any[] = ['id', 'created_at', 'type', 'content'];
   @ViewChild(MatPaginator, {static: false})paginator!: MatPaginator;
   @ViewChild(MatSort, {static: false})sort!: MatSort;
   isEditMode: boolean;
 
+  isToggled = false;
 
-  ngOnInit(): void {
-    this.getAllNotifications();
-  }
-
-  constructor(private notificationsApiService: NotificationApiService){
+  constructor(
+    private notificationsApiService: NotificationApiService,
+    public themeService: CustomizerSettingsService,
+    private route: ActivatedRoute
+  ){
+    this.themeService.isToggled$.subscribe(isToggled => {
+      this.isToggled = isToggled;
+    });
     this.isEditMode = false
     this.notificationsData = {} as Notifications;
     this.dataSource = new MatTableDataSource<any>();
 
   }
-
+  // Private
 
 
   // UI Event Handlers
+
+
+
+  ngOnInit(): void {
+    this.route.params.subscribe(params =>{
+
+      this.getNotificationsByAgentId(params['agentId']);
+      console.log(this.getNotificationsByAgentId(params['agentId']));
+    })
+  }
 
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
@@ -51,7 +64,14 @@ export class NotificationListComponent implements OnInit {
     });
   };
 
-
+  getNotificationsByAgentId(agent_id: number){
+    this.notificationsApiService.getByAgentId(agent_id).subscribe((response: any) => {
+      console.log(response.length);
+      this.dataSource.data = response;
+      const agentsIds = response.map((response: { agentId: any; }) => response.agentId)
+      console.log(agentsIds);
+    });
+  }
 
 
 }

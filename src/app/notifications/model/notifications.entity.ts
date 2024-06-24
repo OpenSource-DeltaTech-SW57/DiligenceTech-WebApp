@@ -1,14 +1,16 @@
 export class Notifications {
     id: number;
-    date_published: string;
+    agent_id: number;
+    created_at: string;
     type: string;
     content: string;
 
     constructor(){
         this.id = 0;
-        this.date_published = "";
-        this.type = "";
-        this.content = "";
+        this.agent_id = 0;
+        this.created_at = '';
+        this.type = '';
+        this.content = '';
     }
 
 

@@ -77,7 +77,6 @@ const routes: Routes = [
       {path: "trash", component: TrashComponent },
       {path: "drafts", component: DraftsComponent },
       {path: "read", component: ReadComponent},
-
       {path: "sent", component: SentComponent},
       {path: "spam", component: SpamComponent},
     ]},
