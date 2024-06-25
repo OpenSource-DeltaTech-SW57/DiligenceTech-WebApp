@@ -4,12 +4,13 @@
     "description": " is Proudly Owned by"
   },
   "projects_overview": {
+    "projects_overview": "Projects Overview",
     "total_projects": "Total Projects",
     "projects_this_month": "Projects this month",
     "active_projects": "Active Projects",
     "completed_projects": "Completed Projects",
     "total_members": "Total Members",
-    "projects_engagement": "Projects engagement",
+    "projects_engagement": "Projects engagement 50%",
     "increase": "Increase",
     "decrease": "Decrease"
   },
