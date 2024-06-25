@@ -110,6 +110,7 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "../environments/environment";
+import { QuestionsAtProjectListComponent } from './q-and-a/pages/questions-at-project-list/questions-at-project-list.component';
 
 
 @NgModule({
@@ -178,7 +179,8 @@ import {environment} from "../environments/environment";
     AreaCreationComponent,
     RootCreateComponent,
     FolderCreationComponent,
-    DocumentsCreationComponent
+    DocumentsCreationComponent,
+    QuestionsAtProjectListComponent
   ],
   imports: [
     BrowserModule,
