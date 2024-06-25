@@ -17,6 +17,9 @@
   "projects_roadmap": {
     "projects_roadmap": "Projects Roadmap",
     "week": "Week",
+    "today": "Today",
+    "month": "Month",
+    "year": "Year",
     "project_planning": "Project Planning",
     "requirement": "Requirement",
     "design": "Design",

@@ -16,6 +16,9 @@
   "projects_roadmap": {
     "projects_roadmap": "Hoja de Ruta de Proyectos",
     "week": "Semana",
+    "today": "Hoy",
+    "month": "Mes",
+    "year": "Año",
     "project_planning": "Planificación de Proyectos",
     "requirement": "Requerimiento",
     "design": "Diseño",
