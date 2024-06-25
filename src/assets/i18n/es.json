@@ -290,5 +290,31 @@
     "connections": "Conexiones",
     "privacy_policy": "Politica de Privacidad",
     "terms_and_conditions": "Terminos y condiciones"
+  },
+  "authentication": {
+    "sign_up": "Registrarse",
+    "already_have_an_account": "¿Ya tienes una cuenta?",
+    "sign_in": "Iniciar sesión",
+    "name": "Nombre",
+    "enter_name": "Ingrese el nombre",
+    "name_is_required": "Se requiere el nombre",
+    "please_enter_a_valid_name": "Por favor, ingrese un nombre válido",
+    "email_address": "Dirección de correo electrónico",
+    "enter_email_address": "Ingrese la dirección de correo electrónico",
+    "email_is_required": "Se requiere el correo electrónico",
+    "please_enter_a_valid_email_address": "Por favor, ingrese una dirección de correo electrónico válida",
+    "your_password": "Tu Contraseña",
+    "enter_password": "Ingrese la contraseña",
+    "password_is_required": "Se requiere la contraseña",
+    "password_must_be_at_least_8_characters": "La contraseña debe tener al menos 8 caracteres",
+    "I_accept_the": "Acepto los",
+    "terms_and_conditions": "Términos y Condiciones",
+    "or_sign_up_using": "O registrarse usando",
+    "dont_have_an_account": "¿No tienes una cuenta aún?",
+    "remember_me": "Recuérdame",
+    "forgot_password": "¿Olvidaste la contraseña?",
+    "welcome_to_diligence_tech": "Bienvenido a Diligence Tech",
+    "thank_you_for_using_our_application": "Gracias por usar nuestra aplicación",
+    "your_are_logged_out": "Has cerrado sesión"
   }
 }
