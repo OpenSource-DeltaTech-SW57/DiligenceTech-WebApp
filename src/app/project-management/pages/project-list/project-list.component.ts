@@ -114,11 +114,6 @@ export class ProjectListComponent implements OnInit, AfterViewInit {
     }
   }
   private getAllProjects() {
-    //const agentUsername: string = JSON.parse(localStorage.getItem('username')!);
-    //console.log(agentUsername);
-    //
-    //fix
-    //
     //this.projectApiService.getAllProjectsLinkedAgent(String(localStorage.getItem('username'))).subscribe((response: any) => {
     this.projectApiService.getAllProjectsLinkedAgent("u20201b380").subscribe((response: any) => {
       this.dataSource.data = response;
