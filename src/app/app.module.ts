@@ -111,6 +111,7 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "../environments/environment";
 import { QuestionsAtProjectListComponent } from './q-and-a/pages/questions-at-project-list/questions-at-project-list.component';
+import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 
 
 @NgModule({
@@ -214,7 +215,8 @@ import { QuestionsAtProjectListComponent } from './q-and-a/pages/questions-at-pr
     NgApexchartsModule,
     MatTooltipModule,
     MatCheckboxModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule
   ],
   providers: [
     provideAnimationsAsync(), UsersService, ProjectsApiService, CustomizerSettingsService, ToggleService, DatePipe, EncryptionDataService, AuthService, AuthGuardService,

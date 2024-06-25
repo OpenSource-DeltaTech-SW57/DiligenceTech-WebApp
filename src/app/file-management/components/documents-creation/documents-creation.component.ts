@@ -7,6 +7,9 @@ import {AreaApiService} from "../../services/area-api.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {AreaRequest} from "../../model/area.request";
 import {DocumentsApiService} from "../../services/documents-api.service";
+import {finalize} from "rxjs/operators";
+import {AngularFireStorage} from "@angular/fire/compat/storage";
+import {lastValueFrom} from "rxjs";
 
 @Component({
   selector: 'app-documents-creation',
@@ -21,6 +24,8 @@ export class DocumentsCreationComponent {
   @Output() editCanceled = new EventEmitter();
   @ViewChild('projectForm', {static:false}) projectForm!: NgForm;
   areaName: string = '';
+  files: File[] = [];
+  uploadProgress: number | undefined;
 
   editor!: Editor;
   toolbar: Toolbar = [
@@ -50,7 +55,8 @@ export class DocumentsCreationComponent {
     public themeService: CustomizerSettingsService,
     private documentsApiService: DocumentsApiService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private storage: AngularFireStorage
   ) {
     this.project = {} as Project;
     this.themeService.isToggled$.subscribe(_isToggled => {
@@ -62,6 +68,45 @@ export class DocumentsCreationComponent {
     this.editMode = false;
     this.projectForm.resetForm();
     this.project = {} as Project;
+  }
+
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.files) {
+      for (let i = 0; i < input.files.length; i++) {
+        this.files.push(input.files[i]);
+      }
+    }
+  }
+  removeFile(file: File): void {
+    const index = this.files.indexOf(file);
+    if (index > -1) {
+      this.files.splice(index, 1);
+    }
+  }
+
+  uploadFiles(): void {
+    const tasks = this.files.map(file => {
+      const filePath = `uploads/${file.name}`;
+      const fileRef = this.storage.ref(filePath);
+      const task = this.storage.upload(filePath, file);
+
+      task.percentageChanges().subscribe(progress => {
+        this.uploadProgress = progress;
+      });
+
+      return task.snapshotChanges().pipe(
+        finalize(() => {
+          fileRef.getDownloadURL().subscribe(url => {
+            console.log('File URL:', url);
+          });
+        })
+      );
+    });
+
+    Promise.all(tasks.map(task => lastValueFrom(task))).then(() => {
+      this.files = []; // Clear the files array after all uploads are completed
+    });
   }
 
   onSubmit() {

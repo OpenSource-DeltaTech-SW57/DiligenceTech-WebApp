@@ -120,7 +120,7 @@ export class ProjectListComponent implements OnInit, AfterViewInit {
     //fix
     //
     //this.projectApiService.getAllProjectsLinkedAgent(String(localStorage.getItem('username'))).subscribe((response: any) => {
-    this.projectApiService.getAllProjectsLinkedAgent("u20201b380").subscribe((response: any) => {
+    this.projectApiService.getAllProjectsLinkedAgent(String(localStorage.getItem('user'))).subscribe((response: any) => {
       this.dataSource.data = response;
     });
   };
