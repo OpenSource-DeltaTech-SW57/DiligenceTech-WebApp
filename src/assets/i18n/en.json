@@ -316,6 +316,10 @@
     "or_sign_up_using": "Or sign up using",
     "dont_have_an_account": "Don't have an account yet?",
     "remember_me": "Remember me",
-    "forgot_password": "Forgot password?"
+    "forgot_password": "Forgot password?",
+    "welcome_to_diligence_tech": "Welcome to Diligence Tech",
+    "thank_you_for_using_our_application": "Thank you for using our application",
+    "your_are_logged_out": "You are logged out"
+
   }
 }
