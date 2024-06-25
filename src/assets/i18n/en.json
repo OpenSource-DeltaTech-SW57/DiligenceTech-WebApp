@@ -279,6 +279,13 @@
     "click_to_disconnect": "Click to disconnect",
     "Manage_your_Git_repositories": "Manage your Git repositories",
     "Email_marketing_service": "Email marketing service",
-    "Social_Accounts": "Social Accounts"
+    "Social_Accounts": "Social Accounts",
+    "security": "Security:",
+    "two_factor_authentication": "Two-factor authentication",
+    "Secondary_Verification": " Secondary Verification",
+    "Backup_Codes" : "Backup Codes",
+    "Desktop,email,chat,purchase notifications": "Desktop, email, chat, purchase notifications",
+    "delete_this_account": "Delete this account:",
+    "close_and_delete_this_account": "Close and delete this account"
   }
 }
