@@ -153,5 +153,24 @@
     "send": "Enviar",
     "attach_files": "Adjuntar Archivos",
     "image": "Imagen"
+  },
+  "sent_emails": {
+    "sent_emails": "Correos Enviados",
+    "dashboard": "Tablero",
+    "communication": "Comunicación",
+    "email": "Correo Electrónico",
+    "sent_emails2": "Correos Enviados",
+    "sent_emails_list": "Lista de Correos Enviados",
+    "to": "Para",
+    "subject": "Asunto",
+    "body": "Cuerpo",
+    "date": "Fecha"
+  },
+  "drafts": {
+    "drafts": "Borradores",
+    "draft_emails": "Borradores de Correos Electrónicos",
+    "title": "Título",
+    "description": "Descripción",
+    "date": "Fecha"
   }
 }

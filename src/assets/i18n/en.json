@@ -154,5 +154,24 @@
     "send": "Send",
     "attach_files": "Attach Files",
     "image": "Image"
+  },
+  "sent_emails": {
+    "sent_emails": "Sent Emails",
+    "dashboard": "Dashboard",
+    "communication": "Communication",
+    "email": "Email",
+    "sent_emails2": "Sent Emails",
+    "sent_emails_list": "Sent Emails List",
+    "to": "To",
+    "subject": "Subject",
+    "body": "Body",
+    "date": "Date"
+  },
+  "drafts": {
+    "drafts": "Drafts",
+    "draft_emails": "Draft Emails",
+    "title": "Title",
+    "description": "Description",
+    "date": "Date"
   }
 }
