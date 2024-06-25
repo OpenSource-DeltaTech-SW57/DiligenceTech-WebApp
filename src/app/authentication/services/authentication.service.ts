@@ -59,7 +59,7 @@ export class AuthenticationService {
     return this.http.post<SignUpResponse>(`${this.basePath}/authentication/sign-up`, signUpRequest, this.httpOptions)
       .subscribe({
         next: (response) => {
-          console.log(`Signed Up as ${response.username} with ID: ${response.id}`);
+          console.log(`Signed Up as ${response.email} with ID: ${response.id}`);
           this.router.navigate(['/']).then();
         },
         error: (error) => {
@@ -103,6 +103,7 @@ export class AuthenticationService {
           this.signedInEmail.next(response.email);
           localStorage.setItem('token', response.token);
           localStorage.setItem('email', response.email);
+          localStorage.setItem('user', response.username);
           console.log(`Signed In as ${response.email} with token: ${response.token}`);
           this.router.navigate(['/dashboard']).then();
         },
