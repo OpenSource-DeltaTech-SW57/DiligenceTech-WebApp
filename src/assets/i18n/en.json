@@ -231,6 +231,39 @@
     "total_projects": "Total Projects",
     "this_month": "This Month",
     "profile_information": "Profile Information",
-    "administrator": "Administrator"
+    "administrator": "Administrator",
+    "user_id": "User ID:",
+    "full_name": "Full Name:",
+    "email": "Email:",
+    "role": "Role:",
+    "location": "Location:",
+    "join_date": "Join Date:"
+  },
+
+  "settings": {
+    "settings": "Settings",
+    "dashboard": "Dashboard",
+    "profile ": "Profile",
+    "update_info": "Update your photo and personal details here.",
+    "first_name": "First name",
+    "last_name": "Last name",
+    "email_address": "Email address",
+    "phone_number": "Phone Number",
+    "location": "Location",
+    "street_address": "Street Address",
+    "date_of_birth": "Date Of Birth",
+    "gender": "Gender",
+    "select": "Select",
+    "male": "Male",
+    "female": "Female",
+    "custom": "Custom",
+    "add_your_bio": "Add Your Bio",
+    "write_here": "Write here....",
+    "your_photo": "Your Photo",
+    "photo_description": "This will be displayed on your profile.",
+    "drag_and_drop_files": "Drag and drop files or click here",
+    "socials_profile": "Socials Profile",
+    "update_profile": "Update Profile",
+    "cancel": "Cancel"
   }
 }
