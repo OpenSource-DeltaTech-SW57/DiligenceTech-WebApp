@@ -221,6 +221,8 @@
 
   "my_profile": {
     "welcome": "Bienvenido a DiligenceTech",
+    "my_profile": "Mi Perfil",
+    "dashboard": "Tablero",
     "projects_done": "Has completado 70 proyectos más en el mes.",
     "month_performance": "Rendimiento del Mes",
     "profile_intro": "Introducción del Perfil",
