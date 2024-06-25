@@ -132,5 +132,26 @@
     "id": "ID",
     "questioner": "Pregunta",
     "content": "Contenido"
+  },
+  "email_inbox": {
+    "inbox": "Bandeja de Entrada",
+    "dashboard": "Tablero",
+    "communication": "Comunicación",
+    "email": "Correo Electrónico",
+    "inbox2": "Bandeja de Entrada",
+    "emails_list": "Lista de Correos"
+  },
+  "email_compose": {
+    "compose": "Redactar",
+    "dashboard": "Tablero",
+    "communication": "Comunicación",
+    "email": "Correo Electrónico",
+    "email_composition": "Redacción de Correo",
+    "subject": "Asunto",
+    "your_email": "Tu Correo",
+    "write_your_subject_here": "Escribe tu asunto aquí",
+    "send": "Enviar",
+    "attach_files": "Adjuntar Archivos",
+    "image": "Imagen"
   }
 }

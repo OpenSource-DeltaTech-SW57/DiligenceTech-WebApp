@@ -133,5 +133,26 @@
     "id": "ID",
     "questioner": "Questioner",
     "content": "Content"
+  },
+  "email_inbox": {
+    "inbox": "Inbox",
+    "dashboard": "Dashboard",
+    "communication": "Communication",
+    "email": "Email",
+    "inbox2": "Inbox",
+    "emails_list": "Emails List"
+  },
+  "email_compose": {
+    "compose": "Compose",
+    "dashboard": "Dashboard",
+    "communication": "Communication",
+    "email": "Email",
+    "email_composition": "Email Composition",
+    "subject": "Subject",
+    "your_email": "Your Email",
+    "write_your_subject_here" : "Write your subject here ",
+    "send": "Send",
+    "attach_files": "Attach Files",
+    "image": "Image"
   }
 }
