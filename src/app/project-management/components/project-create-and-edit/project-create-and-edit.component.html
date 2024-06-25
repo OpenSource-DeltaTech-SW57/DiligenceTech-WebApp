@@ -6,7 +6,7 @@
     <mat-card-header>
         <mat-card-title>
             <h5 class="mt-0 mb-0">
-                Create New Project
+              {{'create_new_project.title' | translate }}
             </h5>
         </mat-card-title>
     </mat-card-header>
@@ -18,11 +18,11 @@
                         <div class="col-sm-6">
                             <div class="mb-25">
                                 <label class="main-label d-block lh-1 text-black">
-                                    Project Name
+                                  {{'create_new_project.project_name' | translate }}
                                 </label>
                                 <mat-form-field>
                                     <mat-label>
-                                        Write project name
+                                      {{'create_new_project.write_project_name' | translate }}
                                     </mat-label>
                                     <input matInput placeholder="E.g. Project Hotel" name="projectName" required [(ngModel)]="project.projectName">
                                 </mat-form-field>
@@ -31,11 +31,11 @@
                         <div class="col-sm-6">
                             <div class="mb-25">
                                 <label class="main-label d-block lh-1 text-black">
-                                    Add Sell Agents
+                                  {{'create_new_project.add_sell_agents' | translate }}
                                 </label>
                                 <mat-form-field>
                                   <mat-label>
-                                    Write agent's usernames
+                                    {{'create_new_project.write_sell_agents_usernames' | translate }}
                                   </mat-label>
                                   <input matInput placeholder="E.g. u202218222, u204120398" name="sellAgents" required [(ngModel)]="sellAgents">
                                 </mat-form-field>
@@ -44,11 +44,11 @@
                         <div class="col-sm-6">
                         <div class="mb-25">
                           <label class="main-label d-block lh-1 text-black">
-                            Add Buy Agents
+                            {{'create_new_project.add_buy_agents' | translate }}
                           </label>
                           <mat-form-field>
                             <mat-label>
-                              Write agent's usernames
+                              {{'create_new_project.write_buy_agents_usernames' | translate }}
                             </mat-label>
                             <input matInput placeholder="E.g. u202218227, u204120391" name="buyAgents" required [(ngModel)]="buyAgents">
                           </mat-form-field>
@@ -59,10 +59,10 @@
             </div>
             <div class="btn-box">
                 <button mat-button (click)="onCancel()">
-                    Cancel
+                  {{'create_new_project.cancel' | translate }}
                 </button>
                 <button mat-button>
-                    + Create Project
+                  {{'create_new_project.create_project' | translate }}
                 </button>
             </div>
         </form>

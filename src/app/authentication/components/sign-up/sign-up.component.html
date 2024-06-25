@@ -7,92 +7,60 @@
                 [class.component-dark-theme]="themeService.isDark()"
                 [class.rtl-enabled]="themeService.isRTLEnabled()"
             >
+              <span class="spacer"></span>
+              <span><app-language-switcher/></span>
+              <span class="spacer"></span>
                 <div class="title text-center">
                     <h3>
-                        Sign Up
+                      {{'authentication.sign_up' | translate }}
                     </h3>
                     <p class="text-black">
-                        Already have an account? <a routerLink="/authentication" class="text-daxa">Sign In</a>
+                      {{'authentication.already_have_an_account' | translate }} <a routerLink="/authentication" class="text-daxa">{{'authentication.sign_in' | translate }}</a>
                     </p>
+
                 </div>
                 <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
-                    <div class="form-group row">
-                        <div class="col">
-                            <label class="main-label d-block lh-1 text-black">
-                                First Name
-                            </label>
-                            <mat-form-field>
-                                <mat-label>
-                                    Enter first name
-                                </mat-label>
-                                <input matInput type="text" id="firstname" formControlName="firstname">
-                            </mat-form-field>
-                            <div class="error text-danger" *ngIf="authForm.get('firstname')!.hasError('required') && authForm.get('firstname')!.touched">
-                                First Name is required.
-                            </div>
-                            <div class="error text-danger" *ngIf="authForm.get('firstname')!.hasError('firstname') && authForm.get('firstname')!.touched">
-                                Please enter a valid name.
-                            </div>
-                        </div>
-                        <div class="col">
-                            <label class="main-label d-block lh-1 text-black">
-                                Last Name
-                            </label>
-                            <mat-form-field>
-                                <mat-label>
-                                    Enter last name
-                                </mat-label>
-                                <input matInput type="text" id="lastname" formControlName="lastname">
-                            </mat-form-field>
-                            <div class="error text-danger" *ngIf="authForm.get('lastname')!.hasError('required') && authForm.get('lastname')!.touched">
-                                Last Name is required.
-                            </div>
-                            <div class="error text-danger" *ngIf="authForm.get('lastname')!.hasError('lastname') && authForm.get('lastname')!.touched">
-                                Please enter a valid name.
-                            </div>
-                        </div>
-                    </div>
                     <div class="form-group">
                         <label class="main-label d-block lh-1 text-black">
-                            Username
+                          {{'authentication.name' | translate }}
                         </label>
                         <mat-form-field>
                             <mat-label>
-                                Enter username
+                              {{'authentication.enter_name' | translate }}
                             </mat-label>
-                            <input matInput type="email" id="username" formControlName="username">
+                            <input matInput type="text" id="name" formControlName="name">
                         </mat-form-field>
-                        <div class="error text-danger" *ngIf="authForm.get('username')!.hasError('required') && authForm.get('username')!.touched">
-                            Username is required.
+                        <div class="error text-danger" *ngIf="authForm.get('name')!.hasError('required') && authForm.get('name')!.touched">
+                          {{'authentication.name_is_required' | translate }}
                         </div>
-                        <div class="error text-danger" *ngIf="authForm.get('username')!.hasError('username') && authForm.get('username')!.touched">
-                            Please enter a valid username.
+                        <div class="error text-danger" *ngIf="authForm.get('name')!.hasError('name') && authForm.get('name')!.touched">
+                          {{'authentication.please_enter_a_valid_name' | translate }}
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="main-label d-block lh-1 text-black">
-                            Email Address
+                          {{'authentication.email_address' | translate }}
                         </label>
                         <mat-form-field>
                             <mat-label>
-                                Enter email address
+                              {{'authentication.enter_email_address' | translate }}
                             </mat-label>
                             <input matInput type="email" id="email" formControlName="email">
                         </mat-form-field>
                         <div class="error text-danger" *ngIf="authForm.get('email')!.hasError('required') && authForm.get('email')!.touched">
-                            Email is required.
+                          {{'authentication.email_is_required' | translate }}
                         </div>
                         <div class="error text-danger" *ngIf="authForm.get('email')!.hasError('email') && authForm.get('email')!.touched">
-                            Please enter a valid email address.
+                          {{'authentication.please_enter_a_valid_email_address' | translate }}
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="main-label d-block lh-1 text-black">
-                            Your Password
+                          {{'authentication.your_password' | translate }}
                         </label>
                         <mat-form-field>
                             <mat-label>
-                                Enter your password
+                              {{'authentication.enter_password' | translate }}
                             </mat-label>
                             <input matInput [type]="hide ? 'password' : 'text'" id="password" formControlName="password">
                             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
@@ -102,22 +70,22 @@
                             </button>
                         </mat-form-field>
                         <div class="error text-danger" *ngIf="authForm.get('password')!.hasError('required') && authForm.get('password')!.touched">
-                            Password is required.
+                          {{'authentication.password_is_required' | translate }}
                         </div>
                         <div class="error text-danger" *ngIf="authForm.get('password')!.hasError('minlength') && authForm.get('password')!.touched">
-                            Password must be at least 8 characters long.
+                          {{'authentication.password_must_be_at_least_8_characters' | translate }}
                         </div>
                     </div>
                     <mat-checkbox>
-                        I accept the <a href="javascript:void(0);" class="text-daxa">Terms and conditions</a>
+                      {{'authentication.I_accept_the' | translate }} <a href="javascript:void(0);" class="text-daxa">{{'authentication.terms_and_conditions' | translate }}</a>
                     </mat-checkbox>
                     <button mat-button class="btn" type="submit" [disabled]="authForm.invalid">
-                        Sign Up
+                      {{'authentication.sign_up' | translate }}
                     </button>
                     <div class="signin-with-socials text-center">
                         <div class="or position-relative">
                             <span class="d-inline-block">
-                                or sign up with
+                               {{'authentication.or_sign_up_using' | translate }}
                             </span>
                         </div>
                         <div class="socials">

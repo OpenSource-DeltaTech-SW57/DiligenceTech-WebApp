@@ -3,20 +3,20 @@
     [class.rtl-enabled]="themeService.isRTLEnabled()"
 >
     <h4>
-        Profile
+      {{'settings.settings' | translate }}
     </h4>
     <p>
-        Update your photo and personal details here.
+      {{'settings.update_info' | translate }}
     </p>
     <div class="row">
         <div class="col-sm-6">
             <div class="mb-25">
                 <label class="main-label d-block lh-1 text-black">
-                    First Name
+                  {{'settings.first_name' | translate }}
                 </label>
                 <mat-form-field>
                     <mat-label>
-                        First name
+                      {{'settings.first_name' | translate }}
                     </mat-label>
                     <input matInput value="Mateo">
                 </mat-form-field>
@@ -25,11 +25,11 @@
         <div class="col-sm-6">
             <div class="mb-25">
                 <label class="main-label d-block lh-1 text-black">
-                    Last Name
+                  {{'settings.last_name' | translate }}
                 </label>
                 <mat-form-field>
                     <mat-label>
-                        Last name
+                      {{'settings.last_name' | translate }}
                     </mat-label>
                     <input matInput value="Luca">
                 </mat-form-field>
@@ -38,11 +38,11 @@
         <div class="col-sm-6">
             <div class="mb-25">
                 <label class="main-label d-block lh-1 text-black">
-                    Email Address
+                  {{'settings.email_address' | translate }}
                 </label>
                 <mat-form-field>
                     <mat-label>
-                        Email address
+                      {{'settings.email_address' | translate }}
                     </mat-label>
                     <input matInput value="mateo@diligencetech.com">
                 </mat-form-field>
@@ -51,11 +51,11 @@
         <div class="col-sm-6">
             <div class="mb-25">
                 <label class="main-label d-block lh-1 text-black">
-                    Phone Number
+                  {{'settings.phone_number' | translate }}
                 </label>
                 <mat-form-field>
                     <mat-label>
-                        Phone number
+                      {{'settings.phone_number' | translate }}
                     </mat-label>
                     <input matInput value="+(555) 555-1234">
                 </mat-form-field>
@@ -64,11 +64,11 @@
         <div class="col-sm-6">
             <div class="mb-25">
                 <label class="main-label d-block lh-1 text-black">
-                    Location
+                  {{'settings.location' | translate }}
                 </label>
                 <mat-form-field>
                     <mat-label>
-                        Location
+                      {{'settings.location' | translate }}
                     </mat-label>
                     <input matInput value="Zuichi, Switzerland">
                 </mat-form-field>
@@ -77,11 +77,11 @@
         <div class="col-sm-6">
             <div class="mb-25">
                 <label class="main-label d-block lh-1 text-black">
-                    Street Address
+                  {{'settings.street_address' | translate }}
                 </label>
                 <mat-form-field>
                     <mat-label>
-                        Street address
+                      {{'settings.street_address' | translate }}
                     </mat-label>
                     <input matInput value="2445 Crosswind Drive">
                 </mat-form-field>
@@ -90,11 +90,11 @@
         <div class="col-sm-6">
             <div class="mb-25">
                 <label class="main-label d-block lh-1 text-black">
-                    Date Of Birth
+                  {{'settings.date_of_birth' | translate }}
                 </label>
                 <mat-form-field>
                     <mat-label>
-                        Date of birth
+                      {{'settings.date_of_birth' | translate }}
                     </mat-label>
                     <input matInput value="20 March 1999">
                 </mat-form-field>
@@ -103,21 +103,23 @@
         <div class="col-sm-6">
             <div class="mb-25">
                 <label class="main-label d-block lh-1 text-black">
-                    Gender
+                  {{'settings.gender' | translate }}
                 </label>
                 <mat-form-field>
                     <mat-label>
-                        Select
+                      {{'settings.select' | translate }}
+
                     </mat-label>
                     <mat-select [(value)]="genderSelected">
                         <mat-option value="option1">
-                            Male
+                          {{'settings.male' | translate }}
+
                         </mat-option>
                         <mat-option value="option2">
-                            Female
+                          {{'settings.female' | translate }}
                         </mat-option>
                         <mat-option value="option3">
-                            Custom
+                          {{'settings.custom' | translate }}
                         </mat-option>
                     </mat-select>
                 </mat-form-field>
@@ -126,11 +128,11 @@
         <div class="col-sm-12">
             <div class="mb-25">
                 <label class="main-label d-block lh-1 text-black">
-                    Add Your Bio
+                  {{'settings.add_your_bio' | translate }}
                 </label>
                 <mat-form-field class="textarea">
                     <mat-label>
-                        Write here....
+                      {{'settings.write_here' | translate }}
                     </mat-label>
                     <textarea matInput placeholder="E.g. It makes me feel..."></textarea>
                 </mat-form-field>
@@ -138,16 +140,16 @@
         </div>
     </div>
     <h4>
-        Your Photo
+      {{'settings.your_photo' | translate }}
     </h4>
     <p>
-        This will be displayed on your profile.
+      {{'settings.photo_description' | translate }}
     </p>
     <div class="mb-25">
         <file-upload class="file-uploader" [multiple]="multiple"></file-upload>
     </div>
     <h4>
-        Socials Profile
+      {{'settings.socials_profile' | translate }}
     </h4>
     <p></p>
     <div class="row">
@@ -193,10 +195,10 @@
     </div>
     <div class="btn-box">
         <button mat-button>
-            Update Profile
+          {{'settings.update_profile' | translate }}
         </button>
         <button mat-button>
-            Cancel
+          {{'settings.cancel' | translate }}
         </button>
     </div>
 </div>
