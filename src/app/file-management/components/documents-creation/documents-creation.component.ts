@@ -6,6 +6,7 @@ import {CustomizerSettingsService} from "../../../shared/services/customizer-set
 import {AreaApiService} from "../../services/area-api.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {AreaRequest} from "../../model/area.request";
+import {DocumentsApiService} from "../../services/documents-api.service";
 
 @Component({
   selector: 'app-documents-creation',
@@ -47,7 +48,7 @@ export class DocumentsCreationComponent {
 
   constructor(
     public themeService: CustomizerSettingsService,
-    private areaApiService: AreaApiService,
+    private documentsApiService: DocumentsApiService,
     private route: ActivatedRoute,
     private router: Router
   ) {
@@ -66,9 +67,9 @@ export class DocumentsCreationComponent {
   onSubmit() {
     this.route.params.subscribe(params => {
       let createArea = new AreaRequest(params['id'], this.areaName);
-      this.areaApiService.create(createArea).subscribe({
+      this.documentsApiService.create(createArea).subscribe({
         next: (response) => {
-          console.log(`Area Created: ${response.name}`);
+          console.log(`Area Created: ${response.filename}`);
           this.router.navigate([`/${params['id']}/file-management`]);
         },
         error: (error) => {

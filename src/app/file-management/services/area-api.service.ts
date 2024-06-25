@@ -16,6 +16,7 @@ export class AreaApiService extends BaseService<Area> {
   }
 
   getByProject(project: string) {
-    return this.http.get<Area>(`${this.basePath}${this.resourceEndpoint}?project_id=${project}`).pipe();
+    console.log(`${this.basePath}${this.resourceEndpoint}/${project}`);
+    return this.http.get<Area>(`${this.basePath}${this.resourceEndpoint}/${project}`).pipe();
   }
 }

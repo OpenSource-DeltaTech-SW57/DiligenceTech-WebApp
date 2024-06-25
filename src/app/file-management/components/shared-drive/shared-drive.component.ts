@@ -80,25 +80,22 @@ export class SharedDriveComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
         this.route.params.subscribe(params => {
-          this.getAreasByProject(params['id']);
-          this.setUserRole(params['id'], String(localStorage.getItem('user')));
+          console.log(String(params['id']));
+          this.getAreasByProject(String(params['id']));
+          this.setUserRole(String(params['id']), String(localStorage.getItem('user')));
         });
     }
 
     getAreasByProject(project: string) {
       this.areaApiService.getByProject(project).subscribe((response: any) => {
-        console.log(response.length);
+        console.log(response);
         this.dataSource.data = response;
       });
     }
 
   setUserRole(project: string, user: string) {
-    this.projectsApiService.getProjectIfSellRole(project, user).subscribe((response: any) => {
-      if (response.length != 0)
-        this.setSellRole();
-      else
-        this.setBuyRole();
-    });
+    console.log(project, user);
+    this.setBuyRole();
   }
 
   setSellRole() {
