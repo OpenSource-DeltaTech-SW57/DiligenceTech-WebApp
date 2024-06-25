@@ -78,5 +78,17 @@
     "privacy_policy": "Privacy Policy",
     "terms_and_conditions": "Terms and Conditions",
     "logout": "Logout"
+  },
+  "header": {
+    "search": "Search",
+    "mark_all_as_read": "Mark all as read",
+    "view_all_messages": "View all messages",
+    "notifications": "Notifications",
+    "clear_all": "Clear all",
+    "see_all_notifications": "See all notifications",
+    "my_profile": "My Profile",
+    "settings": "Settings",
+    "subcription_plans": "Subcription Plans",
+    "logout": "Logout"
   }
 }
