@@ -51,5 +51,32 @@
     "in_progress": "In Progress",
     "not_started": "Not Started",
     "completed": "Completed"
+  },
+  "sidebar": {
+    "main": "MAIN",
+    "dashboard": "Dashboard",
+    "description": "Description",
+    "project_management": "Project Management",
+    "projects": "Projects",
+    "all_Projects": "All Projects",
+    "active_Projects": "Active Projects",
+    "completed_Projects": "Completed Projects",
+    "all_members": "All Members",
+    "all_questions": "All Questions",
+    "question_per_project" : "Questions per Project",
+    "communication": "COMMUNICATION",
+    "email": "Email",
+    "notifications": "Notifications",
+    "pricing": "PRICING",
+    "subcription_plans": "Subcription Plans",
+    "account": "ACCOUNT",
+    "my_profile": "My Profile",
+    "settings": "Settings",
+    "account_settings": "Account Settings",
+    "change_password": "Change Password",
+    "connections": "Connections",
+    "privacy_policy": "Privacy Policy",
+    "terms_and_conditions": "Terms and Conditions",
+    "logout": "Logout"
   }
 }
