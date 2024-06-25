@@ -173,5 +173,31 @@
     "title": "Title",
     "description": "Description",
     "date": "Date"
+  },
+  "spam": {
+    "spam": "Spam",
+    "spam_emails": "Spam Emails",
+    "title": "Title",
+    "description": "Description",
+    "date": "Date"
+  },
+  "trash": {
+    "trash": "Trash",
+    "trash_emails": "Trash Emails",
+    "title": "Title",
+    "description": "Description",
+    "date": "Date"
+  },
+  "important": {
+    "important": "Important Emails",
+    "dashboard": "Dashboard",
+    "communication": "Communication",
+    "email": "Email",
+    "important_emails": "Important Emails",
+    "important_emails2": "Important Emails",
+    "to": "To",
+    "subject": "Subject",
+    "body": "Body",
+    "date": "Date"
   }
 }

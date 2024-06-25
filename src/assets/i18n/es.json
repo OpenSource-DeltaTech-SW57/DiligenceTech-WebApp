@@ -172,5 +172,31 @@
     "title": "Título",
     "description": "Descripción",
     "date": "Fecha"
+  },
+  "spam": {
+    "spam": "Spam",
+    "spam_emails": "Correos Electrónicos de Spam",
+    "title": "Título",
+    "description": "Descripción",
+    "date": "Fecha"
+  },
+  "trash": {
+    "trash": "Papelera",
+    "trash_emails": "Correos Electrónicos Eliminados",
+    "title": "Título",
+    "description": "Descripción",
+    "date": "Fecha"
+  },
+  "important": {
+    "important": "Correos Electrónicos Importantes",
+    "dashboard": "Tablero",
+    "communication": "Comunicación",
+    "email": "Correo Electrónico",
+    "important_emails": "Correos Electrónicos Importantes",
+    "important_emails2": "Correos Electrónicos Importantes",
+    "to": "Para",
+    "subject": "Asunto",
+    "body": "Cuerpo",
+    "date": "Fecha"
   }
 }
