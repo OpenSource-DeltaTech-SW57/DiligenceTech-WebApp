@@ -16,21 +16,57 @@
                     </p>
                 </div>
                 <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group row">
+                        <div class="col">
+                            <label class="main-label d-block lh-1 text-black">
+                                First Name
+                            </label>
+                            <mat-form-field>
+                                <mat-label>
+                                    Enter first name
+                                </mat-label>
+                                <input matInput type="text" id="firstname" formControlName="firstname">
+                            </mat-form-field>
+                            <div class="error text-danger" *ngIf="authForm.get('firstname')!.hasError('required') && authForm.get('firstname')!.touched">
+                                First Name is required.
+                            </div>
+                            <div class="error text-danger" *ngIf="authForm.get('firstname')!.hasError('firstname') && authForm.get('firstname')!.touched">
+                                Please enter a valid name.
+                            </div>
+                        </div>
+                        <div class="col">
+                            <label class="main-label d-block lh-1 text-black">
+                                Last Name
+                            </label>
+                            <mat-form-field>
+                                <mat-label>
+                                    Enter last name
+                                </mat-label>
+                                <input matInput type="text" id="lastname" formControlName="lastname">
+                            </mat-form-field>
+                            <div class="error text-danger" *ngIf="authForm.get('lastname')!.hasError('required') && authForm.get('lastname')!.touched">
+                                Last Name is required.
+                            </div>
+                            <div class="error text-danger" *ngIf="authForm.get('lastname')!.hasError('lastname') && authForm.get('lastname')!.touched">
+                                Please enter a valid name.
+                            </div>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label class="main-label d-block lh-1 text-black">
-                            Name
+                            Username
                         </label>
                         <mat-form-field>
                             <mat-label>
-                                Enter name
+                                Enter username
                             </mat-label>
-                            <input matInput type="text" id="name" formControlName="name">
+                            <input matInput type="email" id="username" formControlName="username">
                         </mat-form-field>
-                        <div class="error text-danger" *ngIf="authForm.get('name')!.hasError('required') && authForm.get('name')!.touched">
-                            Name is required.
+                        <div class="error text-danger" *ngIf="authForm.get('username')!.hasError('required') && authForm.get('username')!.touched">
+                            Username is required.
                         </div>
-                        <div class="error text-danger" *ngIf="authForm.get('name')!.hasError('name') && authForm.get('name')!.touched">
-                            Please enter a valid name.
+                        <div class="error text-danger" *ngIf="authForm.get('username')!.hasError('username') && authForm.get('username')!.touched">
+                            Please enter a valid username.
                         </div>
                     </div>
                     <div class="form-group">
