@@ -293,5 +293,29 @@
     "connections": "Connections",
     "privacy_policy": "Privacy Policy",
     "terms_and_conditions": "Terms and Conditions"
+  },
+  "authentication":
+  {
+    "sign_up": "Sign Up",
+    "already_have_an_account": "Already have an account?",
+    "sign_in": "Sign In",
+    "name": "Name",
+    "enter_name": "Enter name",
+    "name_is_required": "Name is required",
+    "please_enter_a_valid_name": "Please enter a valid name",
+    "email_address": "Email Address",
+    "enter_email_address": "Enter email address",
+    "email_is_required": "Email is required",
+    "please_enter_a_valid_email_address": "Please enter a valid email address",
+    "your_password": "Your Password",
+    "enter_password": "Enter password",
+    "password_is_required": "Password is required",
+    "password_must_be_at_least_8_characters": "Password must be at least 8 characters long",
+    "I_accept_the": "I accept the",
+    "terms_and_conditions": "Terms and Conditions",
+    "or_sign_up_using": "Or sign up using",
+    "dont_have_an_account": "Don't have an account yet?",
+    "remember_me": "Remember me",
+    "forgot_password": "Forgot password?"
   }
 }
