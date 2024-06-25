@@ -264,6 +264,21 @@
     "drag_and_drop_files": "Drag and drop files or click here",
     "socials_profile": "Socials Profile",
     "update_profile": "Update Profile",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "old_password": "Old Password",
+    "enter_old_password": "Enter old password",
+    "new_password": "New Password",
+    "enter_new_password": "Enter new password",
+    "confirm" : "Confirm",
+    "confirm_password": "Enter Confirm Password",
+    "change_password": "Change Password",
+    "forgot_password": "Forgot Password?",
+    "connected_accounts": "Connect Accounts",
+    "calendar_and_contacts": "Calendar and Contacts",
+    "communication": "Communications",
+    "click_to_disconnect": "Click to disconnect",
+    "Manage_your_Git_repositories": "Manage your Git repositories",
+    "Email_marketing_service": "Email marketing service",
+    "Social_Accounts": "Social Accounts"
   }
 }
