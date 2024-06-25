@@ -93,5 +93,45 @@
     "settings": "Settings",
     "subcription_plans": "Subcription Plans",
     "logout": "Logout"
+  },
+  "create_new_project": {
+    "title": "Create New Project",
+    "project_name": "Project Name",
+    "write_project_name": "Write project name *",
+    "add_sell_agents": "Add Sell Agents",
+    "write_sell_agents_usernames": "Write agent's usernames *",
+    "add_buy_agents": "Add Buy Agents",
+    "write_buy_agents_usernames": "Write agent's usernames *",
+    "cancel": "Cancel",
+    "create_project": "+ Create Project"
+  },
+  "all_projects":{
+    "project_list": "Project List",
+    "dashboard": "Dashboard",
+    "project_management": "Project Management",
+    "all_projects": "All Projects",
+    "add_new_project": "+ Add New Project",
+    "id": "ID",
+    "project_name": "Project Name",
+    "star_date": "Start Date",
+    "end_date": "End Date",
+    "project_manager": "Project Manager",
+    "budget": "Budget",
+    "team_members": "Team Members",
+    "progress": "Progress",
+    "status": "Status",
+    "action": "Action"
+  },
+  "all_q&a": {
+    "question_list": "Question List",
+    "dashboard": "Dashboard",
+    "q&a": "Q&A",
+    "project_name": "Project Name",
+    "all_questions": "All Questions",
+    "create_new_question": "+ Create New Question",
+    "project": "Project",
+    "id": "ID",
+    "questioner": "Questioner",
+    "content": "Content"
   }
 }

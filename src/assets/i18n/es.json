@@ -92,5 +92,45 @@
     "settings": "Configuraciones",
     "subcription_plans": "Planes de Suscripción",
     "logout": "Cerrar Sesión"
+  },
+  "create_new_project": {
+    "title": "Crear Nuevo Proyecto",
+    "project_name": "Nombre del Proyecto",
+    "write_project_name": "Escriba el nombre del proyecto *",
+    "add_sell_agents": "Agregar Agentes de Venta",
+    "write_sell_agents_usernames": "Escriba los nombres de usuario de los agentes *",
+    "add_buy_agents": "Agregar Agentes de Compra",
+    "write_buy_agents_usernames": "Escriba los nombres de usuario de los agentes *",
+    "cancel": "Cancelar",
+    "create_project": "+ Crear Proyecto"
+  },
+  "all_projects": {
+    "project_list": "Lista de Proyectos",
+    "dashboard": "Tablero",
+    "project_management": "Gestión de Proyectos",
+    "all_projects": "Todos los Proyectos",
+    "add_new_project": "+ Agregar Nuevo Proyecto",
+    "id": "ID",
+    "project_name": "Nombre del Proyecto",
+    "start_date": "Fecha de Inicio",
+    "end_date": "Fecha de Fin",
+    "project_manager": "Gerente de Proyecto",
+    "budget": "Presupuesto",
+    "team_members": "Miembros del Equipo",
+    "progress": "Progreso",
+    "status": "Estado",
+    "action": "Acción"
+  },
+  "all_q&a": {
+    "question_list": "Lista de Preguntas",
+    "dashboard": "Tablero",
+    "q&a": "Preguntas y Respuestas",
+    "project_name": "Nombre del Proyecto",
+    "all_questions": "Todas las Preguntas",
+    "create_new_question": "+ Crear Nueva Pregunta",
+    "project": "Proyecto",
+    "id": "ID",
+    "questioner": "Pregunta",
+    "content": "Contenido"
   }
 }
