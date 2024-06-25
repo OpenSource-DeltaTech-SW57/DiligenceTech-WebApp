@@ -20,6 +20,7 @@ export class AuthenticationService {
   private signedInUsername: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
   constructor(private router: Router, private http: HttpClient) {
+      this.checkToken();
   }
 
   get isSignedIn() {
@@ -32,6 +33,20 @@ export class AuthenticationService {
 
   get currentUsername() {
     return this.signedInUsername.asObservable();
+  }
+
+  private checkToken() {
+    const token = localStorage.getItem('token');
+    const user = localStorage.getItem('user');
+
+    if (token && user) {
+      this.signedIn.next(true);
+      this.signedInUsername.next(user);
+    } else {
+      this.signedIn.next(false);
+      this.signedInUsername.next('');
+      this.signedInUserId.next(0);
+    }
   }
 
   /**
