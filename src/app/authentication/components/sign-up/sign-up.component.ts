@@ -20,9 +20,11 @@ export class SignUpComponent {
         private authenticationService: AuthenticationService
     ) {
         this.authForm = this.fb.group({
-            name: ['', Validators.required],
             email: ['', [Validators.required, Validators.email]],
             password: ['', [Validators.required, Validators.minLength(8)]],
+            username: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
+            firstname: ['', [Validators.required, Validators.maxLength(22)]],
+            lastname: ['', [Validators.required, Validators.maxLength(22)]]
         });
         this.themeService.isToggled$.subscribe(isToggled => {
             this.isToggled = isToggled;
@@ -38,7 +40,11 @@ export class SignUpComponent {
         if (this.authForm.valid) {
           const email = this.authForm.get("email")!.value;
           const password = this.authForm.get("password")!.value;
-          const signUpRequest = new SignUpRequest(email, password);
+          const username = this.authForm.get("username")!.value;
+          const firstname = this.authForm.get("firstname")!.value;
+          const lastname = this.authForm.get("lastname")!.value;
+          const signUpRequest = new SignUpRequest(username, email, password, firstname, lastname);
+
           this.authenticationService.signUp(signUpRequest);
             this.router.navigate(['/']);
 
