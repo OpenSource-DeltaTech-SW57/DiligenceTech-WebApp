@@ -70,7 +70,7 @@ export class ProjectListComponent implements OnInit, AfterViewInit {
   onCancelEdit() {
     this.resetEditState();
     this.getAllProjects();
-    this.getAllProjects();
+    this.toggleClass();
   }
 
   onProjectAdded(element: CreateProject) {
@@ -114,7 +114,11 @@ export class ProjectListComponent implements OnInit, AfterViewInit {
     }
   }
   private getAllProjects() {
-    this.projectApiService.getAll().subscribe((response: any) => {
+    //const agentUsername: string = JSON.parse(localStorage.getItem('username')!);
+    //console.log(agentUsername);
+    //
+    //fix
+    this.projectApiService.getAllProjectsLinkedAgent(String(localStorage.getItem('username'))).subscribe((response: any) => {
       this.dataSource.data = response;
     });
   };

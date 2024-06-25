@@ -17,7 +17,7 @@ export class AuthenticationService {
 
   private signedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   private signedInUserId: BehaviorSubject<number> = new BehaviorSubject<number>(0);
-  private signedInUsername: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  private signedInEmail: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
   constructor(private router: Router, private http: HttpClient) {
       this.checkToken();
@@ -32,19 +32,19 @@ export class AuthenticationService {
   }
 
   get currentUsername() {
-    return this.signedInUsername.asObservable();
+    return this.signedInEmail.asObservable();
   }
 
   private checkToken() {
     const token = localStorage.getItem('token');
-    const user = localStorage.getItem('user');
+    const email = localStorage.getItem('email');
 
-    if (token && user) {
+    if (token && email) {
       this.signedIn.next(true);
-      this.signedInUsername.next(user);
+      this.signedInEmail.next(email);
     } else {
       this.signedIn.next(false);
-      this.signedInUsername.next('');
+      this.signedInEmail.next('');
       this.signedInUserId.next(0);
     }
   }
@@ -76,23 +76,44 @@ export class AuthenticationService {
    * @param signInRequest - Sign In Request containing the username and password
    */
   signIn(signInRequest: SignInRequest) {
+  // getAllProjectsLinkedAgent(agentRecordId: string) {
+  //   return this.http.get<Project>(
+  //     `${this.resourcePath()}/${agentRecordId}/due-diligence-projects/all`,
+  //     this.httpOptions,
+  //   )
+  //     .pipe(retry(2), catchError(this.handleError));
+  // }
+  //
+  //
+  // private getAllProjects() {
+  //   const agentUsername: string = JSON.parse(localStorage.getItem('username')!);
+  //   console.log(agentUsername);
+  //   this.projectApiService.getAllProjectsLinkedAgent(agentUsername).subscribe((response: any) => {
+  //     this.dataSource.data = response;
+  //   });
+  // };
+
+    //const usernameAgent
+
     return this.http.post<SignInResponse>(`${this.basePath}/authentication/sign-in`, signInRequest, this.httpOptions)
       .subscribe({
         next: (response) => {
           this.signedIn.next(true);
           this.signedInUserId.next(response.id);
-          this.signedInUsername.next(response.email);
+          this.signedInEmail.next(response.email);
           localStorage.setItem('token', response.token);
-          localStorage.setItem('user', response.email);
+          localStorage.setItem('email', response.email);
+          localStorage.setItem('username', response.username);
           console.log(`Signed In as ${response.email} with token: ${response.token}`);
           this.router.navigate(['/dashboard']).then();
         },
         error: (error) => {
           this.signedIn.next(false);
           this.signedInUserId.next(0);
-          this.signedInUsername.next('');
+          this.signedInEmail.next('');
           localStorage.removeItem('token');
-          localStorage.removeItem('user');
+          localStorage.removeItem('email');
+          //localStorage.removeItem('username');
           console.error(`Error while signing in: ${error.message}`);
           this.router.navigate(['/authentication/sign-up']).then();
         }
@@ -107,7 +128,7 @@ export class AuthenticationService {
   signOut() {
     this.signedIn.next(false);
     this.signedInUserId.next(0);
-    this.signedInUsername.next('');
+    this.signedInEmail.next('');
     localStorage.removeItem('token');
     this.router.navigate(['/sign-in']).then();
   }
