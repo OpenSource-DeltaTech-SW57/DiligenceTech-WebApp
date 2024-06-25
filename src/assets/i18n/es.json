@@ -1,6 +1,93 @@
 {
-  "footer":
-  {
-    "description": " orgullosamente desarrollado por"
+  "footer": {
+    "description": "es orgullosamente propiedad de"
+  },
+  "projects_overview": {
+    "projects_overview": "Visión General de Proyectos",
+    "total_projects": "Total de Proyectos",
+    "projects_this_month": "Proyectos este mes",
+    "active_projects": "Proyectos Activos",
+    "completed_projects": "Proyectos Completados",
+    "total_members": "Total de Miembros",
+    "projects_engagement": "Compromiso de Proyectos 50%",
+    "increase": "Aumento",
+    "decrease": "Disminución"
+  },
+  "projects_roadmap": {
+    "projects_roadmap": "Hoja de Ruta de Proyectos",
+    "week": "Semana",
+    "project_planning": "Planificación de Proyectos",
+    "requirement": "Requerimiento",
+    "design": "Diseño",
+    "development": "Desarrollo",
+    "testing_and_qa": "Pruebas y QA",
+    "post_launch": "Post-Lanzamiento"
+  },
+  "active_project": {
+    "active_project": "Proyecto Activo",
+    "project": "Proyecto",
+    "project_A": "Proyecto Alpho",
+    "client": "Cliente",
+    "Shawn_Kennedy": "Shawn Kennedy",
+    "Assigned_to": "Asignado a",
+    "1_corporation": "Vaxo Corporation",
+    "planning": "Planificación",
+    "design": "Diseño",
+    "development": "Desarrollo",
+    "testing": "Pruebas",
+    "project_total_hours": "Horas Totales del Proyecto: 384 hrs",
+    "project_hours_left": "Horas Restantes del Proyecto: 144 hrs",
+    "project1": "Proyecto 1",
+    "project2": "Proyecto 2",
+    "project3": "Proyecto 3",
+    "project4": "Proyecto 4",
+    "view": "Ver",
+    "edit": "Editar",
+    "delete": "Eliminar"
+  },
+  "projects_progress": {
+    "projects_progress": "Progreso de los Proyectos",
+    "in_progress": "En Progreso",
+    "not_started": "No Iniciado",
+    "completed": "Completado"
+  },
+  "sidebar": {
+    "main": "PRINCIPAL",
+    "dashboard": "Tablero",
+    "description": "Descripción",
+    "project_management": "Gestión de Proyectos",
+    "projects": "Proyectos",
+    "all_Projects": "Todos los Proyectos",
+    "active_Projects": "Proyectos Activos",
+    "completed_Projects": "Proyectos Completados",
+    "all_members": "Todos los Miembros",
+    "all_questions": "Todas las Preguntas",
+    "question_per_project": "Preguntas por Proyecto",
+    "communication": "COMUNICACIÓN",
+    "email": "Correo Electrónico",
+    "notifications": "Notificaciones",
+    "pricing": "PRECIOS",
+    "subcription_plans": "Planes de Suscripción",
+    "account": "CUENTA",
+    "my_profile": "Mi Perfil",
+    "settings": "Configuraciones",
+    "account_settings": "Configuraciones de Cuenta",
+    "change_password": "Cambiar Contraseña",
+    "connections": "Conexiones",
+    "privacy_policy": "Política de Privacidad",
+    "terms_and_conditions": "Términos y Condiciones",
+    "logout": "Cerrar Sesión"
+  },
+  "header": {
+    "search": "Buscar aquí",
+    "mark_all_as_read": "Marcar todo como leído",
+    "view_all_messages": "Ver todos los mensajes",
+    "notifications": "Notificaciones",
+    "clear_all": "Limpiar todo",
+    "see_all_notifications": "Ver todas las notificaciones",
+    "my_profile": "Mi Perfil",
+    "settings": "Configuraciones",
+    "subcription_plans": "Planes de Suscripción",
+    "logout": "Cerrar Sesión"
   }
 }

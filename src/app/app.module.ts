@@ -112,6 +112,8 @@ import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "../environments/environment";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+import { LanguageSwitcherComponent } from './public/components/language-switcher/language-switcher.component';
+import {MatButtonToggle, MatButtonToggleGroup} from "@angular/material/button-toggle";
 
 //HTPP LOADER FACTORY METHOD
 export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader { return new TranslateHttpLoader(http); }
@@ -185,7 +187,8 @@ export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader { retur
     AreaCreationComponent,
     RootCreateComponent,
     FolderCreationComponent,
-    DocumentsCreationComponent
+    DocumentsCreationComponent,
+    LanguageSwitcherComponent
   ],
   imports: [
     BrowserModule,
@@ -227,7 +230,9 @@ export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader { retur
         useFactory: httpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    MatButtonToggleGroup,
+    MatButtonToggle
   ],
   providers: [
     provideAnimationsAsync(), UsersService, ProjectsApiService, CustomizerSettingsService, ToggleService, DatePipe, EncryptionDataService, AuthService, AuthGuardService,
