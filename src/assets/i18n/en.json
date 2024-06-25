@@ -1,7 +1,54 @@
 {
   "footer":
   {
-    "intro": "Made with",
-    "author": "by {author} Developer Team"
+    "description": " is Proudly Owned by"
+  },
+  "projects_overview": {
+    "total_projects": "Total Projects",
+    "projects_this_month": "Projects this month",
+    "active_projects": "Active Projects",
+    "completed_projects": "Completed Projects",
+    "total_members": "Total Members",
+    "projects_engagement": "Projects engagement",
+    "increase": "Increase",
+    "decrease": "Decrease"
+  },
+  "projects_roadmap": {
+    "projects_roadmap": "Projects Roadmap",
+    "week": "Week",
+    "project_planning": "Project Planning",
+    "requirement": "Requirement",
+    "design": "Design",
+    "development": "Development",
+    "testing_and_qa": "Testing and QA",
+    "post_launch": "Post-Launch"
+  },
+  "active_project": {
+    "active_project": "Active Project",
+    "project": "Project",
+    "project_A": "Project Alpho",
+    "client": "Client",
+    "Shawn_Kennedy": "Shawn Kennedy",
+    "Assigned_to": "Assigned to",
+    "1_corporation": "Vaxo Corporation",
+    "planning": "Planning",
+    "design": "Design",
+    "development": "Development",
+    "testing": "Testing",
+    "project_total_hours": "Project Total Hours: 384 hrs",
+    "project_hours_left": "Project Hours Left: 144 hrs",
+    "project1": "Project 1",
+    "project2": "Project 2",
+    "project3": "Project 3",
+    "project4": "Project 4",
+    "view": "View",
+    "edit": "Edit",
+    "delete": "Delete"
+  },
+  "projects_progress": {
+    "projects_progress": "Projects Progress",
+    "in_progress": "In Progress",
+    "not_started": "Not Started",
+    "completed": "Completed"
   }
 }
