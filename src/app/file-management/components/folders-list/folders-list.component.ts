@@ -2,7 +2,7 @@ import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
 import {SelectionModel} from "@angular/cdk/collections";
 import {CustomizerSettingsService} from "../../../shared/services/customizer-settings.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {FoldersApiService} from "../../services/folders-api.service";
 import {ProjectsApiService} from "../../../project-management/services/projects-api.service";
 
@@ -54,7 +54,8 @@ export class FoldersListComponent implements OnInit, AfterViewInit {
     public themeService: CustomizerSettingsService,
     private foldersApiService: FoldersApiService,
     private projectsApiService: ProjectsApiService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {
     this.themeService.isToggled$.subscribe(isToggled => {
       this.isToggled = isToggled;
@@ -73,6 +74,12 @@ export class FoldersListComponent implements OnInit, AfterViewInit {
     });
   }
 
+  goCreateFolder() {
+    this.route.params.subscribe(params => {
+      this.router.navigate(['/create/folder/' + params['id'] + '/' + params['areaId']]);
+    });
+  }
+
   getFoldersByArea(area: string) {
     this.foldersApiService.getByArea(area).subscribe((response: any) => {
       console.log(response.length);
@@ -81,13 +88,7 @@ export class FoldersListComponent implements OnInit, AfterViewInit {
   }
 
   setUserRole(project: string, user: string) {
-    this.projectsApiService.getProjectIfSellRole(project, user).subscribe((response: any) => {
-      console.log(response.length);
-      if (response.length != 0)
-        this.setSellRole();
-      else
-        this.setBuyRole();
-    });
+    this.setBuyRole();
   }
 
   setSellRole() {
