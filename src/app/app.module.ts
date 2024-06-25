@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {HttpClientModule, provideHttpClient, withInterceptors} from '@angular/common/http';
+import {HttpClient, HttpClientModule, provideHttpClient, withInterceptors} from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { UsersService } from './testing/services/users.service';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
@@ -110,6 +110,12 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "../environments/environment";
+import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import {TranslateModule} from "@ngx-translate/core";
+
+
+//HTPP LOADER FACTORY METHOD
+export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader { return new TranslateHttpLoader(http); }
 
 
 @NgModule({
@@ -212,10 +218,12 @@ import {environment} from "../environments/environment";
     NgApexchartsModule,
     MatTooltipModule,
     MatCheckboxModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    TranslateModule.forRoot({defaultLanguage: 'en', loader: {provide: TranslateHttpLoader, useFactory: httpLoaderFactory, deps: [HttpClient]} })
+
   ],
   providers: [
-    provideAnimationsAsync(), UsersService, ProjectsApiService, CustomizerSettingsService, ToggleService, DatePipe, EncryptionDataService, AuthService, AuthGuardService,
+    provideAnimationsAsync(), UsersService, ProjectsApiService, CustomizerSettingsService, ToggleService, DatePipe, EncryptionDataService, AuthService, AuthGuardService,  TranslateHttpLoader,
     provideHttpClient(withInterceptors([authenticationInterceptor])),
     provideFirebaseApp(() => initializeApp({"projectId":"diligencetech-os","appId":"1:612857743772:web:a97065927b835677822059","storageBucket":"diligencetech-os.appspot.com","apiKey":"AIzaSyBElIV6Uuyb7yzTpq3Y6gs_2ClduCciZWM","authDomain":"diligencetech-os.firebaseapp.com","messagingSenderId":"612857743772","measurementId":"G-5K9V09QLC1"})),
     provideAuth(() => getAuth()),
