@@ -5,6 +5,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { ProjectsApiService } from '../../services/projects-api.service';
 import { CustomizerSettingsService } from '../../../shared/services/customizer-settings.service';
+import { CreateProject } from '../../model/create-project';
 
 @Component({
   selector: 'app-project-list',
@@ -15,7 +16,12 @@ export class ProjectListComponent implements OnInit, AfterViewInit {
 
   // Attributes
 
-  projectData: Project;
+  // post
+  projectDataPost: CreateProject;
+
+  // get
+  projectDataGet: Project;
+
   dataSource!: MatTableDataSource<any>;
   displayedColumns: string[] = ['id', 'projectName', 'action'];
   @ViewChild(MatPaginator, {static: false}) paginator!: MatPaginator;
@@ -25,11 +31,18 @@ export class ProjectListComponent implements OnInit, AfterViewInit {
   // isToggled
   isToggled = false;
 
+  // Popup Trigger
+  classApplied = false;
+  toggleClass() {
+      this.classApplied = !this.classApplied;
+  }
+
   // Constructor
 
   constructor(private projectApiService: ProjectsApiService, public themeService: CustomizerSettingsService) {
     this.isEditMode = false;
-    this.projectData = {} as Project;
+    this.projectDataPost = {} as CreateProject;
+    this.projectDataGet = {} as Project;
     this.dataSource = new MatTableDataSource<any>();
     this.themeService.isToggled$.subscribe(_isToggled => {
       this.isToggled = _isToggled;
@@ -45,7 +58,7 @@ export class ProjectListComponent implements OnInit, AfterViewInit {
 
   onEditItem(element: Project) {
     this.isEditMode = true;
-    this.projectData = element;
+    this.projectDataGet = element;
   }
 
   // CRUD Actions
@@ -57,16 +70,18 @@ export class ProjectListComponent implements OnInit, AfterViewInit {
   onCancelEdit() {
     this.resetEditState();
     this.getAllProjects();
+    this.getAllProjects();
   }
 
-  onProjectAdded(element: Project) {
-    this.projectData = element;
+  onProjectAdded(element: CreateProject) {
+    this.projectDataPost = element;
     this.createProject();
     this.resetEditState();
+    this.toggleClass();
   }
 
   onProjectUpdated(element: Project) {
-    this.projectData = element;
+    this.projectDataGet = element;
     this.updateProject();
     this.resetEditState();
   }
@@ -79,12 +94,12 @@ export class ProjectListComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.getUserProjects();
+    this.getAllProjects();
   }
 
   private resetEditState(): void {
     this.isEditMode = false;
-    this.projectData = {} as Project;
+    this.projectDataGet = {} as Project;
   }
 
   private getUserProjects() {
@@ -105,9 +120,9 @@ export class ProjectListComponent implements OnInit, AfterViewInit {
   };
 
   private createProject() {
-    this.projectApiService.create(this.projectData).subscribe((response: any) => {
+    this.projectApiService.create(this.projectDataPost).subscribe((response: any) => {
       this.dataSource.data.push({...response});
-      this.dataSource.data = this.dataSource.data.map((project: Project) => {
+      this.dataSource.data = this.dataSource.data.map((project: CreateProject) => {
         return project;
       });
     });
@@ -116,8 +131,8 @@ export class ProjectListComponent implements OnInit, AfterViewInit {
   // Lifecycle Hooks
 
   private updateProject() {
-    let projectToUpdate = this.projectData;
-    this.projectApiService.update(this.projectData.id, projectToUpdate).subscribe((response: any) => {
+    let projectToUpdate = this.projectDataGet;
+    this.projectApiService.update(this.projectDataGet.id, projectToUpdate).subscribe((response: any) => {
       this.dataSource.data = this.dataSource.data.map((project: Project) => {
         if (project.id === response.id) {
           return response;

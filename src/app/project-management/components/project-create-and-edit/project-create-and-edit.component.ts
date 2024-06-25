@@ -13,80 +13,105 @@ import {Router} from "@angular/router";
   styleUrl: './project-create-and-edit.component.scss'
 })
 export class ProjectCreateAndEditComponent {
-  @Input() project: Project;
+  @Input() project: CreateProject;
   @Input() editMode = false;
-  @Output() projectAdded = new EventEmitter<Project>();
-  @Output() projectUpdated = new EventEmitter<Project>();
+  @Output() projectAdded = new EventEmitter<CreateProject>();
+  @Output() projectUpdated = new EventEmitter<CreateProject>();
   @Output() editCanceled = new EventEmitter();
   @ViewChild('projectForm', {static:false}) projectForm!: NgForm;
-  projectName: string = '';
+
+  // projectName: string = '';
   sellAgents: string = '';
   buyAgents: string = '';
 
-  editor!: Editor;
-  toolbar: Toolbar = [
-    ['bold', 'italic'],
-    ['underline', 'strike'],
-    ['code', 'blockquote'],
-    ['ordered_list', 'bullet_list'],
-    [{ heading: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] }],
-    ['link', 'image'],
-    ['text_color', 'background_color'],
-    ['align_left', 'align_center', 'align_right', 'align_justify'],
-  ]
+  //editor!: Editor;
+  //toolbar: Toolbar = [
+  //  ['bold', 'italic'],
+  //  ['underline', 'strike'],
+  //  ['code', 'blockquote'],
+  //  ['ordered_list', 'bullet_list'],
+  //  [{ heading: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] }],
+  //  ['link', 'image'],
+  //  ['text_color', 'background_color'],
+  //  ['align_left', 'align_center', 'align_right', 'align_justify'],
+  //]
 
-  ngOnInit(): void {
-    this.editor = new Editor();
-  }
+  //ngOnInit(): void {
+  //  this.editor = new Editor();
+  //}
 
-  ngOnDestroy(): void {
-    this.editor.destroy();
-  }
+  //ngOnDestroy(): void {
+  //  this.editor.destroy();
+  //}
 
   public multiple: boolean = false;
 
   isToggled = false;
 
-  constructor(public themeService: CustomizerSettingsService,
-              private projectsApiService: ProjectsApiService,
-              private router: Router) {
-    this.project = {} as Project;
+  constructor(public themeService: CustomizerSettingsService) {
+    this.project = {} as CreateProject;
     this.themeService.isToggled$.subscribe(_isToggled => {
       this.isToggled = _isToggled;
     })
   }
 
+  // constructor(public themeService: CustomizerSettingsService, private projectsApiService: ProjectsApiService,
+  //             private router: Router) {
+  //   this.project = {} as Project;
+  //   this.themeService.isToggled$.subscribe(_isToggled => {
+  //     this.isToggled = _isToggled;
+  //   })
+  // }
+
   private resetEditState(){
     this.editMode = false;
     this.projectForm.resetForm();
-    this.project = {} as Project;
+    this.project = {} as CreateProject;
   }
 
+  // onSubmit() {
+  //   if (this.projectForm.form.valid) {
+  //     let createProject = new CreateProject(this.projectName, this.usableSellAgentsInput(), this.usableBuyAgentsInput());
+  //     this.projectsApiService.create(createProject).subscribe({
+  //       next: (response) => {
+  //         // Navigate to the desired route after successful creation
+  //         this.router.navigate(['/project-management/all-projects']);
+  //       },
+  //       error: (error) => {
+  //         // Handle error
+  //         console.error('Error creating project', error);
+  //       }
+  //     });
+  //   }
+  // }
+
   onSubmit() {
-    if (this.projectForm.form.valid) {
-      let createProject = new CreateProject(this.projectName, this.usableSellAgentsInput(), this.usableBuyAgentsInput());
-      this.projectsApiService.create(createProject).subscribe({
-        next: (response) => {
-          // Navigate to the desired route after successful creation
-          this.router.navigate(['/project-management/all-projects']);
-        },
-        error: (error) => {
-          // Handle error
-          console.error('Error creating project', error);
-        }
-      });
+    if (this.projectForm.form.valid){
+      if(this.editMode){
+        this.projectUpdated.emit(this.project);
+      } else {
+        this.projectAdded.emit(this.project);
+      }
+      this.resetEditState()
+    } else {
+      console.log("invalid data");
     }
   }
 
-  private usableSellAgentsInput() {
-    return this.sellAgents.replace(' ','').split(',');
-  }
-  private usableBuyAgentsInput() {
-    return this.buyAgents.replace(' ','').split(',');
-  }
+  // private usableSellAgentsInput() {
+  //   return this.sellAgents.replace(' ','').split(',');
+  // }
+  // private usableBuyAgentsInput() {
+  //   return this.buyAgents.replace(' ','').split(',');
+  // }
+
+  // onCancel() {
+  //   this.router.navigate(['/project-management/all-projects']);
+  // }
 
   onCancel() {
-    this.router.navigate(['/project-management/all-projects']);
+    this.resetEditState();
+    this.editCanceled.emit();
   }
 
   // RTL Mode

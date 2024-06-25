@@ -1,27 +1,3 @@
-<!-- Breadcrumb -->
-<div class="breadcrumb-card mb-25 d-md-flex align-items-center justify-content-between">
-    <h5 class="mb-0">
-        Create Project
-    </h5>
-    <ol class="breadcrumb list-unstyled mt-0 mb-0 pl-0">
-        <li class="breadcrumb-item position-relative">
-            <a routerLink="/" class="d-inline-block position-relative">
-                <i class="ri-home-8-line"></i>
-                Dashboard
-            </a>
-        </li>
-        <li class="breadcrumb-item position-relative">
-            Project Management
-        </li>
-        <li class="breadcrumb-item position-relative">
-            Projects
-        </li>
-        <li class="breadcrumb-item position-relative">
-            Create Project
-        </li>
-    </ol>
-</div>
-
 <!-- Create Project -->
 <mat-card
     class="daxa-card create-project-card mb-25 border-radius bg-white border-none d-block"
@@ -37,9 +13,9 @@
     <mat-card-content>
         <form (submit)="onSubmit()" #projectForm="ngForm">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-8">
                     <div class="row">
-                        <div class="col-sm-12">
+                        <div class="col-sm-6">
                             <div class="mb-25">
                                 <label class="main-label d-block lh-1 text-black">
                                     Project Name
@@ -48,7 +24,7 @@
                                     <mat-label>
                                         Write project name
                                     </mat-label>
-                                    <input matInput placeholder="E.g. Project Hotel" name="projectName" required [(ngModel)]="projectName">
+                                    <input matInput placeholder="E.g. Project Hotel" name="projectName" required [(ngModel)]="project.projectName">
                                 </mat-form-field>
                             </div>
                         </div>
@@ -82,11 +58,11 @@
                 </div>
             </div>
             <div class="btn-box">
-                <button mat-button>
-                    + Create Project
-                </button>
                 <button mat-button (click)="onCancel()">
                     Cancel
+                </button>
+                <button mat-button>
+                    + Create Project
                 </button>
             </div>
         </form>

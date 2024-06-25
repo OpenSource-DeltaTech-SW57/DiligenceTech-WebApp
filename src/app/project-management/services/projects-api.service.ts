@@ -4,14 +4,15 @@ import { BaseService } from '../../shared/services/base.service';
 import { Project } from '../model/project.entity';
 import {catchError, combineLatest, forkJoin, map, Observable, retry} from "rxjs";
 import {AuthUsers} from "../../authentication/model/auth-users.entity";
+import { CreateProject } from '../model/create-project';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProjectsApiService extends BaseService<Project>{
+export class ProjectsApiService extends BaseService<CreateProject>{
   constructor(http: HttpClient) {
     super(http);
-    this.resourceEndpoint = "/projects";
+    this.resourceEndpoint = "/due-diligence-projects";
   }
 
   getByUser(user: string) {
@@ -19,7 +20,8 @@ export class ProjectsApiService extends BaseService<Project>{
       .pipe(
         map(projects => {
           // Filter projects where the 'agents' array contains the specified user
-          return projects.filter(project => project.buyAgents && project.sellAgents && (project.sellAgents.includes(user) || project.buyAgents.includes(user)));
+          // return projects.filter(project => project.buyAgents && project.sellAgents && (project.sellAgents.includes(user) || project.buyAgents.includes(user)));
+          return null
         })
       );
   }
@@ -28,7 +30,8 @@ export class ProjectsApiService extends BaseService<Project>{
     return this.http.get<Project[]>(`${this.basePath}${this.resourceEndpoint}?id=${project}`)
       .pipe(
         map(projects => {
-            return projects.filter(project => project.sellAgents && project.sellAgents.includes(user));
+            // return projects.filter(project => project.sellAgents && project.sellAgents.includes(user));
+            return null
         })
       );
   }
