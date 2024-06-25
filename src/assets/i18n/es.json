@@ -198,5 +198,24 @@
     "subject": "Asunto",
     "body": "Cuerpo",
     "date": "Fecha"
+  },
+  "pricing": {
+    "pricing": "Precios",
+    "dashboard": "Tablero",
+    "pricing2": "Precios",
+    "free": "Gratis",
+    "fresh_start": "Un nuevo comienzo en la diligencia debida",
+    "per_month": "Por Mes",
+    "free_Live_Support": "Soporte en Vivo Gratis",
+    "Access_to_essential_functionalities": "Acceso a funcionalidades esenciales",
+    "real_world_solution": "Solución del mundo real",
+    "Limited_storage_space_for_user_data": "Espacio de almacenamiento limitado para datos de usuario",
+    "Response_within_a_specified_time": "Respuesta dentro de un tiempo especificado",
+    "free_setup": "Configuración gratuita",
+    "get_started_now": "Comenzar Ahora",
+    "Enterprise_Plan": "Plan Enterprise",
+    "A_Reimagined_process_for_everyone": "Un proceso reimaginado para todos",
+    "Business_Plan": "Plan de Negocios",
+    "The_Definitive_Experience_of_Due_Diligence": "La Experiencia Definitiva de la Diligencia Debida"
   }
 }

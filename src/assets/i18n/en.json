@@ -199,5 +199,31 @@
     "subject": "Subject",
     "body": "Body",
     "date": "Date"
+  },
+  "pricing":
+  {
+    "pricing": "Pricing",
+    "dashboard": "Dashboard",
+    "pricing2": "Pricing",
+    "free": "Free",
+    "fresh_start": "A brand fresh start in due diligence",
+    "per_month": "Per Month",
+    "free_Live_Support": "Free Live Support",
+    "Access_to_essential_functionalities": "Access to essential functionalities",
+    "real_world_solution": "Real world solutions",
+    "Limited_storage_space_for_user_data": "Limited storage space for user data",
+    "Response_within_a_specified_time": "Response within a specified time",
+    "free_setup": "Free Setup",
+    "get_started_now": "Get Started Now",
+    "Enterprise_Plan": "Enterprise Plan",
+    "A_Reimagined_process_for_everyone": "A Reimagined process for everyone",
+    "Access to essential functionalities": "Access to essential functionalities",
+    "Business_Plan": "Business Plan",
+    "The_Definitive_Experience_of_Due_Diligence": "The Definitive Experience of Due Diligence"
+  },
+  "my_profile": {
+    "welcome": "Welcome To DiligenceTech",
+    "projects_done": "You have done 70 more projects in the month.",
+    "mont_performance": "Month Performance"
   }
 }
