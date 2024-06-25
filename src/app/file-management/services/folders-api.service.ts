@@ -15,6 +15,6 @@ export class FoldersApiService extends BaseService<Folder> {
   }
 
   getByArea(area: string) {
-    return this.http.get<Area>(`${this.basePath}${this.resourceEndpoint}?area_id=${area}`).pipe();
+    return this.http.get<Area>(`${this.basePath}${this.resourceEndpoint}/${area}`).pipe();
   }
 }

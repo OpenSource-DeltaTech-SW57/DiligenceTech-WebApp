@@ -2,7 +2,7 @@ import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
 import {SelectionModel} from "@angular/cdk/collections";
 import {CustomizerSettingsService} from "../../../shared/services/customizer-settings.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {DocumentsApiService} from "../../services/documents-api.service";
 import {ProjectsApiService} from "../../../project-management/services/projects-api.service";
 
@@ -54,7 +54,8 @@ export class DocumentsListComponent implements OnInit, AfterViewInit {
     public themeService: CustomizerSettingsService,
     private documentsApiService: DocumentsApiService,
     private projectsApiService: ProjectsApiService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {
     this.themeService.isToggled$.subscribe(isToggled => {
       this.isToggled = isToggled;
@@ -69,6 +70,18 @@ export class DocumentsListComponent implements OnInit, AfterViewInit {
     this.route.params.subscribe(params => {
       this.getDocumentsByFolder(params['folderId']);
       this.setUserRole(params['id'], String(localStorage.getItem('user')));
+    });
+  }
+
+  goAddFiles() {
+    this.route.params.subscribe(params => {
+      this.router.navigate(['/create/documents/' + params['id'] + '/' + params['areaId'] + '/' + params['folderId']]);
+    });
+  }
+
+  goCreateFolder() {
+    this.route.params.subscribe(params => {
+      this.router.navigate(['/create/folder/' + params['id'] + '/' + params['areaId']]);
     });
   }
 

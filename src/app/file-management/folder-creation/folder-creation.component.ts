@@ -7,6 +7,7 @@ import {AreaApiService} from "../services/area-api.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {AreaRequest} from "../model/area.request";
 import {FoldersApiService} from "../services/folders-api.service";
+import {FolderRequest} from "../model/folder.request";
 
 @Component({
   selector: 'app-folder-creation',
@@ -66,8 +67,8 @@ export class FolderCreationComponent {
 
   onSubmit() {
     this.route.params.subscribe(params => {
-      let createArea = new AreaRequest(params['areaId'], this.folderName);
-      this.foldersApiService.create(createArea).subscribe({
+      let createFolder = new FolderRequest(params['areaId'], this.folderName);
+      this.foldersApiService.create(createFolder).subscribe({
         next: (response) => {
           console.log(`Folder Created: ${response.name}`);
           this.router.navigate([`/${params['id']}/file-management/${params['areaId']}`]);

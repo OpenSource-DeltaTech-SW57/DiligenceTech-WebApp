@@ -68,8 +68,8 @@ export class AreaCreationComponent {
       let createArea = new AreaRequest(params['id'], this.areaName);
       this.areaApiService.create(createArea).subscribe({
         next: (response) => {
-          console.log(`Area Created: ${response.name}`);
-          this.router.navigate([`/${params['id']}/file-management`]);
+          console.log(`Area Created: ${response.fileName}`);
+          this.router.navigate([`/project-management/all-projects/${params['id']}/file-management`]);
         },
         error: (error) => {
           console.error(`Error while creating area: ${error.message}`);
