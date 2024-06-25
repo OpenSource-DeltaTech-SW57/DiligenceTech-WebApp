@@ -47,6 +47,9 @@ import {AreaCreationComponent} from "./file-management/components/area-creation/
 import {FolderCreationComponent} from "./file-management/folder-creation/folder-creation.component";
 import {authenticationGuard} from "./authentication/services/authentication.guard";
 import {DocumentsCreationComponent} from "./file-management/components/documents-creation/documents-creation.component";
+import {
+  QuestionsAtProjectListComponent
+} from "./q-and-a/pages/questions-at-project-list/questions-at-project-list.component";
 
 
 const routes: Routes = [
@@ -98,6 +101,7 @@ const routes: Routes = [
   {path: "q-and-a", component: QAndAComponent, canActivate:[authenticationGuard], children: [
       {path: "all-questions", component: AllQuestionsComponent },
       {path: "questions-project", component: QuestionsProjectListComponent },
+      {path: "questions-project/:id", component: QuestionsAtProjectListComponent }
     ]},
   {path: "", redirectTo: "authentication", pathMatch: "full"},
   {path: "**", component: PageNotFoundComponent}
