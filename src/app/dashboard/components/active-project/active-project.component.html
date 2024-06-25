@@ -5,26 +5,26 @@
     <mat-card-header>
         <mat-card-title>
             <h5 class="mt-0 mb-0">
-                Active Project
+              {{'active_project.active_project' | translate }}
             </h5>
         </mat-card-title>
         <mat-card-subtitle>
             <button type="button" mat-button class="card-header-menu-btn" [matMenuTriggerFor]="cardHeaderMenu">
               <mat-icon>arrow_drop_down</mat-icon> <!-- Icono de despliegue -->
-                Project 01
+              {{'active_project.active_project' | translate }}
             </button>
             <mat-menu #cardHeaderMenu="matMenu" class="card-header-menu" xPosition="before">
                 <button mat-menu-item>
-                    Project 01
+                  {{'active_project.project1' | translate }}
                 </button>
                 <button mat-menu-item>
-                    Project 02
+                  {{'active_project.project2' | translate }}
                 </button>
                 <button mat-menu-item>
-                    Project 03
+                  {{'active_project.project3' | translate }}
                 </button>
                 <button mat-menu-item>
-                    Project 04
+                  {{'active_project.project4' | translate }}
                 </button>
             </mat-menu>
         </mat-card-subtitle>
@@ -37,10 +37,10 @@
                 </div>
                 <div class="info">
                     <span class="d-block fw-medium">
-                        Project Alpho
+                  {{'active_project.project_A' | translate }}
                     </span>
                     <span class="client d-block">
-                        Client: <span class="text-body">Shawn Kennedy</span>
+                        {{'active_project.client' | translate }} <span class="text-body">{{'active_project.Shawn_Kennedy' | translate }}</span>
                     </span>
                 </div>
             </div>
@@ -50,10 +50,10 @@
                 </div>
                 <div class="info">
                     <span class="d-block fw-medium">
-                        Assigned To
+                        {{'active_project.Assigned_to' | translate }}
                     </span>
                     <span class="client text-body d-block">
-                        Vaxo Corporation
+                        {{'active_project.1_corporation' | translate }}
                     </span>
                 </div>
             </div>
@@ -65,13 +65,13 @@
                 </button>
                 <mat-menu #activeProjectActionMenu="matMenu" class="action-menu" xPosition="before">
                     <button mat-menu-item>
-                        <i class="ri-eye-line"></i> View
+                        <i class="ri-eye-line"></i> {{'active_project.view' | translate }}
                     </button>
                     <button mat-menu-item>
-                        <i class="ri-edit-line"></i> Edit
+                        <i class="ri-edit-line"></i> {{'active_project.edit' | translate }}
                     </button>
                     <button mat-menu-item>
-                        <i class="ri-delete-bin-6-line"></i> Delete
+                        <i class="ri-delete-bin-6-line"></i> {{'active_project.delete' | translate }}
                     </button>
                 </mat-menu>
             </div>
@@ -83,7 +83,7 @@
                         01
                     </div>
                     <span class="fw-medium d-block text-white">
-                        Planning
+                        {{'active_project.design' | translate }}
                     </span>
                 </div>
                 <div class="box">
@@ -91,7 +91,7 @@
                         02
                     </div>
                     <span class="fw-medium d-block text-white">
-                        Design
+                        {{'active_project.design' | translate }}
                     </span>
                 </div>
                 <div class="box">
@@ -99,7 +99,7 @@
                         03
                     </div>
                     <span class="fw-medium d-block text-white">
-                        Development
+                        {{'active_project.development' | translate }}
                     </span>
                 </div>
                 <div class="box">
@@ -107,7 +107,7 @@
                         04
                     </div>
                     <span class="fw-medium d-block text-white">
-                        Testing
+                      {{'active_project.testing' | translate }}
                     </span>
                 </div>
             </div>
@@ -126,10 +126,10 @@
         </div>
         <div class="d-flex align-items-center justify-content-between">
             <span class="d-block">
-                Project Total Hours: 384 hrs
+                {{'active_project.project_total_hours' | translate }}
             </span>
             <span class="d-block">
-                Project Hours Left: 144 hrs
+               {{'active_project.project_hours_left' | translate }}
             </span>
         </div>
     </mat-card-content>

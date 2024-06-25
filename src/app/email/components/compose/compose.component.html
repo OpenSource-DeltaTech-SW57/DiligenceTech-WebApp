@@ -1,23 +1,23 @@
 <!-- Breadcrumb -->
 <div class="breadcrumb-card mb-25 d-md-flex align-items-center justify-content-between">
   <h5 class="mb-0">
-    Compose
+    {{'email_compose.compose' | translate }}
   </h5>
   <ol class="breadcrumb list-unstyled mt-0 mb-0 pl-0">
     <li class="breadcrumb-item position-relative">
       <a routerLink="/" class="d-inline-block position-relative">
         <i class="ri-home-8-line"></i>
-        Dashboard
+        {{'email_compose.dashboard' | translate }}
       </a>
     </li>
     <li class="breadcrumb-item position-relative">
-      Communication
+      {{'email_compose.communication' | translate }}
     </li>
     <li class="breadcrumb-item position-relative">
-      Email
+      {{'email_compose.email' | translate }}
     </li>
     <li class="breadcrumb-item position-relative">
-      Compose
+      {{'email_compose.email_composition' | translate }}
     </li>
   </ol>
 </div>
@@ -33,7 +33,7 @@
       <mat-card-header>
         <mat-card-title>
           <h5 class="mt-0 mb-0">
-            Email Composition
+            {{'email_compose.subject' | translate }}
           </h5>
         </mat-card-title>
         <mat-card-subtitle>
@@ -114,21 +114,21 @@
             </div>
             <div class="col-md-6">
               <div class="mb-25">
-                <label class="main-label d-block lh-1 text-black">Subject</label>
+                <label class="main-label d-block lh-1 text-black">{{'email_compose.subject' | translate }}</label>
                 <mat-form-field>
-                  <input matInput placeholder="Write your subject here">
+                  <input matInput placeholder="{{'email_compose.write_your_subject_here' | translate }}">
                 </mat-form-field>
               </div>
             </div>
             <div class="col-md-12">
               <div class="mb-25">
-                <label class="main-label d-block lh-1 text-black">Your Email</label>
+                <label class="main-label d-block lh-1 text-black">{{'email_compose.your_email' | translate }}</label>
                 <ngx-editor [(ngModel)]="editorContent" [editor]="editor" [placeholder]="'Type here...'"></ngx-editor>
               </div>
             </div>
           </div>
           <div class="btn-box d-flex align-items-center">
-            <button mat-button class="btn" (click)="sendEmail()">Send</button>
+            <button mat-button class="btn" (click)="sendEmail()">{{'email_compose.send' | translate }}</button>
             <div class="buttons-list d-flex align-items-center">
               <button mat-button class="text-body">
                 <i class="material-icons">attach_file</i>

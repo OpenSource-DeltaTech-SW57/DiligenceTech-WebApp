@@ -1,11 +1,11 @@
 <!-- Breadcrumb -->
 <div class="breadcrumb-card mb-25 d-md-flex align-items-center justify-content-between">
   <h5 class="mb-0">
-    Spam
+    {{'spam.spam' | translate }}
   </h5>
   <ol class="breadcrumb list-styled mt-0 mb-0 pl-0">
     <li class="breadcrumb-item position-relative">
-      Spam
+      {{'spam.spam' | translate }}
     </li>
   </ol>
 </div>
@@ -20,8 +20,7 @@
       <mat-card-header>
         <mat-card-title>
           <h5 class="mt-0 mb-0">
-            Spam Emails
-          </h5>
+            {{'spam.spam_emails' | translate }}          </h5>
         </mat-card-title>
         <mat-card-subtitle>
           <div class="info-buttons-list d-flex align-items-center">
@@ -86,19 +85,19 @@
 
           <!-- Title Column -->
           <ng-container matColumnDef="title">
-            <th mat-header-cell *matHeaderCellDef>Title</th>
+            <th mat-header-cell *matHeaderCellDef>{{'spam.title' | translate }}</th>
             <td mat-cell *matCellDef="let row">{{ row.title }}</td>
           </ng-container>
 
           <!-- Description Column -->
           <ng-container matColumnDef="description">
-            <th mat-header-cell *matHeaderCellDef>Description</th>
+            <th mat-header-cell *matHeaderCellDef>{{'spam.description' | translate }}</th>
             <td mat-cell *matCellDef="let row">{{ row.description }}</td>
           </ng-container>
 
           <!-- Date Column -->
           <ng-container matColumnDef="date">
-            <th mat-header-cell *matHeaderCellDef>Date</th>
+            <th mat-header-cell *matHeaderCellDef>{{'spam.date' | translate }}</th>
             <td mat-cell *matCellDef="let row">{{ row.date }}</td>
           </ng-container>
 

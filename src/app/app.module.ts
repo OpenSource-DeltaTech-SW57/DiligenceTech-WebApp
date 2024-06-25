@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {HttpClientModule, provideHttpClient, withInterceptors} from '@angular/common/http';
+import {HttpClient, HttpClientModule, provideHttpClient, withInterceptors} from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { UsersService } from './testing/services/users.service';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
@@ -110,7 +110,15 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "../environments/environment";
-import { QuestionsAtProjectListComponent } from './q-and-a/pages/questions-at-project-list/questions-at-project-list.component';
+import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+import { LanguageSwitcherComponent } from './public/components/language-switcher/language-switcher.component';
+import {MatButtonToggle, MatButtonToggleGroup} from "@angular/material/button-toggle";
+
+//HTPP LOADER FACTORY METHOD
+export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader { return new TranslateHttpLoader(http); }
+
+
 
 
 @NgModule({
@@ -180,7 +188,7 @@ import { QuestionsAtProjectListComponent } from './q-and-a/pages/questions-at-pr
     RootCreateComponent,
     FolderCreationComponent,
     DocumentsCreationComponent,
-    QuestionsAtProjectListComponent
+    LanguageSwitcherComponent
   ],
   imports: [
     BrowserModule,
@@ -214,7 +222,17 @@ import { QuestionsAtProjectListComponent } from './q-and-a/pages/questions-at-pr
     NgApexchartsModule,
     MatTooltipModule,
     MatCheckboxModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    TranslateModule.forRoot({
+      defaultLanguage: 'en',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: httpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
+    MatButtonToggleGroup,
+    MatButtonToggle
   ],
   providers: [
     provideAnimationsAsync(), UsersService, ProjectsApiService, CustomizerSettingsService, ToggleService, DatePipe, EncryptionDataService, AuthService, AuthGuardService,
