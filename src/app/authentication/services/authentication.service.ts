@@ -103,7 +103,6 @@ export class AuthenticationService {
           this.signedInEmail.next(response.email);
           localStorage.setItem('token', response.token);
           localStorage.setItem('email', response.email);
-          localStorage.setItem('username', response.username);
           console.log(`Signed In as ${response.email} with token: ${response.token}`);
           this.router.navigate(['/dashboard']).then();
         },
@@ -113,7 +112,6 @@ export class AuthenticationService {
           this.signedInEmail.next('');
           localStorage.removeItem('token');
           localStorage.removeItem('email');
-          //localStorage.removeItem('username');
           console.error(`Error while signing in: ${error.message}`);
           this.router.navigate(['/authentication/sign-up']).then();
         }
