@@ -288,6 +288,10 @@
     "Backup_Codes" : "Backup Codes",
     "Desktop,email,chat,purchase notifications": "Desktop, email, chat, purchase notifications",
     "delete_this_account": "Delete this account:",
-    "close_and_delete_this_account": "Close and delete this account"
+    "close_and_delete_this_account": "Close and delete this account",
+    "account_settings": "Account Settings",
+    "connections": "Connections",
+    "privacy_policy": "Privacy Policy",
+    "terms_and_conditions": "Terms and Conditions"
   }
 }

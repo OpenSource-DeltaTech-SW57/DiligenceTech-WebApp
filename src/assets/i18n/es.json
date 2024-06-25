@@ -285,6 +285,10 @@
     "backup_codes": "Códigos de Respaldo",
     "desktop_email_chat_purchase_notifications": "Notificaciones de escritorio, email, chat, compras",
     "delete_this_account": "Eliminar esta cuenta:",
-    "close_and_delete_this_account": "Cerrar y eliminar esta cuenta"
+    "close_and_delete_this_account": "Cerrar y eliminar esta cuenta",
+    "account_settings": "Ajustes de la Cuenta",
+    "connections": "Conexiones",
+    "privacy_policy": "Politica de Privacidad",
+    "terms_and_conditions": "Terminos y condiciones"
   }
 }
