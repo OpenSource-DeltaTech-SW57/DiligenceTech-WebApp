@@ -79,11 +79,11 @@ const routes: Routes = [
       {path: "compose", component: ComposeComponent },
       {path: "trash", component: TrashComponent },
       {path: "drafts", component: DraftsComponent },
-      {path: "read", component: ReadComponent},
-      {path: "notifications", component: NotificationListComponent},
+      {path: "read/:email", component: ReadComponent},
       {path: "sent", component: SentComponent},
       {path: "spam", component: SpamComponent},
     ]},
+  {path: "communications/notifications", component: NotificationListComponent},
   {path: "pricing/subscription-plan", component: SubscriptionPlanComponent, canActivate: [authenticationGuard]},
   {path: "account/my-profile", component: MyprofileComponent, canActivate: [authenticationGuard] },
   {path: "account/settings", component: SettingsAccountComponent, canActivate:[authenticationGuard], children: [

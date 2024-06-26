@@ -1,24 +1,63 @@
 import { SelectionModel } from '@angular/cdk/collections';
-import { Component, ViewChild } from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { CustomizerSettingsService } from '../../../shared/services/customizer-settings.service';
+import {MatSort} from "@angular/material/sort";
+import {Email} from "../../model/email.entity";
+import {EmailApiService} from "../../services/email-api.service";
+import {response} from "express";
+import {AgentApiService} from "../../../myprofile/services/agent-api.service";
 
 @Component({
   selector: 'app-inbox',
   templateUrl: './inbox.component.html',
   styleUrls: ['./inbox.component.scss']
 })
-export class InboxComponent {
-  displayedColumns: string[] = ['select', 'title', 'description', 'date'];
+export class InboxComponent implements OnInit, AfterViewInit{
+
+  displayedColumns: string[] = ['title', 'sender_email', 'date'];
   dataSource = new MatTableDataSource<any>();
   selection = new SelectionModel<any>(true, []);
+  @ViewChild(MatPaginator, {static: false})paginator!: MatPaginator;
+  @ViewChild(MatSort, {static: false})sort!: MatSort;
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  isToggled = false;
+
+
+  constructor(
+    private emailApiService: EmailApiService,
+    private agentApiService: AgentApiService,
+    public themeService: CustomizerSettingsService
+  ) {
+    this.themeService.isToggled$.subscribe(
+      isToggled =>{
+        this.isToggled = isToggled;
+      });
+
+    this.dataSource = new MatTableDataSource<any>();
+
+  }
+
+
+  ngOnInit(): void {
+    this.agentApiService.getAgentByCode(String(localStorage.getItem('user'))).subscribe(
+
+      (response:any) =>{
+
+        localStorage.setItem('receiver_id',response.email);
+      })
+
+    this.getEmailsByReceiverEmail(String(localStorage.getItem('receiver_id')))
+    //this.getEmailsByReceiverEmail(String(localStorage.getItem(('receiver_id'))))
+  }
+
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
+
+
 
   // Whether the number of selected elements matches the total number of rows.
   isAllSelected() {
@@ -44,35 +83,6 @@ export class InboxComponent {
     return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.title + 1}`;
   }
 
-  // isToggled
-  isToggled = false;
-
-  // Emails received
-  emails = [
-    {
-      title: 'Hello from James',
-      description: 'This is a test email from James.',
-      date: '2023-05-18'
-    },
-    {
-      title: 'Greetings from Andy',
-      description: 'Hope you are doing well. This is Andy.',
-      date: '2023-05-17'
-    },
-    {
-      title: 'Important Notice',
-      description: 'Please read the attached document carefully.',
-      date: '2023-05-16'
-    },
-  ];
-
-  constructor(public themeService: CustomizerSettingsService) {
-    this.themeService.isToggled$.subscribe(isToggled => {
-      this.isToggled = isToggled;
-    });
-
-    this.dataSource.data = this.emails;
-  }
 
   // Dark Mode
   toggleTheme() {
@@ -83,7 +93,7 @@ export class InboxComponent {
   toggleRTLEnabledTheme() {
     this.themeService.toggleRTLEnabledTheme();
   }
-
+/*
   deleteSelectedRows() {
     this.selection.selected.forEach((item) => {
       const index = this.emails.findIndex((d) => d === item);
@@ -92,4 +102,22 @@ export class InboxComponent {
     this.dataSource.data = this.emails;
     this.selection.clear();
   }
+*/
+
+  getAllEmails(){
+    this.emailApiService.getAll().subscribe((response: any) => {
+      this.dataSource.data = response;
+
+    });
+
+  }
+
+  getEmailsByReceiverEmail(receiver_email: string){
+    this.emailApiService.getByReceiverEmail(receiver_email).subscribe((response:any)=>{
+      this.dataSource.data = response;
+    })
+  }
+
+
+  protected readonly String = String;
 }
