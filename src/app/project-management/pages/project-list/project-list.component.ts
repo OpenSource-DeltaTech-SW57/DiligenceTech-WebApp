@@ -133,6 +133,10 @@ export class ProjectListComponent implements OnInit, AfterViewInit {
     this.getAllProjects();
   }
 
+  saveRowId(id: number) {
+    localStorage.setItem("projectId", id.toString());
+  }
+
   private resetEditState(): void {
     this.isEditMode = false;
     this.projectDataGet = {} as Project;

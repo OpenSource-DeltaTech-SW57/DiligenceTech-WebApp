@@ -130,6 +130,7 @@ export class AuthenticationService {
     this.signedInUserId.next(0);
     this.signedInEmail.next('');
     localStorage.removeItem('token');
+    localStorage.removeItem('projectId');
     this.router.navigate(['/sign-in']).then();
   }
 }

@@ -5,6 +5,8 @@ import {CustomizerSettingsService} from "../../../shared/services/customizer-set
 import {ActivatedRoute, Router} from "@angular/router";
 import {FoldersApiService} from "../../services/folders-api.service";
 import {ProjectsApiService} from "../../../project-management/services/projects-api.service";
+import { AgentEntity } from '../../model/agent.entity';
+import { AgentApiService } from '../../../myprofile/services/agent-api.service';
 
 @Component({
   selector: 'app-folders-list',
@@ -16,6 +18,7 @@ export class FoldersListComponent implements OnInit, AfterViewInit {
   dataSource!: MatTableDataSource<any>;
   selection = new SelectionModel<any>(true, []);
   role: string = '';
+  agent!: AgentEntity;
 
   /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected() {
@@ -55,18 +58,28 @@ export class FoldersListComponent implements OnInit, AfterViewInit {
     private foldersApiService: FoldersApiService,
     private projectsApiService: ProjectsApiService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private agentApiService: AgentApiService
   ) {
     this.themeService.isToggled$.subscribe(isToggled => {
       this.isToggled = isToggled;
     });
     this.dataSource = new MatTableDataSource<any>();
+    this.agent = {} as AgentEntity;
   }
 
   ngAfterViewInit(): void {
   }
 
   ngOnInit(): void {
+    this.agentApiService.getAgentDataByUsernameAndProjectId(String(localStorage.getItem("user")), Number(localStorage.getItem("projectId"))).subscribe((response:any) => {
+        this.agent = response;
+        this.role = response.agentRole;
+    })
+
+
+    this.setRole();
+
     this.route.params.subscribe(params => {
       this.getFoldersByArea(params['areaId']);
       console.log(`xd: ${params['id']}`);
@@ -88,14 +101,17 @@ export class FoldersListComponent implements OnInit, AfterViewInit {
   }
 
   setUserRole(project: string, user: string) {
-    this.setBuyRole();
+    console.log(project, user);
+    this.setRole();
   }
 
-  setSellRole() {
-    this.role = 'Sell-Side';
-  }
-
-  setBuyRole() {
-    this.role = 'Buy-Side';
+  setRole() {
+    if(this.agent.agentRole == "BUY AGENT"){
+      console.log(this.agent.agentRole);
+      this.role = 'Buy-Side';
+    }
+    else if(this.agent.agentRole == "SELL AGENT"){
+      this.role = 'Sell-Side';
+    }
   }
 }

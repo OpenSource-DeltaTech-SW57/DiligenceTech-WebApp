@@ -9,6 +9,8 @@ import {response} from "express";
 import {AreaCreationComponent} from "../area-creation/area-creation.component";
 import {Dialog} from "@angular/cdk/dialog";
 import {MatDialog} from "@angular/material/dialog";
+import { AgentEntity } from '../../model/agent.entity';
+import { AgentApiService } from '../../../myprofile/services/agent-api.service';
 
 @Component({
   selector: 'app-shared-drive',
@@ -16,6 +18,8 @@ import {MatDialog} from "@angular/material/dialog";
   styleUrl: './shared-drive.component.scss'
 })
 export class SharedDriveComponent implements OnInit, AfterViewInit {
+  agent!: AgentEntity;
+
   displayedColumns: string[] = ['select', 'name', 'action'];
   dataSource!: MatTableDataSource<any>;
   selection = new SelectionModel<any>(true, []);
@@ -66,44 +70,58 @@ export class SharedDriveComponent implements OnInit, AfterViewInit {
         private areaApiService: AreaApiService,
         private projectsApiService: ProjectsApiService,
         private route: ActivatedRoute,
-        private router: Router
+        private router: Router,
+        private agentApiService: AgentApiService
     ) {
         this.themeService.isToggled$.subscribe(isToggled => {
             this.isToggled = isToggled;
         });
         this.dataSource = new MatTableDataSource<any>();
+        this.agent = {} as AgentEntity;
     }
 
   ngAfterViewInit(): void {
 
+
     }
 
   ngOnInit(): void {
-        this.route.params.subscribe(params => {
-          console.log(String(params['id']));
-          this.getAreasByProject(String(params['id']));
-          this.setUserRole(String(params['id']), String(localStorage.getItem('user')));
-        });
-    }
+      this.agentApiService.getAgentDataByUsernameAndProjectId(String(localStorage.getItem("user")), Number(localStorage.getItem("projectId"))).subscribe((response:any) => {
+        this.agent = response;
+        console.log("reponse: " + response)
+        console.log("agent: " + this.agent)
+        this.role = response.agentRole;
+    })
 
-    getAreasByProject(project: string) {
+    this.setRole();
+
+      this.route.params.subscribe(params => {
+        console.log(String(params['id']));
+        this.getAreasByProject(String(params['id']));
+        this.setUserRole(String(params['id']), String(localStorage.getItem('user')));
+      });
+  }
+
+  getAreasByProject(project: string) {
       this.areaApiService.getByProject(project).subscribe((response: any) => {
         console.log(response);
         this.dataSource.data = response;
       });
-    }
+  }
 
   setUserRole(project: string, user: string) {
     console.log(project, user);
-    this.setBuyRole();
+    this.setRole();
   }
 
-  setSellRole() {
+  setRole() {
+    if(this.agent.agentRole == "BUY AGENT"){
+      console.log(this.agent.agentRole);
+      this.role = 'Buy-Side';
+    }
+    else if(this.agent.agentRole == "SELL AGENT"){
       this.role = 'Sell-Side';
-  }
-
-  setBuyRole() {
-    this.role = 'Buy-Side';
+    }
   }
 
   goCreateArea() {
