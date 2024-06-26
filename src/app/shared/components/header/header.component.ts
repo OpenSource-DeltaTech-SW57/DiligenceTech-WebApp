@@ -1,22 +1,27 @@
-import { Component, HostListener } from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import { ToggleService } from '../../services/toggle.service';
 import { CustomizerSettingsService } from '../../services/customizer-settings.service';
+import {AgentApiService} from "../../../myprofile/services/agent-api.service";
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   // isSidebarToggled
   isSidebarToggled = false;
 
   // isToggled
   isToggled = false;
 
+  // username
+  username = '';
+
   constructor(
       private toggleService: ToggleService,
-      public themeService: CustomizerSettingsService
+      public themeService: CustomizerSettingsService,
+      private agentApiService: AgentApiService
   ) {
       this.toggleService.isSidebarToggled$.subscribe(isSidebarToggled => {
           this.isSidebarToggled = isSidebarToggled;
@@ -25,6 +30,12 @@ export class HeaderComponent {
           this.isToggled = isToggled;
       });
   }
+
+  ngOnInit(): void {
+        this.agentApiService.getAgentByCode(String(localStorage.getItem('email'))).subscribe((response:any)=>{
+          this.username = response.fullName;
+        });
+    }
 
   // Burger Menu Toggle
   toggle() {

@@ -12,36 +12,17 @@
     <mat-card-content >
         <div class="user d-flex align-items-center">
             <div class="image">
-                <img src="assets/images/admin.png" class="rounded-circle" alt="profile-image">
+                <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" class="rounded-circle" alt="profile-image">
             </div>
             <div class="title">
                 <span class="d-block fw-medium" >
-                    Mateo Luca
+                    {{agent.fullName}}
                 </span>
                 <span class="d-block text-body">
-                    mateo&#64;diligencetech.com
+                    {{agent.email}}
                 </span>
             </div>
         </div>
-        <span class="sub-title d-block fw-medium">
-            {{'my_profile.about_me' | translate }}
-        </span>
-        <p>
-            Molestie tincidunt ut consequat a urna tortor. Vitae velit ac nisl velit mauris placerat nisi placerat. Pellentesque viverra lorem malesuada nunc tristique sapien. Imperdiet sit hendrerit tincidunt bibendum donec adipiscing.
-        </p>
-        <h5>
-          {{'my_profile.social_profiles' | translate }}
-        </h5>
-        <div class="socials-link">
-            <a href="https://www.facebook.com/" target="_blank" class="facebook d-inline-block text-center position-relative rounded-circle">
-                <i class="ri-facebook-fill"></i>
-            </a>
-            <a href="https://www.linkedin.com/" target="_blank" class="linkedin d-inline-block text-center position-relative rounded-circle">
-                <i class="ri-linkedin-fill"></i>
-            </a>
-            <a href="mailto:mateo@diligencetech.com" class="mail d-inline-block text-center position-relative rounded-circle">
-                <i class="ri-mail-fill"></i>
-            </a>
-        </div>
+
     </mat-card-content>
 </mat-card>

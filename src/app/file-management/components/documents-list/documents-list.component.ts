@@ -5,6 +5,7 @@ import {CustomizerSettingsService} from "../../../shared/services/customizer-set
 import {ActivatedRoute, Router} from "@angular/router";
 import {DocumentsApiService} from "../../services/documents-api.service";
 import {ProjectsApiService} from "../../../project-management/services/projects-api.service";
+import {AngularFireStorage} from "@angular/fire/compat/storage";
 import { AgentEntity } from '../../model/agent.entity';
 import { AgentApiService } from '../../../myprofile/services/agent-api.service';
 
@@ -59,7 +60,8 @@ export class DocumentsListComponent implements OnInit, AfterViewInit {
     private projectsApiService: ProjectsApiService,
     private route: ActivatedRoute,
     private router: Router,
-    private agentApiService: AgentApiService
+    private agentApiService: AgentApiService,
+    private storage: AngularFireStorage
   ) {
     this.themeService.isToggled$.subscribe(isToggled => {
       this.isToggled = isToggled;
@@ -90,6 +92,25 @@ export class DocumentsListComponent implements OnInit, AfterViewInit {
   goAddFiles() {
     this.route.params.subscribe(params => {
       this.router.navigate(['/create/documents/' + params['id'] + '/' + params['areaId'] + '/' + params['folderId']]);
+    });
+  }
+
+  deleteDocument(docId: number, docName: string) {
+    // delete in firebase first
+    this.route.params.subscribe(params => {
+      this.storage.ref(`${params['id']}/${params['areaId']}/${params['folderId']}/${docName}`).delete();
+    });
+    //const fileRef = this.storage.ref('documents/' + docId);
+    // delete in back-end
+    this.documentsApiService.delete(docId).subscribe((response: any) => {
+      for (let i = 0; i < this.dataSource.data.length; i++) {
+        if (this.dataSource.data[i].id == docId) {
+          console.log(this.dataSource.data[i].id)
+          this.dataSource.data.splice(i, 1);
+          this.dataSource._updateChangeSubscription();
+          break;
+        }
+      }
     });
   }
 

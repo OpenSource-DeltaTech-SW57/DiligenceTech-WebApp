@@ -9,22 +9,16 @@
     <mat-card-content>
         <ul class="info-list pr-0 pl-0 mb-0 mt-0 list-unstyled">
             <li>
-                <span class="text-body">{{'my_profile.user_id' | translate }}</span> 7001
+                <span class="text-body">{{'my_profile.user_id' | translate }}</span> {{ agent.username }}
             </li>
             <li>
-                <span class="text-body">{{'my_profile.full_name' | translate }}</span> Mateo Luca
+                <span class="text-body">{{'my_profile.full_name' | translate }}</span> {{ agent.fullName }}
             </li>
             <li>
-                <span class="text-body">{{'my_profile.email' | translate }}</span> mateo&#64;diligencetech.com
+                <span class="text-body">{{'my_profile.email' | translate }}</span> {{ agent.email }}
             </li>
             <li>
-                <span class="text-body">{{'my_profile.role' | translate }}</span> {{'my_profile.administrator' | translate }}
-            </li>
-            <li>
-                <span class="text-body">{{'my_profile.location' | translate }}</span> New York, USA
-            </li>
-            <li>
-                <span class="text-body">{{'my_profile.join_date' | translate }}</span> May 10, 2024
+                <span class="text-body">{{'my_profile.location' | translate }}</span> -
             </li>
         </ul>
     </mat-card-content>

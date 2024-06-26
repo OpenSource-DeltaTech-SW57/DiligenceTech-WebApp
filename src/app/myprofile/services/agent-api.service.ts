@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {environment} from "../../../environments/environment";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {BehaviorSubject, catchError, retry} from "rxjs";
+import {BehaviorSubject} from "rxjs";
 import {Router} from "@angular/router";
 import {BaseService} from "../../shared/services/base.service";
 import {Agent} from "../model/agent.entity";
@@ -18,15 +18,17 @@ export class AgentApiService extends BaseService<Agent>{
   }
 
   getAgentByCode(agentCode: string){
+
      agentCode = agentCode.replace('@','%40');
      console.log(agentCode)
-     return  this.http.get<Agent>(`${this.basePath}${this.resourceEndpoint}/code/${agentCode}`).pipe();
+     return  this.http.get<Agent>(`${this.basePath}${this.resourceEndpoint}/email/${agentCode}`).pipe();
   }
 
   getAgentDataByUsernameAndProjectId(agentRecordId: string, projectId: number) {
 // http://localhost:8082/api/v1/agents/u20201b380/due-diligence-projects/{projectId}?projectId=1
     return this.http.get<AgentEntity>(`${this.resourcePath()}/${agentRecordId}/due-diligence-projects/{projectId}?projectId=${projectId}`, this.httpOptions).pipe(retry(2), catchError(this.handleError));
   }
+
 
 }
 

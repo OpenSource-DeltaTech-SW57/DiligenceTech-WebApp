@@ -36,12 +36,7 @@ export class SentComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.agentApiService.getAgentByCode(String(localStorage.getItem('user'))).subscribe(
-
-      (response:any) =>{
-        console.log(response.email);
-        localStorage.setItem('sender_id',response.email);
-      })
+    localStorage.setItem('sender_id', String(localStorage.getItem('email')));
 
     this.getEmailsBySenderEmail(String(localStorage.getItem('sender_id')))
 

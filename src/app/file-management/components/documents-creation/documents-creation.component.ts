@@ -10,6 +10,7 @@ import {DocumentsApiService} from "../../services/documents-api.service";
 import {finalize} from "rxjs/operators";
 import {AngularFireStorage} from "@angular/fire/compat/storage";
 import {lastValueFrom} from "rxjs";
+import {DocumentRequest} from "../../model/document.request";
 
 @Component({
   selector: 'app-documents-creation',
@@ -26,6 +27,7 @@ export class DocumentsCreationComponent {
   areaName: string = '';
   files: File[] = [];
   uploadProgress: number | undefined;
+  mustDisable: boolean = false;
 
   editor!: Editor;
   toolbar: Toolbar = [
@@ -86,26 +88,49 @@ export class DocumentsCreationComponent {
   }
 
   uploadFiles(): void {
-    const tasks = this.files.map(file => {
-      const filePath = `uploads/${file.name}`;
-      const fileRef = this.storage.ref(filePath);
-      const task = this.storage.upload(filePath, file);
+    this.mustDisable = true;
+    this.route.params.subscribe(params => {
+        const tasks = this.files.map(file => {
+        const filePath = `${params['id']}/${params['areaId']}/${params['folderId']}/${file.name}`;
+        const fileRef = this.storage.ref(filePath);
+        const task = this.storage.upload(filePath, file);
 
-      task.percentageChanges().subscribe(progress => {
-        this.uploadProgress = progress;
+        task.percentageChanges().subscribe(progress => {
+          this.uploadProgress = progress;
+        });
+
+        return task.snapshotChanges().pipe(
+          finalize(() => {
+            fileRef.getDownloadURL().subscribe(url => {
+              console.log('File URL:', url);
+              this.route.params.subscribe(params => {
+                console.log(params['folderId'], file.name, url)
+                let documentRequest: DocumentRequest = new DocumentRequest(params['folderId'], file.name, url);
+                this.documentsApiService.create(documentRequest).subscribe({
+                  next: (response) => {
+                    console.log(`Document Created: ${response.filename}`);
+                  },
+                  error: (error) => {
+                    console.error(`Error while creating document: ${error.message}`);
+                  }
+                });
+              })
+            });
+          })
+        );
       });
 
-      return task.snapshotChanges().pipe(
-        finalize(() => {
-          fileRef.getDownloadURL().subscribe(url => {
-            console.log('File URL:', url);
-          });
-        })
-      );
+      Promise.all(tasks.map(task => lastValueFrom(task))).then(() => {
+        this.files = []; // Clear the files array after all uploads are completed
+        this.mustDisable = false;
+      });
     });
+  }
 
-    Promise.all(tasks.map(task => lastValueFrom(task))).then(() => {
-      this.files = []; // Clear the files array after all uploads are completed
+
+  goBack() {
+    this.route.params.subscribe(params => {
+      this.router.navigate([`/project-management/all-projects/${params['id']}/file-management/${params['areaId']}/${params['folderId']}`]);
     });
   }
 

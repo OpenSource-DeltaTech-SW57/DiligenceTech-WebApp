@@ -41,15 +41,12 @@ export class InboxComponent implements OnInit, AfterViewInit{
 
 
   ngOnInit(): void {
-    this.agentApiService.getAgentByCode(String(localStorage.getItem('user'))).subscribe(
+    localStorage.setItem('receiver_id', String(localStorage.getItem('email')));
 
-      (response:any) =>{
-
-        localStorage.setItem('receiver_id',response.email);
-      })
-
-    this.getEmailsByReceiverEmail(String(localStorage.getItem('receiver_id')))
-    //this.getEmailsByReceiverEmail(String(localStorage.getItem(('receiver_id'))))
+    if (localStorage.getItem('receiver_id') == null) {
+      this.getEmailsByReceiverEmail(String(localStorage.getItem('receiver_id')))
+      //this.getEmailsByReceiverEmail(String(localStorage.getItem(('receiver_id'))))
+    }
   }
 
 

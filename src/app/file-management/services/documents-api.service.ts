@@ -11,10 +11,10 @@ export class DocumentsApiService extends BaseService<Document> {
 
   constructor(http: HttpClient) {
     super(http);
-    this.resourceEndpoint = "/documents";
+    this.resourceEndpoint = "/Documents";
   }
 
   getByFolder(folder: string) {
-    return this.http.get<Area>(`${this.basePath}${this.resourceEndpoint}?folder_id=${folder}`).pipe();
+    return this.http.get<Area>(`${this.basePath}${this.resourceEndpoint}/${folder}`).pipe();
   }
 }
