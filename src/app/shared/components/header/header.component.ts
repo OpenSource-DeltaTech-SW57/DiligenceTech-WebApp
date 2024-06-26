@@ -2,6 +2,8 @@ import {Component, HostListener, OnInit} from '@angular/core';
 import { ToggleService } from '../../services/toggle.service';
 import { CustomizerSettingsService } from '../../services/customizer-settings.service';
 import {AgentApiService} from "../../../myprofile/services/agent-api.service";
+import { AuthService } from '../../../authentication/services/auth.service';
+import { AuthenticationService } from '../../../authentication/services/authentication.service';
 
 @Component({
   selector: 'app-header',
@@ -21,7 +23,8 @@ export class HeaderComponent implements OnInit {
   constructor(
       private toggleService: ToggleService,
       public themeService: CustomizerSettingsService,
-      private agentApiService: AgentApiService
+      private agentApiService: AgentApiService,
+      private authService: AuthenticationService
   ) {
       this.toggleService.isSidebarToggled$.subscribe(isSidebarToggled => {
           this.isSidebarToggled = isSidebarToggled;
@@ -32,8 +35,10 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-        this.agentApiService.getAgentByCode(String(localStorage.getItem('email'))).subscribe((response:any)=>{
+        this.agentApiService.getAgentByCode(String(localStorage.getItem('user'))).subscribe((response:any)=>{
           this.username = response.fullName;
+          console.log("hola")
+          console.log(response.fullName);
         });
     }
 

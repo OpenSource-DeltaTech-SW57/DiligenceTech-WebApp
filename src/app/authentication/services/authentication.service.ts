@@ -8,6 +8,7 @@ import {SignUpResponse} from "../model/sign-up.response";
 import {SignInRequest} from "../model/sign-in.request";
 import {SignInResponse} from "../model/sign-in.response";
 import { ProjectsApiService } from '../../project-management/services/projects-api.service';
+import { EventEmitter } from 'stream';
 
 @Injectable({
   providedIn: 'root'
@@ -95,7 +96,6 @@ export class AuthenticationService {
   // };
 
     //const usernameAgent
-
     return this.http.post<SignInResponse>(`${this.basePath}/authentication/sign-in`, signInRequest, this.httpOptions)
       .subscribe({
         next: (response) => {

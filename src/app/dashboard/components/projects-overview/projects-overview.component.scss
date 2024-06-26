@@ -1,13 +1,14 @@
 .mat-mdc-card {
     &.daxa-card {
         &.projects-overview-card {
+            width: 100%;
             .mat-mdc-card-content {
                 .row {
                     margin: {
                         left: -10px;
                         right: -10px;
                     };
-                    .col-lg-6 {
+                    .col-lg-12 {
                         padding: {
                             left: 10px;
                             right: 10px;
