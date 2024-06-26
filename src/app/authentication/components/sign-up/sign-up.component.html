@@ -19,21 +19,57 @@
           </p>
         </div>
         <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
+          <div class="form-group row">
+            <div class="col">
+              <label class="main-label d-block lh-1 text-black">
+                {{'authentication.first_name' | translate }}
+              </label>
+              <mat-form-field>
+                <mat-label>
+                  {{'authentication.enter_name' | translate }}
+                </mat-label>
+                <input matInput type="text" id="firstname" formControlName="firstname">
+              </mat-form-field>
+              <div class="error text-danger" *ngIf="authForm.get('firstname')!.hasError('required') && authForm.get('firstname')!.touched">
+                {{'authentication.name_is_required' | translate }}
+              </div>
+              <div class="error text-danger" *ngIf="authForm.get('firstname')!.hasError('firstname') && authForm.get('firstname')!.touched">
+                {{'authentication.please_enter_a_valid_name' | translate }}
+              </div>
+            </div>
+            <div class="col">
+              <label class="main-label d-block lh-1 text-black">
+                {{'authentication.last_name' | translate }}
+              </label>
+              <mat-form-field>
+                <mat-label>
+                  {{'authentication.enter_last_name' | translate }}
+                </mat-label>
+                <input matInput type="text" id="lastname" formControlName="lastname">
+              </mat-form-field>
+              <div class="error text-danger" *ngIf="authForm.get('lastname')!.hasError('required') && authForm.get('lastname')!.touched">
+                {{'authentication.enter_last_name' | translate }}
+              </div>
+              <div class="error text-danger" *ngIf="authForm.get('lastname')!.hasError('lastname') && authForm.get('lastname')!.touched">
+                {{'authentication.please_enter_a_valid_name' | translate }}
+              </div>
+            </div>
+          </div>
           <div class="form-group">
             <label class="main-label d-block lh-1 text-black">
-              {{'authentication.name' | translate }}
+              {{'authentication.username' | translate }}
             </label>
             <mat-form-field>
               <mat-label>
-                {{'authentication.enter_name' | translate }}
+                {{'authentication.enter_username' | translate }}
               </mat-label>
-              <input matInput type="text" id="name" formControlName="name">
+              <input matInput type="email" id="username" formControlName="username">
             </mat-form-field>
-            <div class="error text-danger" *ngIf="authForm.get('name')!.hasError('required') && authForm.get('name')!.touched">
-              {{'authentication.name_is_required' | translate }}
+            <div class="error text-danger" *ngIf="authForm.get('username')!.hasError('required') && authForm.get('username')!.touched">
+              {{'authentication.username_is_required' | translate }}
             </div>
-            <div class="error text-danger" *ngIf="authForm.get('name')!.hasError('name') && authForm.get('name')!.touched">
-              {{'authentication.please_enter_a_valid_name' | translate }}
+            <div class="error text-danger" *ngIf="authForm.get('username')!.hasError('username') && authForm.get('username')!.touched">
+              {{'authentication.please_enter_a_valid_username' | translate }}
             </div>
           </div>
           <div class="form-group">
@@ -42,12 +78,12 @@
             </label>
             <mat-form-field>
               <mat-label>
-                {{'authentication.email_is_required' | translate }}
+                {{'authentication.enter_email_address' | translate }}
               </mat-label>
               <input matInput type="email" id="email" formControlName="email">
             </mat-form-field>
             <div class="error text-danger" *ngIf="authForm.get('email')!.hasError('required') && authForm.get('email')!.touched">
-              {{'authentication.name_is_required' | translate }}
+              {{'authentication.email_is_required' | translate }}
             </div>
             <div class="error text-danger" *ngIf="authForm.get('email')!.hasError('email') && authForm.get('email')!.touched">
               {{'authentication.please_enter_a_valid_email_address' | translate }}
@@ -84,7 +120,7 @@
           <div class="signin-with-socials text-center">
             <div class="or position-relative">
                             <span class="d-inline-block">
-                                {{'authentication.or_sign_up_using' | translate }}
+                               {{'authentication.or_sign_up_using' | translate }}
                             </span>
             </div>
             <div class="socials">
