@@ -115,6 +115,7 @@ import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import { LanguageSwitcherComponent } from './public/components/language-switcher/language-switcher.component';
 import {MatButtonToggle, MatButtonToggleGroup} from "@angular/material/button-toggle";
+import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 
 
 //HTPP LOADER FACTORY METHOD
@@ -226,6 +227,7 @@ export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader { retur
     MatTooltipModule,
     MatCheckboxModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule,
     TranslateModule.forRoot({
       defaultLanguage: 'en',
       loader: {
