@@ -6,6 +6,8 @@ import {Project} from "../../../project-management/model/project.entity";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
 import {CreateProject} from "../../../project-management/model/create-project";
+import {ActivatedRoute, Router} from "@angular/router";
+import {ProjectMember} from "../../../project-management/model/project-member.entity";
 
 @Component({
   selector: 'app-questions-project-list',
@@ -22,7 +24,13 @@ export class QuestionsProjectListComponent implements OnInit, AfterViewInit {
   // get
   projectDataGet: Project;
 
+  agentsSellSide!: string [];
+
+  agentsBuySide !: string [];
+
   dataSource!: MatTableDataSource<any>;
+
+  allDataSource !: MatTableDataSource<any>;
   displayedColumns: string[] = ['id', 'projectName', 'action'];
   @ViewChild(MatPaginator, {static: false}) paginator!: MatPaginator;
   @ViewChild(MatSort, {static: false}) sort!: MatSort;
@@ -39,11 +47,12 @@ export class QuestionsProjectListComponent implements OnInit, AfterViewInit {
 
   // Constructor
 
-  constructor(private projectApiService: ProjectsApiService, public themeService: CustomizerSettingsService) {
+  constructor(private route: ActivatedRoute, private router: Router, private projectApiService: ProjectsApiService, public themeService: CustomizerSettingsService) {
     this.isEditMode = false;
     this.projectDataPost = {} as CreateProject;
     this.projectDataGet = {} as Project;
     this.dataSource = new MatTableDataSource<any>();
+    this.allDataSource = new MatTableDataSource<any>();
     this.themeService.isToggled$.subscribe(_isToggled => {
       this.isToggled = _isToggled;
     })
@@ -69,15 +78,41 @@ export class QuestionsProjectListComponent implements OnInit, AfterViewInit {
 
   onCancelEdit() {
     this.resetEditState();
-    this.getAllProjects();
-    this.getAllProjects();
+    this.getAllProjectsLinked();
+    this.getAllProjects()
+    this.toggleClass();
   }
 
-  onProjectAdded(element: CreateProject) {
+  async onProjectAdded(element: CreateProject) {
     this.projectDataPost = element;
-    this.createProject();
+    this.projectDataPost.sellAgents = this.agentsSellSide;
+    this.projectDataPost.buyAgents = this.agentsBuySide;
+    console.log(this.projectDataPost)
+    console.log(element);
+    try {
+      await this.createProject();
+    } catch(error) {
+      console.log("Error", error);
+    }
+
     this.resetEditState();
     this.toggleClass();
+  }
+
+  onProjectMemberSellAddedToProject(element: string) {
+    if(element.length != 0) {
+      let agentsSell = element.replace(/\s+/g, '').split(",");
+      console.log(agentsSell);
+      this.agentsSellSide = agentsSell;
+    }
+  }
+
+  onProjectMemberBuyAddedToProject(element: string) {
+    if(element.length != 0) {
+      let agentsBuy = element.replace(/\s+/g, '').split(",");
+      console.log(agentsBuy);
+      this.agentsBuySide = agentsBuy;
+    }
   }
 
   onProjectUpdated(element: Project) {
@@ -94,6 +129,7 @@ export class QuestionsProjectListComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+    this.getAllProjectsLinked();
     this.getAllProjects();
   }
 
@@ -113,20 +149,55 @@ export class QuestionsProjectListComponent implements OnInit, AfterViewInit {
       console.log("no user");
     }
   }
-  private getAllProjects() {
-    this.projectApiService.getAll().subscribe((response: any) => {
+
+  private async getAllProjects() {
+    this.projectApiService.getAllProjects().subscribe((response: any) => { this.allDataSource.data = response;
+    })
+  }
+
+  private getAllProjectsLinked() {
+    this.projectApiService.getAllProjectsLinkedAgent(String(localStorage.getItem('user'))).subscribe((response: any) => {
       this.dataSource.data = response;
     });
   };
 
-  private createProject() {
-    this.projectApiService.create(this.projectDataPost).subscribe((response: any) => {
+  private async createProject() {
+    console.log(this.projectDataPost);
+    this.projectApiService.createProject(this.projectDataPost).subscribe((response: any) => {
+      //this.createAgents(response.id);
+      console.log('response:',response);
       this.dataSource.data.push({...response});
-      this.dataSource.data = this.dataSource.data.map((project: CreateProject) => {
+      this.dataSource.data = this.dataSource.data.map((project, index) => {
+        // last index gets the new id
+        if (index === this.dataSource.data.length - 1) {
+          project.projectId = response.id;
+        }
         return project;
       });
     });
   };
+
+
+  private createAgents(projectId: number) {
+    console.log("Agent Buy:" + this.agentsBuySide)
+    console.log("Agent Sell:" + this.agentsSellSide)
+    console.log(projectId);
+    if(this.agentsBuySide.length != 0) {
+      this.agentsBuySide.forEach((usernameAgent) => {
+        this.addProjectMemberItemToProject(new ProjectMember("BUY AGENT"),projectId, usernameAgent);
+      })
+    }
+
+    if(this.agentsSellSide.length != 0) {
+      this.agentsSellSide.forEach((usernameAgent) => {
+        this.addProjectMemberItemToProject(new ProjectMember("SELL AGENT"), projectId, usernameAgent);
+      })
+    }
+  }
+
+  private addProjectMemberItemToProject(member: ProjectMember, projectId: number, agentRecordId: string) {
+    this.projectApiService.addProjectMemberItem(member,projectId, agentRecordId);
+  }
 
   // Lifecycle Hooks
 
@@ -149,4 +220,5 @@ export class QuestionsProjectListComponent implements OnInit, AfterViewInit {
       });
     });
   };
+
 }
