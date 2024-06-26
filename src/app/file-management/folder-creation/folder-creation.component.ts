@@ -71,7 +71,7 @@ export class FolderCreationComponent {
       this.foldersApiService.create(createFolder).subscribe({
         next: (response) => {
           console.log(`Folder Created: ${response.name}`);
-          this.router.navigate([`/${params['id']}/file-management/${params['areaId']}`]);
+          this.router.navigate([`/project-management/all-projects/${params['id']}/file-management/${params['areaId']}`]);
         },
         error: (error) => {
           console.error(`Error while creating folder: ${error.message}`);

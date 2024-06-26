@@ -17,7 +17,6 @@ import {AgentApiService} from "../../../myprofile/services/agent-api.service";
 
 })
 export class NotificationListComponent implements OnInit, AfterViewInit {
-  notificationsData: Notifications;
   dataSource!: MatTableDataSource<any>;
   displayedColumns: any[] = ['id', 'created_at', 'type', 'content'];
   @ViewChild(MatPaginator, {static: false})paginator!: MatPaginator;
@@ -30,13 +29,11 @@ export class NotificationListComponent implements OnInit, AfterViewInit {
     private notificationsApiService: NotificationApiService,
     private agentApiService: AgentApiService,
     public themeService: CustomizerSettingsService,
-    private route: ActivatedRoute
   ){
     this.themeService.isToggled$.subscribe(isToggled => {
       this.isToggled = isToggled;
     });
     this.isEditMode = false
-    this.notificationsData = {} as Notifications;
     this.dataSource = new MatTableDataSource<any>();
 
   }

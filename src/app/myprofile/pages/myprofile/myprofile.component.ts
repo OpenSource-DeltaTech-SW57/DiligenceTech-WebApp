@@ -11,9 +11,6 @@ import {Agent} from "../../model/agent.entity";
 })
 export class MyprofileComponent implements OnInit{
 
-  agentData: Agent;
-  dataSource!: Mat;
-
 
   constructor(private profilesService: ProfilesApiService) {
 
