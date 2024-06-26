@@ -7,6 +7,7 @@ import { ProjectsApiService } from '../../services/projects-api.service';
 import { CustomizerSettingsService } from '../../../shared/services/customizer-settings.service';
 import { CreateProject } from '../../model/create-project';
 import { ProjectMember } from '../../model/project-member.entity';
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-project-list',
@@ -46,7 +47,7 @@ export class ProjectListComponent implements OnInit, AfterViewInit {
 
   // Constructor
 
-  constructor(private projectApiService: ProjectsApiService, public themeService: CustomizerSettingsService) {
+  constructor(private route: ActivatedRoute, private router: Router, private projectApiService: ProjectsApiService, public themeService: CustomizerSettingsService) {
     this.isEditMode = false;
     this.projectDataPost = {} as CreateProject;
     this.projectDataGet = {} as Project;
@@ -84,6 +85,10 @@ export class ProjectListComponent implements OnInit, AfterViewInit {
 
   async onProjectAdded(element: CreateProject) {
     this.projectDataPost = element;
+    this.projectDataPost.sellAgents = this.agentsSellSide;
+    this.projectDataPost.buyAgents = this.agentsBuySide;
+    console.log(this.projectDataPost)
+    console.log(element);
     try {
       await this.createProject();
     } catch(error) {
@@ -157,10 +162,16 @@ export class ProjectListComponent implements OnInit, AfterViewInit {
   };
 
   private async createProject() {
+    console.log(this.projectDataPost);
     this.projectApiService.createProject(this.projectDataPost).subscribe((response: any) => {
-      this.createAgents(response.id);
+      //this.createAgents(response.id);
+      console.log('response:',response);
       this.dataSource.data.push({...response});
-      this.dataSource.data = this.dataSource.data.map((project: CreateProject) => {
+      this.dataSource.data = this.dataSource.data.map((project, index) => {
+        // last index gets the new id
+        if (index === this.dataSource.data.length - 1) {
+          project.projectId = response.id;
+        }
         return project;
       });
     });
@@ -170,6 +181,7 @@ export class ProjectListComponent implements OnInit, AfterViewInit {
   private createAgents(projectId: number) {
     console.log("Agent Buy:" + this.agentsBuySide)
     console.log("Agent Sell:" + this.agentsSellSide)
+    console.log(projectId);
     if(this.agentsBuySide.length != 0) {
       this.agentsBuySide.forEach((usernameAgent) => {
         this.addProjectMemberItemToProject(new ProjectMember("BUY AGENT"),projectId, usernameAgent);
