@@ -19,8 +19,8 @@ export class FoldersListComponent implements OnInit, AfterViewInit {
 
   /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected() {
-    const numSelected = this.selection.selected.length;
-    const numRows = this.dataSource.data.length;
+    const numSelected: number = this.selection.selected.length;
+    const numRows: number = this.dataSource.data.length;
     return numSelected === numRows;
   }
 
@@ -82,7 +82,7 @@ export class FoldersListComponent implements OnInit, AfterViewInit {
 
   getFoldersByArea(area: string) {
     this.foldersApiService.getByArea(area).subscribe((response: any) => {
-      console.log(response.length);
+      //console.log(response.length);
       this.dataSource.data = response;
     });
   }

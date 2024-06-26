@@ -50,7 +50,7 @@
               File
             </th>
             <td mat-cell *matCellDef="let element">
-              <a [href]="element.file_url" target="_blank" class="folder-name position-relative fw-medium">
+              <a [href]="element.fileUrl" target="_blank" class="folder-name position-relative fw-medium">
                 <i class="material-symbols-outlined"
                    [ngStyle]="{'color': getDocumentColor(element.filename)}">
                   draft
@@ -68,16 +68,13 @@
             <td mat-cell *matCellDef="let element">
               <div class="action-info">
                 <button type="button" mat-button matTooltip="Download" matTooltipPosition="above">
-                  <i class="material-symbols-outlined">
-                    download
-                  </i>
+                  <a [href]="element.fileUrl" target="_blank">
+                    <i class="material-symbols-outlined">
+                      download
+                    </i>
+                  </a>
                 </button>
-                <button type="button" mat-button matTooltip="Rename" matTooltipPosition="above">
-                  <i class="material-symbols-outlined">
-                    edit
-                  </i>
-                </button>
-                <button type="button" mat-button matTooltip="Remove" matTooltipPosition="above">
+                <button type="button" mat-button matTooltip="Remove" matTooltipPosition="above" (click)="deleteDocument(element.id, element.filename)">
                   <i class="material-symbols-outlined">
                     delete
                   </i>

@@ -46,14 +46,18 @@
   <mat-card-content>
     <div class="file-uploader">
       <input type="file" (change)="onFileSelected($event)" multiple #fileInput hidden />
-      <button (click)="fileInput.click()" mat-raised-button>Select Files</button>
-      <button (click)="uploadFiles()" [disabled]="files.length === 0" mat-raised-button>Upload Files</button>
+      <button style="margin-right: 5px" (click)="fileInput.click()" mat-raised-button>Select Files</button>
+      <button style="margin-left: 5px"  (click)="uploadFiles()" [disabled]="files.length === 0" mat-raised-button>Upload Files</button>
       <div class="file-list">
         <div *ngFor="let file of files" class="file-item">
           <span>{{ file.name }}</span>
           <button (click)="removeFile(file)">Remove</button>
         </div>
       </div>
+    </div>
+    <!-- i want my button on the center -->
+    <div style="text-align: center; margin-top: 20px">
+      <button mat-raised-button color="secondary" [disabled]="mustDisable" (click)="goBack()">Return to Documents</button>
     </div>
   </mat-card-content>
 </mat-card>

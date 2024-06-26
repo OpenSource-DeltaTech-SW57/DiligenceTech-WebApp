@@ -15,6 +15,7 @@ import { CreateProject } from "../model/create-project";
 import { ProjectMember } from "../model/project-member.entity";
 import { ProjectMemberResourceEntity } from "../model/project-member-resource.entity";
 import {ProjectMemberResponse} from "../model/project-member.response";
+import {DashboardContent} from "../../dashboard/model/dashboard.entity";
 
 @Injectable({
   providedIn: "root",
@@ -41,6 +42,14 @@ export class ProjectsApiService extends BaseService<CreateProject> {
   getAllProjectsLinkedAgent(agentRecordId: string) {
     return this.http.get<Project>(
       `${this.resourcePath()}/${agentRecordId}/due-diligence-projects/all`,
+      this.httpOptions,
+    )
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
+  getDashboardContentOfAgent(agentRecordId: string) {
+    return this.http.get<DashboardContent>(
+      `${this.resourcePath()}/${agentRecordId}/due-diligence-projects/dashboard`,
       this.httpOptions,
     )
       .pipe(retry(2), catchError(this.handleError));
