@@ -1,110 +1,109 @@
 <div class="sign-up-area">
-    <div class="d-table">
-        <div class="d-table-cell">
-            <div
-                class="daxa-form ml-auto mr-auto border-radius bg-white"
-                [class.card-borderd-theme]="themeService.isCardBorder()"
-                [class.component-dark-theme]="themeService.isDark()"
-                [class.rtl-enabled]="themeService.isRTLEnabled()"
-            >
-              <span class="spacer"></span>
-              <span><app-language-switcher/></span>
-              <span class="spacer"></span>
-                <div class="title text-center">
-                    <h3>
-                      {{'authentication.sign_up' | translate }}
-                    </h3>
-                    <p class="text-black">
-                      {{'authentication.already_have_an_account' | translate }} <a routerLink="/authentication" class="text-daxa">{{'authentication.sign_in' | translate }}</a>
-                    </p>
-
-                </div>
-                <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
-                    <div class="form-group">
-                        <label class="main-label d-block lh-1 text-black">
-                          {{'authentication.name' | translate }}
-                        </label>
-                        <mat-form-field>
-                            <mat-label>
-                              {{'authentication.enter_name' | translate }}
-                            </mat-label>
-                            <input matInput type="text" id="name" formControlName="name">
-                        </mat-form-field>
-                        <div class="error text-danger" *ngIf="authForm.get('name')!.hasError('required') && authForm.get('name')!.touched">
-                          {{'authentication.name_is_required' | translate }}
-                        </div>
-                        <div class="error text-danger" *ngIf="authForm.get('name')!.hasError('name') && authForm.get('name')!.touched">
-                          {{'authentication.please_enter_a_valid_name' | translate }}
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="main-label d-block lh-1 text-black">
-                          {{'authentication.email_address' | translate }}
-                        </label>
-                        <mat-form-field>
-                            <mat-label>
-                              {{'authentication.enter_email_address' | translate }}
-                            </mat-label>
-                            <input matInput type="email" id="email" formControlName="email">
-                        </mat-form-field>
-                        <div class="error text-danger" *ngIf="authForm.get('email')!.hasError('required') && authForm.get('email')!.touched">
-                          {{'authentication.email_is_required' | translate }}
-                        </div>
-                        <div class="error text-danger" *ngIf="authForm.get('email')!.hasError('email') && authForm.get('email')!.touched">
-                          {{'authentication.please_enter_a_valid_email_address' | translate }}
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="main-label d-block lh-1 text-black">
-                          {{'authentication.your_password' | translate }}
-                        </label>
-                        <mat-form-field>
-                            <mat-label>
-                              {{'authentication.enter_password' | translate }}
-                            </mat-label>
-                            <input matInput [type]="hide ? 'password' : 'text'" id="password" formControlName="password">
-                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+  <div class="d-table">
+    <div class="d-table-cell">
+      <div
+        class="daxa-form ml-auto mr-auto border-radius bg-white"
+        [class.card-borderd-theme]="themeService.isCardBorder()"
+        [class.component-dark-theme]="themeService.isDark()"
+        [class.rtl-enabled]="themeService.isRTLEnabled()"
+      >
+        <span class="spacer"></span>
+        <span><app-language-switcher/></span>
+        <span class="spacer"></span>
+        <div class="title text-center">
+          <h3>
+            {{'authentication.sign_up' | translate }}
+          </h3>
+          <p class="text-black">
+            {{'authentication.already_have_an_account' | translate }} <a routerLink="/authentication" class="text-daxa">{{'authentication.sign_in' | translate }}</a>
+          </p>
+        </div>
+        <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label class="main-label d-block lh-1 text-black">
+              {{'authentication.name' | translate }}
+            </label>
+            <mat-form-field>
+              <mat-label>
+                {{'authentication.enter_name' | translate }}
+              </mat-label>
+              <input matInput type="text" id="name" formControlName="name">
+            </mat-form-field>
+            <div class="error text-danger" *ngIf="authForm.get('name')!.hasError('required') && authForm.get('name')!.touched">
+              {{'authentication.name_is_required' | translate }}
+            </div>
+            <div class="error text-danger" *ngIf="authForm.get('name')!.hasError('name') && authForm.get('name')!.touched">
+              {{'authentication.please_enter_a_valid_name' | translate }}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="main-label d-block lh-1 text-black">
+              {{'authentication.email_address' | translate }}
+            </label>
+            <mat-form-field>
+              <mat-label>
+                {{'authentication.email_is_required' | translate }}
+              </mat-label>
+              <input matInput type="email" id="email" formControlName="email">
+            </mat-form-field>
+            <div class="error text-danger" *ngIf="authForm.get('email')!.hasError('required') && authForm.get('email')!.touched">
+              {{'authentication.name_is_required' | translate }}
+            </div>
+            <div class="error text-danger" *ngIf="authForm.get('email')!.hasError('email') && authForm.get('email')!.touched">
+              {{'authentication.please_enter_a_valid_email_address' | translate }}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="main-label d-block lh-1 text-black">
+              {{'authentication.your_password' | translate }}
+            </label>
+            <mat-form-field>
+              <mat-label>
+                {{'authentication.enter_password' | translate }}
+              </mat-label>
+              <input matInput [type]="hide ? 'password' : 'text'" id="password" formControlName="password">
+              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                                 <span class="material-symbols-outlined">
                                     {{hide ? 'visibility_off' : 'visibility'}}
                                 </span>
-                            </button>
-                        </mat-form-field>
-                        <div class="error text-danger" *ngIf="authForm.get('password')!.hasError('required') && authForm.get('password')!.touched">
-                          {{'authentication.password_is_required' | translate }}
-                        </div>
-                        <div class="error text-danger" *ngIf="authForm.get('password')!.hasError('minlength') && authForm.get('password')!.touched">
-                          {{'authentication.password_must_be_at_least_8_characters' | translate }}
-                        </div>
-                    </div>
-                    <mat-checkbox>
-                      {{'authentication.I_accept_the' | translate }} <a href="javascript:void(0);" class="text-daxa">{{'authentication.terms_and_conditions' | translate }}</a>
-                    </mat-checkbox>
-                    <button mat-button class="btn" type="submit" [disabled]="authForm.invalid">
-                      {{'authentication.sign_up' | translate }}
-                    </button>
-                    <div class="signin-with-socials text-center">
-                        <div class="or position-relative">
-                            <span class="d-inline-block">
-                               {{'authentication.or_sign_up_using' | translate }}
-                            </span>
-                        </div>
-                        <div class="socials">
-                            <button mat-button type="button" class="facebook">
-                                <i class="ri-facebook-fill"></i>
-                            </button>
-                            <button mat-button type="button" class="twitter">
-                                <i class="ri-twitter-x-fill"></i>
-                            </button>
-                            <button mat-button type="button" class="google">
-                                <i class="ri-google-fill"></i>
-                            </button>
-                            <button mat-button type="button" class="linkedin">
-                                <i class="ri-linkedin-fill"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form>
+              </button>
+            </mat-form-field>
+            <div class="error text-danger" *ngIf="authForm.get('password')!.hasError('required') && authForm.get('password')!.touched">
+              {{'authentication.password_is_required' | translate }}
             </div>
-        </div>
+            <div class="error text-danger" *ngIf="authForm.get('password')!.hasError('minlength') && authForm.get('password')!.touched">
+              {{'authentication.password_must_be_at_least_8_characters' | translate }}
+            </div>
+          </div>
+          <mat-checkbox>
+            {{'authentication.I_accept_the' | translate }} <a href="javascript:void(0);" class="text-daxa">{{'authentication.terms_and_conditions' | translate }}</a>
+          </mat-checkbox>
+          <button mat-button class="btn" type="submit" [disabled]="authForm.invalid">
+            {{'authentication.sign_up' | translate }}
+          </button>
+          <div class="signin-with-socials text-center">
+            <div class="or position-relative">
+                            <span class="d-inline-block">
+                                {{'authentication.or_sign_up_using' | translate }}
+                            </span>
+            </div>
+            <div class="socials">
+              <button mat-button type="button" class="facebook">
+                <i class="ri-facebook-fill"></i>
+              </button>
+              <button mat-button type="button" class="twitter">
+                <i class="ri-twitter-x-fill"></i>
+              </button>
+              <button mat-button type="button" class="google">
+                <i class="ri-google-fill"></i>
+              </button>
+              <button mat-button type="button" class="linkedin">
+                <i class="ri-linkedin-fill"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
 </div>
