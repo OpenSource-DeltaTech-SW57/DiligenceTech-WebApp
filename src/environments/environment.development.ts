@@ -2,7 +2,8 @@ export const environment = {
   production: false,
   // serverBasePath: "http://localhost:3000/api/v1",
   //serverBasePath: "https://jsondatabase-diligencetech.onrender.com"
-  serverBasePath: "http://localhost:8083/api/v1",
+  //serverBasePath: "http://localhost:8083/api/v1",
+  serverBasePath: "https://deltatechdeploybackend.onrender.com/api/v1",
   firebaseConfig: {
     apiKey: "AIzaSyBElIV6Uuyb7yzTpq3Y6gs_2ClduCciZWM",
     authDomain: "diligencetech-os.firebaseapp.com",
