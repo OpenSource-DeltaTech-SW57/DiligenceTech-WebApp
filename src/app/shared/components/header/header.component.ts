@@ -35,7 +35,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-        this.agentApiService.getAgentByCode(String(localStorage.getItem('user'))).subscribe((response:any)=>{
+        this.agentApiService.getAgentByEmail(String(localStorage.getItem('email'))).subscribe((response:any)=>{
           this.username = response.fullName;
           console.log("hola")
           console.log(response.fullName);

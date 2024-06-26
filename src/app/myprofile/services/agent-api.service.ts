@@ -27,6 +27,8 @@ export class AgentApiService extends BaseService<Agent>{
     return this.http.get<AgentEntity>(`${this.resourcePath()}/${agentRecordId}/due-diligence-projects/{projectId}?projectId=${projectId}`, this.httpOptions).pipe(retry(2), catchError(this.handleError));
   }
 
-
+  getAgentByEmail(agentEmail: string) {
+    return this.http.get<Agent>(`${this.basePath}${this.resourceEndpoint}/email/${agentEmail}`).pipe();
+  }
 }
 

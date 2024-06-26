@@ -22,7 +22,7 @@ export class GeneralProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-        this.agentApiService.getAgentByCode(String(localStorage.getItem('email'))).subscribe((response:any)=>{
+        this.agentApiService.getAgentByEmail(String(localStorage.getItem('email'))).subscribe((response:any)=>{
           this.agent = response;
         });
     }
