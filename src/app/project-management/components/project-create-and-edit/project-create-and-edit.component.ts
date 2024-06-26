@@ -6,6 +6,7 @@ import { CustomizerSettingsService } from '../../../shared/services/customizer-s
 import {ProjectsApiService} from "../../services/projects-api.service";
 import {CreateProject} from "../../model/create-project";
 import {Router} from "@angular/router";
+import { ProjectMember } from '../../model/project-member.entity';
 
 @Component({
   selector: 'app-project-create-and-edit',
@@ -13,10 +14,14 @@ import {Router} from "@angular/router";
   styleUrl: './project-create-and-edit.component.scss'
 })
 export class ProjectCreateAndEditComponent {
+  @Input() sellProjectMember!: string
+  @Input() buyProjectMember!: string
   @Input() project: CreateProject;
   @Input() editMode = false;
   @Output() projectAdded = new EventEmitter<CreateProject>();
   @Output() projectUpdated = new EventEmitter<CreateProject>();
+  @Output() projectMemberSellAddedToProject = new EventEmitter<string>();
+  @Output() projectMemberBuyAddedToProject = new EventEmitter<string>();
   @Output() editCanceled = new EventEmitter();
   @ViewChild('projectForm', {static:false}) projectForm!: NgForm;
 
@@ -91,6 +96,8 @@ export class ProjectCreateAndEditComponent {
         this.projectUpdated.emit(this.project);
       } else {
         this.projectAdded.emit(this.project);
+        this.projectMemberBuyAddedToProject.emit(this.buyProjectMember);
+        this.projectMemberSellAddedToProject.emit(this.sellProjectMember);
       }
       this.resetEditState()
     } else {
