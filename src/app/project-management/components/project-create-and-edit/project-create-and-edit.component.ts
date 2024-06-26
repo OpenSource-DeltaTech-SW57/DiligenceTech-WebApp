@@ -95,9 +95,9 @@ export class ProjectCreateAndEditComponent {
       if(this.editMode){
         this.projectUpdated.emit(this.project);
       } else {
-        this.projectAdded.emit(this.project);
         this.projectMemberBuyAddedToProject.emit(this.buyProjectMember);
         this.projectMemberSellAddedToProject.emit(this.sellProjectMember);
+        this.projectAdded.emit(this.project);
       }
       this.resetEditState()
     } else {

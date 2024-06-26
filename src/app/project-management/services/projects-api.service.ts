@@ -14,6 +14,7 @@ import { AuthUsers } from "../../authentication/model/auth-users.entity";
 import { CreateProject } from "../model/create-project";
 import { ProjectMember } from "../model/project-member.entity";
 import { ProjectMemberResourceEntity } from "../model/project-member-resource.entity";
+import {ProjectMemberResponse} from "../model/project-member.response";
 
 @Injectable({
   providedIn: "root",
@@ -31,7 +32,10 @@ export class ProjectsApiService extends BaseService<CreateProject> {
   }
 
   addProjectMemberItem(item: ProjectMember, projectId:number, agentRecordId: string) {
-    return this.http.post<ProjectMember>(`${this.basePath}/due-diligence-projects/${projectId}/project-member-items/{agentRecordId}?agentCode=${agentRecordId}`, JSON.stringify(item), this.httpOptions).pipe(retry(2), catchError(this.handleError));
+    console.log('item', item)
+    console.log(`${this.basePath}/due-diligence-projects/${projectId}/project-member-items/${agentRecordId}`)
+    return this.http.post<ProjectMemberResponse>(`${this.basePath}/due-diligence-projects/${projectId}/project-member-items/${agentRecordId}`, JSON.stringify(item), this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
   }
 
   getAllProjectsLinkedAgent(agentRecordId: string) {

@@ -110,10 +110,13 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "../environments/environment";
+import { QuestionsAtProjectListComponent } from './q-and-a/pages/questions-at-project-list/questions-at-project-list.component';
+import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import { LanguageSwitcherComponent } from './public/components/language-switcher/language-switcher.component';
 import {MatButtonToggle, MatButtonToggleGroup} from "@angular/material/button-toggle";
+
 
 //HTPP LOADER FACTORY METHOD
 export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader { return new TranslateHttpLoader(http); }
@@ -188,6 +191,7 @@ export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader { retur
     RootCreateComponent,
     FolderCreationComponent,
     DocumentsCreationComponent,
+    QuestionsAtProjectListComponent,
     LanguageSwitcherComponent
   ],
   imports: [
@@ -223,6 +227,7 @@ export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader { retur
     MatTooltipModule,
     MatCheckboxModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule,
     TranslateModule.forRoot({
       defaultLanguage: 'en',
       loader: {

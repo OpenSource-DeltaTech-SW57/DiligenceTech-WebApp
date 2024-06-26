@@ -184,7 +184,7 @@
                         </td>
                     </ng-container>
 
-                    <tr mat-row *matRowDef="let row; columns: displayedColumns;" [routerLink]="row.id + '/file-management'"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;" [routerLink]="row.projectId + '/file-management'"></tr>
                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
 
                 </table>
@@ -206,7 +206,6 @@
                                    (projectAdded)="onProjectAdded($event)"
                                    (projectMemberSellAddedToProject)="onProjectMemberSellAddedToProject($event)"
                                    (projectMemberBuyAddedToProject)="onProjectMemberBuyAddedToProject($event)"
-                                   (editMode)="isEditMode"
                                    [project]="projectDataPost"/>
     </mat-card>
   </div>
