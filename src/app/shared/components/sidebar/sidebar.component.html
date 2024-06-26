@@ -56,21 +56,6 @@
                                   {{'sidebar.all_Projects' | translate }}
                                 </a>
                             </li>
-                            <li class="sidemenu-item">
-                                <a routerLink="/project-management/active-projects" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
-                                  {{'sidebar.active_Projects' | translate }}
-                                </a>
-                            </li>
-                            <li class="sidemenu-item">
-                                <a routerLink="/project-management/completed-projects" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
-                                  {{'sidebar.completed_Projects' | translate }}
-                                </a>
-                            </li>
-                            <li class="sidemenu-item">
-                                <a routerLink="/project-management/all-members" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
-                                  {{'sidebar.all_members' | translate }}
-                                </a>
-                            </li>
                         </ul>
                     </mat-expansion-panel>
                     <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = true">
@@ -85,11 +70,6 @@
                       </mat-panel-title>
                     </mat-expansion-panel-header>
                     <ul class="sidebar-sub-menu">
-                      <li class="sidemenu-item">
-                        <a routerLink="/q-and-a/all-questions" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
-                          {{'sidebar.all_questions' | translate }}
-                        </a>
-                      </li>
                       <li class="sidemenu-item">
                         <a routerLink="/q-and-a/questions-project" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
                           {{'sidebar.question_per_project' | translate }}
@@ -152,21 +132,6 @@
                             </mat-panel-title>
                         </mat-expansion-panel-header>
                         <ul class="sidebar-sub-menu">
-                            <li class="sidemenu-item">
-                                <a routerLink="/account/settings" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
-                                  {{'sidebar.account_settings' | translate }}
-                                </a>
-                            </li>
-                            <li class="sidemenu-item">
-                                <a routerLink="/account/settings/change-password" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
-                                  {{'sidebar.change_password' | translate }}
-                                </a>
-                            </li>
-                            <li class="sidemenu-item">
-                                <a routerLink="/account/settings/connections" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
-                                  {{'sidebar.connections' | translate }}
-                                </a>
-                            </li>
                             <li class="sidemenu-item">
                                 <a routerLink="/account/settings/privacy-policy" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
                                   {{'sidebar.privacy_policy' | translate }}

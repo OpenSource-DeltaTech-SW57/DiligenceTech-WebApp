@@ -27,10 +27,10 @@
             </form>
         </div>
         <ul class="header-right-side d-flex align-items-center mt-0 mb-0 pl-0 list-unstyled">
-            <li>
-              <span class="spacer"></span>
-              <span style="margin-right: 20px"><app-language-switcher/></span>
-              <span class="spacer"></span>
+          <li>
+            <span style="margin-right: 20px"><app-language-switcher/></span>
+          </li>
+          <li>
               <button
                     mat-button
                     class="dark-swtich-btn"
@@ -42,153 +42,24 @@
                 </button>
             </li>
             <li>
-                <button mat-icon-button [matMenuTriggerFor]="messagesMenu" class="messages-menu-btn p-0">
+                <button style="margin-right: 10px" mat-icon-button [routerLink]="'/communications/email/inbox'" class="messages-menu-btn p-0">
                     <i class="material-symbols-outlined">
                         mail
                     </i>
-                    <span class="daxa-badge">
-                        5
-                    </span>
                 </button>
-                <mat-menu class="messages-menu-dropdown" #messagesMenu="matMenu" xPosition="before">
-                    <div
-                        [class.dark-menu]="themeService.isDark() || themeService.isHeaderDark()"
-                    >
-                        <div class="title d-flex align-items-center justify-content-between">
-                            <span class="fw-medium">
-                                Messages
-                                <span class="text-body fw-normal">(05)</span>
-                            </span>
-                            <a routerLink="/communications/email/inbox" class="link-btn text-daxa">
-                              {{'header.mark_all_as_read' | translate }}
-                            </a>
-                        </div>
-                        <ul class="menu-body pl-0 mt-0 list-unstyled">
-                            <li class="position-relative">
-                                <img src="assets/images/users/user1.png" width="44" height="44" class="rounded-circle position-absolute" alt="user">
-                                <span class="sub-title d-block fw-medium">
-                                    Jacob Liwiski <span class="text-body fw-normal">35 mins ago</span>
-                                </span>
-                                <span class="message d-block text-body">
-                                    Hey Victor! Could you please...
-                                </span>
-                                <a routerLink="/communications/email/inbox" class="d-block link-btn position-absolute"></a>
-                                <span class="unread d-inline-block rounded-circle bg-daxa position-absolute"></span>
-                            </li>
-                            <li class="position-relative">
-                                <img src="assets/images/users/user2.png" width="44" height="44" class="rounded-circle position-absolute" alt="user">
-                                <span class="sub-title d-block fw-medium">
-                                    Angela Carter <span class="text-body fw-normal">1 day ago</span>
-                                </span>
-                                <span class="message d-block text-body">
-                                    How are you Angela? Would you please...
-                                </span>
-                                <a routerLink="/communications/email/inbox" class="d-block link-btn position-absolute"></a>
-                            </li>
-                            <li class="position-relative">
-                                <img src="assets/images/users/user3.png" width="44" height="44" class="rounded-circle position-absolute" alt="user">
-                                <span class="sub-title d-block fw-medium">
-                                    Brad Traversy  <span class="text-body fw-normal">2 days ago</span>
-                                </span>
-                                <span class="message d-block text-body">
-                                    Hey Brad Traversy! Could you please...
-                                </span>
-                                <a routerLink="/communications/email/inbox" class="d-block link-btn position-absolute"></a>
-                            </li>
-                        </ul>
-                        <div class="menu-footer text-center">
-                            <a routerLink="/communications/email/inbox" class="link-btn text-daxa d-inline-block fw-medium">
-                              {{'header.view_all_messages' | translate }}
-                            </a>
-                        </div>
-                    </div>
-                </mat-menu>
             </li>
             <li>
-                <button mat-icon-button [matMenuTriggerFor]="notificationsMenu" class="notifications-menu-btn p-0">
+                <button style="margin-right: 2px" mat-icon-button [routerLink]="'/communications/notifications'" class="notifications-menu-btn p-0">
                     <i class="material-symbols-outlined">
                         notifications
                     </i>
-                    <span class="daxa-badge">
-                        3
-                    </span>
                 </button>
-                <mat-menu class="notifications-menu-dropdown" #notificationsMenu="matMenu" xPosition="before">
-                    <div
-                        [class.dark-menu]="themeService.isDark() || themeService.isHeaderDark()"
-                    >
-                        <div class="title d-flex align-items-center justify-content-between">
-                            <span class="fw-medium">
-                                {{'header.notifications' | translate }}
-                                <span class="text-body fw-normal">(03)</span>
-                            </span>
-
-                            <!--
-                            <a routerLink="/notifications" class="link-btn text-daxa">
-                            -->
-                            <a class="link-btn text-daxa">
-                              {{'header.clear_all' | translate }}
-                            </a>
-                        </div>
-                        <ul class="menu-body pl-0 mt-0 list-unstyled">
-                            <li class="position-relative">
-                                <div class="icon rounded-circle position-absolute text-center transition">
-                                    <i class="material-symbols-outlined">
-                                        sms
-                                    </i>
-                                </div>
-                                <span class="sub-title d-block">
-                                    You have requested to <strong class="fw-medium">withdrawal</strong>
-                                </span>
-                                <span class="time d-block text-body">
-                                    2 hrs ago
-                                </span>
-                                <a routerLink="/communications/notifications" class="d-block link-btn position-absolute"></a>
-                                <span class="unread d-inline-block rounded-circle bg-daxa position-absolute"></span>
-                            </li>
-                            <li class="position-relative">
-                                <div class="icon rounded-circle position-absolute text-center transition">
-                                    <i class="material-symbols-outlined">
-                                        person
-                                    </i>
-                                </div>
-                                <span class="sub-title d-block">
-                                    <strong class="fw-medium">A new user</strong> added in Daxa
-                                </span>
-                                <span class="time d-block text-body">
-                                    3 hrs ago
-                                </span>
-                                <a routerLink="/communications/notifications" class="d-block link-btn position-absolute"></a>
-                                <span class="unread d-inline-block rounded-circle bg-daxa position-absolute"></span>
-                            </li>
-                            <li class="position-relative">
-                                <div class="icon rounded-circle position-absolute text-center transition">
-                                    <i class="material-symbols-outlined">
-                                        mark_email_unread
-                                    </i>
-                                </div>
-                                <span class="sub-title d-block">
-                                    You have requested to <strong class="fw-medium">withdrawal</strong>
-                                </span>
-                                <span class="time d-block text-body">
-                                    1 day ago
-                                </span>
-                                <a routerLink="/communications/notifications" class="d-block link-btn position-absolute"></a>
-                            </li>
-                        </ul>
-                        <div class="menu-footer text-center">
-                            <a routerLink="/communications/notifications" class="link-btn text-daxa d-inline-block fw-medium">
-                              {{'header.see_all_notifications' | translate }}
-                            </a>
-                        </div>
-                    </div>
-                </mat-menu>
             </li>
             <li>
                 <button mat-button [matMenuTriggerFor]="profileMenu" class="profile-menu-btn">
-
-                    <img src="assets/images/admin.png" alt="profile-image">
-                </button><mat-icon>arrow_drop_down</mat-icon>
+                    <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="profile-image">
+                    <mat-icon>arrow_drop_down</mat-icon>
+                </button>
 
               <span class="status d-inline-block rounded-circle position-absolute"></span>
                 <mat-menu class="profile-menu-dropdown" #profileMenu="matMenu" xPosition="before">
@@ -196,14 +67,14 @@
                         [class.dark-menu]="themeService.isDark() || themeService.isHeaderDark()"
                     >
                         <div class="menu-header d-flex align-items-center">
-                            <img src="assets/images/admin.png" alt="profile-image">
+                            <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="profile-image">
                             <div class="title">
                                 <a routerLink="/my-profile" class="d-inline-block fw-medium">
-                                    Mateo Luca
+                                  {{ username }}
                                 </a>
 
                                 <span class="designation d-block text-body">
-                                    Admin
+                                    User
                                 </span>
                             </div>
                         </div>
@@ -220,7 +91,7 @@
                                     settings
                                 </i>
                               {{'header.settings' | translate }}
-                                <a routerLink="/account/settings" class="link-btn d-block position-absolute"></a>
+                                <a routerLink="/account/settings/privacy-policy" class="link-btn d-block position-absolute"></a>
                             </li>
                             <li class="position-relative transition fw-medium">
                                 <i class="material-symbols-outlined">

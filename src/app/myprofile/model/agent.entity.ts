@@ -6,6 +6,7 @@ export class Agent {
   image_url: string;
   password: string;
   username: string;
+  fullName: string;
 
   constructor() {
   this.id = 0;
@@ -14,6 +15,7 @@ export class Agent {
   this.password = '';
   this.image_url = '';
   this.username = '';
+  this.fullName = '';
   }
 
 }

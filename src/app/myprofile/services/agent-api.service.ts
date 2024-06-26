@@ -19,7 +19,7 @@ export class AgentApiService extends BaseService<Agent>{
 
      agentCode = agentCode.replace('@','%40');
      console.log(agentCode)
-     return  this.http.get<Agent>(`${this.basePath}${this.resourceEndpoint}/code/${agentCode}`).pipe();
+     return  this.http.get<Agent>(`${this.basePath}${this.resourceEndpoint}/email/${agentCode}`).pipe();
 
 
   }
