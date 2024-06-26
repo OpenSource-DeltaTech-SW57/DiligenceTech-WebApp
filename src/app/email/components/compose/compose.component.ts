@@ -71,7 +71,7 @@ export class ComposeComponent implements OnInit, OnDestroy {
 
   sendEmail(): void {
     this.route.params.subscribe(params =>{
-      let createEmail = new EmailRequest(String(localStorage.getItem('user')) ,this.sentReceiverEmail,this.sentTitle, this.sentMessage);
+      let createEmail = new EmailRequest(String(localStorage.getItem('email')) ,this.sentReceiverEmail,this.sentTitle, this.sentMessage);
       this.emailApiService.create(createEmail).subscribe({
         next:(response)=>{
           console.log(`Email Created: ${response.sender_email} to ${response.receiver_email}`);
