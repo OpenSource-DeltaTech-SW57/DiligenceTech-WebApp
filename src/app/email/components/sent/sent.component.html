@@ -1,23 +1,26 @@
 <!-- Breadcrumb -->
 <div class="breadcrumb-card mb-25 d-md-flex align-items-center justify-content-between">
   <h5 class="mb-0">
-    Sent Emails
+    {{'sent_emails.sent_emails' | translate }}
   </h5>
   <ol class="breadcrumb list-styled mt-0 mb-0 pl-0">
     <li class="breadcrumb-item position-relative">
       <a routerLink="/">
         <i class="ri-home-8-line"></i>
-        Dashboard
+        {{'sent_emails.dashboard' | translate }}
+
       </a>
     </li>
     <li class="breadcrumb-item position-relative">
-      Communication
+      {{'sent_emails.communication' | translate }}
+
     </li>
     <li class="breadcrumb-item position-relative">
-      Email
+      {{'sent_emails.email' | translate }}
+
     </li>
     <li class="breadcrumb-item position-relative">
-      Sent Emails
+      {{'sent_emails.sent_emails2' | translate }}
     </li>
   </ol>
 </div>
@@ -33,7 +36,7 @@
       <mat-card-header>
         <mat-card-title>
           <h5 class="mt-0 mb-0">
-            Sent Emails List
+            {{'sent_emails.sent_emails_list' | translate }}
           </h5>
         </mat-card-title>
         <mat-card-subtitle>
@@ -104,7 +107,8 @@
 
           <!-- To Column -->
           <ng-container matColumnDef="to">
-            <th mat-header-cell *matHeaderCellDef>To</th>
+            <th mat-header-cell *matHeaderCellDef>  {{'sent_emails.to' | translate }}
+            </th>
             <td mat-cell *matCellDef="let email">
               <div *ngFor="let recipient of email.to">{{ recipient }}</div>
             </td>
@@ -128,19 +132,22 @@
 
           <!-- Subject Column -->
           <ng-container matColumnDef="subject">
-            <th mat-header-cell *matHeaderCellDef>Subject</th>
+            <th mat-header-cell *matHeaderCellDef>      {{'sent_emails.subject' | translate }}
+            </th>
             <td mat-cell *matCellDef="let email">{{ email.subject }}</td>
           </ng-container>
 
           <!-- Body Column -->
           <ng-container matColumnDef="body">
-            <th mat-header-cell *matHeaderCellDef>Body</th>
+            <th mat-header-cell *matHeaderCellDef>      {{'sent_emails.body' | translate }}
+            </th>
             <td mat-cell *matCellDef="let email">{{ email.body }}</td>
           </ng-container>
 
           <!-- Date Column -->
           <ng-container matColumnDef="date">
-            <th mat-header-cell *matHeaderCellDef>Date</th>
+            <th mat-header-cell *matHeaderCellDef>      {{'sent_emails.date' | translate }}
+            </th>
             <td mat-cell *matCellDef="let email">{{ email.date }}</td>
           </ng-container>
 

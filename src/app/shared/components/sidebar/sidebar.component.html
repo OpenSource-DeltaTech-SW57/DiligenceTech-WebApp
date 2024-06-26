@@ -28,24 +28,24 @@
             <div class="sidebar-menu">
                 <mat-accordion>
                     <span class="sub-title text-body">
-                        MAIN
+                         {{'sidebar.main' | translate }}
                     </span>
                     <a routerLink="/dashboard" class="sidebar-menu-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                         <i class="material-symbols-outlined">
                             dashboard
                         </i>
                         <span class="title">
-                            Dashboard
+                             {{'sidebar.dashboard' | translate }}
                         </span>
                     </a>
                     <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = true">
                         <mat-expansion-panel-header>
                             <mat-panel-title class="panel-title">
                                 <i class="material-symbols-outlined">
-                                    description
+                                  description
                                 </i>
                                 <span class="title">
-                                    Project Management
+                                    {{'sidebar.project_management' | translate }}
                                 </span>
                               <mat-icon>arrow_drop_down</mat-icon> <!-- Icono de despliegue -->
                             </mat-panel-title>
@@ -53,22 +53,22 @@
                         <ul class="sidebar-sub-menu">
                             <li class="sidemenu-item">
                                 <a routerLink="/project-management/all-projects" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
-                                    All Projects
+                                  {{'sidebar.all_Projects' | translate }}
                                 </a>
                             </li>
                             <li class="sidemenu-item">
                                 <a routerLink="/project-management/active-projects" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
-                                    Active Projects
+                                  {{'sidebar.active_Projects' | translate }}
                                 </a>
                             </li>
                             <li class="sidemenu-item">
                                 <a routerLink="/project-management/completed-projects" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
-                                    Completed Projects
+                                  {{'sidebar.completed_Projects' | translate }}
                                 </a>
                             </li>
                             <li class="sidemenu-item">
                                 <a routerLink="/project-management/all-members" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
-                                    All Members
+                                  {{'sidebar.all_members' | translate }}
                                 </a>
                             </li>
                         </ul>
@@ -86,21 +86,26 @@
                     </mat-expansion-panel-header>
                     <ul class="sidebar-sub-menu">
                       <li class="sidemenu-item">
+                        <a routerLink="/q-and-a/all-questions" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                          {{'sidebar.all_questions' | translate }}
+                        </a>
+                      </li>
+                      <li class="sidemenu-item">
                         <a routerLink="/q-and-a/questions-project" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
-                          Questions-per-Project
+                          {{'sidebar.question_per_project' | translate }}
                         </a>
                       </li>
                     </ul>
                   </mat-expansion-panel>
                     <span class="sub-title text-body">
-                        COMMUNICATIONS
+                        {{'sidebar.communication' | translate }}
                     </span>
                     <a routerLink="/communications/email/inbox" class="sidebar-menu-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                         <i class="material-symbols-outlined">
                             email
                         </i>
                         <span class="title">
-                            Email
+                            {{'sidebar.email' | translate }}
                         </span>
                     </a>
                     <a routerLink="/communications/notifications" class="sidebar-menu-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
@@ -108,29 +113,29 @@
                             notifications
                         </i>
                         <span class="title">
-                            Notifications
+                            {{'sidebar.notifications' | translate }}
                         </span>
                     </a>
                     <span class="sub-title text-body">
-                        PRICING
+                        {{'sidebar.pricing' | translate }}
                     </span>
                     <a routerLink="/pricing/subscription-plan" class="sidebar-menu-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                         <i class="material-symbols-outlined">
                             sell
                         </i>
                         <span class="title">
-                            Subscription Plan
+                            {{'sidebar.subcription_plans' | translate }}
                         </span>
                     </a>
                     <span class="sub-title text-body">
-                        ACCOUNT
+                        {{'sidebar.account' | translate }}
                     </span>
                     <a routerLink="/account/my-profile" class="sidebar-menu-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                         <i class="material-symbols-outlined">
                             account_circle
                         </i>
                         <span class="title">
-                            My Profile
+                            {{'sidebar.my_profile' | translate }}
                         </span>
                     </a>
                     <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = true">
@@ -140,7 +145,7 @@
                                     settings
                                 </i>
                                 <span class="title">
-                                    Settings
+                                    {{'sidebar.settings' | translate }}
                                 </span>
                               <mat-icon>arrow_drop_down</mat-icon> <!-- Icono de despliegue -->
 
@@ -149,27 +154,27 @@
                         <ul class="sidebar-sub-menu">
                             <li class="sidemenu-item">
                                 <a routerLink="/account/settings" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
-                                    Account Settings
+                                  {{'sidebar.account_settings' | translate }}
                                 </a>
                             </li>
                             <li class="sidemenu-item">
                                 <a routerLink="/account/settings/change-password" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
-                                    Change Password
+                                  {{'sidebar.change_password' | translate }}
                                 </a>
                             </li>
                             <li class="sidemenu-item">
                                 <a routerLink="/account/settings/connections" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
-                                    Connections
+                                  {{'sidebar.connections' | translate }}
                                 </a>
                             </li>
                             <li class="sidemenu-item">
                                 <a routerLink="/account/settings/privacy-policy" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
-                                    Privacy Policy
+                                  {{'sidebar.privacy_policy' | translate }}
                                 </a>
                             </li>
                             <li class="sidemenu-item">
                                 <a routerLink="/account/settings/terms-conditions" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
-                                    Terms & Conditions
+                                  {{'sidebar.terms_and_conditions' | translate }}
                                 </a>
                             </li>
                         </ul>
@@ -178,7 +183,7 @@
                         <i class="material-symbols-outlined">
                             logout
                         </i>
-                        <span class="title">Logout</span>
+                        <span class="title"> {{'sidebar.logout' | translate }}</span>
                     </a>
                 </mat-accordion>
             </div>

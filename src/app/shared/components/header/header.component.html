@@ -23,12 +23,15 @@
                 <i class="material-symbols-outlined">
                     search
                 </i>
-                <input type="text" class="input-search d-block w-100 border-none outline-0" placeholder="Search here...">
+                <input type="text" class="input-search d-block w-100 border-none outline-0" placeholder="{{'header.search' | translate }}">
             </form>
         </div>
         <ul class="header-right-side d-flex align-items-center mt-0 mb-0 pl-0 list-unstyled">
             <li>
-                <button
+              <span class="spacer"></span>
+              <span><app-language-switcher/></span>
+              <span class="spacer"></span>
+              <button
                     mat-button
                     class="dark-swtich-btn"
                     (click)="toggleTheme()"
@@ -57,7 +60,7 @@
                                 <span class="text-body fw-normal">(05)</span>
                             </span>
                             <a routerLink="/communications/email/inbox" class="link-btn text-daxa">
-                                Mark all as read
+                              {{'header.mark_all_as_read' | translate }}
                             </a>
                         </div>
                         <ul class="menu-body pl-0 mt-0 list-unstyled">
@@ -95,7 +98,7 @@
                         </ul>
                         <div class="menu-footer text-center">
                             <a routerLink="/communications/email/inbox" class="link-btn text-daxa d-inline-block fw-medium">
-                                View All Messages
+                              {{'header.view_all_messages' | translate }}
                             </a>
                         </div>
                     </div>
@@ -116,7 +119,7 @@
                     >
                         <div class="title d-flex align-items-center justify-content-between">
                             <span class="fw-medium">
-                                Notifications
+                                {{'header.notifications' | translate }}
                                 <span class="text-body fw-normal">(03)</span>
                             </span>
 
@@ -124,7 +127,7 @@
                             <a routerLink="/notifications" class="link-btn text-daxa">
                             -->
                             <a class="link-btn text-daxa">
-                                Clear All
+                              {{'header.clear_all' | translate }}
                             </a>
                         </div>
                         <ul class="menu-body pl-0 mt-0 list-unstyled">
@@ -175,7 +178,7 @@
                         </ul>
                         <div class="menu-footer text-center">
                             <a routerLink="/communications/notifications" class="link-btn text-daxa d-inline-block fw-medium">
-                                See All Notifications
+                              {{'header.see_all_notifications' | translate }}
                             </a>
                         </div>
                     </div>
@@ -209,29 +212,30 @@
                                 <i class="material-symbols-outlined">
                                     person
                                 </i>
-                                My Profile
+                              {{'header.my_profile' | translate }}
                                 <a routerLink="/account/my-profile" class="link-btn d-block position-absolute"></a>
                             </li>
                             <li class="position-relative transition fw-medium">
                                 <i class="material-symbols-outlined">
                                     settings
                                 </i>
-                                Settings
+                              {{'header.settings' | translate }}
                                 <a routerLink="/account/settings" class="link-btn d-block position-absolute"></a>
                             </li>
                             <li class="position-relative transition fw-medium">
                                 <i class="material-symbols-outlined">
                                     sell
                                 </i>
-                                Subscription Plan
+                              {{'header.subcription_plans' | translate }}
                                 <a routerLink="/pricing/subscription-plan" class="link-btn d-block position-absolute"></a>
                             </li>
                             <li class="position-relative transition fw-medium">
                                 <i class="material-symbols-outlined">
-                                    logout
+                                  logout
                                 </i>
-                                Logout
-                                <a routerLink="/authentication/logout" class="link-btn d-block position-absolute"></a>
+                              {{'header.logout' | translate }}
+
+                              <a routerLink="/authentication/logout" class="link-btn d-block position-absolute"></a>
                             </li>
                         </ul>
                     </div>

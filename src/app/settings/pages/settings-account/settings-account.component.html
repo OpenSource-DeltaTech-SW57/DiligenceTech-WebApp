@@ -1,17 +1,17 @@
 <!-- Breadcrumb -->
 <div class="breadcrumb-card mb-25 d-md-flex align-items-center justify-content-between">
     <h5 class="mb-0">
-        Settings
+      {{'settings.settings' | translate }}
     </h5>
     <ol class="breadcrumb list-unstyled mt-0 mb-0 pl-0">
         <li class="breadcrumb-item position-relative">
             <a routerLink="/" class="d-inline-block position-relative">
                 <i class="ri-home-8-line"></i>
-                Dashboard
+              {{'settings.dashboard' | translate }}
             </a>
         </li>
         <li class="breadcrumb-item position-relative">
-            Settings
+          {{'settings.settings' | translate }}
         </li>
     </ol>
 </div>
@@ -26,27 +26,27 @@
         <ul class="pl-0 mt-0 list-unstyled">
             <li class="d-inline-block">
                 <a routerLink="/account/settings" mat-button routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                    Account Settings
+                  {{'settings.account_settings' | translate }}
                 </a>
             </li>
             <li class="d-inline-block">
                 <a routerLink="/account/settings/change-password" mat-button routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                    Change Password
+                  {{'settings.change_password' | translate }}
                 </a>
             </li>
             <li class="d-inline-block">
                 <a routerLink="/account/settings/connections" mat-button routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                    Connections
+                  {{'settings.connections' | translate }}
                 </a>
             </li>
             <li class="d-inline-block">
                 <a routerLink="/account/settings/privacy-policy" mat-button routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                    Privacy Policy
+                  {{'settings.privacy_policy' | translate }}
                 </a>
             </li>
             <li class="d-inline-block">
                 <a routerLink="/account/settings/terms-conditions" mat-button routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                    Terms & Conditions
+                  {{'settings.terms_and_conditions' | translate }}
                 </a>
             </li>
         </ul>
