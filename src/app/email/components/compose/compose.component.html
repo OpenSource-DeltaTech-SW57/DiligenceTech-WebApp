@@ -36,39 +36,7 @@
             {{'email_compose.subject' | translate }}
           </h5>
         </mat-card-title>
-        <mat-card-subtitle>
-          <div class="info-buttons-list d-flex align-items-center">
-            <button mat-button>
-              <i class="material-icons">refresh</i>
-            </button>
-            <button mat-button>
-              <i class="material-icons">print</i>
-            </button>
-            <button mat-button>
-              <i class="material-icons">report_gmailerrorred</i>
-            </button>
-            <button type="button" mat-button [matMenuTriggerFor]="emailHeaderMenu">
-              <i class="material-icons">more_horiz</i>
-            </button>
-            <mat-menu #emailHeaderMenu="matMenu" class="card-header-menu" xPosition="before">
-              <button mat-menu-item>
-                Recent
-              </button>
-              <button mat-menu-item>
-                Unread
-              </button>
-              <button mat-menu-item>
-                Mark All Read
-              </button>
-              <button mat-menu-item>
-                Spam
-              </button>
-              <button mat-menu-item>
-                Delete All
-              </button>
-            </mat-menu>
-          </div>
-        </mat-card-subtitle>
+
       </mat-card-header>
       <mat-card-content>
         <form>
@@ -77,66 +45,48 @@
               <div class="mb-25">
                 <label class="main-label d-block lh-1 text-black">To</label>
                 <mat-form-field>
-                  <mat-label>To</mat-label>
-                  <mat-select [formControl]="emails" multiple>
-                    <mat-option *ngFor="let email of emailList" [value]="email">
-                      {{ email }}
-                    </mat-option>
-                  </mat-select>
+                  <input matInput placeholder="To" name="sentReceiverEmail" required [(ngModel)]="sentReceiverEmail">
                 </mat-form-field>
               </div>
             </div>
+            <!--
             <div class="col-md-6">
               <div class="mb-25">
                 <label class="main-label d-block lh-1 text-black">Cc</label>
                 <mat-form-field>
-                  <mat-label>Cc</mat-label>
-                  <mat-select [formControl]="emails" multiple>
-                    <mat-option *ngFor="let email of emailList" [value]="email">
-                      {{ email }}
-                    </mat-option>
-                  </mat-select>
+                 <input matInput placeholder="Cc">
                 </mat-form-field>
               </div>
             </div>
-            <div class="col-md-6">
+            -->
+            <!---<div class="col-md-6">
               <div class="mb-25">
                 <label class="main-label d-block lh-1 text-black">Bcc</label>
                 <mat-form-field>
-                  <mat-label>Bcc</mat-label>
-                  <mat-select [formControl]="emails" multiple>
-                    <mat-option *ngFor="let email of emailList" [value]="email">
-                      {{ email }}
-                    </mat-option>
-                  </mat-select>
+                  <input matInput placeholder="Bcc">
                 </mat-form-field>
               </div>
-            </div>
+            </div>---->
             <div class="col-md-6">
               <div class="mb-25">
                 <label class="main-label d-block lh-1 text-black">{{'email_compose.subject' | translate }}</label>
                 <mat-form-field>
-                  <input matInput placeholder="{{'email_compose.write_your_subject_here' | translate }}">
+                  <input matInput placeholder="Write your subject here" name="sentTitle" required [(ngModel)]="sentTitle">
                 </mat-form-field>
               </div>
             </div>
             <div class="col-md-12">
               <div class="mb-25">
-                <label class="main-label d-block lh-1 text-black">{{'email_compose.your_email' | translate }}</label>
-                <ngx-editor [(ngModel)]="editorContent" [editor]="editor" [placeholder]="'Type here...'"></ngx-editor>
+                <label class="main-label d-block lh-1 text-black">Your Email</label>
+                <mat-form-field>
+                  <input matInput placeholder="Type here..." name="sentMessage" required [(ngModel)]="sentMessage">
+                </mat-form-field>
               </div>
             </div>
           </div>
           <div class="btn-box d-flex align-items-center">
-            <button mat-button class="btn" (click)="sendEmail()">{{'email_compose.send' | translate }}</button>
-            <div class="buttons-list d-flex align-items-center">
-              <button mat-button class="text-body">
-                <i class="material-icons">attach_file</i>
-              </button>
-              <button mat-button class="text-body">
-                <i class="material-icons">image</i>
-              </button>
-            </div>
+            <button mat-button class="btn" (click)="sendEmail()">Send</button>
+
           </div>
         </form>
       </mat-card-content>

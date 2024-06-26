@@ -1,18 +1,17 @@
-
 export class Notifications {
-    notificationID: number;
-    timestamp: string;
+    id: number;
+    agent_id: number;
+    created_at: string;
     type: string;
     content: string;
-    status: any;
 
     constructor(){
-        this.notificationID = 0;
-        this.timestamp = "";
-        this.type = "";
-        this.content = "";
-        this.status = {};
+        this.id = 0;
+        this.agent_id = 0;
+        this.created_at = '';
+        this.type = '';
+        this.content = '';
     }
 
-    
+
 }

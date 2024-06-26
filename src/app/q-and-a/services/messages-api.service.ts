@@ -17,4 +17,6 @@ export class MessagesApiService extends BaseService<Message> {
   getQuestions() {
     return this.http.get<Message>(`${this.resourcePath()}?answering_id=-1`, this.httpOptions).pipe(retry(2), catchError(this.handleError));
   }
+
+
 }

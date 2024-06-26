@@ -5,10 +5,7 @@
 >
     <mat-card-content>
         <form class="search-box position-relative">
-            <i class="material-symbols-outlined">
-                search
-            </i>
-            <input type="text" class="input-search d-block w-100 border-none outline-0" placeholder="Search...">
+
         </form>
         <a routerLink="/communications/email/compose" class="btn" mat-button>
             Compose Email
@@ -21,7 +18,7 @@
                     </i>
                     Inbox
                     <span class="d-block text-body">
-                        10
+
                     </span>
                 </a>
             </li>
@@ -33,43 +30,7 @@
                     Sent
                 </a>
             </li>
-            <li>
-              <a routerLink="/communications/email/drafts" class="d-flex align-items-center justify-content-between position-relative" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                    <i class="material-symbols-outlined">
-                        drafts
-                    </i>
-                    Drafts
-                </a>
-            </li>
-            <li>
-              <a routerLink="/communications/email/spam" class="d-flex align-items-center justify-content-between position-relative" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                    <i class="material-symbols-outlined">
-                        report_gmailerrorred
-                    </i>
-                    Spam
-                    <span class="d-block text-body">
-                        15
-                    </span>
-                </a>
-            </li>
-            <li>
-              <a routerLink="/communications/email/trash" class="d-flex align-items-center justify-content-between position-relative" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                    <i class="material-symbols-outlined">
-                        delete
-                    </i>
-                    Trash
-                    <span class="d-block text-body">
-                        7
-                    </span>
-                </a>
-            </li>
-            <li>
-              <a routerLink="/communications/email/important" class="d-flex align-items-center justify-content-between position-relative" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">                    <i class="material-symbols-outlined">
-                        bookmark_border
-                    </i>
-                    Important
-                </a>
-            </li>
+
         </ul>
     </mat-card-content>
 </mat-card>

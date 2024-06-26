@@ -613,13 +613,6 @@
       "created_at": "14/5/2024"
     }
   ],
-  "notifications": [
-    {
-      "id": 1,
-      "profileId": 1,
-      "message": "Sent correctly."
-    }
-  ],
   "emails": [
     {
       "id": 1,
@@ -631,6 +624,19 @@
         5
       ],
       "message": "Sent correctly."
+    }
+  ],"notifications":[
+    {
+      "id":1,
+      "date_published": "2 days ago",
+      "type": "Alert",
+      "content": "The project has been created."
+    },
+    {
+      "id":2,
+      "date_published": "18 hrs ago",
+      "type": "Alert",
+      "content": "New collaborators have entered the project."
     }
   ]
 }
