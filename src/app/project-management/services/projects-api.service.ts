@@ -12,6 +12,8 @@ import {
 } from "rxjs";
 import { AuthUsers } from "../../authentication/model/auth-users.entity";
 import { CreateProject } from "../model/create-project";
+import { ProjectMember } from "../model/project-member.entity";
+import { ProjectMemberResourceEntity } from "../model/project-member-resource.entity";
 
 @Injectable({
   providedIn: "root",
@@ -23,12 +25,25 @@ export class ProjectsApiService extends BaseService<CreateProject> {
     this.resourceEndpoint = "/agents";
   }
 
+  createProject(item: CreateProject) {
+    return this.http.post<Project>(`${this.basePath}/due-diligence-projects`, JSON.stringify(item), this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
+  addProjectMemberItem(item: ProjectMember, projectId:number, agentRecordId: string) {
+    return this.http.post<ProjectMember>(`${this.basePath}/due-diligence-projects/${projectId}/project-member-items/{agentRecordId}?agentCode=${agentRecordId}`, JSON.stringify(item), this.httpOptions).pipe(retry(2), catchError(this.handleError));
+  }
+
   getAllProjectsLinkedAgent(agentRecordId: string) {
     return this.http.get<Project>(
       `${this.resourcePath()}/${agentRecordId}/due-diligence-projects/all`,
       this.httpOptions,
     )
       .pipe(retry(2), catchError(this.handleError));
+  }
+
+  getAllProjects() {
+    return this.http.get<Project>(`${this.basePath}/due-diligence-projects`, this.httpOptions).pipe(retry(2), catchError(this.handleError));
   }
 
   getAllProjectsSellSide(agentRecordId: string) {

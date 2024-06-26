@@ -20,7 +20,7 @@ export class AuthenticationService {
   private signedInUserId: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   private signedInEmail: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
-  constructor(private router: Router, private http: HttpClient, private projectApiService: ProjectsApiService) {
+  constructor(private router: Router, private http: HttpClient) {
       this.checkToken();
   }
 
@@ -77,13 +77,24 @@ export class AuthenticationService {
    * @param signInRequest - Sign In Request containing the username and password
    */
   signIn(signInRequest: SignInRequest) {
+  // getAllProjectsLinkedAgent(agentRecordId: string) {
+  //   return this.http.get<Project>(
+  //     `${this.resourcePath()}/${agentRecordId}/due-diligence-projects/all`,
+  //     this.httpOptions,
+  //   )
+  //     .pipe(retry(2), catchError(this.handleError));
+  // }
+  //
+  //
+  // private getAllProjects() {
+  //   const agentUsername: string = JSON.parse(localStorage.getItem('username')!);
+  //   console.log(agentUsername);
+  //   this.projectApiService.getAllProjectsLinkedAgent(agentUsername).subscribe((response: any) => {
+  //     this.dataSource.data = response;
+  //   });
+  // };
 
-    // let usernameAgent: string this.projectApiService.getAllProjectsLinkedAgent(signInRequest.email).subscribe((response:any) => {
-    //   usernameAgent = response;
-    // })
-    //
-    // console.log('Username by email: ' + usernameAgent)
-
+    //const usernameAgent
 
     return this.http.post<SignInResponse>(`${this.basePath}/authentication/sign-in`, signInRequest, this.httpOptions)
       .subscribe({
@@ -121,6 +132,4 @@ export class AuthenticationService {
     localStorage.removeItem('token');
     this.router.navigate(['/sign-in']).then();
   }
-
-
 }

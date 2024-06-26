@@ -6,6 +6,7 @@ import { MatSort } from '@angular/material/sort';
 import { ProjectsApiService } from '../../services/projects-api.service';
 import { CustomizerSettingsService } from '../../../shared/services/customizer-settings.service';
 import { CreateProject } from '../../model/create-project';
+import { ProjectMember } from '../../model/project-member.entity';
 
 @Component({
   selector: 'app-project-list',
@@ -22,7 +23,13 @@ export class ProjectListComponent implements OnInit, AfterViewInit {
   // get
   projectDataGet: Project;
 
+  agentsSellSide!: string [];
+
+  agentsBuySide !: string [];
+
   dataSource!: MatTableDataSource<any>;
+
+  allDataSource !: MatTableDataSource<any>;
   displayedColumns: string[] = ['id', 'projectName', 'action'];
   @ViewChild(MatPaginator, {static: false}) paginator!: MatPaginator;
   @ViewChild(MatSort, {static: false}) sort!: MatSort;
@@ -44,6 +51,7 @@ export class ProjectListComponent implements OnInit, AfterViewInit {
     this.projectDataPost = {} as CreateProject;
     this.projectDataGet = {} as Project;
     this.dataSource = new MatTableDataSource<any>();
+    this.allDataSource = new MatTableDataSource<any>();
     this.themeService.isToggled$.subscribe(_isToggled => {
       this.isToggled = _isToggled;
     })
@@ -69,15 +77,37 @@ export class ProjectListComponent implements OnInit, AfterViewInit {
 
   onCancelEdit() {
     this.resetEditState();
-    this.getAllProjects();
+    this.getAllProjectsLinked();
+    this.getAllProjects()
     this.toggleClass();
   }
 
-  onProjectAdded(element: CreateProject) {
+  async onProjectAdded(element: CreateProject) {
     this.projectDataPost = element;
-    this.createProject();
+    try {
+      await this.createProject();
+    } catch(error) {
+      console.log("Error", error);
+    }
+
     this.resetEditState();
     this.toggleClass();
+  }
+
+  onProjectMemberSellAddedToProject(element: string) {
+      if(element.length != 0) {
+          let agentsSell = element.replace(/\s+/g, '').split(",");
+          console.log(agentsSell);
+          this.agentsSellSide = agentsSell;
+      }
+  }
+
+  onProjectMemberBuyAddedToProject(element: string) {
+      if(element.length != 0) {
+          let agentsBuy = element.replace(/\s+/g, '').split(",");
+          console.log(agentsBuy);
+          this.agentsBuySide = agentsBuy;
+      }
   }
 
   onProjectUpdated(element: Project) {
@@ -94,6 +124,7 @@ export class ProjectListComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+    this.getAllProjectsLinked();
     this.getAllProjects();
   }
 
@@ -113,21 +144,48 @@ export class ProjectListComponent implements OnInit, AfterViewInit {
       console.log("no user");
     }
   }
-  private getAllProjects() {
-    //this.projectApiService.getAllProjectsLinkedAgent(String(localStorage.getItem('username'))).subscribe((response: any) => {
-    this.projectApiService.getAllProjectsLinkedAgent("u20201b380").subscribe((response: any) => {
+
+  private async getAllProjects() {
+    this.projectApiService.getAllProjects().subscribe((response: any) => { this.allDataSource.data = response;
+    })
+  }
+
+  private getAllProjectsLinked() {
+    this.projectApiService.getAllProjectsLinkedAgent(String(localStorage.getItem('user'))).subscribe((response: any) => {
       this.dataSource.data = response;
     });
   };
 
-  private createProject() {
-    this.projectApiService.create(this.projectDataPost).subscribe((response: any) => {
+  private async createProject() {
+    this.projectApiService.createProject(this.projectDataPost).subscribe((response: any) => {
+      this.createAgents(response.id);
       this.dataSource.data.push({...response});
       this.dataSource.data = this.dataSource.data.map((project: CreateProject) => {
         return project;
       });
     });
   };
+
+
+  private createAgents(projectId: number) {
+    console.log("Agent Buy:" + this.agentsBuySide)
+    console.log("Agent Sell:" + this.agentsSellSide)
+    if(this.agentsBuySide.length != 0) {
+      this.agentsBuySide.forEach((usernameAgent) => {
+        this.addProjectMemberItemToProject(new ProjectMember("BUY AGENT"),projectId, usernameAgent);
+      })
+    }
+
+    if(this.agentsSellSide.length != 0) {
+      this.agentsSellSide.forEach((usernameAgent) => {
+        this.addProjectMemberItemToProject(new ProjectMember("SELL AGENT"), projectId, usernameAgent);
+      })
+    }
+  }
+
+  private addProjectMemberItemToProject(member: ProjectMember, projectId: number, agentRecordId: string) {
+    this.projectApiService.addProjectMemberItem(member,projectId, agentRecordId);
+  }
 
   // Lifecycle Hooks
 

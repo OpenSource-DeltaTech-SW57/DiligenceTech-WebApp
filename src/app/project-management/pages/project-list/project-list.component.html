@@ -204,6 +204,8 @@
     <mat-card class="daxa-card mb-25 border-radius bg-white border-none d-block">
       <app-project-create-and-edit (editCanceled)="onCancelEdit()"
                                    (projectAdded)="onProjectAdded($event)"
+                                   (projectMemberSellAddedToProject)="onProjectMemberSellAddedToProject($event)"
+                                   (projectMemberBuyAddedToProject)="onProjectMemberBuyAddedToProject($event)"
                                    (editMode)="isEditMode"
                                    [project]="projectDataPost"/>
     </mat-card>
